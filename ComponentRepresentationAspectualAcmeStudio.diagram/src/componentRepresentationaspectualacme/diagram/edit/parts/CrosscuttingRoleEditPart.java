@@ -207,13 +207,14 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	public List<IElementType> getMARelTypesOnSource() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(7);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4001);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4002);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4003);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4004);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4005);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006);
+		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
 		return types;
 	}
 
@@ -331,6 +332,21 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 		if (targetEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006);
 		}
+		if (targetEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
+		}
+		if (targetEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
+		}
+		if (targetEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
+		}
+		if (targetEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
+		}
+		if (targetEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
+		}
 		return types;
 	}
 
@@ -343,44 +359,50 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4002) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4003) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4004) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4005) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
+		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		}
 		return types;
 	}
@@ -389,13 +411,14 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	public List<IElementType> getMARelTypesOnTarget() {
-		ArrayList<IElementType> types = new ArrayList<IElementType>(6);
+		ArrayList<IElementType> types = new ArrayList<IElementType>(7);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4001);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4002);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4003);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4004);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4005);
 		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006);
+		types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007);
 		return types;
 	}
 
@@ -408,44 +431,50 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4002) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4003) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4004) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4005) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
+		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007) {
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		}
 		return types;
 	}
@@ -471,7 +500,7 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.gray);
 			this.setBackgroundColor(ColorConstants.gray);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(10),

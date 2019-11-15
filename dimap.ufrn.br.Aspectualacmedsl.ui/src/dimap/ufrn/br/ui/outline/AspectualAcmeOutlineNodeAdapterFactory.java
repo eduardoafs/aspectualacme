@@ -5,6 +5,7 @@ package dimap.ufrn.br.ui.outline;
 
 import org.eclipse.xtext.ui.editor.outline.actions.DefaultContentOutlineNodeAdapterFactory;
 
+@SuppressWarnings("deprecation")
 public class AspectualAcmeOutlineNodeAdapterFactory extends DefaultContentOutlineNodeAdapterFactory {
 
 	private static final Class<?>[] types = { 

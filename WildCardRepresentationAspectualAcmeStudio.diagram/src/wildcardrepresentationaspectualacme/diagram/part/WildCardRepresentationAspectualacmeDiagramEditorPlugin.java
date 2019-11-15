@@ -69,6 +69,7 @@ public class WildCardRepresentationAspectualacmeDiagramEditorPlugin extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
@@ -80,6 +81,7 @@ public class WildCardRepresentationAspectualacmeDiagramEditorPlugin extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public void stop(BundleContext context) throws Exception {
 		adapterFactory.dispose();
 		adapterFactory = null;

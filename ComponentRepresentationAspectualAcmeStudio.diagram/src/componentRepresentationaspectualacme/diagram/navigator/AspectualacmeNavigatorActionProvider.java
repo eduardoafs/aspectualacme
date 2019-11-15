@@ -119,7 +119,7 @@ public class AspectualacmeNavigatorActionProvider extends CommonActionProvider {
 				}
 				if (selectedElement instanceof Diagram) {
 					Diagram diagram = (Diagram) selectedElement;
-					if (componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID
+					if (componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID
 							.equals(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 									.getModelID(diagram))) {
 						myDiagram = diagram;

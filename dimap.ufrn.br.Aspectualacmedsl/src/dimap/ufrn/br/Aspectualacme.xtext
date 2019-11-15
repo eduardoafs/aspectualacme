@@ -20,19 +20,34 @@ BasicElement returns BasicElement:
 Role returns Role:
 	Role_Impl | BaseRole | CrosscuttingRole;
 
-attachableElement returns attachableElement:
-	Role_Impl | Port | BaseRole | CrosscuttingRole;
-
 Property returns Property:
 	{Property}
 	'Property'
-	name=EString(
-	'=' (value=PropertyValue)
-	)?';';
+	name=EString (type+=[PropertyType|EString] (',' type+=[PropertyType|EString])*)? ('=' (value=PropertyValue))?';';
+
+PropertyType returns PropertyType:
+	{PropertyType}
+	'Property' 'Type' name=EString 
+		('=' 
+			( type='Int' 
+			| type='Float' 
+			| type='String' 
+			| type='Boolean' 
+			| type='Enum' ('{' values+=EString (',' values+=EString)* '}')?
+			| type='Set' ('{' (values+=SetValue (',' values+=SetValue)*)? '}')?
+			| type='Sequence' ('<' (values+=SetValue (',' values+=SetValue)*)? '>')?
+			| type='Record' ('[' (values+=SetValue (',' values+=SetValue)* )? ']')?
+			| type=EString // Identificador de Property Type
+			) 
+		)? 
+	';';
+
+SetValue returns ecore::EString:
+	EString (':' EString)?; // ID : TYPE
 
 PropertyValue returns ecore::EString:
-	EString |
-	'{' EString (',' EString)* '}' |
+	STRING |
+	'{' PropertyValue (',' PropertyValue)* '}' |
 	INT
 	;
 
@@ -41,7 +56,7 @@ EString returns ecore::EString:
 
 Representation returns Representation:
 	{Representation}
-	'Representation' (name=EString)? ('{' // Não necessáriamente tem um nome, mas vou deixar assim
+	'Representation' (name=EString)? ('=' '{' // Não necessáriamente tem um nome, mas vou deixar assim
 		system=System
 		('Binding' bindings+=Binding
 		| 'Bindings' '{'
@@ -52,57 +67,70 @@ Representation returns Representation:
 System returns System:
 	{System}
 	'System'
-	name=EString (':' parentFamily+=[Family|EString](',' parentFamily+=[Family|EString])* 'extended' 'with')?
-	(';'
-	| 
-	('{'
-	( property+=Property
-	| components+=Component
-	| connectors+=Connector
-	| wildCard+=WildCard)*
-	(('Attachments' '{'
-		attachments+=Attachment*
-	  '}'
-	  | 
-	  'Attachment' attachments+=Attachment)
-	| representations+=Representation
-	| armani+=ArmaniExpression)*
-	'}'(';')?)); 
+	name=EString 
+	(':' parentFamily+=[Family|EString] (',' parentFamily+=[Family|EString])*)?
+	( ';'
+	| '=' 'new' (effective_type+=[Family|EString] (',' effective_type+=[Family|EString])*) ';'
+	| '=' ('new' (effective_type+=[Family|EString] (',' effective_type+=[Family|EString])*) 'extended' 'with')?
+		('{'
+			( property+=Property
+			| components+=Component
+			| connectors+=Connector
+			| wildCard+=WildCard)*
+			(('Attachments' '{'
+				attachments+=Attachment*
+			  '}'
+			  | 
+			  'Attachment' attachments+=Attachment)
+			| representations+=Representation
+			| armani+=Armani)*
+		'}')
+	)(';')?;
 
 Family returns Family:
 	{Family}
-	'Family'
-	name=EString ('extends' parentFamily+=[Family|EString] ("," parentFamily+=[Family|EString])* 'with')?
-	(';'|( '{'
-	(armani+=ArmaniExpression
-	| property+=Property
-	| representations+=Representation
-	| ('Attachment' attachments+=Attachment
-		| 'Attachments' '{'
-		attachments+=Attachment*
+	('Family' | 'Style')
+	name=EString
+	(';'
+	|(('=' | ('extends' parentFamily+=[Family|EString] (',' parentFamily+=[Family|EString])* 'with')) '{'
+		(armani+=Armani
+		| properties+=Property
+		| representations+=Representation
+		| ('Attachment' attachments+=Attachment
+			| 'Attachments' '{'
+			attachments+=Attachment*
+			'}')
+		| components+=Component
+		| connectors+=Connector
+		| wildcard+=WildCard
+		| ctypes+=ComponentType
+		| ptypes+=PortType
+		| rtypes+=RoleType
+		| cntypes+=ConnectorType
+		| prtypes+=PropertyType)*
 		'}')
-	| components+=Component
-	| connectors+=Connector
-	| wildcard+=WildCard
-	| ctypes+=ComponentType
-	| ptypes+=PortType
-	| rtypes+=RoleType
-	| cntypes+=ConnectorType)*
-	'}') (';')?);
+	(';')?);
 
 Binding returns Binding:
-	firstPort=[Port|QualifiedNameWildCard] 'to' secondPort=[Port|QualifiedNameWildCard] (';'|('{'
+	firstPort=[BindableElement|QualifiedName] 'to' secondPort=[BindableElement|QualifiedName] (';'|('{'
 	(property+=Property)*
 	'}'));
 
 Port returns Port:
 	{Port} // TODO Fazer isso pra os outros elementos
 	'Port'
-	name=EString (':' portType+=[PortType|EString] (',' portType+=[PortType|EString])*)?
-	(';' | ('=' 'new' ('Port' | portType+=[PortType|EString] (',' portType+=[PortType|EString])*) (';' | 'extended' 'with' '{'
-	(representations+=Representation
-	| property+=Property)*
-	'}')));
+	name=EString 
+	(':' portType+=[PortType|EString] (',' portType+=[PortType|EString])*)?
+	( ';'
+	| '=' 
+	('new' ('Port'|effective_type+=[PortType|EString] (',' effective_type+=[PortType|EString])*) 
+		(';'| 'extended' 'with' 
+		'{'
+			(representations+=Representation
+			| property+=Property)*
+		'}'))
+	| '{' '}'
+	);
 
 PortType returns PortType:
 	{PortType}
@@ -116,125 +144,147 @@ PortType returns PortType:
 Component returns Component:
 	{Component}
 	'Component'
-	name=EString (':' 'new' type+=[ComponentType|EString] (',' type+=[ComponentType|EString])* 'extended' 'with')?
-	(';'|('{'
-	(representations+=Representation
-	| property+=Property
-	| port+=Port)*
-	'}'(';')?));
+	name=EString 
+	(':' type+=[ComponentType|EString] (',' type+=[ComponentType|EString])*)?
+	( ';'
+	| '=' 'new' effective_type+=[ComponentType|EString] (',' effective_type+=[ComponentType|EString])* ';'
+	| '=' ('new' (effective_type+=[ComponentType|EString] (',' effective_type+=[ComponentType|EString])*) 'extended' 'with')? 
+		'{'
+			(representations+=Representation
+			| property+=Property
+			| port+=Port)*
+		'}'
+	)(';')?;
 
 Connector returns Connector:
 	{Connector}
 	'Connector'
-	name=EString (':' 'new' type+=[ConnectorType|EString] (',' type+=[ConnectorType|EString])* 'extended' 'with')?
-	(';'|('{'
-	(representations+=Representation
-	| property+=Property
-	| role+=Role
-	| glue+=Glue)*
-	'}'(';')?));
-
-QualifiedNameWildCard:
-	QualifiedName |
-	'*' QualifiedName ('*')? | // Falar com lucas sobre isso
-	QualifiedName '*' |
-	QualifiedName '*' QualifiedName ('*')?; 
+	name=EString 
+	(':' type+=[ConnectorType|EString] (',' type+=[ConnectorType|EString])*)?
+	( ';'
+	| '=' 'new' effective_type+=[ConnectorType|EString] (',' effective_type+=[ConnectorType|EString])* ';' 
+	| '=' ('new' (effective_type+=[ConnectorType|EString] (',' effective_type+=[ConnectorType|EString])*) 'extended' 'with')? 
+		'{'
+			(representations+=Representation
+			| property+=Property
+			| role+=Role
+			| glue+=Glue)*
+		'}'
+	)(';')?;
 
 WildCard returns WildCard:
 	{WildCard}
-	'@'name=QualifiedNameWildCard';';
+	'Wildcard' name=ID '=' expression=WildCardExpression ';';
+
+WildCardExpression returns ecore::EString:
+	(EString | '*')+ '.' (EString | '*')+;
 
 ComponentType returns ComponentType:
 	{ComponentType}
 	'Component' 'Type'
-	name=EString ((('extends' parentType+=[ComponentType|EString] (',' parentType+=[ComponentType|EString])*)
-	(';'|('{'
-	(representations+=Representation
-	| property+=Property
-	| port+=Port)*
-	'}'(';')?)))
-	| 
-	(';'| '=' '{'
-	(property+=Property
-	| representations+=Representation
-	| port+=Port)*
-	'}'(';')?));
+	name=EString
+	 ('extends' parentType+=[ComponentType|EString] (',' parentType+=[ComponentType|EString])* ';'
+	 |
+	 (('='
+		 | 'extends' parentType+=[ComponentType|EString] (',' parentType+=[ComponentType|EString])* 'with') 
+		 '{'
+			(representations+=Representation
+			| property+=Property
+			| port+=Port)*
+		'}'(';')?)
+	);
 
 Role_Impl returns Role:
 	{Role}
 	'Role'
-	name=EString (':' 'new' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
-	(';' | ('=' 'new' ('Role' | roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*) (';' | 'extended' 'with' '{'
-	(representations+=Representation
-	| property+=Property)*
-	'}')));
+	name=EString 
+	(':' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
+	( ';'
+	| '=' 
+	('new' ('Role'|effective_type+=[RoleType|EString] (',' effective_type+=[RoleType|EString])*) 
+		(';'| 'extended' 'with' 
+		'{'
+			(representations+=Representation
+			| property+=Property)*
+		'}'))
+	| '{' '}'
+	);
 
 Glue returns Glue:
 	{Glue}
-	'Glue' baseAttach=[BaseRole|EString] (glueType=GlueType) crosscuttingAttach=[CrosscuttingRole|EString]';';
+	'Glue' crosscuttingAttach=[CrosscuttingRole|EString] (glueType=GlueType) baseAttach=[BaseRole|EString] ';';
 
 ConnectorType returns ConnectorType:
 	{ConnectorType}
 	'Connector' 'Type'
-	name=EString ((('extends' parentType+=[ConnectorType|EString] (',' parentType+=[ConnectorType|EString])*)
-	(';'|('{'
-	(representations+=Representation
-	| property+=Property
-	| glue+=Glue
-	| role+=Role)*
-	'}'(';')?)))
-	| 
-	(';'| '=' '{'
-	(property+=Property
-	| representations+=Representation
-	| glue+=Glue
-	| role+=Role)*
-	'}'(';')?));
+	 ('extends' parentType+=[ConnectorType|EString] (',' parentType+=[ConnectorType|EString])* ';'
+	 |
+	 (('='
+		 | 'extends' parentType+=[ConnectorType|EString] (',' parentType+=[ConnectorType|EString])* 'with') 
+		 '{'
+			(representations+=Representation
+			| property+=Property
+			| role+=Role
+			| glue+=Glue)*
+		'}'(';')?)
+	);
 
 RoleType returns RoleType:
 	{RoleType}
 	'Role' 'Type'
-	name=EString ('extends' parentType+=[RoleType|EString] (',' parentType+=[RoleType|EString])*)? ('=')?
-	(';'|('{'
-	(property+=Property
-	| representations+=Representation)*
-	'}'(';')?));
+	name=EString
+	 ('extends' parentType+=[RoleType|EString] (',' parentType+=[RoleType|EString])* ';'
+	 |
+	 (('='
+		 | 'extends' parentType+=[RoleType|EString] (',' parentType+=[RoleType|EString])* 'with') 
+		 '{'
+			(representations+=Representation
+			| property+=Property)*
+		'}'(';')?)
+	);
 
 BaseRole returns BaseRole:
 	{BaseRole}
 	'Base' 'Role'
-	name=EString (':' 'new' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
-	(';' | ('=' 'new' ('BaseRole' | roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*) (';' | 'extended' 'with' '{'
-	(representations+=Representation
-	| property+=Property)*
-	'}')));
+	name=EString 
+	(':' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
+	( ';'
+	| '=' 
+	('new' ('Base' 'Role'|effective_type+=[RoleType|EString] (',' effective_type+=[RoleType|EString])*) 
+		(';'| 'extended' 'with' 
+		'{'
+			(representations+=Representation
+			| property+=Property)*
+		'}'))
+	| '{' '}'
+	);
 
 CrosscuttingRole returns CrosscuttingRole:
 	{CrosscuttingRole}
-	'Crosscutting' 'Role'
-	name=EString (':' 'new' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
-	(';' | ('=' 'new' ('CrosscuttingRole' | roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*) (';' | 'extended' 'with' '{'
-	(representations+=Representation
-	| property+=Property)*
-	'}')));
+	'Crosscutting' 'Role' 
+	name=EString 
+	(':' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
+	( ';'
+	| '=' 
+	('new' ('Crosscutting' 'Role'|effective_type+=[RoleType|EString] (',' effective_type+=[RoleType|EString])*) 
+		(';'| 'extended' 'with' 
+		'{'
+			(representations+=Representation
+			| property+=Property)*
+		'}'))
+	| '{' '}'
+	);
 
 enum GlueType returns GlueType:
 	before='before' | around='around' | after='after';
 
 Attachment returns Attachment:
-	firstElement=[attachableElement|QualifiedNameWildCard] 'to' secondElement=[attachableElement|QualifiedNameWildCard]';';
-
-ArmaniExpression returns ArmaniExpression:
-	{ArmaniExpression}
-	expression=Armani ';';
+	firstElement=[attachableElement|QualifiedName] 'to' secondElement=[attachableElement|QualifiedName]';';
 
 QualifiedName:
 	ID ('.' ID)*; // Esse é o jeito correto, solução temporária
 
-Inteiro:
-	INT;
-
-Armani returns Armani:
+/*Armani returns Armani:
 	{Armani}
 	(tokens+='design')? (tokens+='heuristic' | tokens+='invariant')
 	(tokens+='forall' | tokens+='exists' |
@@ -271,3 +321,91 @@ Armani returns Armani:
 	tokens+=QualifiedName |
 	tokens+=':'
 	)*;
+*/
+
+// A partir daqui 10/04
+TypeDefinition returns TypeDefinition:
+	ComponentType | ConnectorType | RoleType | PortType | PropertyType;
+
+Armani returns Armani:
+	{Armani}
+	(modifiers+='design')? (modifiers+='invariant' | modifiers+='heuristic') designRule=ArmaniDesignRuleExpression ';';
+
+ArmaniDesignRuleExpression returns ArmaniDesignRuleExpression:
+	ArmaniQuantifiedExpression 
+	| ArmaniBooleanExpression;
+	
+ArmaniQuantifiedExpression returns ArmaniQuantifiedExpression:
+	{ArmaniQuantifiedExpression}
+	quantifier=ArmaniQuantifier variable=ArmaniVariable 'in' setExpression=ArmaniSetExpression '|' designRule=ArmaniDesignRuleExpression;
+	
+ArmaniBooleanExpression returns ArmaniBooleanExpression:
+	{ArmaniBooleanExpression}
+	expressions+=ArmaniOrExpression ('and' expressions+=ArmaniOrExpression)*;
+
+ArmaniOrExpression returns ArmaniOrExpression:
+	{ArmaniOrExpression}
+	expressions+=ArmaniImpliesExpression ('or' expressions+=ArmaniImpliesExpression)*;
+
+ArmaniImpliesExpression returns ArmaniImpliesExpression:
+	{ArmaniImpliesExpression}
+	expressions+=ArmaniIffExpression ('->' expressions+=ArmaniIffExpression)*;
+
+ArmaniIffExpression returns ArmaniIffExpression:
+	{ArmaniIffExpression}
+	expressions+=ArmaniEqualityExpression ('<->' expressions+=ArmaniEqualityExpression)*;
+	
+ArmaniEqualityExpression returns ArmaniEqualityExpression:
+	{ArmaniEqualityExpression}
+	expressions+=ArmaniRelationalExpression ((operators+='==' | operators+='!=') expressions+=ArmaniRelationalExpression)*;
+
+ArmaniRelationalExpression returns ArmaniRelationalExpression:
+	{ArmaniRelationalExpression}
+	expressions+=ArmaniAdditiveExpression 
+		((operators+='<' | operators+='>' | operators+='<=' | operators+='>=') expressions+=ArmaniAdditiveExpression)*;
+	
+ArmaniAdditiveExpression returns ArmaniAdditiveExpression:
+	{ArmaniAdditiveExpression}
+	expressions+=ArmaniMultiplicativeExpression ((operators+='+' | operators+='-') expressions+=ArmaniMultiplicativeExpression)*;
+	
+ArmaniMultiplicativeExpression returns ArmaniMultiplicativeExpression:
+	{ArmaniMultiplicativeExpression}
+	expressions+=ArmaniUnaryExpression  ((operators+='*' | operators+='/' | operators+='%') expressions+=ArmaniUnaryExpression)*;
+
+ArmaniUnaryExpression returns ArmaniUnaryExpression:
+	operator='not' unaryExpression=ArmaniUnaryExpression
+	| operator='-' unaryExpression=ArmaniUnaryExpression
+	| ArmaniPrimitiveExpression;
+
+ArmaniPrimitiveExpression returns ArmaniPrimitiveExpression:
+	'(' designRule=ArmaniDesignRuleExpression ')'
+	| ArmaniConstant
+	| ArmaniSetExpression
+	| ArmaniFunctionCall;
+
+ArmaniFunctionCall returns ArmaniFunctionCall:
+	{ArmaniFunctionCall}
+	functionId=EString '(' (parameters+=ArmaniPrimitiveExpression (',' parameters+=ArmaniPrimitiveExpression)*)? ')';
+
+ArmaniSetExpression returns ArmaniSetExpression:
+	{ArmaniSetExpression}
+	(reference=EString '.' referenceType=ArmaniSetTypes
+	| '{' '}'
+	| '{' setValues+=ArmaniConstant (',' setValues+=ArmaniConstant)* '}');
+
+ArmaniConstant returns ArmaniConstant:
+	{ArmaniConstant}
+	(STRING | INT);
+
+ArmaniVariable returns ArmaniVariable:
+	{ArmaniVariable}
+	id=EString (':' (userType=[TypeDefinition|EString] | basicType=ArmaniTypes))?;
+	
+enum ArmaniTypes returns ArmaniTypes:
+	Component='Component' | Connector='Connector' | Port='Port' | Property='Property' | Representation='Representation' | Role='Role';
+	
+enum ArmaniSetTypes returns ArmaniSetTypes:
+	Components='Components' | Connectors='Connectors' | Ports='Ports' | Properties='Properties' | Representations='Representations' | Roles='Roles' | Elements='Elements';
+
+enum ArmaniQuantifier returns ArmaniQuantifier:
+	forall='forall' | exists='exists';

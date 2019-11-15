@@ -33,18 +33,18 @@ public class AspectualacmeModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart) {
+		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.System_2009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_2010);
-			return types;
-		}
-		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.System_2001);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_2002);
 			return types;
 		}
 		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
+			return types;
+		}
+		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Representation_3003);
@@ -54,11 +54,11 @@ public class AspectualacmeModelingAssistantProvider extends
 			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007);
 			return types;
 		}
-		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart) {
+		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_3001);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Connector_3004);

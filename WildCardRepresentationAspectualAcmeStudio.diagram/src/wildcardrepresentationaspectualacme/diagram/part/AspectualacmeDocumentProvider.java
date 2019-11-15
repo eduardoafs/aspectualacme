@@ -63,6 +63,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ElementInfo createElementInfo(Object element)
 			throws CoreException {
 		if (false == element instanceof FileEditorInput
@@ -91,6 +92,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected IDocument createDocument(Object element) throws CoreException {
 		if (false == element instanceof FileEditorInput
 				&& false == element instanceof URIEditorInput) {
@@ -148,6 +150,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected IDocument createEmptyDocument() {
 		DiagramDocument document = new DiagramDocument();
 		document.setEditingDomain(createEditingDomain());
@@ -284,6 +287,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public long getModificationStamp(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -295,6 +299,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isDeleted(Object element) {
 		IDiagramDocument document = getDiagramDocument(element);
 		if (document != null) {
@@ -318,6 +323,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void disposeElementInfo(Object element, ElementInfo info) {
 		if (info instanceof ResourceSetInfo) {
 			ResourceSetInfo resourceSetInfo = (ResourceSetInfo) info;
@@ -329,6 +335,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void doValidateState(Object element, Object computationContext)
 			throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
@@ -353,6 +360,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isReadOnly(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -376,6 +384,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isModifiable(Object element) {
 		if (!isStateValidated(element)) {
 			if (element instanceof FileEditorInput
@@ -427,6 +436,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void doUpdateStateCache(Object element) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -438,6 +448,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isSynchronized(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -449,6 +460,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ISchedulingRule getResetRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -472,6 +484,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ISchedulingRule getSaveRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -494,6 +507,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ISchedulingRule getSynchronizeRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -517,6 +531,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ISchedulingRule getValidateStateRule(Object element) {
 		ResourceSetInfo info = getResourceSetInfo(element);
 		if (info != null) {
@@ -565,6 +580,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void doSynchronize(Object element, IProgressMonitor monitor)
 			throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
@@ -582,6 +598,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void doSaveDocument(IProgressMonitor monitor, Object element,
 			IDocument document, boolean overwrite) throws CoreException {
 		ResourceSetInfo info = getResourceSetInfo(element);
@@ -762,6 +779,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public IEditorInput createInputWithEditingDomain(IEditorInput editorInput,
 			TransactionalEditingDomain domain) {
 		return editorInput;
@@ -770,6 +788,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public IDiagramDocument getDiagramDocument(Object element) {
 		IDocument doc = getDocument(element);
 		if (doc instanceof IDiagramDocument) {
@@ -781,6 +800,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	protected IRunnableContext getOperationRunner(IProgressMonitor monitor) {
 		return null;
 	}
@@ -993,12 +1013,14 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 			/**
 			 * @generated
 			 */
+			@Override
 			public void dispose() {
 			}
 
 			/**
 			 * @generated
 			 */
+			@Override
 			public boolean handleResourceChanged(final Resource resource) {
 				synchronized (ResourceSetInfo.this) {
 					if (ResourceSetInfo.this.fCanBeSaved) {
@@ -1018,6 +1040,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 			/**
 			 * @generated
 			 */
+			@Override
 			public boolean handleResourceDeleted(Resource resource) {
 				synchronized (ResourceSetInfo.this) {
 					if (ResourceSetInfo.this.fCanBeSaved) {
@@ -1037,6 +1060,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 			/**
 			 * @generated
 			 */
+			@Override
 			public boolean handleResourceMoved(Resource resource,
 					final URI newURI) {
 				synchronized (ResourceSetInfo.this) {
@@ -1094,6 +1118,7 @@ public class AspectualacmeDocumentProvider extends AbstractDocumentProvider
 		/**
 		 * @generated
 		 */
+		@Override
 		public void notifyChanged(Notification notification) {
 			if (notification.getNotifier() instanceof ResourceSet) {
 				super.notifyChanged(notification);

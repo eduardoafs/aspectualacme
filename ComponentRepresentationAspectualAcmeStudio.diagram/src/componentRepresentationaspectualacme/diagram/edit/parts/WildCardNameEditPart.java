@@ -89,7 +89,7 @@ public class WildCardNameEditPart extends CompartmentEditPart implements
 				new LabelDirectEditPolicy());
 		installEditPolicy(
 				EditPolicy.PRIMARY_DRAG_ROLE,
-				new componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.NodeLabelDragPolicy());
+				new componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -173,12 +173,7 @@ public class WildCardNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes
-				.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**

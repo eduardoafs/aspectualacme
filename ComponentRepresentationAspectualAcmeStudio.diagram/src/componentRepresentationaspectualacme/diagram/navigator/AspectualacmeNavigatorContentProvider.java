@@ -189,7 +189,7 @@ public class AspectualacmeNavigatorContentProvider implements
 			result.addAll(createNavigatorItems(
 					selectViewsByType(
 							topViews,
-							componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID),
+							componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID),
 					file, false));
 			return result.toArray();
 		}
@@ -216,454 +216,6 @@ public class AspectualacmeNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 				.getVisualID(view)) {
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4006_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4006_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.ConnectorCompartmentGlueEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(
-					connectedViews,
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4005_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4005_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_WildCard_3009_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_WildCard_3009_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(
-					connectedViews,
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(
-					connectedViews,
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(
-					connectedViews,
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3002_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3002_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
 
 		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
@@ -756,6 +308,43 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
+		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -764,97 +353,6 @@ public class AspectualacmeNavigatorContentProvider implements
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
 					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_BaseRole_3005_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3011_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3011_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(
@@ -969,6 +467,24 @@ public class AspectualacmeNavigatorContentProvider implements
 			connectedViews = getLinksTargetByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
@@ -976,6 +492,24 @@ public class AspectualacmeNavigatorContentProvider implements
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(
@@ -993,93 +527,14 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Diagram sv = (Diagram) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup links = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Representation_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
-			}
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID: {
-			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID: {
+		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
 			Edge sv = (Edge) view;
 			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4001_target,
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4005_target,
 					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4001_source,
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4005_source,
 					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getLinksTargetByType(
@@ -1163,7 +618,7 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID: {
+		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
@@ -1173,6 +628,291 @@ public class AspectualacmeNavigatorContentProvider implements
 							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4006_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4006_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4003_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4003_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Role_3008_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Role_3008_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			return result.toArray();
 		}
 
@@ -1267,6 +1007,303 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
+		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3002_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3010_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Port_3010_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
 		case componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -1349,6 +1386,18 @@ public class AspectualacmeNavigatorContentProvider implements
 							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
 			}
@@ -1358,14 +1407,68 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID: {
+		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.ConnectorCompartmentGlueEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(
+					connectedViews,
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID: {
+			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup incominglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Role_3012_incominglinks,
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_WildCard_3009_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup outgoinglinks = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Role_3012_outgoinglinks,
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_WildCard_3009_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(
@@ -1449,93 +1552,62 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID: {
+		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID: {
 			LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem> result = new LinkedList<componentRepresentationaspectualacme.diagram.navigator.AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup target = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4003_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup source = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
-					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Attachment_4003_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Diagram sv = (Diagram) view;
+			componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup links = new componentRepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup(
+					componentRepresentationaspectualacme.diagram.part.Messages.NavigatorGroupName_Representation_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment3EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment4EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment5EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(
 					Collections.singleton(sv),
 					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-							.getType(componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
+							.getType(componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
 			}
 			return result.toArray();
 		}
@@ -1642,7 +1714,7 @@ public class AspectualacmeNavigatorContentProvider implements
 	 * @generated
 	 */
 	private boolean isOwnView(View view) {
-		return componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID
+		return componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID
 				.equals(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 						.getModelID(view));
 	}

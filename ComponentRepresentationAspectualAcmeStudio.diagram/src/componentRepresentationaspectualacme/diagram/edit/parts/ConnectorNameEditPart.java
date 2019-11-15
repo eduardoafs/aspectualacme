@@ -89,7 +89,7 @@ public class ConnectorNameEditPart extends CompartmentEditPart implements
 				new LabelDirectEditPolicy());
 		installEditPolicy(
 				EditPolicy.PRIMARY_DRAG_ROLE,
-				new componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.NodeLabelDragPolicy());
+				new componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.NodeLabelDragPolicy());
 	}
 
 	/**

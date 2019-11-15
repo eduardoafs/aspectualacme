@@ -3,17 +3,22 @@ package dimap.ufrn.br.Armani;
 import java.util.List;
 
 /**
+ * OBSOLETO
+ * 
  * Armani parser
  * 
- * @author Eduardo 
- * Part of AspectualACME Studio
- * http://www.dimap.ufrn.br/aspectualacmestudio
+ * @author Eduardo Part of AspectualACME Studio
+ *         http://www.dimap.ufrn.br/aspectualacmestudio
  */
 public class ArmaniParser {
 	private int currentToken;
 	private List<String> input;
 
 	public class ArmaniException extends Exception {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private String cause;
 		private int tokenId;
 
@@ -23,7 +28,8 @@ public class ArmaniParser {
 		}
 
 		public String cause() {
-			return this.cause + (tokenId!=0? " near " + input.get(tokenId-1): "" );
+			return this.cause
+					+ (tokenId != 0 ? " near " + input.get(tokenId - 1) : "");
 		}
 
 		public int getCurrent() {
@@ -101,12 +107,22 @@ public class ArmaniParser {
 			parseQuantifiedExpression();
 		} else if (getNextToken().compareTo("-") == 0
 				|| getNextToken().compareTo("not") == 0
-				|| getNextToken().compareTo("(") == 0 || parseConstant()
-				|| getNextToken().compareTo("{") == 0) {
+				|| getNextToken().compareTo("(") == 0 
+				|| parseConstant()
+				|| getNextToken().compareTo("{") == 0 
+				|| recognizeId()) {
 			parseBooleanExpression();
 		} else {
 			throw new ArmaniException("Expected expression");
 		}
+	}
+
+	private boolean recognizeId() throws ArmaniException {
+		String id = getNextToken();
+		if (id.matches("^?[a-z|A-Z|_][a-z|A-Z|_|0-9]*")) { // ID bem formado
+			return true;
+		} else
+			return false;
 	}
 
 	/**
@@ -305,17 +321,30 @@ public class ArmaniParser {
 	 *             when an invalid token was found
 	 */
 	private void parsePrimitiveExpression() throws ArmaniException {
-		if (getNextToken().compareTo("(") == 0) {
+		if (parseId()) { // Function call
+			// ID "(" ()* ")"
+			consumeToken("("); // TODO incompleto
+			try {
+				parseId();
+				while (true) {
+					consumeToken(",");
+					if (!parseId()) throw new ArmaniException("");
+				}
+			} catch (ArmaniException e) {
+				// TODO
+			}
+			consumeToken(")");
+		} else if (getNextToken().compareTo("(") == 0) {
 			// ações do not
 			consumeToken("(");
 			parseDesignRuleExpression();
 			consumeToken(")");
-		} else if (parseConstant()) {
-			// Ações da constante (calcular?)
-			currentToken++; // Consumir constante
 		} else if (getNextToken().compareTo("{") == 0 || parseId()) {
 			// SetExpression
 			parseSetExpression();
+		} else if (parseConstant()) {
+			// Ações da constante (calcular?)
+			currentToken++; // Consumir constante
 		} else
 			throw new ArmaniException("Expected primary-expression");
 	}
@@ -353,30 +382,43 @@ public class ArmaniParser {
 						throw new ArmaniException("Invalid set expression");
 				}
 			}
-		} else if (parseId()) {
+		} else if (recognizeId() && matchNext(".")) {
+			parseId();
 			consumeToken(".");
 			parseTypes();
 		} else
 			throw new ArmaniException("Invalid set expression");
 	}
 
+	private boolean matchNext(String string) {
+		currentToken++;
+		try { 
+			consumeToken(string);
+		} catch (ArmaniException r) {
+			currentToken-=2;
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * Parses types
-	 * @throws ArmaniException 
+	 * 
+	 * @throws ArmaniException
 	 */
 	private void parseTypes() throws ArmaniException {
-		if (getNextToken().compareTo("Components")==0
-				|| getNextToken().compareTo("Roles")==0
-				|| getNextToken().compareTo("Ports")==0
-				|| getNextToken().compareTo("Representations")==0
-				|| getNextToken().compareTo("Properties")==0
-				|| getNextToken().compareTo("Elements")==0
-				|| getNextToken().compareTo("Connectors")==0
-				) {
+		if (getNextToken().compareTo("Components") == 0
+				|| getNextToken().compareTo("Roles") == 0
+				|| getNextToken().compareTo("Ports") == 0
+				|| getNextToken().compareTo("Representations") == 0
+				|| getNextToken().compareTo("Properties") == 0
+				|| getNextToken().compareTo("Elements") == 0
+				|| getNextToken().compareTo("Connectors") == 0) {
 			// TODO action
-		}
-		else {
-			throw new ArmaniException("Expected Components, Roles, Ports, Connectors, Representations, Properties or Elements");
+			currentToken++;
+		} else {
+			throw new ArmaniException(
+					"Expected Components, Roles, Ports, Connectors, Representations, Properties or Elements");
 		}
 	}
 
@@ -384,21 +426,21 @@ public class ArmaniParser {
 	 * Evaluates and parses (if the evaluation was successful) an Type
 	 * 
 	 * @return true if evaluation and parsing were successful
-	 * @throws ArmaniException 
+	 * @throws ArmaniException
 	 */
 	private boolean parseType() throws ArmaniException {
-		if (getNextToken().compareTo("Component")==0
-				|| getNextToken().compareTo("Role")==0
-				|| getNextToken().compareTo("Port")==0
-				|| getNextToken().compareTo("Representation")==0
-				|| getNextToken().compareTo("Property")==0
-				|| getNextToken().compareTo("Connector")==0
-				) {
+		if (getNextToken().compareTo("Component") == 0
+				|| getNextToken().compareTo("Role") == 0
+				|| getNextToken().compareTo("Port") == 0
+				|| getNextToken().compareTo("Representation") == 0
+				|| getNextToken().compareTo("Property") == 0
+				|| getNextToken().compareTo("Connector") == 0) {
 			// TODO action
+			currentToken++;
 			return true;
-		}
-		else {
-			throw new ArmaniException("Expected Component, Role, Port, Connector, Representation or Property");			
+		} else {
+			throw new ArmaniException(
+					"Expected Component, Role, Port, Connector, Representation or Property");
 		}
 	}
 
@@ -406,7 +448,7 @@ public class ArmaniParser {
 	 * Evaluates and parses (if the evaluation was successful) an Identifier
 	 * 
 	 * @return true if an ID was successful evaluated and parsed
-	 * @throws ArmaniException 
+	 * @throws ArmaniException
 	 */
 	private boolean parseId() throws ArmaniException {
 		String id = getNextToken();
@@ -428,9 +470,8 @@ public class ArmaniParser {
 		String constant = getNextToken();
 		if (constant.matches("[0-9]+")) {
 			// TODO int constant
-		}
-		else if (constant.matches("")) { // TODO String regex
-			// TODO String constant 
+		} else if (constant.matches("")) { // TODO String regex
+			// TODO String constant
 		}
 		return true;
 	}

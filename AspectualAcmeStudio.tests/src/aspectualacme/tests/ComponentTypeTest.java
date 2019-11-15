@@ -17,7 +17,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentTypeTest extends ElementTest {
+public class ComponentTypeTest extends TypeDefinitionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

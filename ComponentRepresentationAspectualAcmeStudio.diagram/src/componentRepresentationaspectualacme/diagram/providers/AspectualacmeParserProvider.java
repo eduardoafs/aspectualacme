@@ -24,41 +24,43 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser systemName_5005Parser;
+	private IParser systemName_5004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getSystemName_5005Parser() {
-		if (systemName_5005Parser == null) {
+	private IParser getSystemName_5004Parser() {
+		if (systemName_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getElement_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getElement_Name() };
 			componentRepresentationaspectualacme.diagram.parsers.MessageFormatParser parser = new componentRepresentationaspectualacme.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			systemName_5005Parser = parser;
+			systemName_5004Parser = parser;
 		}
-		return systemName_5005Parser;
+		return systemName_5004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser componentName_5004Parser;
+	private IParser componentName_5005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getComponentName_5004Parser() {
-		if (componentName_5004Parser == null) {
+	private IParser getComponentName_5005Parser() {
+		if (componentName_5005Parser == null) {
 			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getElement_Name() };
+			EAttribute[] editableFeatures = new EAttribute[] { AspectualacmePackage.eINSTANCE
+					.getElement_Name() };
 			componentRepresentationaspectualacme.diagram.parsers.MessageFormatParser parser = new componentRepresentationaspectualacme.diagram.parsers.MessageFormatParser(
-					features);
-			componentName_5004Parser = parser;
+					features, editableFeatures);
+			componentName_5005Parser = parser;
 		}
-		return componentName_5004Parser;
+		return componentName_5005Parser;
 	}
 
 	/**
@@ -106,22 +108,22 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser glue_3008Parser;
+	private IParser glue_3007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getGlue_3008Parser() {
-		if (glue_3008Parser == null) {
+	private IParser getGlue_3007Parser() {
+		if (glue_3007Parser == null) {
 			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getGlue_GlueType() };
 			EAttribute[] editableFeatures = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getGlue_GlueType() };
 			componentRepresentationaspectualacme.diagram.parsers.MessageFormatParser parser = new componentRepresentationaspectualacme.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			glue_3008Parser = parser;
+			glue_3007Parser = parser;
 		}
-		return glue_3008Parser;
+		return glue_3007Parser;
 	}
 
 	/**
@@ -151,15 +153,15 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart.VISUAL_ID:
-			return getSystemName_5005Parser();
-		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart.VISUAL_ID:
-			return getComponentName_5004Parser();
+			return getSystemName_5004Parser();
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart.VISUAL_ID:
+			return getComponentName_5005Parser();
+		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart.VISUAL_ID:
 			return getComponentName_5001Parser();
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorNameEditPart.VISUAL_ID:
 			return getConnectorName_5002Parser();
 		case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
-			return getGlue_3008Parser();
+			return getGlue_3007Parser();
 		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardNameEditPart.VISUAL_ID:
 			return getWildCardName_5003Parser();
 		}

@@ -11,11 +11,13 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
+import org.eclipse.gmf.runtime.notation.View;
 
 import aspectualacme.AspectualacmeFactory;
 import aspectualacme.Attachment;
 import aspectualacme.System;
 import aspectualacme.diagram.edit.policies.AspectualacmeBaseItemSemanticEditPolicy;
+import aspectualacme.diagram.part.ValidateAction;
 
 /**
  * @generated

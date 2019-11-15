@@ -40,6 +40,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	/**
 	 * @generated
 	 */
+	@Override
 	public void init() {
 		super.init();
 		setId(ActionIds.ACTION_DELETE_FROM_MODEL);
@@ -58,6 +59,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected String getCommandLabel() {
 		return DiagramUIMessages.DiagramEditor_Delete_from_Model;
 	}
@@ -65,6 +67,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected Command getCommand(Request request) {
 		List operationSet = getOperationSet();
 		if (operationSet.isEmpty()) {

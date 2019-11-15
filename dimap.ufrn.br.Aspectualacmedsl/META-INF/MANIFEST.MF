@@ -21,8 +21,9 @@ Import-Package: aspectualacme,
  org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: dimap.ufrn.br,
- dimap.ufrn.br.services,
+ dimap.ufrn.br.Util,
  dimap.ufrn.br.parseTreeConstruction,
  dimap.ufrn.br.parser.antlr,
  dimap.ufrn.br.parser.antlr.internal,
+ dimap.ufrn.br.services,
  dimap.ufrn.br.validation

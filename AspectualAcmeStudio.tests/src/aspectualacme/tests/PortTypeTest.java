@@ -17,7 +17,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class PortTypeTest extends ElementTest {
+public class PortTypeTest extends TypeDefinitionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

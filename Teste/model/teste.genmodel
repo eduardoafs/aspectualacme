@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/Teste/src"
+    modelPluginID="Teste" modelName="Teste" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>teste.ecore</foreignModel>
+  <genPackages prefix="Aspectualacme" disposableProviderFactory="true" ecorePackage="teste.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="teste.ecore#//GlueType">
+      <genEnumLiterals ecoreEnumLiteral="teste.ecore#//GlueType/before"/>
+      <genEnumLiterals ecoreEnumLiteral="teste.ecore#//GlueType/around"/>
+      <genEnumLiterals ecoreEnumLiteral="teste.ecore#//GlueType/after"/>
+    </genEnums>
+    <genClasses ecoreClass="teste.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//System/components"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//System/connectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//System/attachments"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Role">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference teste.ecore#//Role/connector"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Port">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference teste.ecore#//Port/Component"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//Component/port"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Connector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//Connector/role"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Attachment"/>
+    <genClasses ecoreClass="teste.ecore#//Element">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//Element/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//Element/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Element/representations"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//AspectualConnector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//AspectualConnector/baseRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//AspectualConnector/crosscuttingRole"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//AspectualConnector/glues"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//CrosscuttingRole">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference teste.ecore#//CrosscuttingRole/aspectualConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//BaseRole">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference teste.ecore#//BaseRole/aspectualConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Glue">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Glue/prefixRole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Glue/suffixRole"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//Glue/glueType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference teste.ecore#//Glue/aspectualConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//AttachmentDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//AttachmentDeclaration/attachedBaseElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//AttachmentDeclaration/attachedToElement"/>
+      <genOperations ecoreOperation="teste.ecore#//AttachmentDeclaration/attach">
+        <genParameters ecoreParameter="teste.ecore#//AttachmentDeclaration/attach/baseElement"/>
+        <genParameters ecoreParameter="teste.ecore#//AttachmentDeclaration/attach/toElement"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Representation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute teste.ecore#//Representation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference teste.ecore#//Representation/system"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Representation/bindings"/>
+    </genClasses>
+    <genClasses ecoreClass="teste.ecore#//Binding">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Binding/externalElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Binding/internalElement"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference teste.ecore#//Binding/property"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

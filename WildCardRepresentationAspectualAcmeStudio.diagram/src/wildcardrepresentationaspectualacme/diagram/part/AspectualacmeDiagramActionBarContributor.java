@@ -15,6 +15,7 @@ public class AspectualacmeDiagramActionBarContributor extends
 	/**
 	 * @generated
 	 */
+	@Override
 	protected Class getEditorClass() {
 		return AspectualacmeDiagramEditor.class;
 	}
@@ -22,6 +23,7 @@ public class AspectualacmeDiagramActionBarContributor extends
 	/**
 	 * @generated
 	 */
+	@Override
 	protected String getEditorId() {
 		return AspectualacmeDiagramEditor.ID;
 	}
@@ -29,6 +31,7 @@ public class AspectualacmeDiagramActionBarContributor extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public void init(IActionBars bars, IWorkbenchPage page) {
 		super.init(bars, page);
 		// print preview

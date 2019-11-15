@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface BasicElement extends Element {
 	/**
 	 * Returns the value of the '<em><b>Armani</b></em>' containment reference list.
-	 * The list contents are of type {@link aspectualacme.ArmaniExpression}.
+	 * The list contents are of type {@link aspectualacme.Armani}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Armani</em>' containment reference list isn't clear,
@@ -40,7 +40,7 @@ public interface BasicElement extends Element {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ArmaniExpression> getArmani();
+	EList<Armani> getArmani();
 
 	/**
 	 * Returns the value of the '<em><b>Parent Family</b></em>' reference list.

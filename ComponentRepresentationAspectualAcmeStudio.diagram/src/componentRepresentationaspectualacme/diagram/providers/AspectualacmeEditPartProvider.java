@@ -118,7 +118,7 @@ public class AspectualacmeEditPartProvider extends AbstractEditPartProvider {
 	public synchronized boolean provides(IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			View view = ((IEditPartOperation) operation).getView();
-			if (!componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID
+			if (!componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID
 					.equals(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getModelID(view))) {
 				return false;

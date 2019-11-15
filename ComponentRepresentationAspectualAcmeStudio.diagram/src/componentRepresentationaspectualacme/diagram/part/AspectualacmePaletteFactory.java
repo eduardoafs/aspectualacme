@@ -47,6 +47,7 @@ public class AspectualacmePaletteFactory {
 		paletteContainer.add(createProperty10CreationTool());
 		paletteContainer.add(createRepresentation11CreationTool());
 		paletteContainer.add(createBinding12CreationTool());
+		paletteContainer.add(createSystem13CreationTool());
 		return paletteContainer;
 	}
 
@@ -106,10 +107,10 @@ public class AspectualacmePaletteFactory {
 				componentRepresentationaspectualacme.diagram.part.Messages.Role4CreationTool_title,
 				componentRepresentationaspectualacme.diagram.part.Messages.Role4CreationTool_desc,
 				Collections
-						.singletonList(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012));
+						.singletonList(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008));
 		entry.setId("createRole4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes
-				.getImageDescriptor(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012));
+				.getImageDescriptor(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -154,10 +155,10 @@ public class AspectualacmePaletteFactory {
 				componentRepresentationaspectualacme.diagram.part.Messages.Glue7CreationTool_title,
 				componentRepresentationaspectualacme.diagram.part.Messages.Glue7CreationTool_desc,
 				Collections
-						.singletonList(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008));
+						.singletonList(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007));
 		entry.setId("createGlue7CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes
-				.getImageDescriptor(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008));
+				.getImageDescriptor(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -241,6 +242,22 @@ public class AspectualacmePaletteFactory {
 		entry.setId("createBinding12CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes
 				.getImageDescriptor(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSystem13CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				componentRepresentationaspectualacme.diagram.part.Messages.System13CreationTool_title,
+				componentRepresentationaspectualacme.diagram.part.Messages.System13CreationTool_desc,
+				Collections
+						.singletonList(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.System_2001));
+		entry.setId("createSystem13CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes
+				.getImageDescriptor(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.System_2001));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

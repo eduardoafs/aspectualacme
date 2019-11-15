@@ -1,26 +1,45 @@
 package wildcardrepresentationaspectualacme.diagram.part;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.notation.View;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.Component2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponent2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.PortEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCard2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationCompartmentWRepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemCompartmentWSystemEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardEditPart;
 import aspectualacme.Component;
 import aspectualacme.Port;
+import aspectualacme.Representation;
+import aspectualacme.System;
 import aspectualacme.WildCard;
+import aspectualacme.impl.ComponentImpl;
+import aspectualacme.impl.RepresentationImpl;
+import aspectualacme.impl.RootImpl;
+import aspectualacme.impl.SystemImpl;
+import aspectualacme.impl.WildCardImpl;
 
 /**
  * @generated
  */
 public class AspectualacmeDiagramUpdater {
+	/**
+	 * @generated NOT
+	 */
+	private static List<EObject> affectedElements;
 
 	/**
 	 * @generated
@@ -32,12 +51,97 @@ public class AspectualacmeDiagramUpdater {
 			return getWildCard_1000SemanticChildren(view);
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_2002SemanticChildren(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_3005SemanticChildren(view);
+		case ComponentCompartmentWComponentEditPart.VISUAL_ID:
+			return getComponentCompartmentWComponent_7001SemanticChildren(view);
+		case RepresentationCompartmentWRepresentationEditPart.VISUAL_ID:
+			return getRepresentationCompartmentWRepresentation_7003SemanticChildren(view);
+		case SystemCompartmentWSystemEditPart.VISUAL_ID:
+			return getSystemCompartmentWSystem_7004SemanticChildren(view);
+		case ComponentCompartmentWComponent2EditPart.VISUAL_ID:
+			return getComponentCompartmentWComponent_7005SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
+	 */
+	public static List<EObject> addAllParents(EObject object, List<EObject> list) {
+		if (object instanceof Component) {
+			ComponentImpl comp = (ComponentImpl) object;
+			if (comp.getParentSystem() != null) {
+				addAllParents(comp.getParentSystem(), list);
+			}
+			if (!list.contains(comp)) {
+				list.add(comp);
+			}
+		} else if (object instanceof SystemImpl) {
+			SystemImpl sys = (SystemImpl) object;
+			RepresentationImpl rep = (RepresentationImpl) sys
+					.getParentRepresentation();
+			if (rep != null) {
+				addAllParents(sys.getParentRepresentation(), list);
+			}
+			if (!list.contains(sys)) {
+				list.add(sys);
+			}
+
+		} else if (object instanceof RepresentationImpl) {
+			RepresentationImpl rep = (RepresentationImpl) object;
+			if (rep.getElement() != null) {
+				addAllParents(rep.getElement(), list);
+
+			}
+			if (!list.contains(rep)) {
+				list.add(rep);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * 
+	 * @generated NOT
+	 */
+	public static List<EObject> elementsAffected(Iterator<?> lista,
+			WildCardImpl wild) {
+		affectedElements = new ArrayList<EObject>();
+
+		String portExpression = wild.getExpression()
+				.substring(wild.getExpression().indexOf(".") + 1)
+				.replace("*", ".*");
+		String componentExpression = wild.getExpression()
+				.substring(0, wild.getExpression().indexOf("."))
+				.replace("*", ".*");
+		Pattern patternComponent = Pattern.compile(componentExpression);
+		Pattern patternPort = Pattern.compile(portExpression);
+		for (Iterator<?> it = lista; it.hasNext();) {
+			EObject childElement = (EObject) it.next();
+			if (childElement instanceof ComponentImpl) {
+				ComponentImpl c = (ComponentImpl) childElement;
+				if (patternComponent.matcher(c.getName()).matches()) {
+					// affectedComponents.add(childElement);
+					affectedElements.addAll(addAllParents(childElement,
+							affectedElements));
+					for (Port port : c.allPorts()) {
+						if (patternPort.matcher(port.getName()).matches()
+								&& !affectedElements.contains(port)) {
+
+							affectedElements.add(port);
+						}
+					}
+				}
+			}
+		}
+
+		return affectedElements;
+	}
+
+	/**
+	 * @generated NOT
 	 */
 	public static List<AspectualacmeNodeDescriptor> getWildCard_1000SemanticChildren(
 			View view) {
@@ -47,6 +151,9 @@ public class AspectualacmeDiagramUpdater {
 		WildCard modelElement = (WildCard) view.getElement();
 		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
 		Resource resource = modelElement.eResource();
+
+		affectedElements = elementsAffected(modelElement.eResource()
+				.getAllContents(), (WildCardImpl) modelElement);
 		for (Iterator<EObject> it = getPhantomNodesIterator(resource); it
 				.hasNext();) {
 			EObject childElement = it.next();
@@ -55,14 +162,12 @@ public class AspectualacmeDiagramUpdater {
 			}
 			if (AspectualacmeVisualIDRegistry.getNodeVisualID(view,
 					childElement) == ComponentEditPart.VISUAL_ID) {
-				result.add(new AspectualacmeNodeDescriptor(childElement,
-						ComponentEditPart.VISUAL_ID));
-				continue;
-			}
-			if (AspectualacmeVisualIDRegistry.getNodeVisualID(view,
-					childElement) == WildCard2EditPart.VISUAL_ID) {
-				result.add(new AspectualacmeNodeDescriptor(childElement,
-						WildCard2EditPart.VISUAL_ID));
+				ComponentImpl component = (ComponentImpl) childElement;
+				if (component.eContainer().eContainer() instanceof RootImpl
+						&& affectedElements.contains(component)) {
+					result.add(new AspectualacmeNodeDescriptor(childElement,
+							ComponentEditPart.VISUAL_ID));
+				}
 				continue;
 			}
 		}
@@ -70,7 +175,7 @@ public class AspectualacmeDiagramUpdater {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static List<AspectualacmeNodeDescriptor> getComponent_2002SemanticChildren(
 			View view) {
@@ -79,11 +184,169 @@ public class AspectualacmeDiagramUpdater {
 		}
 		Component modelElement = (Component) view.getElement();
 		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
+		WildCardImpl wild = (WildCardImpl) view.getDiagram().getElement();
+		affectedElements = elementsAffected(wild.eResource().getAllContents(),
+				wild);
 		for (Iterator<?> it = modelElement.getPort().iterator(); it.hasNext();) {
 			Port childElement = (Port) it.next();
 			int visualID = AspectualacmeVisualIDRegistry.getNodeVisualID(view,
 					childElement);
-			if (visualID == PortEditPart.VISUAL_ID) {
+			if (visualID == PortEditPart.VISUAL_ID
+					&& affectedElements.contains(childElement)) {
+				result.add(new AspectualacmeNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public static List<AspectualacmeNodeDescriptor> getComponent_3005SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Component modelElement = (Component) view.getElement();
+		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
+		WildCardImpl wild = (WildCardImpl) view.getDiagram().getElement();
+		affectedElements = elementsAffected(wild.eResource().getAllContents(),
+				wild);
+		for (Iterator<?> it = modelElement.getPort().iterator(); it.hasNext();) {
+			Port childElement = (Port) it.next();
+			int visualID = AspectualacmeVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == PortEditPart.VISUAL_ID
+					&& affectedElements.contains(childElement)) {
+				result.add(new AspectualacmeNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public static List<AspectualacmeNodeDescriptor> getComponentCompartmentWComponent_7001SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Component modelElement = (Component) containerView.getElement();
+		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
+		WildCardImpl wild = (WildCardImpl) view.getDiagram().getElement();
+		affectedElements = elementsAffected(wild.eResource().getAllContents(),
+				wild);
+		for (Iterator<?> it = modelElement.getRepresentations().iterator(); it
+				.hasNext();) {
+			Representation childElement = (Representation) it.next();
+			int visualID = AspectualacmeVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == RepresentationEditPart.VISUAL_ID
+					&& affectedElements.contains(childElement)) {
+				result.add(new AspectualacmeNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public static List<AspectualacmeNodeDescriptor> getRepresentationCompartmentWRepresentation_7003SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Representation modelElement = (Representation) containerView
+				.getElement();
+		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
+		WildCardImpl wild = (WildCardImpl) view.getDiagram().getElement();
+		affectedElements = elementsAffected(wild.eResource().getAllContents(),
+				wild);
+		{
+			System childElement = modelElement.getSystem();
+			int visualID = AspectualacmeVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == SystemEditPart.VISUAL_ID
+					&& affectedElements.contains(childElement)) {
+				result.add(new AspectualacmeNodeDescriptor(childElement,
+						visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public static List<AspectualacmeNodeDescriptor> getSystemCompartmentWSystem_7004SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		System modelElement = (System) containerView.getElement();
+		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
+		WildCardImpl wild = (WildCardImpl) view.getDiagram().getElement();
+		affectedElements = elementsAffected(wild.eResource().getAllContents(),
+				wild);
+		for (Iterator<?> it = modelElement.getComponents().iterator(); it
+				.hasNext();) {
+			Component childElement = (Component) it.next();
+			int visualID = AspectualacmeVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Component2EditPart.VISUAL_ID
+					&& affectedElements.contains(childElement)) {
+				result.add(new AspectualacmeNodeDescriptor(childElement,
+						visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	public static List<AspectualacmeNodeDescriptor> getComponentCompartmentWComponent_7005SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Component modelElement = (Component) containerView.getElement();
+		LinkedList<AspectualacmeNodeDescriptor> result = new LinkedList<AspectualacmeNodeDescriptor>();
+		WildCardImpl wild = (WildCardImpl) view.getDiagram().getElement();
+		affectedElements = elementsAffected(wild.eResource().getAllContents(),
+				wild);
+		for (Iterator<?> it = modelElement.getRepresentations().iterator(); it
+				.hasNext();) {
+			Representation childElement = (Representation) it.next();
+			int visualID = AspectualacmeVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == RepresentationEditPart.VISUAL_ID
+					&& affectedElements.contains(childElement)) {
 				result.add(new AspectualacmeNodeDescriptor(childElement,
 						visualID));
 				continue;
@@ -108,10 +371,14 @@ public class AspectualacmeDiagramUpdater {
 			return getWildCard_1000ContainedLinks(view);
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_2002ContainedLinks(view);
-		case WildCard2EditPart.VISUAL_ID:
-			return getWildCard_2003ContainedLinks(view);
 		case PortEditPart.VISUAL_ID:
 			return getPort_3001ContainedLinks(view);
+		case RepresentationEditPart.VISUAL_ID:
+			return getRepresentation_3004ContainedLinks(view);
+		case SystemEditPart.VISUAL_ID:
+			return getSystem_3003ContainedLinks(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_3005ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -123,10 +390,14 @@ public class AspectualacmeDiagramUpdater {
 		switch (AspectualacmeVisualIDRegistry.getVisualID(view)) {
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_2002IncomingLinks(view);
-		case WildCard2EditPart.VISUAL_ID:
-			return getWildCard_2003IncomingLinks(view);
 		case PortEditPart.VISUAL_ID:
 			return getPort_3001IncomingLinks(view);
+		case RepresentationEditPart.VISUAL_ID:
+			return getRepresentation_3004IncomingLinks(view);
+		case SystemEditPart.VISUAL_ID:
+			return getSystem_3003IncomingLinks(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_3005IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -138,10 +409,14 @@ public class AspectualacmeDiagramUpdater {
 		switch (AspectualacmeVisualIDRegistry.getVisualID(view)) {
 		case ComponentEditPart.VISUAL_ID:
 			return getComponent_2002OutgoingLinks(view);
-		case WildCard2EditPart.VISUAL_ID:
-			return getWildCard_2003OutgoingLinks(view);
 		case PortEditPart.VISUAL_ID:
 			return getPort_3001OutgoingLinks(view);
+		case RepresentationEditPart.VISUAL_ID:
+			return getRepresentation_3004OutgoingLinks(view);
+		case SystemEditPart.VISUAL_ID:
+			return getSystem_3003OutgoingLinks(view);
+		case Component2EditPart.VISUAL_ID:
+			return getComponent_3005OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -165,7 +440,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<AspectualacmeLinkDescriptor> getWildCard_2003ContainedLinks(
+	public static List<AspectualacmeLinkDescriptor> getPort_3001ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -173,7 +448,23 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<AspectualacmeLinkDescriptor> getPort_3001ContainedLinks(
+	public static List<AspectualacmeLinkDescriptor> getRepresentation_3004ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AspectualacmeLinkDescriptor> getSystem_3003ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AspectualacmeLinkDescriptor> getComponent_3005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -189,7 +480,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<AspectualacmeLinkDescriptor> getWildCard_2003IncomingLinks(
+	public static List<AspectualacmeLinkDescriptor> getPort_3001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -197,7 +488,23 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<AspectualacmeLinkDescriptor> getPort_3001IncomingLinks(
+	public static List<AspectualacmeLinkDescriptor> getRepresentation_3004IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AspectualacmeLinkDescriptor> getSystem_3003IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AspectualacmeLinkDescriptor> getComponent_3005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -213,7 +520,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<AspectualacmeLinkDescriptor> getWildCard_2003OutgoingLinks(
+	public static List<AspectualacmeLinkDescriptor> getPort_3001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -221,7 +528,23 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<AspectualacmeLinkDescriptor> getPort_3001OutgoingLinks(
+	public static List<AspectualacmeLinkDescriptor> getRepresentation_3004OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AspectualacmeLinkDescriptor> getSystem_3003OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<AspectualacmeLinkDescriptor> getComponent_3005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

@@ -50,6 +50,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import aspectualacme.AspectualacmeFactory;
+import aspectualacme.Root;
 import aspectualacme.System;
 import aspectualacme.diagram.edit.parts.SystemEditPart;
 
@@ -152,8 +153,10 @@ public class AspectualacmeDiagramEditorUtil {
 	}
 
 	/**
-	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
+	 * This method should be called within a workspace modify operation since it
+	 * creates resources.
+	 * 
+	 * @generated NOT
 	 */
 	public static Resource createDiagram(URI diagramURI, URI modelURI,
 			IProgressMonitor progressMonitor) {
@@ -175,8 +178,11 @@ public class AspectualacmeDiagramEditorUtil {
 			protected CommandResult doExecuteWithResult(
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
+				Root root = AspectualacmeFactory.eINSTANCE.createRoot();
+
 				System model = createInitialModel();
-				attachModelToResource(model, modelResource);
+				root.getElements().add(model);
+				attachModelRootToResource(root, modelResource);
 
 				Diagram diagram = ViewService
 						.createDiagram(
@@ -217,9 +223,19 @@ public class AspectualacmeDiagramEditorUtil {
 	}
 
 	/**
-	 * Create a new instance of domain element associated with canvas.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Create a new instance of domain element associated with canvas. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	protected static void attachModelRootToResource(Root root, Resource resource) {
+		resource.getContents().add(root);
+	}
+
+	/**
+	 * Create a new instance of domain element associated with canvas. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static System createInitialModel() {
@@ -228,8 +244,8 @@ public class AspectualacmeDiagramEditorUtil {
 
 	/**
 	 * Store model element in the resource.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
 	 * @generated
 	 */
 	private static void attachModelToResource(System model, Resource resource) {
@@ -331,7 +347,9 @@ public class AspectualacmeDiagramEditorUtil {
 	}
 
 	/**
-	 * XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed soon
+	 * XXX This is quite suspicious code (especially editPartTmpHolder) and
+	 * likely to be removed soon
+	 * 
 	 * @generated
 	 */
 	public static class LazyElement2ViewMap {
@@ -415,6 +433,6 @@ public class AspectualacmeDiagramEditorUtil {
 			}
 			return complete;
 		}
-	} //LazyElement2ViewMap	
+	} // LazyElement2ViewMap
 
 }

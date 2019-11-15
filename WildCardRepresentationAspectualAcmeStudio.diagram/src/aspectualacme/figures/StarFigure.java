@@ -11,6 +11,7 @@
 package aspectualacme.figures;
 
 import org.eclipse.draw2d.ImageFigure;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 import wildcardrepresentationaspectualacme.diagram.part.WildCardRepresentationAspectualacmeDiagramEditorPlugin;
 
@@ -21,7 +22,7 @@ public class StarFigure extends ImageFigure {
 
 	public StarFigure() {
 		super(
-				wildcardrepresentationaspectualacme.diagram.part.WildCardRepresentationAspectualacmeDiagramEditorPlugin
+				AbstractUIPlugin
 						.imageDescriptorFromPlugin(
 								WildCardRepresentationAspectualacmeDiagramEditorPlugin.ID,
 								"/images/star.png").createImage(), 0);

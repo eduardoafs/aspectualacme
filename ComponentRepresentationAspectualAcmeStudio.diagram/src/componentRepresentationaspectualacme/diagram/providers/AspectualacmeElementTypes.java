@@ -51,11 +51,12 @@ public class AspectualacmeElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType System_2009 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.System_2009"); //$NON-NLS-1$
+	public static final IElementType System_2001 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.System_2001"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Component_2010 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Component_2010"); //$NON-NLS-1$
+	public static final IElementType Component_2002 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Component_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -73,22 +74,26 @@ public class AspectualacmeElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Connector_3004 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Connector_3004"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType BaseRole_3005 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.BaseRole_3005"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
 	public static final IElementType CrosscuttingRole_3006 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.CrosscuttingRole_3006"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Glue_3008 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Glue_3008"); //$NON-NLS-1$
+	public static final IElementType Glue_3007 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Glue_3007"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
-	public static final IElementType Role_3012 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Role_3012"); //$NON-NLS-1$
+	public static final IElementType Role_3008 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Role_3008"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -98,38 +103,32 @@ public class AspectualacmeElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Port_3011 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Port_3011"); //$NON-NLS-1$
+	public static final IElementType Port_3010 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Port_3010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
 	public static final IElementType Attachment_4001 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Attachment_4001"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Attachment_4002 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Attachment_4002"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Attachment_4003 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Attachment_4003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Attachment_4004 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Attachment_4004"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Attachment_4005 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Attachment_4005"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Attachment_4006 = getElementType("ComponentRepresentationAspectualAcmeStudio.diagram.Attachment_4006"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
@@ -249,10 +248,10 @@ public class AspectualacmeElementTypes {
 			elements.put(Representation_1000,
 					AspectualacmePackage.eINSTANCE.getRepresentation());
 
-			elements.put(System_2009,
+			elements.put(System_2001,
 					AspectualacmePackage.eINSTANCE.getSystem());
 
-			elements.put(Component_2010,
+			elements.put(Component_2002,
 					AspectualacmePackage.eINSTANCE.getComponent());
 
 			elements.put(Component_3001,
@@ -272,14 +271,14 @@ public class AspectualacmeElementTypes {
 			elements.put(CrosscuttingRole_3006,
 					AspectualacmePackage.eINSTANCE.getCrosscuttingRole());
 
-			elements.put(Glue_3008, AspectualacmePackage.eINSTANCE.getGlue());
+			elements.put(Glue_3007, AspectualacmePackage.eINSTANCE.getGlue());
 
-			elements.put(Role_3012, AspectualacmePackage.eINSTANCE.getRole());
+			elements.put(Role_3008, AspectualacmePackage.eINSTANCE.getRole());
 
 			elements.put(WildCard_3009,
 					AspectualacmePackage.eINSTANCE.getWildCard());
 
-			elements.put(Port_3011, AspectualacmePackage.eINSTANCE.getPort());
+			elements.put(Port_3010, AspectualacmePackage.eINSTANCE.getPort());
 
 			elements.put(Attachment_4001,
 					AspectualacmePackage.eINSTANCE.getAttachment());
@@ -319,18 +318,18 @@ public class AspectualacmeElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(Representation_1000);
-			KNOWN_ELEMENT_TYPES.add(System_2009);
-			KNOWN_ELEMENT_TYPES.add(Component_2010);
+			KNOWN_ELEMENT_TYPES.add(System_2001);
+			KNOWN_ELEMENT_TYPES.add(Component_2002);
 			KNOWN_ELEMENT_TYPES.add(Component_3001);
 			KNOWN_ELEMENT_TYPES.add(Port_3002);
 			KNOWN_ELEMENT_TYPES.add(Representation_3003);
 			KNOWN_ELEMENT_TYPES.add(Connector_3004);
 			KNOWN_ELEMENT_TYPES.add(BaseRole_3005);
 			KNOWN_ELEMENT_TYPES.add(CrosscuttingRole_3006);
-			KNOWN_ELEMENT_TYPES.add(Glue_3008);
-			KNOWN_ELEMENT_TYPES.add(Role_3012);
+			KNOWN_ELEMENT_TYPES.add(Glue_3007);
+			KNOWN_ELEMENT_TYPES.add(Role_3008);
 			KNOWN_ELEMENT_TYPES.add(WildCard_3009);
-			KNOWN_ELEMENT_TYPES.add(Port_3011);
+			KNOWN_ELEMENT_TYPES.add(Port_3010);
 			KNOWN_ELEMENT_TYPES.add(Attachment_4001);
 			KNOWN_ELEMENT_TYPES.add(Attachment_4002);
 			KNOWN_ELEMENT_TYPES.add(Attachment_4003);
@@ -347,17 +346,17 @@ public class AspectualacmeElementTypes {
 	 */
 	public static IElementType getElementType(int visualID) {
 		switch (visualID) {
-		case componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
 			return Representation_1000;
 		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
-			return System_2009;
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-			return Component_2010;
+			return System_2001;
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+			return Component_2002;
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 			return Component_3001;
 		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 			return Port_3002;
-		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 			return Representation_3003;
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
 			return Connector_3004;
@@ -366,13 +365,13 @@ public class AspectualacmeElementTypes {
 		case componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID:
 			return CrosscuttingRole_3006;
 		case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
-			return Glue_3008;
+			return Glue_3007;
 		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-			return Role_3012;
+			return Role_3008;
 		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID:
 			return WildCard_3009;
 		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
-			return Port_3011;
+			return Port_3010;
 		case componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID:
 			return Attachment_4001;
 		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID:

@@ -37,6 +37,20 @@
       <foregroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="black"/>
+      <children
+          xsi:type="gmfgraph:Polygon"
+          name="whiteline"
+          lineWidth="2">
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <template
+            x="1"
+            y="1"/>
+        <template
+            x="3"
+            y="3"/>
+      </children>
       <template/>
       <template
           x="1"
@@ -69,6 +83,14 @@
           xsi:type="gmfgraph:Rectangle"
           name="ComponentFigure"
           lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="black"/>
@@ -81,11 +103,124 @@
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
+        name="wComponentFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="wComponentFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="wComponentNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="wComponentCompartment">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureWComponentNameFigure"
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureWComponentCompartment"
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="wRepresentationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="wRepresentationFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="wRepresentationNameFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="wRepresentationCompartment">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureWRepresentationNameFigure"
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureWRepresentationCompartment"
+          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="wSystemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="wSystemFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="wSystemNameFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="wSystemCompartment">
+          <layout
+              xsi:type="gmfgraph:StackLayout"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureWSystemNameFigure"
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureWSystemCompartment"
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
         name="ConnectorFigure">
       <actualFigure
           xsi:type="gmfgraph:Ellipse"
           name="connectorFigure"
           lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:CustomLayout"
+            qualifiedClassName="aspectualacme.custom.layout.ScaleInnerFigureLayout"/>
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="black"/>
@@ -96,10 +231,39 @@
       </actualFigure>
       <accessors
           accessor="getFigureConnectorFigureName"
-          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureGlueCompartment"
-          figure="//@figures.0/@descriptors.1/@actualFigure"/>
+          figure="//@figures.0/@descriptors.4/@actualFigure"/>
+    </descriptors>
+    <descriptors
+        name="AffectedPortFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Ellipse"
+          name="affectedPortFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <backgroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="yellow"/>
+        <maximumSize
+            dx="15"
+            dy="15"/>
+        <minimumSize
+            dx="15"
+            dy="15"/>
+        <preferredSize
+            dx="15"
+            dy="15"/>
+      </actualFigure>
     </descriptors>
     <descriptors
         name="AspectualConnectorFigure">
@@ -123,10 +287,10 @@
         </children>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureGlueCompartmentAspect"
-          figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="RoleFigure">
@@ -201,9 +365,9 @@
             text="&lt;...>"/>
       </actualFigure>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
       <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CrosscuttingRoleFigure">
@@ -270,11 +434,16 @@
     <descriptors
         name="WildCardFigure">
       <actualFigure
-          xsi:type="gmfgraph:CustomFigure"
-          name="wildCard"
-          qualifiedClassName="aspectualacme.figures.StarFigure">
+          xsi:type="gmfgraph:Rectangle"
+          name="wildCardFigure"
+          lineWidth="0">
         <layout
-            xsi:type="gmfgraph:FlowLayout"/>
+            xsi:type="gmfgraph:CustomLayout"
+            qualifiedClassName="aspectualacme.custom.layout.ScaleInnerFigureLayout"/>
+        <children
+            xsi:type="gmfgraph:CustomFigure"
+            name="wildCard"
+            qualifiedClassName="aspectualacme.figures.StarFigure"/>
         <children
             xsi:type="gmfgraph:Label"
             name="wildCardNameFigure"
@@ -282,7 +451,7 @@
       </actualFigure>
       <accessors
           accessor="getFigureWildCardName"
-          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="AspectualAttachmentFigure">
@@ -341,7 +510,6 @@
         <layout
             xsi:type="gmfgraph:FlowLayout"
             vertical="true"
-            matchMinorSize="true"
             forceSingleLine="true"/>
         <maximumSize
             dx="15"
@@ -353,6 +521,32 @@
             dx="15"
             dy="15"/>
       </actualFigure>
+    </descriptors>
+    <descriptors
+        name="rComponentOutFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="rComponentOutFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <foregroundColor
+            xsi:type="gmfgraph:ConstantColor"
+            value="black"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="rComponentOutNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRComponentOutNameFigure"
+          figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="repComponentFigure">
@@ -385,10 +579,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureRepComponentCompartment"
-          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.20/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureRepComponentName"
-          figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.20/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="repComponentRepresentationFigure">
@@ -419,10 +613,10 @@
       </actualFigure>
       <accessors
           accessor="getRepComponentRepresentationName"
-          figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.21/@actualFigure/@children.1"/>
       <accessors
           accessor="getFigureRepComponentRepresentationCompartment"
-          figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.21/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="repSystemFigure">
@@ -456,10 +650,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureRepSystemCompartment"
-          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.22/@actualFigure/@children.0"/>
       <accessors
           accessor="getFigureRepSystemName"
-          figure="//@figures.0/@descriptors.17/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.22/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="repSystemFigure1">
@@ -470,12 +664,6 @@
         <foregroundColor
             xsi:type="gmfgraph:ConstantColor"
             value="black"/>
-        <minimumSize
-            dx="400"
-            dy="400"/>
-        <preferredSize
-            dx="400"
-            dy="400"/>
         <children
             xsi:type="gmfgraph:Label"
             name="repSystemNameFigure"
@@ -483,10 +671,10 @@
       </actualFigure>
       <accessors
           accessor="getFigureRepSystemCompartment"
-          figure="//@figures.0/@descriptors.18/@actualFigure"/>
+          figure="//@figures.0/@descriptors.23/@actualFigure"/>
       <accessors
           accessor="getFigureSystemNameFigure"
-          figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
+          figure="//@figures.0/@descriptors.23/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="BindingFigure">
@@ -500,10 +688,51 @@
             value="black"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="rSystemFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="rSystemFigure"
+          lineWidth="2">
+        <layout
+            xsi:type="gmfgraph:BorderLayout"/>
+        <minimumSize
+            dx="300"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="rSystemNameFigure"
+            text="&lt;...>">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="BEGINNING"
+              vertical="true"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Rectangle"
+            name="rSystemCompartment">
+          <layoutData
+              xsi:type="gmfgraph:BorderLayoutData"
+              alignment="FILL"
+              vertical="true"/>
+        </children>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRSystemName"
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
+      <accessors
+          accessor="getFigureRSystemCompartment"
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <nodes
       name="Component"
       figure="ComponentFigure"/>
+  <nodes
+      name="wComponent"
+      figure="wComponentFigure"/>
+  <nodes
+      name="wSystem"
+      figure="wSystemFigure"/>
   <nodes
       name="Connector"
       figure="ConnectorFigure"/>
@@ -537,7 +766,16 @@
   <nodes
       name="WildCard"
       figure="WildCardFigure"
-      resizeConstraint="NONE"/>
+      resizeConstraint="EAST_WEST"/>
+  <nodes
+      name="rSystem"
+      figure="rSystemFigure"/>
+  <nodes
+      name="wRepresentation"
+      figure="wRepresentationFigure"/>
+  <nodes
+      name="rComponentOut"
+      figure="rComponentOutFigure"/>
   <nodes
       name="Representation"
       figure="RepresentationFigure"
@@ -551,6 +789,11 @@
   <nodes
       name="RepComponent"
       figure="repComponentFigure"/>
+  <nodes
+      name="AffectedPort"
+      figure="AffectedPortFigure"
+      resizeConstraint="NONE"
+      affixedParentSide="NSEW"/>
   <connections
       name="RegularAttachmentConnection"
       figure="RegularAttachmentFigure"/>
@@ -582,53 +825,91 @@
   <compartments
       name="repComponentComp"
       figure="repComponentFigure"
-      accessor="//@figures.0/@descriptors.15/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.20/@accessors.0"/>
   <compartments
       name="repComponentRepresentationComp"
       figure="repComponentRepresentationFigure"
-      accessor="//@figures.0/@descriptors.16/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.21/@accessors.1"/>
   <compartments
       name="repSystemComp"
       figure="repSystemFigure1"/>
   <compartments
       name="componentCompartment"
       figure="ComponentFigure"/>
+  <compartments
+      name="CompartmentWComponent"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <compartments
+      name="CompartmentWRepresentation"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments
+      name="CompartmentWSystem"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
+  <compartments
+      name="CompartmentRSystem"
+      figure="rSystemFigure"
+      collapsible="true"
+      accessor="//@figures.0/@descriptors.25/@accessors.1"/>
   <labels
       name="ComponentName"
       figure="ComponentFigure"
       accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
+      name="wComponentName"
+      figure="wComponentFigure"
+      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels
       name="ConnectorName"
       figure="ConnectorFigure"
       affixedParentSide="NORTH"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="PropertyName"
       figure="PropertyFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
       name="PropertyValue"
       figure="PropertyFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels
+      name="wRepresentationName"
+      figure="wRepresentationFigure"
+      accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels
+      name="wSystemName"
+      figure="wSystemFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels
+      name="rComponentOutName"
+      figure="rComponentOutFigure"
+      accessor="//@figures.0/@descriptors.19/@accessors.0"/>
   <labels
       name="WildCardName"
       figure="WildCardFigure"
       resizeConstraint="NONE"
-      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.13/@accessors.0"/>
   <labels
       name="glueFigure"
       figure="GlueFigure"/>
   <labels
       name="repComponentNameFigure"
       figure="repComponentFigure"
-      accessor="//@figures.0/@descriptors.15/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.20/@accessors.1"/>
   <labels
       name="repSystemNameFigure"
       figure="repSystemFigure1"
-      accessor="//@figures.0/@descriptors.18/@accessors.1"/>
+      accessor="//@figures.0/@descriptors.23/@accessors.1"/>
   <labels
       name="repComponentRepresentationNameFigure"
       figure="repComponentRepresentationFigure"
-      accessor="//@figures.0/@descriptors.16/@accessors.0"/>
+      accessor="//@figures.0/@descriptors.21/@accessors.0"/>
+  <labels
+      name="rSystemNameFigure"
+      figure="rSystemFigure"
+      accessor="//@figures.0/@descriptors.25/@accessors.0"/>
 </gmfgraph:Canvas>

@@ -1,6 +1,7 @@
 package aspectualacme.diagram.edit.parts;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.commands.Command;
@@ -28,6 +30,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import aspectualacme.diagram.edit.parts.custom.DefaultSizeNodeFigureWithFixedAnchors;
 import aspectualacme.diagram.edit.policies.PortItemSemanticEditPolicy;
 import aspectualacme.diagram.providers.AspectualacmeElementTypes;
 
@@ -110,13 +113,25 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(15, 15);
+		HashMap<String, PrecisionPoint> anchorLocations = new HashMap<String, PrecisionPoint>();
+		//anchorLocations.put("WEST", new PrecisionPoint(0, 0.5d));
+		//anchorLocations.put("NORTH", new PrecisionPoint(0.5d, 0));
+		//anchorLocations.put("NORTH-WEST", new PrecisionPoint(0.25d, 0.25d));
+		//anchorLocations.put("EAST", new PrecisionPoint(1d, 0.5d));
+		//anchorLocations.put("NORTH-EAST", new PrecisionPoint(0.75d, 0.25d));
+		//anchorLocations.put("SOUTH", new PrecisionPoint(0.5d, 1d));
+		//anchorLocations.put("SOUTH-EAST", new PrecisionPoint(0.75d, 0.75d));
+		//anchorLocations.put("SOUTH-WEST", new PrecisionPoint(0.25d, 0.75d));
+		anchorLocations.put("CENTER", new PrecisionPoint(0.5d, 0.5d));
+		DefaultSizeNodeFigureWithFixedAnchors result = new DefaultSizeNodeFigureWithFixedAnchors(
+				15, 15, anchorLocations);
+		//return result;DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(15, 15);
 
 		//FIXME: workaround for #154536
-		result.getBounds().setSize(result.getPreferredSize());
+		//result.getBounds().setSize(result.getPreferredSize());
 		return result;
 	}
 
@@ -443,7 +458,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(15),
 					getMapMode().DPtoLP(15)));

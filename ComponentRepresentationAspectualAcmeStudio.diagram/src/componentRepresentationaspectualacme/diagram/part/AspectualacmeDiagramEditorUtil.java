@@ -184,7 +184,7 @@ public class AspectualacmeDiagramEditorUtil {
 				Diagram diagram = ViewService
 						.createDiagram(
 								model,
-								componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID,
+								componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID,
 								componentRepresentationaspectualacme.diagram.part.ComponentRepresentationAspectualacmeDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
 					diagramResource.getContents().add(diagram);

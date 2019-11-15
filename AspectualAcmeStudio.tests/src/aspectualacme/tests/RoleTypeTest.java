@@ -17,7 +17,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RoleTypeTest extends ElementTest {
+public class RoleTypeTest extends TypeDefinitionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

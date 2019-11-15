@@ -32,6 +32,7 @@ public class WildCardCreateCommand extends EditElementCommand {
 	 * FIXME: replace with setElementToEdit()
 	 * @generated
 	 */
+	@Override
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest())
 				.getContainer();
@@ -44,6 +45,7 @@ public class WildCardCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean canExecute() {
 		return true;
 	}
@@ -51,6 +53,7 @@ public class WildCardCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		// Uncomment to put "phantom" objects into the diagram file.		

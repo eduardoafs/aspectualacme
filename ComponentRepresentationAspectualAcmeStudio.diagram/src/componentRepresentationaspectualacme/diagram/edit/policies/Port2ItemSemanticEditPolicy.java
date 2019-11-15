@@ -25,7 +25,7 @@ public class Port2ItemSemanticEditPolicy
 	 */
 	public Port2ItemSemanticEditPolicy() {
 		super(
-				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 	}
 
 	/**

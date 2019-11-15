@@ -7,14 +7,19 @@
 package aspectualacme.impl;
 
 import aspectualacme.Armani;
+import aspectualacme.ArmaniDesignRuleExpression;
 import aspectualacme.AspectualacmePackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
@@ -26,7 +31,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link aspectualacme.impl.ArmaniImpl#getTokens <em>Tokens</em>}</li>
+ *   <li>{@link aspectualacme.impl.ArmaniImpl#getModifiers <em>Modifiers</em>}</li>
+ *   <li>{@link aspectualacme.impl.ArmaniImpl#getDesignRule <em>Design Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,15 +40,23 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  */
 public class ArmaniImpl extends EObjectImpl implements Armani {
 	/**
-	 * The cached value of the '{@link #getTokens() <em>Tokens</em>}' attribute list.
+	 * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTokens()
+	 * @see #getModifiers()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> tokens;
-
+	protected EList<String> modifiers;
+	/**
+	 * The cached value of the '{@link #getDesignRule() <em>Design Rule</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDesignRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected ArmaniDesignRuleExpression designRule;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,11 +81,68 @@ public class ArmaniImpl extends EObjectImpl implements Armani {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getTokens() {
-		if (tokens == null) {
-			tokens = new EDataTypeUniqueEList<String>(String.class, this, AspectualacmePackage.ARMANI__TOKENS);
+	public EList<String> getModifiers() {
+		if (modifiers == null) {
+			modifiers = new EDataTypeUniqueEList<String>(String.class, this, AspectualacmePackage.ARMANI__MODIFIERS);
 		}
-		return tokens;
+		return modifiers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArmaniDesignRuleExpression getDesignRule() {
+		return designRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDesignRule(ArmaniDesignRuleExpression newDesignRule, NotificationChain msgs) {
+		ArmaniDesignRuleExpression oldDesignRule = designRule;
+		designRule = newDesignRule;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AspectualacmePackage.ARMANI__DESIGN_RULE, oldDesignRule, newDesignRule);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDesignRule(ArmaniDesignRuleExpression newDesignRule) {
+		if (newDesignRule != designRule) {
+			NotificationChain msgs = null;
+			if (designRule != null)
+				msgs = ((InternalEObject)designRule).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AspectualacmePackage.ARMANI__DESIGN_RULE, null, msgs);
+			if (newDesignRule != null)
+				msgs = ((InternalEObject)newDesignRule).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AspectualacmePackage.ARMANI__DESIGN_RULE, null, msgs);
+			msgs = basicSetDesignRule(newDesignRule, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.ARMANI__DESIGN_RULE, newDesignRule, newDesignRule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AspectualacmePackage.ARMANI__DESIGN_RULE:
+				return basicSetDesignRule(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -82,8 +153,10 @@ public class ArmaniImpl extends EObjectImpl implements Armani {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AspectualacmePackage.ARMANI__TOKENS:
-				return getTokens();
+			case AspectualacmePackage.ARMANI__MODIFIERS:
+				return getModifiers();
+			case AspectualacmePackage.ARMANI__DESIGN_RULE:
+				return getDesignRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -97,9 +170,12 @@ public class ArmaniImpl extends EObjectImpl implements Armani {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AspectualacmePackage.ARMANI__TOKENS:
-				getTokens().clear();
-				getTokens().addAll((Collection<? extends String>)newValue);
+			case AspectualacmePackage.ARMANI__MODIFIERS:
+				getModifiers().clear();
+				getModifiers().addAll((Collection<? extends String>)newValue);
+				return;
+			case AspectualacmePackage.ARMANI__DESIGN_RULE:
+				setDesignRule((ArmaniDesignRuleExpression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -113,8 +189,11 @@ public class ArmaniImpl extends EObjectImpl implements Armani {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AspectualacmePackage.ARMANI__TOKENS:
-				getTokens().clear();
+			case AspectualacmePackage.ARMANI__MODIFIERS:
+				getModifiers().clear();
+				return;
+			case AspectualacmePackage.ARMANI__DESIGN_RULE:
+				setDesignRule((ArmaniDesignRuleExpression)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -128,8 +207,10 @@ public class ArmaniImpl extends EObjectImpl implements Armani {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AspectualacmePackage.ARMANI__TOKENS:
-				return tokens != null && !tokens.isEmpty();
+			case AspectualacmePackage.ARMANI__MODIFIERS:
+				return modifiers != null && !modifiers.isEmpty();
+			case AspectualacmePackage.ARMANI__DESIGN_RULE:
+				return designRule != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -144,8 +225,8 @@ public class ArmaniImpl extends EObjectImpl implements Armani {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (tokens: ");
-		result.append(tokens);
+		result.append(" (modifiers: ");
+		result.append(modifiers);
 		result.append(')');
 		return result.toString();
 	}

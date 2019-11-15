@@ -62,6 +62,141 @@ public interface AspectualacmeFactory extends EFactory {
 	ArmaniExpression createArmaniExpression();
 
 	/**
+	 * Returns a new object of class '<em>Armani Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Function Call</em>'.
+	 * @generated
+	 */
+	ArmaniFunctionCall createArmaniFunctionCall();
+
+	/**
+	 * Returns a new object of class '<em>Armani Set Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Set Expression</em>'.
+	 * @generated
+	 */
+	ArmaniSetExpression createArmaniSetExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Constant</em>'.
+	 * @generated
+	 */
+	ArmaniConstant createArmaniConstant();
+
+	/**
+	 * Returns a new object of class '<em>Armani Primitive Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Primitive Expression</em>'.
+	 * @generated
+	 */
+	ArmaniPrimitiveExpression createArmaniPrimitiveExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Unary Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Unary Expression</em>'.
+	 * @generated
+	 */
+	ArmaniUnaryExpression createArmaniUnaryExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Multiplicative Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Multiplicative Expression</em>'.
+	 * @generated
+	 */
+	ArmaniMultiplicativeExpression createArmaniMultiplicativeExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Additive Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Additive Expression</em>'.
+	 * @generated
+	 */
+	ArmaniAdditiveExpression createArmaniAdditiveExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Relational Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Relational Expression</em>'.
+	 * @generated
+	 */
+	ArmaniRelationalExpression createArmaniRelationalExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Equality Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Equality Expression</em>'.
+	 * @generated
+	 */
+	ArmaniEqualityExpression createArmaniEqualityExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Iff Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Iff Expression</em>'.
+	 * @generated
+	 */
+	ArmaniIffExpression createArmaniIffExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Implies Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Implies Expression</em>'.
+	 * @generated
+	 */
+	ArmaniImpliesExpression createArmaniImpliesExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Or Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Or Expression</em>'.
+	 * @generated
+	 */
+	ArmaniOrExpression createArmaniOrExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Variable</em>'.
+	 * @generated
+	 */
+	ArmaniVariable createArmaniVariable();
+
+	/**
+	 * Returns a new object of class '<em>Armani Boolean Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Boolean Expression</em>'.
+	 * @generated
+	 */
+	ArmaniBooleanExpression createArmaniBooleanExpression();
+
+	/**
+	 * Returns a new object of class '<em>Armani Quantified Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Armani Quantified Expression</em>'.
+	 * @generated
+	 */
+	ArmaniQuantifiedExpression createArmaniQuantifiedExpression();
+
+	/**
 	 * Returns a new object of class '<em>Family</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,6 +240,15 @@ public interface AspectualacmeFactory extends EFactory {
 	 * @generated
 	 */
 	ConnectorType createConnectorType();
+
+	/**
+	 * Returns a new object of class '<em>Property Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Property Type</em>'.
+	 * @generated
+	 */
+	PropertyType createPropertyType();
 
 	/**
 	 * Returns a new object of class '<em>System</em>'.
@@ -231,6 +375,24 @@ public interface AspectualacmeFactory extends EFactory {
 	 * @generated
 	 */
 	Armani createArmani();
+
+	/**
+	 * Returns a new object of class '<em>Bindable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bindable Element</em>'.
+	 * @generated
+	 */
+	BindableElement createBindableElement();
+
+	/**
+	 * Returns a new object of class '<em>Type Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Definition</em>'.
+	 * @generated
+	 */
+	TypeDefinition createTypeDefinition();
 
 	/**
 	 * Returns the package supported by this factory.

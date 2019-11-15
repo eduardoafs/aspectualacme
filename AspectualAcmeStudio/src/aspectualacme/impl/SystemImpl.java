@@ -41,11 +41,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link aspectualacme.impl.SystemImpl#getConnectors <em>Connectors</em>}</li>
+ *   <li>{@link aspectualacme.impl.SystemImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link aspectualacme.impl.SystemImpl#getAttachments <em>Attachments</em>}</li>
  *   <li>{@link aspectualacme.impl.SystemImpl#getWildCard <em>Wild Card</em>}</li>
- *   <li>{@link aspectualacme.impl.SystemImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link aspectualacme.impl.SystemImpl#getComponents <em>Components</em>}</li>
  *   <li>{@link aspectualacme.impl.SystemImpl#getParentRepresentation <em>Parent Representation</em>}</li>
+ *   <li>{@link aspectualacme.impl.SystemImpl#getEffective_type <em>Effective type</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +62,15 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 * @ordered
 	 */
 	protected EList<Connector> connectors;
+	/**
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Property> properties;
 	/**
 	 * The cached value of the '{@link #getAttachments() <em>Attachments</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -79,15 +89,6 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 * @ordered
 	 */
 	protected EList<WildCard> wildCard;
-	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Property> properties;
 
 	/**
 	 * The cached value of the '{@link #getComponents() <em>Components</em>}' containment reference list.
@@ -99,6 +100,15 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 */
 	protected EList<Component> components;
 
+	/**
+	 * The cached value of the '{@link #getEffective_type() <em>Effective type</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffective_type()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Family> effective_type;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,7 +135,7 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 */
 	public EList<Connector> getConnectors() {
 		if (connectors == null) {
-			connectors = new EObjectContainmentEList<Connector>(Connector.class, this, AspectualacmePackage.SYSTEM__CONNECTORS);
+			connectors = new EObjectContainmentWithInverseEList<Connector>(Connector.class, this, AspectualacmePackage.SYSTEM__CONNECTORS, AspectualacmePackage.CONNECTOR__PARENT_SYSTEM);
 		}
 		return connectors;
 	}
@@ -137,7 +147,7 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 */
 	public EList<Attachment> getAttachments() {
 		if (attachments == null) {
-			attachments = new EObjectContainmentEList<Attachment>(Attachment.class, this, AspectualacmePackage.SYSTEM__ATTACHMENTS);
+			attachments = new EObjectContainmentWithInverseEList<Attachment>(Attachment.class, this, AspectualacmePackage.SYSTEM__ATTACHMENTS, AspectualacmePackage.ATTACHMENT__PARENT_SYSTEM);
 		}
 		return attachments;
 	}
@@ -161,7 +171,7 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 */
 	public EList<Property> getProperties() {
 		if (properties == null) {
-			properties = new EObjectContainmentEList<Property>(Property.class, this, AspectualacmePackage.SYSTEM__PROPERTIES);
+			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, AspectualacmePackage.SYSTEM__PROPERTIES, AspectualacmePackage.PROPERTY__PARENT_SYSTEM);
 		}
 		return properties;
 	}
@@ -224,10 +234,28 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Family> getEffective_type() {
+		if (effective_type == null) {
+			effective_type = new EObjectResolvingEList<Family>(Family.class, this, AspectualacmePackage.SYSTEM__EFFECTIVE_TYPE);
+		}
+		return effective_type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case AspectualacmePackage.SYSTEM__CONNECTORS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConnectors()).basicAdd(otherEnd, msgs);
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAttachments()).basicAdd(otherEnd, msgs);
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getComponents()).basicAdd(otherEnd, msgs);
 			case AspectualacmePackage.SYSTEM__PARENT_REPRESENTATION:
@@ -248,12 +276,12 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 		switch (featureID) {
 			case AspectualacmePackage.SYSTEM__CONNECTORS:
 				return ((InternalEList<?>)getConnectors()).basicRemove(otherEnd, msgs);
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
 				return ((InternalEList<?>)getAttachments()).basicRemove(otherEnd, msgs);
 			case AspectualacmePackage.SYSTEM__WILD_CARD:
 				return ((InternalEList<?>)getWildCard()).basicRemove(otherEnd, msgs);
-			case AspectualacmePackage.SYSTEM__PROPERTIES:
-				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
 			case AspectualacmePackage.SYSTEM__PARENT_REPRESENTATION:
@@ -286,16 +314,18 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 		switch (featureID) {
 			case AspectualacmePackage.SYSTEM__CONNECTORS:
 				return getConnectors();
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
+				return getProperties();
 			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
 				return getAttachments();
 			case AspectualacmePackage.SYSTEM__WILD_CARD:
 				return getWildCard();
-			case AspectualacmePackage.SYSTEM__PROPERTIES:
-				return getProperties();
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				return getComponents();
 			case AspectualacmePackage.SYSTEM__PARENT_REPRESENTATION:
 				return getParentRepresentation();
+			case AspectualacmePackage.SYSTEM__EFFECTIVE_TYPE:
+				return getEffective_type();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,6 +343,10 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 				getConnectors().clear();
 				getConnectors().addAll((Collection<? extends Connector>)newValue);
 				return;
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends Property>)newValue);
+				return;
 			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
 				getAttachments().clear();
 				getAttachments().addAll((Collection<? extends Attachment>)newValue);
@@ -321,16 +355,16 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 				getWildCard().clear();
 				getWildCard().addAll((Collection<? extends WildCard>)newValue);
 				return;
-			case AspectualacmePackage.SYSTEM__PROPERTIES:
-				getProperties().clear();
-				getProperties().addAll((Collection<? extends Property>)newValue);
-				return;
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				getComponents().clear();
 				getComponents().addAll((Collection<? extends Component>)newValue);
 				return;
 			case AspectualacmePackage.SYSTEM__PARENT_REPRESENTATION:
 				setParentRepresentation((Representation)newValue);
+				return;
+			case AspectualacmePackage.SYSTEM__EFFECTIVE_TYPE:
+				getEffective_type().clear();
+				getEffective_type().addAll((Collection<? extends Family>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -347,20 +381,23 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 			case AspectualacmePackage.SYSTEM__CONNECTORS:
 				getConnectors().clear();
 				return;
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
+				getProperties().clear();
+				return;
 			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
 				getAttachments().clear();
 				return;
 			case AspectualacmePackage.SYSTEM__WILD_CARD:
 				getWildCard().clear();
 				return;
-			case AspectualacmePackage.SYSTEM__PROPERTIES:
-				getProperties().clear();
-				return;
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				getComponents().clear();
 				return;
 			case AspectualacmePackage.SYSTEM__PARENT_REPRESENTATION:
 				setParentRepresentation((Representation)null);
+				return;
+			case AspectualacmePackage.SYSTEM__EFFECTIVE_TYPE:
+				getEffective_type().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -376,16 +413,18 @@ public class SystemImpl extends BasicElementImpl implements aspectualacme.System
 		switch (featureID) {
 			case AspectualacmePackage.SYSTEM__CONNECTORS:
 				return connectors != null && !connectors.isEmpty();
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
 				return attachments != null && !attachments.isEmpty();
 			case AspectualacmePackage.SYSTEM__WILD_CARD:
 				return wildCard != null && !wildCard.isEmpty();
-			case AspectualacmePackage.SYSTEM__PROPERTIES:
-				return properties != null && !properties.isEmpty();
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				return components != null && !components.isEmpty();
 			case AspectualacmePackage.SYSTEM__PARENT_REPRESENTATION:
 				return getParentRepresentation() != null;
+			case AspectualacmePackage.SYSTEM__EFFECTIVE_TYPE:
+				return effective_type != null && !effective_type.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

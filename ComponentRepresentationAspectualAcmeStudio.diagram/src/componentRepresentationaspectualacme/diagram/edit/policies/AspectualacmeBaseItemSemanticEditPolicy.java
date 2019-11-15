@@ -36,8 +36,8 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Attachment;
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
-import aspectualacme.Port;
 import aspectualacme.Representation;
 import aspectualacme.System;
 
@@ -390,7 +390,7 @@ public class AspectualacmeBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 * @generated
 		 */
 		public boolean canCreateBinding_4007(Representation container,
-				Port source, Port target) {
+				BindableElement source, BindableElement target) {
 			return canExistBinding_4007(container, null, source, target);
 		}
 
@@ -740,7 +740,8 @@ public class AspectualacmeBaseItemSemanticEditPolicy extends SemanticEditPolicy 
 		 * @generated
 		 */
 		public boolean canExistBinding_4007(Representation container,
-				Binding linkInstance, Port source, Port target) {
+				Binding linkInstance, BindableElement source,
+				BindableElement target) {
 			return true;
 		}
 	}

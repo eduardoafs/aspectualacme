@@ -21,6 +21,7 @@ public class AspectualacmeSheetLabelProvider extends BaseLabelProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public String getText(Object element) {
 		element = unwrap(element);
 		if (element instanceof AspectualacmeNavigatorGroup) {
@@ -33,6 +34,7 @@ public class AspectualacmeSheetLabelProvider extends BaseLabelProvider
 	/**
 	 * @generated
 	 */
+	@Override
 	public Image getImage(Object element) {
 		IElementType etype = getElementType(getView(unwrap(element)));
 		return etype == null ? null : AspectualacmeElementTypes.getImage(etype);

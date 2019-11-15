@@ -1,21 +1,28 @@
 package aspectualacme.diagram.providers;
 
+import org.eclipse.emf.ecore.EObject;
+
 import aspectualacme.AspectualacmeFactory;
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Component;
 import aspectualacme.Connector;
 import aspectualacme.Port;
 import aspectualacme.Representation;
+import aspectualacme.Role;
 import aspectualacme.System;
 import aspectualacme.diagram.expressions.AspectualacmeOCLFactory;
 import aspectualacme.diagram.part.AspectualacmeDiagramEditorPlugin;
+import aspectualacme.impl.ComponentImpl;
+import aspectualacme.impl.ElementImpl;
 
 /**
  * @generated
  */
 public class ElementInitializers {
+	private int countElements = 0;
 
 	protected ElementInitializers() {
+
 		// use #getInstance to access cached instance
 	}
 
@@ -35,7 +42,7 @@ public class ElementInitializers {
 	}
 
 	/**
-	 * @generated
+	6	 * @generated
 	 */
 	public void init_Component_2002(Component instance) {
 		try {

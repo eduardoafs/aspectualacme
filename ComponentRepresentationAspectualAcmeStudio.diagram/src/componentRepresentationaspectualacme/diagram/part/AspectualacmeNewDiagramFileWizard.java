@@ -65,7 +65,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 		myFileCreationPage
 				.setDescription(NLS
 						.bind(componentRepresentationaspectualacme.diagram.part.Messages.AspectualacmeNewDiagramFileWizard_CreationPageDescription,
-								componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID));
+								componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = URI.decode(domainModelURI.trimFileExtension()
 				.lastSegment());
@@ -129,7 +129,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 				int diagramVID = componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 						.getDiagramVisualID(diagramRootElementSelectionPage
 								.getModelElement());
-				if (diagramVID != componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.VISUAL_ID) {
+				if (diagramVID != componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID) {
 					return CommandResult
 							.newErrorCommandResult(componentRepresentationaspectualacme.diagram.part.Messages.AspectualacmeNewDiagramFileWizard_IncorrectRootError);
 				}
@@ -137,7 +137,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 						.createDiagram(
 								diagramRootElementSelectionPage
 										.getModelElement(),
-								componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID,
+								componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID,
 								componentRepresentationaspectualacme.diagram.part.ComponentRepresentationAspectualacmeDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
 				return CommandResult.newOKCommandResult();
@@ -201,7 +201,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 					.provides(
 							new CreateDiagramViewOperation(
 									new EObjectAdapter(selectedModelElement),
-									componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID,
+									componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID,
 									componentRepresentationaspectualacme.diagram.part.ComponentRepresentationAspectualacmeDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
 					: componentRepresentationaspectualacme.diagram.part.Messages.AspectualacmeNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);

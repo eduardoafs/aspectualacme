@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class PortTypeItemProvider
-	extends ElementItemProvider
+	extends TypeDefinitionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

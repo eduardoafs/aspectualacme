@@ -23,9 +23,15 @@ import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonContentProvider;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.Component2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponent2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.PortEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCard2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationCompartmentWRepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemCompartmentWSystemEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardEditPart;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
 
@@ -229,11 +235,6 @@ public class AspectualacmeNavigatorContentProvider implements
 							.getType(ComponentEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCard2EditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
 			return result.toArray();
 		}
 
@@ -244,6 +245,68 @@ public class AspectualacmeNavigatorContentProvider implements
 			connectedViews = getChildrenByType(Collections.singleton(sv),
 					AspectualacmeVisualIDRegistry
 							.getType(PortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(ComponentCompartmentWComponentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					AspectualacmeVisualIDRegistry
+							.getType(RepresentationEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case RepresentationEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RepresentationCompartmentWRepresentationEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					AspectualacmeVisualIDRegistry
+							.getType(SystemEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case SystemEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(SystemCompartmentWSystemEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					AspectualacmeVisualIDRegistry
+							.getType(Component2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case Component2EditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(ComponentCompartmentWComponent2EditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					AspectualacmeVisualIDRegistry
+							.getType(RepresentationEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Attachment;
 import aspectualacme.BaseRole;
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
 import aspectualacme.Component;
 import aspectualacme.Connector;
@@ -39,16 +40,16 @@ public class AspectualacmeDiagramUpdater {
 			View view) {
 		switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 				.getVisualID(view)) {
-		case componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
 			return getRepresentation_1000SemanticChildren(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-			return getComponent_2010SemanticChildren(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+			return getComponent_2002SemanticChildren(view);
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 			return getComponent_3001SemanticChildren(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
 			return getConnector_3004SemanticChildren(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID:
-			return getSystemRepSystemComp_7001SemanticChildren(view);
+		case componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID:
+			return getSystemCompartmentRSystem_7001SemanticChildren(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorCompartmentGlueEditPart.VISUAL_ID:
 			return getConnectorCompartmentGlue_7002SemanticChildren(view);
 		}
@@ -78,7 +79,7 @@ public class AspectualacmeDiagramUpdater {
 			Element childElement = modelElement.getElement();
 			int visualID = componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID) {
+			if (visualID == componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID) {
 				result.add(new componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor(
 						childElement, visualID));
 			}
@@ -89,7 +90,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> getComponent_2010SemanticChildren(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> getComponent_2002SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -134,7 +135,7 @@ public class AspectualacmeDiagramUpdater {
 			Representation childElement = (Representation) it.next();
 			int visualID = componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID) {
+			if (visualID == componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID) {
 				result.add(new componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -179,7 +180,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> getSystemRepSystemComp_7001SemanticChildren(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> getSystemCompartmentRSystem_7001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -195,7 +196,7 @@ public class AspectualacmeDiagramUpdater {
 			Component childElement = (Component) it.next();
 			int visualID = componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getNodeVisualID(view, childElement);
-			if (visualID == componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID) {
+			if (visualID == componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID) {
 				result.add(new componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor(
 						childElement, visualID));
 				continue;
@@ -260,17 +261,17 @@ public class AspectualacmeDiagramUpdater {
 			View view) {
 		switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 				.getVisualID(view)) {
-		case componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
 			return getRepresentation_1000ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
-			return getSystem_2009ContainedLinks(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-			return getComponent_2010ContainedLinks(view);
+			return getSystem_2001ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+			return getComponent_2002ContainedLinks(view);
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 			return getComponent_3001ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 			return getPort_3002ContainedLinks(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 			return getRepresentation_3003ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
 			return getConnector_3004ContainedLinks(view);
@@ -279,13 +280,13 @@ public class AspectualacmeDiagramUpdater {
 		case componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID:
 			return getCrosscuttingRole_3006ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
-			return getGlue_3008ContainedLinks(view);
+			return getGlue_3007ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-			return getRole_3012ContainedLinks(view);
+			return getRole_3008ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID:
 			return getWildCard_3009ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
-			return getPort_3011ContainedLinks(view);
+			return getPort_3010ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID:
 			return getAttachment_4001ContainedLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID:
@@ -312,14 +313,14 @@ public class AspectualacmeDiagramUpdater {
 		switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 				.getVisualID(view)) {
 		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
-			return getSystem_2009IncomingLinks(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-			return getComponent_2010IncomingLinks(view);
+			return getSystem_2001IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+			return getComponent_2002IncomingLinks(view);
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 			return getComponent_3001IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 			return getPort_3002IncomingLinks(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 			return getRepresentation_3003IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
 			return getConnector_3004IncomingLinks(view);
@@ -328,13 +329,13 @@ public class AspectualacmeDiagramUpdater {
 		case componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID:
 			return getCrosscuttingRole_3006IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
-			return getGlue_3008IncomingLinks(view);
+			return getGlue_3007IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-			return getRole_3012IncomingLinks(view);
+			return getRole_3008IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID:
 			return getWildCard_3009IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
-			return getPort_3011IncomingLinks(view);
+			return getPort_3010IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID:
 			return getAttachment_4001IncomingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID:
@@ -361,14 +362,14 @@ public class AspectualacmeDiagramUpdater {
 		switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 				.getVisualID(view)) {
 		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
-			return getSystem_2009OutgoingLinks(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-			return getComponent_2010OutgoingLinks(view);
+			return getSystem_2001OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+			return getComponent_2002OutgoingLinks(view);
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 			return getComponent_3001OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 			return getPort_3002OutgoingLinks(view);
-		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 			return getRepresentation_3003OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
 			return getConnector_3004OutgoingLinks(view);
@@ -377,13 +378,13 @@ public class AspectualacmeDiagramUpdater {
 		case componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID:
 			return getCrosscuttingRole_3006OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
-			return getGlue_3008OutgoingLinks(view);
+			return getGlue_3007OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-			return getRole_3012OutgoingLinks(view);
+			return getRole_3008OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID:
 			return getWildCard_3009OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
-			return getPort_3011OutgoingLinks(view);
+			return getPort_3010OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.AttachmentEditPart.VISUAL_ID:
 			return getAttachment_4001OutgoingLinks(view);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment2EditPart.VISUAL_ID:
@@ -416,7 +417,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getSystem_2009ContainedLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getSystem_2001ContainedLinks(
 			View view) {
 		System modelElement = (System) view.getElement();
 		LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> result = new LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor>();
@@ -432,7 +433,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getComponent_2010ContainedLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getComponent_2002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -491,7 +492,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getGlue_3008ContainedLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getGlue_3007ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -499,7 +500,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getRole_3012ContainedLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getRole_3008ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -515,7 +516,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getPort_3011ContainedLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getPort_3010ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -579,7 +580,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getSystem_2009IncomingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getSystem_2001IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -587,7 +588,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getComponent_2010IncomingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getComponent_2002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -663,6 +664,8 @@ public class AspectualacmeDiagramUpdater {
 				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_Attachment_4006(
 				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Binding_4007(modelElement,
+				crossReferences));
 		return result;
 	}
 
@@ -687,13 +690,15 @@ public class AspectualacmeDiagramUpdater {
 				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_Attachment_4006(
 				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Binding_4007(modelElement,
+				crossReferences));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getGlue_3008IncomingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getGlue_3007IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -701,7 +706,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getRole_3012IncomingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getRole_3008IncomingLinks(
 			View view) {
 		Role modelElement = (Role) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -719,6 +724,8 @@ public class AspectualacmeDiagramUpdater {
 				modelElement, crossReferences));
 		result.addAll(getIncomingTypeModelFacetLinks_Attachment_4006(
 				modelElement, crossReferences));
+		result.addAll(getIncomingTypeModelFacetLinks_Binding_4007(modelElement,
+				crossReferences));
 		return result;
 	}
 
@@ -749,7 +756,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getPort_3011IncomingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getPort_3010IncomingLinks(
 			View view) {
 		Port modelElement = (Port) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -831,7 +838,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getSystem_2009OutgoingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getSystem_2001OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -839,7 +846,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getComponent_2010OutgoingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getComponent_2002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -898,6 +905,7 @@ public class AspectualacmeDiagramUpdater {
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4004(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4006(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Binding_4007(modelElement));
 		return result;
 	}
 
@@ -914,13 +922,14 @@ public class AspectualacmeDiagramUpdater {
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4004(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4006(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Binding_4007(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getGlue_3008OutgoingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getGlue_3007OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -928,7 +937,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getRole_3012OutgoingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getRole_3008OutgoingLinks(
 			View view) {
 		Role modelElement = (Role) view.getElement();
 		LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> result = new LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor>();
@@ -938,6 +947,7 @@ public class AspectualacmeDiagramUpdater {
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4004(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4005(modelElement));
 		result.addAll(getOutgoingTypeModelFacetLinks_Attachment_4006(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Binding_4007(modelElement));
 		return result;
 	}
 
@@ -960,7 +970,7 @@ public class AspectualacmeDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getPort_3011OutgoingLinks(
+	public static List<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getPort_3010OutgoingLinks(
 			View view) {
 		Port modelElement = (Port) view.getElement();
 		LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> result = new LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor>();
@@ -1221,8 +1231,8 @@ public class AspectualacmeDiagramUpdater {
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Port dst = link.getSecondPort();
-			Port src = link.getFirstPort();
+			BindableElement dst = link.getSecondPort();
+			BindableElement src = link.getFirstPort();
 			result.add(new componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor(
 					src,
 					dst,
@@ -1423,7 +1433,7 @@ public class AspectualacmeDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getIncomingTypeModelFacetLinks_Binding_4007(
-			Port target,
+			BindableElement target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> result = new LinkedList<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor>();
 		Collection<EStructuralFeature.Setting> settings = crossReferences
@@ -1439,7 +1449,7 @@ public class AspectualacmeDiagramUpdater {
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Port src = link.getFirstPort();
+			BindableElement src = link.getFirstPort();
 			result.add(new componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor(
 					src,
 					target,
@@ -1724,7 +1734,7 @@ public class AspectualacmeDiagramUpdater {
 	 * @generated
 	 */
 	private static Collection<componentRepresentationaspectualacme.diagram.part.AspectualacmeLinkDescriptor> getOutgoingTypeModelFacetLinks_Binding_4007(
-			Port source) {
+			BindableElement source) {
 		Representation container = null;
 		// Find container element for the link.
 		// Climb up by containment hierarchy starting from the source
@@ -1750,8 +1760,8 @@ public class AspectualacmeDiagramUpdater {
 					.getLinkWithClassVisualID(link)) {
 				continue;
 			}
-			Port dst = link.getSecondPort();
-			Port src = link.getFirstPort();
+			BindableElement dst = link.getSecondPort();
+			BindableElement src = link.getFirstPort();
 			if (src != source) {
 				continue;
 			}

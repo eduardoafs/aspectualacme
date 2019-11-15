@@ -126,6 +126,7 @@ public abstract class AbstractParser implements IParser {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isAffectingEvent(Object event, int flags) {
 		if (event instanceof Notification) {
 			return isAffectingFeature(((Notification) event).getFeature());
@@ -148,6 +149,7 @@ public abstract class AbstractParser implements IParser {
 	/**
 	 * @generated
 	 */
+	@Override
 	public IContentAssistProcessor getCompletionProcessor(IAdaptable element) {
 		return null;
 	}
@@ -459,6 +461,7 @@ public abstract class AbstractParser implements IParser {
 		/**
 		 * @generated
 		 */
+		@Override
 		public String toString() {
 			return description;
 		}

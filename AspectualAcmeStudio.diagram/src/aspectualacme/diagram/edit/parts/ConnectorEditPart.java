@@ -32,6 +32,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import aspectualacme.custom.layout.ScaleInnerFigureLayout;
+import aspectualacme.diagram.edit.parts.custom.CircleBorderItemLocator;
 import aspectualacme.diagram.edit.policies.ConnectorCanonicalEditPolicy;
 import aspectualacme.diagram.edit.policies.ConnectorItemSemanticEditPolicy;
 import aspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
@@ -139,23 +141,23 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof BaseRoleEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.RIGHT);
+			CircleBorderItemLocator locator = new CircleBorderItemLocator(
+					getMainFigure(), PositionConstants.LEFT );
 			getBorderedFigure().getBorderItemContainer().add(
 					((BaseRoleEditPart) childEditPart).getFigure(), locator);
 			return true;
 		}
 		if (childEditPart instanceof CrosscuttingRoleEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.RIGHT);
+			CircleBorderItemLocator locator = new CircleBorderItemLocator(
+					getMainFigure(), PositionConstants.RIGHT);
 			getBorderedFigure().getBorderItemContainer().add(
 					((CrosscuttingRoleEditPart) childEditPart).getFigure(),
 					locator);
 			return true;
 		}
 		if (childEditPart instanceof RoleEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.RIGHT);
+			CircleBorderItemLocator locator = new CircleBorderItemLocator(
+					getMainFigure(), PositionConstants.LEFT);
 			getBorderedFigure().getBorderItemContainer().add(
 					((RoleEditPart) childEditPart).getFigure(), locator);
 			return true;
@@ -360,7 +362,12 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 		 * @generated
 		 */
 		public ConnectorFigure() {
-			this.setLineWidth(2);
+
+			ScaleInnerFigureLayout layoutThis = new ScaleInnerFigureLayout();
+
+			this.setLayoutManager(layoutThis);
+
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 			createContents();
 		}

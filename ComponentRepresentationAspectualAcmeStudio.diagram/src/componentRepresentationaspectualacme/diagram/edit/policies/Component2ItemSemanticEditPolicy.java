@@ -26,16 +26,21 @@ public class Component2ItemSemanticEditPolicy
 	 */
 	public Component2ItemSemanticEditPolicy() {
 		super(
-				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_2010);
+				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_3001);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011 == req
+		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002 == req
 				.getElementType()) {
-			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.Port2CreateCommand(
+			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.PortCreateCommand(
+					req));
+		}
+		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Representation_3003 == req
+				.getElementType()) {
+			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.RepresentationCreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -71,7 +76,7 @@ public class Component2ItemSemanticEditPolicy
 			Node node = (Node) nit.next();
 			switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getVisualID(node)) {
-			case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
+			case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getTargetEdges().iterator(); it
 						.hasNext();) {
 					Edge incomingLink = (Edge) it.next();
@@ -206,6 +211,12 @@ public class Component2ItemSemanticEditPolicy
 						continue;
 					}
 				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 

@@ -17,7 +17,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConnectorTypeTest extends ElementTest {
+public class ConnectorTypeTest extends TypeDefinitionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

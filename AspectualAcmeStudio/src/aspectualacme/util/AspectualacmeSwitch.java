@@ -7,11 +7,28 @@
 package aspectualacme.util;
 
 import aspectualacme.Armani;
+import aspectualacme.ArmaniAdditiveExpression;
+import aspectualacme.ArmaniBooleanExpression;
+import aspectualacme.ArmaniConstant;
+import aspectualacme.ArmaniDesignRuleExpression;
+import aspectualacme.ArmaniEqualityExpression;
 import aspectualacme.ArmaniExpression;
+import aspectualacme.ArmaniFunctionCall;
+import aspectualacme.ArmaniIffExpression;
+import aspectualacme.ArmaniImpliesExpression;
+import aspectualacme.ArmaniMultiplicativeExpression;
+import aspectualacme.ArmaniOrExpression;
+import aspectualacme.ArmaniPrimitiveExpression;
+import aspectualacme.ArmaniQuantifiedExpression;
+import aspectualacme.ArmaniRelationalExpression;
+import aspectualacme.ArmaniSetExpression;
+import aspectualacme.ArmaniUnaryExpression;
+import aspectualacme.ArmaniVariable;
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Attachment;
 import aspectualacme.BaseRole;
 import aspectualacme.BasicElement;
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
 import aspectualacme.Component;
 import aspectualacme.ComponentType;
@@ -20,15 +37,20 @@ import aspectualacme.ConnectorType;
 import aspectualacme.CrosscuttingRole;
 import aspectualacme.Element;
 import aspectualacme.Family;
+import aspectualacme.Feature;
 import aspectualacme.Glue;
 import aspectualacme.Import;
 import aspectualacme.Port;
 import aspectualacme.PortType;
+import aspectualacme.Product;
+import aspectualacme.ProductLine;
 import aspectualacme.Property;
+import aspectualacme.PropertyType;
 import aspectualacme.Representation;
 import aspectualacme.Role;
 import aspectualacme.RoleType;
 import aspectualacme.Root;
+import aspectualacme.TypeDefinition;
 import aspectualacme.WildCard;
 import aspectualacme.attachableElement;
 
@@ -129,12 +151,6 @@ public class AspectualacmeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case AspectualacmePackage.ARMANI_EXPRESSION: {
-				ArmaniExpression armaniExpression = (ArmaniExpression)theEObject;
-				T result = caseArmaniExpression(armaniExpression);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case AspectualacmePackage.ATTACHABLE_ELEMENT: {
 				attachableElement attachableElement = (attachableElement)theEObject;
 				T result = caseattachableElement(attachableElement);
@@ -160,6 +176,7 @@ public class AspectualacmeSwitch<T> {
 			case AspectualacmePackage.COMPONENT_TYPE: {
 				ComponentType componentType = (ComponentType)theEObject;
 				T result = caseComponentType(componentType);
+				if (result == null) result = caseTypeDefinition(componentType);
 				if (result == null) result = caseElement(componentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -167,6 +184,7 @@ public class AspectualacmeSwitch<T> {
 			case AspectualacmePackage.ROLE_TYPE: {
 				RoleType roleType = (RoleType)theEObject;
 				T result = caseRoleType(roleType);
+				if (result == null) result = caseTypeDefinition(roleType);
 				if (result == null) result = caseElement(roleType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -174,6 +192,7 @@ public class AspectualacmeSwitch<T> {
 			case AspectualacmePackage.PORT_TYPE: {
 				PortType portType = (PortType)theEObject;
 				T result = casePortType(portType);
+				if (result == null) result = caseTypeDefinition(portType);
 				if (result == null) result = caseElement(portType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -181,7 +200,16 @@ public class AspectualacmeSwitch<T> {
 			case AspectualacmePackage.CONNECTOR_TYPE: {
 				ConnectorType connectorType = (ConnectorType)theEObject;
 				T result = caseConnectorType(connectorType);
+				if (result == null) result = caseTypeDefinition(connectorType);
 				if (result == null) result = caseElement(connectorType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.PROPERTY_TYPE: {
+				PropertyType propertyType = (PropertyType)theEObject;
+				T result = casePropertyType(propertyType);
+				if (result == null) result = caseTypeDefinition(propertyType);
+				if (result == null) result = caseElement(propertyType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -211,6 +239,7 @@ public class AspectualacmeSwitch<T> {
 				Role role = (Role)theEObject;
 				T result = caseRole(role);
 				if (result == null) result = caseattachableElement(role);
+				if (result == null) result = caseBindableElement(role);
 				if (result == null) result = caseElement(role);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -220,6 +249,7 @@ public class AspectualacmeSwitch<T> {
 				T result = caseBaseRole(baseRole);
 				if (result == null) result = caseRole(baseRole);
 				if (result == null) result = caseattachableElement(baseRole);
+				if (result == null) result = caseBindableElement(baseRole);
 				if (result == null) result = caseElement(baseRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -229,6 +259,7 @@ public class AspectualacmeSwitch<T> {
 				T result = caseCrosscuttingRole(crosscuttingRole);
 				if (result == null) result = caseRole(crosscuttingRole);
 				if (result == null) result = caseattachableElement(crosscuttingRole);
+				if (result == null) result = caseBindableElement(crosscuttingRole);
 				if (result == null) result = caseElement(crosscuttingRole);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -237,6 +268,7 @@ public class AspectualacmeSwitch<T> {
 				Port port = (Port)theEObject;
 				T result = casePort(port);
 				if (result == null) result = caseattachableElement(port);
+				if (result == null) result = caseBindableElement(port);
 				if (result == null) result = caseElement(port);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -279,9 +311,150 @@ public class AspectualacmeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case AspectualacmePackage.BINDABLE_ELEMENT: {
+				BindableElement bindableElement = (BindableElement)theEObject;
+				T result = caseBindableElement(bindableElement);
+				if (result == null) result = caseElement(bindableElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.TYPE_DEFINITION: {
+				TypeDefinition typeDefinition = (TypeDefinition)theEObject;
+				T result = caseTypeDefinition(typeDefinition);
+				if (result == null) result = caseElement(typeDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case AspectualacmePackage.ARMANI: {
 				Armani armani = (Armani)theEObject;
 				T result = caseArmani(armani);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_EXPRESSION: {
+				ArmaniExpression armaniExpression = (ArmaniExpression)theEObject;
+				T result = caseArmaniExpression(armaniExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_FUNCTION_CALL: {
+				ArmaniFunctionCall armaniFunctionCall = (ArmaniFunctionCall)theEObject;
+				T result = caseArmaniFunctionCall(armaniFunctionCall);
+				if (result == null) result = caseArmaniPrimitiveExpression(armaniFunctionCall);
+				if (result == null) result = caseArmaniUnaryExpression(armaniFunctionCall);
+				if (result == null) result = caseArmaniExpression(armaniFunctionCall);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_SET_EXPRESSION: {
+				ArmaniSetExpression armaniSetExpression = (ArmaniSetExpression)theEObject;
+				T result = caseArmaniSetExpression(armaniSetExpression);
+				if (result == null) result = caseArmaniPrimitiveExpression(armaniSetExpression);
+				if (result == null) result = caseArmaniUnaryExpression(armaniSetExpression);
+				if (result == null) result = caseArmaniExpression(armaniSetExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_CONSTANT: {
+				ArmaniConstant armaniConstant = (ArmaniConstant)theEObject;
+				T result = caseArmaniConstant(armaniConstant);
+				if (result == null) result = caseArmaniPrimitiveExpression(armaniConstant);
+				if (result == null) result = caseArmaniUnaryExpression(armaniConstant);
+				if (result == null) result = caseArmaniExpression(armaniConstant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_PRIMITIVE_EXPRESSION: {
+				ArmaniPrimitiveExpression armaniPrimitiveExpression = (ArmaniPrimitiveExpression)theEObject;
+				T result = caseArmaniPrimitiveExpression(armaniPrimitiveExpression);
+				if (result == null) result = caseArmaniUnaryExpression(armaniPrimitiveExpression);
+				if (result == null) result = caseArmaniExpression(armaniPrimitiveExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_UNARY_EXPRESSION: {
+				ArmaniUnaryExpression armaniUnaryExpression = (ArmaniUnaryExpression)theEObject;
+				T result = caseArmaniUnaryExpression(armaniUnaryExpression);
+				if (result == null) result = caseArmaniExpression(armaniUnaryExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_MULTIPLICATIVE_EXPRESSION: {
+				ArmaniMultiplicativeExpression armaniMultiplicativeExpression = (ArmaniMultiplicativeExpression)theEObject;
+				T result = caseArmaniMultiplicativeExpression(armaniMultiplicativeExpression);
+				if (result == null) result = caseArmaniExpression(armaniMultiplicativeExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_ADDITIVE_EXPRESSION: {
+				ArmaniAdditiveExpression armaniAdditiveExpression = (ArmaniAdditiveExpression)theEObject;
+				T result = caseArmaniAdditiveExpression(armaniAdditiveExpression);
+				if (result == null) result = caseArmaniExpression(armaniAdditiveExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_RELATIONAL_EXPRESSION: {
+				ArmaniRelationalExpression armaniRelationalExpression = (ArmaniRelationalExpression)theEObject;
+				T result = caseArmaniRelationalExpression(armaniRelationalExpression);
+				if (result == null) result = caseArmaniExpression(armaniRelationalExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_EQUALITY_EXPRESSION: {
+				ArmaniEqualityExpression armaniEqualityExpression = (ArmaniEqualityExpression)theEObject;
+				T result = caseArmaniEqualityExpression(armaniEqualityExpression);
+				if (result == null) result = caseArmaniExpression(armaniEqualityExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_IFF_EXPRESSION: {
+				ArmaniIffExpression armaniIffExpression = (ArmaniIffExpression)theEObject;
+				T result = caseArmaniIffExpression(armaniIffExpression);
+				if (result == null) result = caseArmaniExpression(armaniIffExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_IMPLIES_EXPRESSION: {
+				ArmaniImpliesExpression armaniImpliesExpression = (ArmaniImpliesExpression)theEObject;
+				T result = caseArmaniImpliesExpression(armaniImpliesExpression);
+				if (result == null) result = caseArmaniExpression(armaniImpliesExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_OR_EXPRESSION: {
+				ArmaniOrExpression armaniOrExpression = (ArmaniOrExpression)theEObject;
+				T result = caseArmaniOrExpression(armaniOrExpression);
+				if (result == null) result = caseArmaniExpression(armaniOrExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_VARIABLE: {
+				ArmaniVariable armaniVariable = (ArmaniVariable)theEObject;
+				T result = caseArmaniVariable(armaniVariable);
+				if (result == null) result = caseArmaniExpression(armaniVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_BOOLEAN_EXPRESSION: {
+				ArmaniBooleanExpression armaniBooleanExpression = (ArmaniBooleanExpression)theEObject;
+				T result = caseArmaniBooleanExpression(armaniBooleanExpression);
+				if (result == null) result = caseArmaniDesignRuleExpression(armaniBooleanExpression);
+				if (result == null) result = caseArmaniExpression(armaniBooleanExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_QUANTIFIED_EXPRESSION: {
+				ArmaniQuantifiedExpression armaniQuantifiedExpression = (ArmaniQuantifiedExpression)theEObject;
+				T result = caseArmaniQuantifiedExpression(armaniQuantifiedExpression);
+				if (result == null) result = caseArmaniDesignRuleExpression(armaniQuantifiedExpression);
+				if (result == null) result = caseArmaniExpression(armaniQuantifiedExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case AspectualacmePackage.ARMANI_DESIGN_RULE_EXPRESSION: {
+				ArmaniDesignRuleExpression armaniDesignRuleExpression = (ArmaniDesignRuleExpression)theEObject;
+				T result = caseArmaniDesignRuleExpression(armaniDesignRuleExpression);
+				if (result == null) result = caseArmaniExpression(armaniDesignRuleExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -346,6 +519,246 @@ public class AspectualacmeSwitch<T> {
 	 * @generated
 	 */
 	public T caseArmaniExpression(ArmaniExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Function Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Function Call</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniFunctionCall(ArmaniFunctionCall object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Set Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Set Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniSetExpression(ArmaniSetExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Constant</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Constant</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniConstant(ArmaniConstant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Primitive Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Primitive Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniPrimitiveExpression(ArmaniPrimitiveExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Unary Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Unary Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniUnaryExpression(ArmaniUnaryExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Multiplicative Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Multiplicative Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniMultiplicativeExpression(ArmaniMultiplicativeExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Additive Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Additive Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniAdditiveExpression(ArmaniAdditiveExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Relational Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Relational Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniRelationalExpression(ArmaniRelationalExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Equality Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Equality Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniEqualityExpression(ArmaniEqualityExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Iff Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Iff Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniIffExpression(ArmaniIffExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Implies Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Implies Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniImpliesExpression(ArmaniImpliesExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Or Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Or Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniOrExpression(ArmaniOrExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniVariable(ArmaniVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Boolean Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Boolean Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniBooleanExpression(ArmaniBooleanExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Quantified Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Quantified Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniQuantifiedExpression(ArmaniQuantifiedExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Armani Design Rule Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Armani Design Rule Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArmaniDesignRuleExpression(ArmaniDesignRuleExpression object) {
 		return null;
 	}
 
@@ -451,6 +864,21 @@ public class AspectualacmeSwitch<T> {
 	 * @generated
 	 */
 	public T caseConnectorType(ConnectorType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Property Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Property Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePropertyType(PropertyType object) {
 		return null;
 	}
 
@@ -661,6 +1089,36 @@ public class AspectualacmeSwitch<T> {
 	 * @generated
 	 */
 	public T caseArmani(Armani object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bindable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bindable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBindableElement(BindableElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeDefinition(TypeDefinition object) {
 		return null;
 	}
 

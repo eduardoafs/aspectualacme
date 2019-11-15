@@ -40,6 +40,7 @@ public class WildCardEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
@@ -58,6 +59,7 @@ public class WildCardEditPart extends DiagramEditPart {
 		/**
 		 * @generated
 		 */
+		@Override
 		@SuppressWarnings("rawtypes")
 		protected List createSelectionHandles() {
 			MoveHandle h = new MoveHandle((GraphicalEditPart) getHost());
@@ -68,6 +70,7 @@ public class WildCardEditPart extends DiagramEditPart {
 		/**
 		 * @generated
 		 */
+		@Override
 		public Command getCommand(Request request) {
 			return null;
 		}
@@ -75,6 +78,7 @@ public class WildCardEditPart extends DiagramEditPart {
 		/**
 		 * @generated
 		 */
+		@Override
 		public boolean understandsRequest(Request request) {
 			return false;
 		}

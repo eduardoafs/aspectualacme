@@ -14,7 +14,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Component"
-          description="Create new Component">
+          description="Create new Component : choose this button and then click a free space in the editor to create a new component.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -23,7 +23,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Connector"
-          description="Create new Connector">
+          description="Create new Connector : choose this button and then click a free space in the editor to create a new connector.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -32,7 +32,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Port"
-          description="Create new Port">
+          description="Create new Port : choose this button and then click the component that you want to add a port.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -41,7 +41,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Role"
-          description="Create new Role">
+          description="Create new Role : choose this button and then click the connector that you want to add a role.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -50,7 +50,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="BaseRole"
-          description="Create New BaseRole">
+          description="Create New BaseRole : choose this button and then click the connector that you want to add a baserole.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -59,7 +59,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="CrosscuttingRole"
-          description="Create New CrosscuttingRole">
+          description="Create New CrosscuttingRole : choose this button and then click the connector that you want to add a crosscuttingrole.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -68,7 +68,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Glue"
-          description="Create new Glue">
+          description="Create new Glue : choose this button and then click the connector that you want to add a glue clause.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -77,7 +77,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="WildCard"
-          description="Create new WildCard">
+          description="Create new WildCard : choose this button and then click a free space in the editor to create a new wildcard.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -86,7 +86,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Attachment"
-          description="Create new Attachment">
+          description="Create new Attachment : attachments are connections between: ports and roles; roles and ports; roles and wildcards; wildcards and roles;">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -104,7 +104,7 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Representation"
-          description="Create new Representation">
+          description="Create new Representation : choose this button and then click the component that you want to add a representation.">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -113,7 +113,16 @@
       <tools
           xsi:type="gmftool:CreationTool"
           title="Binding"
-          description="Create New Binding">
+          description="Create New Binding : bindings are connections between internal ports of an representation to an external port of a representation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="System"
+          description="Create a System">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

@@ -24,6 +24,7 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
+	@Override
 	public EditPart createEditPart(EditPart context, Object model) {
 		if (model instanceof View) {
 			View view = (View) model;
@@ -38,14 +39,39 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 			case ComponentNameEditPart.VISUAL_ID:
 				return new ComponentNameEditPart(view);
 
-			case WildCard2EditPart.VISUAL_ID:
-				return new WildCard2EditPart(view);
-
-			case WildCardNameEditPart.VISUAL_ID:
-				return new WildCardNameEditPart(view);
-
 			case PortEditPart.VISUAL_ID:
 				return new PortEditPart(view);
+
+			case RepresentationEditPart.VISUAL_ID:
+				return new RepresentationEditPart(view);
+
+			case RepresentationNameEditPart.VISUAL_ID:
+				return new RepresentationNameEditPart(view);
+
+			case SystemEditPart.VISUAL_ID:
+				return new SystemEditPart(view);
+
+			case SystemNameEditPart.VISUAL_ID:
+				return new SystemNameEditPart(view);
+
+			case Component2EditPart.VISUAL_ID:
+				return new Component2EditPart(view);
+
+			case ComponentName2EditPart.VISUAL_ID:
+				return new ComponentName2EditPart(view);
+
+			case ComponentCompartmentWComponentEditPart.VISUAL_ID:
+				return new ComponentCompartmentWComponentEditPart(view);
+
+			case RepresentationCompartmentWRepresentationEditPart.VISUAL_ID:
+				return new RepresentationCompartmentWRepresentationEditPart(
+						view);
+
+			case SystemCompartmentWSystemEditPart.VISUAL_ID:
+				return new SystemCompartmentWSystemEditPart(view);
+
+			case ComponentCompartmentWComponent2EditPart.VISUAL_ID:
+				return new ComponentCompartmentWComponent2EditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);
@@ -98,6 +124,7 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 		/**
 		 * @generated
 		 */
+		@Override
 		public void relocate(CellEditor celleditor) {
 			Text text = (Text) celleditor.getControl();
 			Rectangle rect = getWrapLabel().getTextBounds().getCopy();
@@ -147,6 +174,7 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 		/**
 		 * @generated
 		 */
+		@Override
 		public void relocate(CellEditor celleditor) {
 			Text text = (Text) celleditor.getControl();
 			Rectangle rect = getLabel().getTextBounds().getCopy();

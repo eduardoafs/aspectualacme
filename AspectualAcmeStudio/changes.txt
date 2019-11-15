@@ -1,0 +1,9 @@
+-gmfgen
+ 
+ -componentRepresentation Behavior
+ 	DiagramKind = componentRepresentationAspectualacme
+ 	Editor ID = componentRepresentationaspectualacme.diagram.part.AspectualacmeDiagramEditorID
+ 
+ -wildCardRepresentation behavior
+ 	DiagramKind = WildCardRepresentationAspectualacme
+ 	Editor ID = wildcardrepresentationaspectualacme.diagram.part.AspectualacmeDiagramEditorID

@@ -179,25 +179,167 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniExpression()
 	 * @generated
 	 */
-	int ARMANI_EXPRESSION = 3;
+	int ARMANI_EXPRESSION = 27;
 
 	/**
-	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniUnaryExpressionImpl <em>Armani Unary Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniUnaryExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniUnaryExpression()
 	 * @generated
-	 * @ordered
 	 */
-	int ARMANI_EXPRESSION__EXPRESSION = 0;
+	int ARMANI_UNARY_EXPRESSION = 32;
 
 	/**
-	 * The number of structural features of the '<em>Armani Expression</em>' class.
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniPrimitiveExpressionImpl <em>Armani Primitive Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniPrimitiveExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniPrimitiveExpression()
 	 * @generated
-	 * @ordered
 	 */
-	int ARMANI_EXPRESSION_FEATURE_COUNT = 1;
+	int ARMANI_PRIMITIVE_EXPRESSION = 31;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniFunctionCallImpl <em>Armani Function Call</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniFunctionCallImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniFunctionCall()
+	 * @generated
+	 */
+	int ARMANI_FUNCTION_CALL = 28;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniSetExpressionImpl <em>Armani Set Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniSetExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniSetExpression()
+	 * @generated
+	 */
+	int ARMANI_SET_EXPRESSION = 29;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniConstantImpl <em>Armani Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniConstantImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniConstant()
+	 * @generated
+	 */
+	int ARMANI_CONSTANT = 30;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniMultiplicativeExpressionImpl <em>Armani Multiplicative Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniMultiplicativeExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniMultiplicativeExpression()
+	 * @generated
+	 */
+	int ARMANI_MULTIPLICATIVE_EXPRESSION = 33;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniAdditiveExpressionImpl <em>Armani Additive Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniAdditiveExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniAdditiveExpression()
+	 * @generated
+	 */
+	int ARMANI_ADDITIVE_EXPRESSION = 34;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniRelationalExpressionImpl <em>Armani Relational Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniRelationalExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniRelationalExpression()
+	 * @generated
+	 */
+	int ARMANI_RELATIONAL_EXPRESSION = 35;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniEqualityExpressionImpl <em>Armani Equality Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniEqualityExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniEqualityExpression()
+	 * @generated
+	 */
+	int ARMANI_EQUALITY_EXPRESSION = 36;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniIffExpressionImpl <em>Armani Iff Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniIffExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniIffExpression()
+	 * @generated
+	 */
+	int ARMANI_IFF_EXPRESSION = 37;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniImpliesExpressionImpl <em>Armani Implies Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniImpliesExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniImpliesExpression()
+	 * @generated
+	 */
+	int ARMANI_IMPLIES_EXPRESSION = 38;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniOrExpressionImpl <em>Armani Or Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniOrExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniOrExpression()
+	 * @generated
+	 */
+	int ARMANI_OR_EXPRESSION = 39;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniVariableImpl <em>Armani Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniVariableImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniVariable()
+	 * @generated
+	 */
+	int ARMANI_VARIABLE = 40;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.ArmaniDesignRuleExpression <em>Armani Design Rule Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.ArmaniDesignRuleExpression
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniDesignRuleExpression()
+	 * @generated
+	 */
+	int ARMANI_DESIGN_RULE_EXPRESSION = 43;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniBooleanExpressionImpl <em>Armani Boolean Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniBooleanExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniBooleanExpression()
+	 * @generated
+	 */
+	int ARMANI_BOOLEAN_EXPRESSION = 41;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.ArmaniQuantifiedExpressionImpl <em>Armani Quantified Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.ArmaniQuantifiedExpressionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniQuantifiedExpression()
+	 * @generated
+	 */
+	int ARMANI_QUANTIFIED_EXPRESSION = 42;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.attachableElementImpl <em>attachable Element</em>}' class.
@@ -207,7 +349,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getattachableElement()
 	 * @generated
 	 */
-	int ATTACHABLE_ELEMENT = 4;
+	int ATTACHABLE_ELEMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -253,7 +395,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getBasicElement()
 	 * @generated
 	 */
-	int BASIC_ELEMENT = 5;
+	int BASIC_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -317,7 +459,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getFamily()
 	 * @generated
 	 */
-	int FAMILY = 6;
+	int FAMILY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -437,13 +579,77 @@ public interface AspectualacmePackage extends EPackage {
 	int FAMILY__RTYPES = BASIC_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Prtypes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAMILY__PRTYPES = BASIC_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAMILY__PROPERTIES = BASIC_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Family</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAMILY_FEATURE_COUNT = BASIC_ELEMENT_FEATURE_COUNT + 8;
+	int FAMILY_FEATURE_COUNT = BASIC_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.TypeDefinitionImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getTypeDefinition()
+	 * @generated
+	 */
+	int TYPE_DEFINITION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_DEFINITION__PROPERTY = ELEMENT__PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_DEFINITION__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_DEFINITION__REPRESENTATIONS = ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The number of structural features of the '<em>Type Definition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_DEFINITION_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.ComponentTypeImpl <em>Component Type</em>}' class.
@@ -453,7 +659,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getComponentType()
 	 * @generated
 	 */
-	int COMPONENT_TYPE = 7;
+	int COMPONENT_TYPE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -462,7 +668,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__PROPERTY = ELEMENT__PROPERTY;
+	int COMPONENT_TYPE__PROPERTY = TYPE_DEFINITION__PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -471,7 +677,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__NAME = ELEMENT__NAME;
+	int COMPONENT_TYPE__NAME = TYPE_DEFINITION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
@@ -480,7 +686,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__REPRESENTATIONS = ELEMENT__REPRESENTATIONS;
+	int COMPONENT_TYPE__REPRESENTATIONS = TYPE_DEFINITION__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Port</b></em>' containment reference list.
@@ -489,7 +695,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__PORT = ELEMENT_FEATURE_COUNT + 0;
+	int COMPONENT_TYPE__PORT = TYPE_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parent Type</b></em>' reference list.
@@ -498,7 +704,16 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE__PARENT_TYPE = ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT_TYPE__PARENT_TYPE = TYPE_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_TYPE__PARENT_FAMILY = TYPE_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Component Type</em>' class.
@@ -507,7 +722,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_TYPE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 2;
+	int COMPONENT_TYPE_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.RoleTypeImpl <em>Role Type</em>}' class.
@@ -517,7 +732,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getRoleType()
 	 * @generated
 	 */
-	int ROLE_TYPE = 8;
+	int ROLE_TYPE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -526,7 +741,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_TYPE__PROPERTY = ELEMENT__PROPERTY;
+	int ROLE_TYPE__PROPERTY = TYPE_DEFINITION__PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -535,7 +750,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_TYPE__NAME = ELEMENT__NAME;
+	int ROLE_TYPE__NAME = TYPE_DEFINITION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
@@ -544,7 +759,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_TYPE__REPRESENTATIONS = ELEMENT__REPRESENTATIONS;
+	int ROLE_TYPE__REPRESENTATIONS = TYPE_DEFINITION__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Parent Type</b></em>' reference list.
@@ -553,7 +768,16 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_TYPE__PARENT_TYPE = ELEMENT_FEATURE_COUNT + 0;
+	int ROLE_TYPE__PARENT_TYPE = TYPE_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE_TYPE__PARENT_FAMILY = TYPE_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Role Type</em>' class.
@@ -562,7 +786,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_TYPE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int ROLE_TYPE_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.PortTypeImpl <em>Port Type</em>}' class.
@@ -572,7 +796,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getPortType()
 	 * @generated
 	 */
-	int PORT_TYPE = 9;
+	int PORT_TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -581,7 +805,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__PROPERTY = ELEMENT__PROPERTY;
+	int PORT_TYPE__PROPERTY = TYPE_DEFINITION__PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -590,7 +814,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__NAME = ELEMENT__NAME;
+	int PORT_TYPE__NAME = TYPE_DEFINITION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
@@ -599,7 +823,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__REPRESENTATIONS = ELEMENT__REPRESENTATIONS;
+	int PORT_TYPE__REPRESENTATIONS = TYPE_DEFINITION__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Parent Type</b></em>' reference list.
@@ -608,7 +832,16 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE__PARENT_TYPE = ELEMENT_FEATURE_COUNT + 0;
+	int PORT_TYPE__PARENT_TYPE = TYPE_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_TYPE__PARENT_FAMILY = TYPE_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Port Type</em>' class.
@@ -617,7 +850,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_TYPE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int PORT_TYPE_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.ConnectorTypeImpl <em>Connector Type</em>}' class.
@@ -627,7 +860,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getConnectorType()
 	 * @generated
 	 */
-	int CONNECTOR_TYPE = 10;
+	int CONNECTOR_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
@@ -636,7 +869,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE__PROPERTY = ELEMENT__PROPERTY;
+	int CONNECTOR_TYPE__PROPERTY = TYPE_DEFINITION__PROPERTY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -645,7 +878,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE__NAME = ELEMENT__NAME;
+	int CONNECTOR_TYPE__NAME = TYPE_DEFINITION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
@@ -654,7 +887,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE__REPRESENTATIONS = ELEMENT__REPRESENTATIONS;
+	int CONNECTOR_TYPE__REPRESENTATIONS = TYPE_DEFINITION__REPRESENTATIONS;
 
 	/**
 	 * The feature id for the '<em><b>Parent Type</b></em>' reference list.
@@ -663,7 +896,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE__PARENT_TYPE = ELEMENT_FEATURE_COUNT + 0;
+	int CONNECTOR_TYPE__PARENT_TYPE = TYPE_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' containment reference list.
@@ -672,7 +905,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE__ROLE = ELEMENT_FEATURE_COUNT + 1;
+	int CONNECTOR_TYPE__ROLE = TYPE_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Glue</b></em>' containment reference list.
@@ -681,7 +914,16 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE__GLUE = ELEMENT_FEATURE_COUNT + 2;
+	int CONNECTOR_TYPE__GLUE = TYPE_DEFINITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR_TYPE__PARENT_FAMILY = TYPE_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Connector Type</em>' class.
@@ -690,7 +932,80 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_TYPE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int CONNECTOR_TYPE_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.impl.PropertyTypeImpl <em>Property Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.PropertyTypeImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getPropertyType()
+	 * @generated
+	 */
+	int PROPERTY_TYPE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE__PROPERTY = TYPE_DEFINITION__PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE__NAME = TYPE_DEFINITION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE__REPRESENTATIONS = TYPE_DEFINITION__REPRESENTATIONS;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE__TYPE = TYPE_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Values</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE__VALUES = TYPE_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE__PARENT_FAMILY = TYPE_DEFINITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Property Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_TYPE_FEATURE_COUNT = TYPE_DEFINITION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.SystemImpl <em>System</em>}' class.
@@ -757,13 +1072,22 @@ public interface AspectualacmePackage extends EPackage {
 	int SYSTEM__CONNECTORS = BASIC_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__PROPERTIES = BASIC_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Attachments</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__ATTACHMENTS = BASIC_ELEMENT_FEATURE_COUNT + 1;
+	int SYSTEM__ATTACHMENTS = BASIC_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Wild Card</b></em>' containment reference list.
@@ -772,16 +1096,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__WILD_CARD = BASIC_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__PROPERTIES = BASIC_ELEMENT_FEATURE_COUNT + 3;
+	int SYSTEM__WILD_CARD = BASIC_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
@@ -802,13 +1117,22 @@ public interface AspectualacmePackage extends EPackage {
 	int SYSTEM__PARENT_REPRESENTATION = BASIC_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__EFFECTIVE_TYPE = BASIC_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = BASIC_ELEMENT_FEATURE_COUNT + 6;
+	int SYSTEM_FEATURE_COUNT = BASIC_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.ComponentImpl <em>Component</em>}' class.
@@ -884,13 +1208,22 @@ public interface AspectualacmePackage extends EPackage {
 	int COMPONENT__PARENT_FAMILY = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__EFFECTIVE_TYPE = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -957,13 +1290,40 @@ public interface AspectualacmePackage extends EPackage {
 	int CONNECTOR__TYPE = ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Parent System</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__PARENT_SYSTEM = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__PARENT_FAMILY = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__EFFECTIVE_TYPE = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 3;
+	int CONNECTOR_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.RoleImpl <em>Role</em>}' class.
@@ -1012,13 +1372,31 @@ public interface AspectualacmePackage extends EPackage {
 	int ROLE__CONNECTOR = ATTACHABLE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Connector T</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__CONNECTOR_T = ATTACHABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Role Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE__ROLE_TYPE = ATTACHABLE_ELEMENT_FEATURE_COUNT + 1;
+	int ROLE__ROLE_TYPE = ATTACHABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLE__EFFECTIVE_TYPE = ATTACHABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Role</em>' class.
@@ -1027,7 +1405,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLE_FEATURE_COUNT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 2;
+	int ROLE_FEATURE_COUNT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.BaseRoleImpl <em>Base Role</em>}' class.
@@ -1076,6 +1454,15 @@ public interface AspectualacmePackage extends EPackage {
 	int BASE_ROLE__CONNECTOR = ROLE__CONNECTOR;
 
 	/**
+	 * The feature id for the '<em><b>Connector T</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_ROLE__CONNECTOR_T = ROLE__CONNECTOR_T;
+
+	/**
 	 * The feature id for the '<em><b>Role Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1083,6 +1470,15 @@ public interface AspectualacmePackage extends EPackage {
 	 * @ordered
 	 */
 	int BASE_ROLE__ROLE_TYPE = ROLE__ROLE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_ROLE__EFFECTIVE_TYPE = ROLE__EFFECTIVE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference list.
@@ -1149,6 +1545,15 @@ public interface AspectualacmePackage extends EPackage {
 	int CROSSCUTTING_ROLE__CONNECTOR = ROLE__CONNECTOR;
 
 	/**
+	 * The feature id for the '<em><b>Connector T</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSSCUTTING_ROLE__CONNECTOR_T = ROLE__CONNECTOR_T;
+
+	/**
 	 * The feature id for the '<em><b>Role Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1156,6 +1561,15 @@ public interface AspectualacmePackage extends EPackage {
 	 * @ordered
 	 */
 	int CROSSCUTTING_ROLE__ROLE_TYPE = ROLE__ROLE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CROSSCUTTING_ROLE__EFFECTIVE_TYPE = ROLE__EFFECTIVE_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference list.
@@ -1213,22 +1627,40 @@ public interface AspectualacmePackage extends EPackage {
 	int PORT__REPRESENTATIONS = ATTACHABLE_ELEMENT__REPRESENTATIONS;
 
 	/**
-	 * The feature id for the '<em><b>Component</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PORT__COMPONENT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Port Type</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT__PORT_TYPE = ATTACHABLE_ELEMENT_FEATURE_COUNT + 1;
+	int PORT__PORT_TYPE = ATTACHABLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__COMPONENT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Component T</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__COMPONENT_T = ATTACHABLE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Effective type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__EFFECTIVE_TYPE = ATTACHABLE_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Port</em>' class.
@@ -1237,7 +1669,7 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_FEATURE_COUNT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 2;
+	int PORT_FEATURE_COUNT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.PropertyImpl <em>Property</em>}' class.
@@ -1268,13 +1700,40 @@ public interface AspectualacmePackage extends EPackage {
 	int PROPERTY__VALUE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parent System</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__PARENT_SYSTEM = 3;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__PARENT_FAMILY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = 2;
+	int PROPERTY_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.GlueImpl <em>Glue</em>}' class.
@@ -1360,13 +1819,31 @@ public interface AspectualacmePackage extends EPackage {
 	int ATTACHMENT__SECOND_ELEMENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Parent System</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTACHMENT__PARENT_SYSTEM = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parent Family</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTACHMENT__PARENT_FAMILY = 3;
+
+	/**
 	 * The number of structural features of the '<em>Attachment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTACHMENT_FEATURE_COUNT = 2;
+	int ATTACHMENT_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.BindingImpl <em>Binding</em>}' class.
@@ -1406,13 +1883,22 @@ public interface AspectualacmePackage extends EPackage {
 	int BINDING__SECOND_PORT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Representation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDING__REPRESENTATION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Binding</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BINDING_FEATURE_COUNT = 3;
+	int BINDING_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.RepresentationImpl <em>Representation</em>}' class.
@@ -1507,13 +1993,22 @@ public interface AspectualacmePackage extends EPackage {
 	int WILD_CARD__REPRESENTATIONS = ATTACHABLE_ELEMENT__REPRESENTATIONS;
 
 	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WILD_CARD__EXPRESSION = ATTACHABLE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Wild Card</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WILD_CARD_FEATURE_COUNT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 0;
+	int WILD_CARD_FEATURE_COUNT = ATTACHABLE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.impl.ArmaniImpl <em>Armani</em>}' class.
@@ -1523,16 +2018,71 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmani()
 	 * @generated
 	 */
-	int ARMANI = 24;
+	int ARMANI = 26;
 
 	/**
-	 * The feature id for the '<em><b>Tokens</b></em>' attribute list.
+	 * The meta object id for the '{@link aspectualacme.impl.BindableElementImpl <em>Bindable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.impl.BindableElementImpl
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getBindableElement()
+	 * @generated
+	 */
+	int BINDABLE_ELEMENT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARMANI__TOKENS = 0;
+	int BINDABLE_ELEMENT__PROPERTY = ELEMENT__PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDABLE_ELEMENT__NAME = ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Representations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDABLE_ELEMENT__REPRESENTATIONS = ELEMENT__REPRESENTATIONS;
+
+	/**
+	 * The number of structural features of the '<em>Bindable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINDABLE_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Modifiers</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI__MODIFIERS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Design Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI__DESIGN_RULE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Armani</em>' class.
@@ -1541,7 +2091,511 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARMANI_FEATURE_COUNT = 1;
+	int ARMANI_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Armani Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_EXPRESSION_FEATURE_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Unary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_UNARY_EXPRESSION__UNARY_EXPRESSION = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_UNARY_EXPRESSION__OPERATOR = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Unary Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_UNARY_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Unary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_PRIMITIVE_EXPRESSION__UNARY_EXPRESSION = ARMANI_UNARY_EXPRESSION__UNARY_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_PRIMITIVE_EXPRESSION__OPERATOR = ARMANI_UNARY_EXPRESSION__OPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Design Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_PRIMITIVE_EXPRESSION__DESIGN_RULE = ARMANI_UNARY_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Armani Primitive Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT = ARMANI_UNARY_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Unary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_FUNCTION_CALL__UNARY_EXPRESSION = ARMANI_PRIMITIVE_EXPRESSION__UNARY_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_FUNCTION_CALL__OPERATOR = ARMANI_PRIMITIVE_EXPRESSION__OPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Design Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_FUNCTION_CALL__DESIGN_RULE = ARMANI_PRIMITIVE_EXPRESSION__DESIGN_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Function Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_FUNCTION_CALL__FUNCTION_ID = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_FUNCTION_CALL__PARAMETERS = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Function Call</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_FUNCTION_CALL_FEATURE_COUNT = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Unary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION__UNARY_EXPRESSION = ARMANI_PRIMITIVE_EXPRESSION__UNARY_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION__OPERATOR = ARMANI_PRIMITIVE_EXPRESSION__OPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Design Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION__DESIGN_RULE = ARMANI_PRIMITIVE_EXPRESSION__DESIGN_RULE;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION__REFERENCE = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Reference Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION__REFERENCE_TYPE = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Set Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION__SET_VALUES = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Armani Set Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_SET_EXPRESSION_FEATURE_COUNT = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Unary Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_CONSTANT__UNARY_EXPRESSION = ARMANI_PRIMITIVE_EXPRESSION__UNARY_EXPRESSION;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_CONSTANT__OPERATOR = ARMANI_PRIMITIVE_EXPRESSION__OPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Design Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_CONSTANT__DESIGN_RULE = ARMANI_PRIMITIVE_EXPRESSION__DESIGN_RULE;
+
+	/**
+	 * The number of structural features of the '<em>Armani Constant</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_CONSTANT_FEATURE_COUNT = ARMANI_PRIMITIVE_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_MULTIPLICATIVE_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_MULTIPLICATIVE_EXPRESSION__OPERATORS = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Multiplicative Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_MULTIPLICATIVE_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_ADDITIVE_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_ADDITIVE_EXPRESSION__OPERATORS = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Additive Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_ADDITIVE_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_RELATIONAL_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_RELATIONAL_EXPRESSION__OPERATORS = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Relational Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_RELATIONAL_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_EQUALITY_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_EQUALITY_EXPRESSION__OPERATORS = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Equality Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_EQUALITY_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_IFF_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Armani Iff Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_IFF_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_IMPLIES_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Armani Implies Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_IMPLIES_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_OR_EXPRESSION__EXPRESSIONS = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operators</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_OR_EXPRESSION__OPERATORS = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Armani Or Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_OR_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_VARIABLE__ID = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>User Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_VARIABLE__USER_TYPE = ARMANI_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Basic Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_VARIABLE__BASIC_TYPE = ARMANI_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Armani Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_VARIABLE_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Armani Design Rule Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT = ARMANI_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_BOOLEAN_EXPRESSION__EXPRESSIONS = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Armani Boolean Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_BOOLEAN_EXPRESSION_FEATURE_COUNT = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_QUANTIFIED_EXPRESSION__VARIABLE = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Set Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_QUANTIFIED_EXPRESSION__SET_EXPRESSION = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Design Rule</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_QUANTIFIED_EXPRESSION__DESIGN_RULE = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Quantifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_QUANTIFIED_EXPRESSION__QUANTIFIER = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Armani Quantified Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARMANI_QUANTIFIED_EXPRESSION_FEATURE_COUNT = ARMANI_DESIGN_RULE_EXPRESSION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link aspectualacme.GlueType <em>Glue Type</em>}' enum.
@@ -1551,7 +2605,38 @@ public interface AspectualacmePackage extends EPackage {
 	 * @see aspectualacme.impl.AspectualacmePackageImpl#getGlueType()
 	 * @generated
 	 */
-	int GLUE_TYPE = 25;
+	int GLUE_TYPE = 44;
+
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.ArmaniSetTypes <em>Armani Set Types</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.ArmaniSetTypes
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniSetTypes()
+	 * @generated
+	 */
+	int ARMANI_SET_TYPES = 45;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.ArmaniTypes <em>Armani Types</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.ArmaniTypes
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniTypes()
+	 * @generated
+	 */
+	int ARMANI_TYPES = 46;
+
+	/**
+	 * The meta object id for the '{@link aspectualacme.ArmaniQuantifier <em>Armani Quantifier</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see aspectualacme.ArmaniQuantifier
+	 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniQuantifier()
+	 * @generated
+	 */
+	int ARMANI_QUANTIFIER = 47;
 
 
 	/**
@@ -1661,15 +2746,472 @@ public interface AspectualacmePackage extends EPackage {
 	EClass getArmaniExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link aspectualacme.ArmaniExpression#getExpression <em>Expression</em>}'.
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniFunctionCall <em>Armani Function Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Expression</em>'.
-	 * @see aspectualacme.ArmaniExpression#getExpression()
-	 * @see #getArmaniExpression()
+	 * @return the meta object for class '<em>Armani Function Call</em>'.
+	 * @see aspectualacme.ArmaniFunctionCall
 	 * @generated
 	 */
-	EReference getArmaniExpression_Expression();
+	EClass getArmaniFunctionCall();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniFunctionCall#getFunctionId <em>Function Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Function Id</em>'.
+	 * @see aspectualacme.ArmaniFunctionCall#getFunctionId()
+	 * @see #getArmaniFunctionCall()
+	 * @generated
+	 */
+	EAttribute getArmaniFunctionCall_FunctionId();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniFunctionCall#getParameters <em>Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
+	 * @see aspectualacme.ArmaniFunctionCall#getParameters()
+	 * @see #getArmaniFunctionCall()
+	 * @generated
+	 */
+	EReference getArmaniFunctionCall_Parameters();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniSetExpression <em>Armani Set Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Set Expression</em>'.
+	 * @see aspectualacme.ArmaniSetExpression
+	 * @generated
+	 */
+	EClass getArmaniSetExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniSetExpression#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference</em>'.
+	 * @see aspectualacme.ArmaniSetExpression#getReference()
+	 * @see #getArmaniSetExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniSetExpression_Reference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniSetExpression#getReferenceType <em>Reference Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference Type</em>'.
+	 * @see aspectualacme.ArmaniSetExpression#getReferenceType()
+	 * @see #getArmaniSetExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniSetExpression_ReferenceType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniSetExpression#getSetValues <em>Set Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Set Values</em>'.
+	 * @see aspectualacme.ArmaniSetExpression#getSetValues()
+	 * @see #getArmaniSetExpression()
+	 * @generated
+	 */
+	EReference getArmaniSetExpression_SetValues();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniConstant <em>Armani Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Constant</em>'.
+	 * @see aspectualacme.ArmaniConstant
+	 * @generated
+	 */
+	EClass getArmaniConstant();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniPrimitiveExpression <em>Armani Primitive Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Primitive Expression</em>'.
+	 * @see aspectualacme.ArmaniPrimitiveExpression
+	 * @generated
+	 */
+	EClass getArmaniPrimitiveExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link aspectualacme.ArmaniPrimitiveExpression#getDesignRule <em>Design Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Design Rule</em>'.
+	 * @see aspectualacme.ArmaniPrimitiveExpression#getDesignRule()
+	 * @see #getArmaniPrimitiveExpression()
+	 * @generated
+	 */
+	EReference getArmaniPrimitiveExpression_DesignRule();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniUnaryExpression <em>Armani Unary Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Unary Expression</em>'.
+	 * @see aspectualacme.ArmaniUnaryExpression
+	 * @generated
+	 */
+	EClass getArmaniUnaryExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link aspectualacme.ArmaniUnaryExpression#getUnaryExpression <em>Unary Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Unary Expression</em>'.
+	 * @see aspectualacme.ArmaniUnaryExpression#getUnaryExpression()
+	 * @see #getArmaniUnaryExpression()
+	 * @generated
+	 */
+	EReference getArmaniUnaryExpression_UnaryExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniUnaryExpression#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see aspectualacme.ArmaniUnaryExpression#getOperator()
+	 * @see #getArmaniUnaryExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniUnaryExpression_Operator();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniMultiplicativeExpression <em>Armani Multiplicative Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Multiplicative Expression</em>'.
+	 * @see aspectualacme.ArmaniMultiplicativeExpression
+	 * @generated
+	 */
+	EClass getArmaniMultiplicativeExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniMultiplicativeExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniMultiplicativeExpression#getExpressions()
+	 * @see #getArmaniMultiplicativeExpression()
+	 * @generated
+	 */
+	EReference getArmaniMultiplicativeExpression_Expressions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link aspectualacme.ArmaniMultiplicativeExpression#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operators</em>'.
+	 * @see aspectualacme.ArmaniMultiplicativeExpression#getOperators()
+	 * @see #getArmaniMultiplicativeExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniMultiplicativeExpression_Operators();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniAdditiveExpression <em>Armani Additive Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Additive Expression</em>'.
+	 * @see aspectualacme.ArmaniAdditiveExpression
+	 * @generated
+	 */
+	EClass getArmaniAdditiveExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniAdditiveExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniAdditiveExpression#getExpressions()
+	 * @see #getArmaniAdditiveExpression()
+	 * @generated
+	 */
+	EReference getArmaniAdditiveExpression_Expressions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link aspectualacme.ArmaniAdditiveExpression#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operators</em>'.
+	 * @see aspectualacme.ArmaniAdditiveExpression#getOperators()
+	 * @see #getArmaniAdditiveExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniAdditiveExpression_Operators();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniRelationalExpression <em>Armani Relational Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Relational Expression</em>'.
+	 * @see aspectualacme.ArmaniRelationalExpression
+	 * @generated
+	 */
+	EClass getArmaniRelationalExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniRelationalExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniRelationalExpression#getExpressions()
+	 * @see #getArmaniRelationalExpression()
+	 * @generated
+	 */
+	EReference getArmaniRelationalExpression_Expressions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link aspectualacme.ArmaniRelationalExpression#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operators</em>'.
+	 * @see aspectualacme.ArmaniRelationalExpression#getOperators()
+	 * @see #getArmaniRelationalExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniRelationalExpression_Operators();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniEqualityExpression <em>Armani Equality Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Equality Expression</em>'.
+	 * @see aspectualacme.ArmaniEqualityExpression
+	 * @generated
+	 */
+	EClass getArmaniEqualityExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniEqualityExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniEqualityExpression#getExpressions()
+	 * @see #getArmaniEqualityExpression()
+	 * @generated
+	 */
+	EReference getArmaniEqualityExpression_Expressions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link aspectualacme.ArmaniEqualityExpression#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operators</em>'.
+	 * @see aspectualacme.ArmaniEqualityExpression#getOperators()
+	 * @see #getArmaniEqualityExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniEqualityExpression_Operators();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniIffExpression <em>Armani Iff Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Iff Expression</em>'.
+	 * @see aspectualacme.ArmaniIffExpression
+	 * @generated
+	 */
+	EClass getArmaniIffExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniIffExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniIffExpression#getExpressions()
+	 * @see #getArmaniIffExpression()
+	 * @generated
+	 */
+	EReference getArmaniIffExpression_Expressions();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniImpliesExpression <em>Armani Implies Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Implies Expression</em>'.
+	 * @see aspectualacme.ArmaniImpliesExpression
+	 * @generated
+	 */
+	EClass getArmaniImpliesExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniImpliesExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniImpliesExpression#getExpressions()
+	 * @see #getArmaniImpliesExpression()
+	 * @generated
+	 */
+	EReference getArmaniImpliesExpression_Expressions();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniOrExpression <em>Armani Or Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Or Expression</em>'.
+	 * @see aspectualacme.ArmaniOrExpression
+	 * @generated
+	 */
+	EClass getArmaniOrExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniOrExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniOrExpression#getExpressions()
+	 * @see #getArmaniOrExpression()
+	 * @generated
+	 */
+	EReference getArmaniOrExpression_Expressions();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link aspectualacme.ArmaniOrExpression#getOperators <em>Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Operators</em>'.
+	 * @see aspectualacme.ArmaniOrExpression#getOperators()
+	 * @see #getArmaniOrExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniOrExpression_Operators();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniVariable <em>Armani Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Variable</em>'.
+	 * @see aspectualacme.ArmaniVariable
+	 * @generated
+	 */
+	EClass getArmaniVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniVariable#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see aspectualacme.ArmaniVariable#getId()
+	 * @see #getArmaniVariable()
+	 * @generated
+	 */
+	EAttribute getArmaniVariable_Id();
+
+	/**
+	 * Returns the meta object for the reference '{@link aspectualacme.ArmaniVariable#getUserType <em>User Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>User Type</em>'.
+	 * @see aspectualacme.ArmaniVariable#getUserType()
+	 * @see #getArmaniVariable()
+	 * @generated
+	 */
+	EReference getArmaniVariable_UserType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniVariable#getBasicType <em>Basic Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Basic Type</em>'.
+	 * @see aspectualacme.ArmaniVariable#getBasicType()
+	 * @see #getArmaniVariable()
+	 * @generated
+	 */
+	EAttribute getArmaniVariable_BasicType();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniBooleanExpression <em>Armani Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Boolean Expression</em>'.
+	 * @see aspectualacme.ArmaniBooleanExpression
+	 * @generated
+	 */
+	EClass getArmaniBooleanExpression();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.ArmaniBooleanExpression#getExpressions <em>Expressions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Expressions</em>'.
+	 * @see aspectualacme.ArmaniBooleanExpression#getExpressions()
+	 * @see #getArmaniBooleanExpression()
+	 * @generated
+	 */
+	EReference getArmaniBooleanExpression_Expressions();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniQuantifiedExpression <em>Armani Quantified Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Quantified Expression</em>'.
+	 * @see aspectualacme.ArmaniQuantifiedExpression
+	 * @generated
+	 */
+	EClass getArmaniQuantifiedExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link aspectualacme.ArmaniQuantifiedExpression#getVariable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Variable</em>'.
+	 * @see aspectualacme.ArmaniQuantifiedExpression#getVariable()
+	 * @see #getArmaniQuantifiedExpression()
+	 * @generated
+	 */
+	EReference getArmaniQuantifiedExpression_Variable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link aspectualacme.ArmaniQuantifiedExpression#getSetExpression <em>Set Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Set Expression</em>'.
+	 * @see aspectualacme.ArmaniQuantifiedExpression#getSetExpression()
+	 * @see #getArmaniQuantifiedExpression()
+	 * @generated
+	 */
+	EReference getArmaniQuantifiedExpression_SetExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link aspectualacme.ArmaniQuantifiedExpression#getDesignRule <em>Design Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Design Rule</em>'.
+	 * @see aspectualacme.ArmaniQuantifiedExpression#getDesignRule()
+	 * @see #getArmaniQuantifiedExpression()
+	 * @generated
+	 */
+	EReference getArmaniQuantifiedExpression_DesignRule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.ArmaniQuantifiedExpression#getQuantifier <em>Quantifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quantifier</em>'.
+	 * @see aspectualacme.ArmaniQuantifiedExpression#getQuantifier()
+	 * @see #getArmaniQuantifiedExpression()
+	 * @generated
+	 */
+	EAttribute getArmaniQuantifiedExpression_Quantifier();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.ArmaniDesignRuleExpression <em>Armani Design Rule Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Armani Design Rule Expression</em>'.
+	 * @see aspectualacme.ArmaniDesignRuleExpression
+	 * @generated
+	 */
+	EClass getArmaniDesignRuleExpression();
 
 	/**
 	 * Returns the meta object for class '{@link aspectualacme.attachableElement <em>attachable Element</em>}'.
@@ -1812,6 +3354,28 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getFamily_Rtypes();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.Family#getPrtypes <em>Prtypes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Prtypes</em>'.
+	 * @see aspectualacme.Family#getPrtypes()
+	 * @see #getFamily()
+	 * @generated
+	 */
+	EReference getFamily_Prtypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link aspectualacme.Family#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see aspectualacme.Family#getProperties()
+	 * @see #getFamily()
+	 * @generated
+	 */
+	EReference getFamily_Properties();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.ComponentType <em>Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1844,6 +3408,17 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getComponentType_ParentType();
 
 	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.ComponentType#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.ComponentType#getParentFamily()
+	 * @see #getComponentType()
+	 * @generated
+	 */
+	EReference getComponentType_ParentFamily();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.RoleType <em>Role Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1865,6 +3440,17 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getRoleType_ParentType();
 
 	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.RoleType#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.RoleType#getParentFamily()
+	 * @see #getRoleType()
+	 * @generated
+	 */
+	EReference getRoleType_ParentFamily();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.PortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1884,6 +3470,17 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPortType_ParentType();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.PortType#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.PortType#getParentFamily()
+	 * @see #getPortType()
+	 * @generated
+	 */
+	EReference getPortType_ParentFamily();
 
 	/**
 	 * Returns the meta object for class '{@link aspectualacme.ConnectorType <em>Connector Type</em>}'.
@@ -1927,6 +3524,60 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getConnectorType_Glue();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.ConnectorType#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.ConnectorType#getParentFamily()
+	 * @see #getConnectorType()
+	 * @generated
+	 */
+	EReference getConnectorType_ParentFamily();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.PropertyType <em>Property Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Property Type</em>'.
+	 * @see aspectualacme.PropertyType
+	 * @generated
+	 */
+	EClass getPropertyType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.PropertyType#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see aspectualacme.PropertyType#getType()
+	 * @see #getPropertyType()
+	 * @generated
+	 */
+	EAttribute getPropertyType_Type();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link aspectualacme.PropertyType#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Values</em>'.
+	 * @see aspectualacme.PropertyType#getValues()
+	 * @see #getPropertyType()
+	 * @generated
+	 */
+	EAttribute getPropertyType_Values();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.PropertyType#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.PropertyType#getParentFamily()
+	 * @see #getPropertyType()
+	 * @generated
+	 */
+	EReference getPropertyType_ParentFamily();
 
 	/**
 	 * Returns the meta object for class '{@link aspectualacme.System <em>System</em>}'.
@@ -2005,6 +3656,17 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getSystem_ParentRepresentation();
 
 	/**
+	 * Returns the meta object for the reference list '{@link aspectualacme.System#getEffective_type <em>Effective type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Effective type</em>'.
+	 * @see aspectualacme.System#getEffective_type()
+	 * @see #getSystem()
+	 * @generated
+	 */
+	EReference getSystem_Effective_type();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.Component <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2059,6 +3721,17 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getComponent_ParentFamily();
 
 	/**
+	 * Returns the meta object for the reference list '{@link aspectualacme.Component#getEffective_type <em>Effective type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Effective type</em>'.
+	 * @see aspectualacme.Component#getEffective_type()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_Effective_type();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2102,6 +3775,39 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getConnector_Type();
 
 	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Connector#getParentSystem <em>Parent System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent System</em>'.
+	 * @see aspectualacme.Connector#getParentSystem()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_ParentSystem();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Connector#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.Connector#getParentFamily()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_ParentFamily();
+
+	/**
+	 * Returns the meta object for the reference list '{@link aspectualacme.Connector#getEffective_type <em>Effective type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Effective type</em>'.
+	 * @see aspectualacme.Connector#getEffective_type()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Effective_type();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.Role <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2123,6 +3829,17 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getRole_Connector();
 
 	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Role#getConnectorT <em>Connector T</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Connector T</em>'.
+	 * @see aspectualacme.Role#getConnectorT()
+	 * @see #getRole()
+	 * @generated
+	 */
+	EReference getRole_ConnectorT();
+
+	/**
 	 * Returns the meta object for the reference list '{@link aspectualacme.Role#getRoleType <em>Role Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2132,6 +3849,17 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRole_RoleType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link aspectualacme.Role#getEffective_type <em>Effective type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Effective type</em>'.
+	 * @see aspectualacme.Role#getEffective_type()
+	 * @see #getRole()
+	 * @generated
+	 */
+	EReference getRole_Effective_type();
 
 	/**
 	 * Returns the meta object for class '{@link aspectualacme.BaseRole <em>Base Role</em>}'.
@@ -2197,6 +3925,28 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getPort_Component();
 
 	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Port#getComponentT <em>Component T</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Component T</em>'.
+	 * @see aspectualacme.Port#getComponentT()
+	 * @see #getPort()
+	 * @generated
+	 */
+	EReference getPort_ComponentT();
+
+	/**
+	 * Returns the meta object for the reference list '{@link aspectualacme.Port#getEffective_type <em>Effective type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Effective type</em>'.
+	 * @see aspectualacme.Port#getEffective_type()
+	 * @see #getPort()
+	 * @generated
+	 */
+	EReference getPort_Effective_type();
+
+	/**
 	 * Returns the meta object for the reference list '{@link aspectualacme.Port#getPortType <em>Port Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2238,6 +3988,39 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProperty_Value();
+
+	/**
+	 * Returns the meta object for the reference list '{@link aspectualacme.Property#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Type</em>'.
+	 * @see aspectualacme.Property#getType()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_Type();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Property#getParentSystem <em>Parent System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent System</em>'.
+	 * @see aspectualacme.Property#getParentSystem()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_ParentSystem();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Property#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.Property#getParentFamily()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_ParentFamily();
 
 	/**
 	 * Returns the meta object for class '{@link aspectualacme.Glue <em>Glue</em>}'.
@@ -2326,6 +4109,28 @@ public interface AspectualacmePackage extends EPackage {
 	EReference getAttachment_SecondElement();
 
 	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Attachment#getParentSystem <em>Parent System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent System</em>'.
+	 * @see aspectualacme.Attachment#getParentSystem()
+	 * @see #getAttachment()
+	 * @generated
+	 */
+	EReference getAttachment_ParentSystem();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Attachment#getParentFamily <em>Parent Family</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Family</em>'.
+	 * @see aspectualacme.Attachment#getParentFamily()
+	 * @see #getAttachment()
+	 * @generated
+	 */
+	EReference getAttachment_ParentFamily();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.Binding <em>Binding</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2367,6 +4172,17 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBinding_SecondPort();
+
+	/**
+	 * Returns the meta object for the container reference '{@link aspectualacme.Binding#getRepresentation <em>Representation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Representation</em>'.
+	 * @see aspectualacme.Binding#getRepresentation()
+	 * @see #getBinding()
+	 * @generated
+	 */
+	EReference getBinding_Representation();
 
 	/**
 	 * Returns the meta object for class '{@link aspectualacme.Representation <em>Representation</em>}'.
@@ -2433,6 +4249,17 @@ public interface AspectualacmePackage extends EPackage {
 	EClass getWildCard();
 
 	/**
+	 * Returns the meta object for the attribute '{@link aspectualacme.WildCard#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see aspectualacme.WildCard#getExpression()
+	 * @see #getWildCard()
+	 * @generated
+	 */
+	EAttribute getWildCard_Expression();
+
+	/**
 	 * Returns the meta object for class '{@link aspectualacme.Armani <em>Armani</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2443,15 +4270,46 @@ public interface AspectualacmePackage extends EPackage {
 	EClass getArmani();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link aspectualacme.Armani#getTokens <em>Tokens</em>}'.
+	 * Returns the meta object for the attribute list '{@link aspectualacme.Armani#getModifiers <em>Modifiers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Tokens</em>'.
-	 * @see aspectualacme.Armani#getTokens()
+	 * @return the meta object for the attribute list '<em>Modifiers</em>'.
+	 * @see aspectualacme.Armani#getModifiers()
 	 * @see #getArmani()
 	 * @generated
 	 */
-	EAttribute getArmani_Tokens();
+	EAttribute getArmani_Modifiers();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link aspectualacme.Armani#getDesignRule <em>Design Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Design Rule</em>'.
+	 * @see aspectualacme.Armani#getDesignRule()
+	 * @see #getArmani()
+	 * @generated
+	 */
+	EReference getArmani_DesignRule();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.BindableElement <em>Bindable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bindable Element</em>'.
+	 * @see aspectualacme.BindableElement
+	 * @generated
+	 */
+	EClass getBindableElement();
+
+	/**
+	 * Returns the meta object for class '{@link aspectualacme.TypeDefinition <em>Type Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Definition</em>'.
+	 * @see aspectualacme.TypeDefinition
+	 * @generated
+	 */
+	EClass getTypeDefinition();
 
 	/**
 	 * Returns the meta object for enum '{@link aspectualacme.GlueType <em>Glue Type</em>}'.
@@ -2462,6 +4320,36 @@ public interface AspectualacmePackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getGlueType();
+
+	/**
+	 * Returns the meta object for enum '{@link aspectualacme.ArmaniSetTypes <em>Armani Set Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Armani Set Types</em>'.
+	 * @see aspectualacme.ArmaniSetTypes
+	 * @generated
+	 */
+	EEnum getArmaniSetTypes();
+
+	/**
+	 * Returns the meta object for enum '{@link aspectualacme.ArmaniTypes <em>Armani Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Armani Types</em>'.
+	 * @see aspectualacme.ArmaniTypes
+	 * @generated
+	 */
+	EEnum getArmaniTypes();
+
+	/**
+	 * Returns the meta object for enum '{@link aspectualacme.ArmaniQuantifier <em>Armani Quantifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Armani Quantifier</em>'.
+	 * @see aspectualacme.ArmaniQuantifier
+	 * @generated
+	 */
+	EEnum getArmaniQuantifier();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2574,12 +4462,388 @@ public interface AspectualacmePackage extends EPackage {
 		EClass ARMANI_EXPRESSION = eINSTANCE.getArmaniExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniFunctionCallImpl <em>Armani Function Call</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniFunctionCallImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniFunctionCall()
+		 * @generated
+		 */
+		EClass ARMANI_FUNCTION_CALL = eINSTANCE.getArmaniFunctionCall();
+
+		/**
+		 * The meta object literal for the '<em><b>Function Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ARMANI_EXPRESSION__EXPRESSION = eINSTANCE.getArmaniExpression_Expression();
+		EAttribute ARMANI_FUNCTION_CALL__FUNCTION_ID = eINSTANCE.getArmaniFunctionCall_FunctionId();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_FUNCTION_CALL__PARAMETERS = eINSTANCE.getArmaniFunctionCall_Parameters();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniSetExpressionImpl <em>Armani Set Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniSetExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniSetExpression()
+		 * @generated
+		 */
+		EClass ARMANI_SET_EXPRESSION = eINSTANCE.getArmaniSetExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_SET_EXPRESSION__REFERENCE = eINSTANCE.getArmaniSetExpression_Reference();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_SET_EXPRESSION__REFERENCE_TYPE = eINSTANCE.getArmaniSetExpression_ReferenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_SET_EXPRESSION__SET_VALUES = eINSTANCE.getArmaniSetExpression_SetValues();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniConstantImpl <em>Armani Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniConstantImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniConstant()
+		 * @generated
+		 */
+		EClass ARMANI_CONSTANT = eINSTANCE.getArmaniConstant();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniPrimitiveExpressionImpl <em>Armani Primitive Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniPrimitiveExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniPrimitiveExpression()
+		 * @generated
+		 */
+		EClass ARMANI_PRIMITIVE_EXPRESSION = eINSTANCE.getArmaniPrimitiveExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Design Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_PRIMITIVE_EXPRESSION__DESIGN_RULE = eINSTANCE.getArmaniPrimitiveExpression_DesignRule();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniUnaryExpressionImpl <em>Armani Unary Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniUnaryExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniUnaryExpression()
+		 * @generated
+		 */
+		EClass ARMANI_UNARY_EXPRESSION = eINSTANCE.getArmaniUnaryExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Unary Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_UNARY_EXPRESSION__UNARY_EXPRESSION = eINSTANCE.getArmaniUnaryExpression_UnaryExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_UNARY_EXPRESSION__OPERATOR = eINSTANCE.getArmaniUnaryExpression_Operator();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniMultiplicativeExpressionImpl <em>Armani Multiplicative Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniMultiplicativeExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniMultiplicativeExpression()
+		 * @generated
+		 */
+		EClass ARMANI_MULTIPLICATIVE_EXPRESSION = eINSTANCE.getArmaniMultiplicativeExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_MULTIPLICATIVE_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniMultiplicativeExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_MULTIPLICATIVE_EXPRESSION__OPERATORS = eINSTANCE.getArmaniMultiplicativeExpression_Operators();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniAdditiveExpressionImpl <em>Armani Additive Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniAdditiveExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniAdditiveExpression()
+		 * @generated
+		 */
+		EClass ARMANI_ADDITIVE_EXPRESSION = eINSTANCE.getArmaniAdditiveExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_ADDITIVE_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniAdditiveExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_ADDITIVE_EXPRESSION__OPERATORS = eINSTANCE.getArmaniAdditiveExpression_Operators();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniRelationalExpressionImpl <em>Armani Relational Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniRelationalExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniRelationalExpression()
+		 * @generated
+		 */
+		EClass ARMANI_RELATIONAL_EXPRESSION = eINSTANCE.getArmaniRelationalExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_RELATIONAL_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniRelationalExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_RELATIONAL_EXPRESSION__OPERATORS = eINSTANCE.getArmaniRelationalExpression_Operators();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniEqualityExpressionImpl <em>Armani Equality Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniEqualityExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniEqualityExpression()
+		 * @generated
+		 */
+		EClass ARMANI_EQUALITY_EXPRESSION = eINSTANCE.getArmaniEqualityExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_EQUALITY_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniEqualityExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_EQUALITY_EXPRESSION__OPERATORS = eINSTANCE.getArmaniEqualityExpression_Operators();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniIffExpressionImpl <em>Armani Iff Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniIffExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniIffExpression()
+		 * @generated
+		 */
+		EClass ARMANI_IFF_EXPRESSION = eINSTANCE.getArmaniIffExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_IFF_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniIffExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniImpliesExpressionImpl <em>Armani Implies Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniImpliesExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniImpliesExpression()
+		 * @generated
+		 */
+		EClass ARMANI_IMPLIES_EXPRESSION = eINSTANCE.getArmaniImpliesExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_IMPLIES_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniImpliesExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniOrExpressionImpl <em>Armani Or Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniOrExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniOrExpression()
+		 * @generated
+		 */
+		EClass ARMANI_OR_EXPRESSION = eINSTANCE.getArmaniOrExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_OR_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniOrExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '<em><b>Operators</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_OR_EXPRESSION__OPERATORS = eINSTANCE.getArmaniOrExpression_Operators();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniVariableImpl <em>Armani Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniVariableImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniVariable()
+		 * @generated
+		 */
+		EClass ARMANI_VARIABLE = eINSTANCE.getArmaniVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_VARIABLE__ID = eINSTANCE.getArmaniVariable_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>User Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_VARIABLE__USER_TYPE = eINSTANCE.getArmaniVariable_UserType();
+
+		/**
+		 * The meta object literal for the '<em><b>Basic Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_VARIABLE__BASIC_TYPE = eINSTANCE.getArmaniVariable_BasicType();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniBooleanExpressionImpl <em>Armani Boolean Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniBooleanExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniBooleanExpression()
+		 * @generated
+		 */
+		EClass ARMANI_BOOLEAN_EXPRESSION = eINSTANCE.getArmaniBooleanExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_BOOLEAN_EXPRESSION__EXPRESSIONS = eINSTANCE.getArmaniBooleanExpression_Expressions();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniQuantifiedExpressionImpl <em>Armani Quantified Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.ArmaniQuantifiedExpressionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniQuantifiedExpression()
+		 * @generated
+		 */
+		EClass ARMANI_QUANTIFIED_EXPRESSION = eINSTANCE.getArmaniQuantifiedExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_QUANTIFIED_EXPRESSION__VARIABLE = eINSTANCE.getArmaniQuantifiedExpression_Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Set Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_QUANTIFIED_EXPRESSION__SET_EXPRESSION = eINSTANCE.getArmaniQuantifiedExpression_SetExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Design Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI_QUANTIFIED_EXPRESSION__DESIGN_RULE = eINSTANCE.getArmaniQuantifiedExpression_DesignRule();
+
+		/**
+		 * The meta object literal for the '<em><b>Quantifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARMANI_QUANTIFIED_EXPRESSION__QUANTIFIER = eINSTANCE.getArmaniQuantifiedExpression_Quantifier();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.ArmaniDesignRuleExpression <em>Armani Design Rule Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.ArmaniDesignRuleExpression
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniDesignRuleExpression()
+		 * @generated
+		 */
+		EClass ARMANI_DESIGN_RULE_EXPRESSION = eINSTANCE.getArmaniDesignRuleExpression();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.attachableElementImpl <em>attachable Element</em>}' class.
@@ -2692,6 +4956,22 @@ public interface AspectualacmePackage extends EPackage {
 		EReference FAMILY__RTYPES = eINSTANCE.getFamily_Rtypes();
 
 		/**
+		 * The meta object literal for the '<em><b>Prtypes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FAMILY__PRTYPES = eINSTANCE.getFamily_Prtypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FAMILY__PROPERTIES = eINSTANCE.getFamily_Properties();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.ComponentTypeImpl <em>Component Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2718,6 +4998,14 @@ public interface AspectualacmePackage extends EPackage {
 		EReference COMPONENT_TYPE__PARENT_TYPE = eINSTANCE.getComponentType_ParentType();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT_TYPE__PARENT_FAMILY = eINSTANCE.getComponentType_ParentFamily();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.RoleTypeImpl <em>Role Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2736,6 +5024,14 @@ public interface AspectualacmePackage extends EPackage {
 		EReference ROLE_TYPE__PARENT_TYPE = eINSTANCE.getRoleType_ParentType();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROLE_TYPE__PARENT_FAMILY = eINSTANCE.getRoleType_ParentFamily();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.PortTypeImpl <em>Port Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2752,6 +5048,14 @@ public interface AspectualacmePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PORT_TYPE__PARENT_TYPE = eINSTANCE.getPortType_ParentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT_TYPE__PARENT_FAMILY = eINSTANCE.getPortType_ParentFamily();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.ConnectorTypeImpl <em>Connector Type</em>}' class.
@@ -2786,6 +5090,48 @@ public interface AspectualacmePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONNECTOR_TYPE__GLUE = eINSTANCE.getConnectorType_Glue();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR_TYPE__PARENT_FAMILY = eINSTANCE.getConnectorType_ParentFamily();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.PropertyTypeImpl <em>Property Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.PropertyTypeImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getPropertyType()
+		 * @generated
+		 */
+		EClass PROPERTY_TYPE = eINSTANCE.getPropertyType();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_TYPE__TYPE = eINSTANCE.getPropertyType_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROPERTY_TYPE__VALUES = eINSTANCE.getPropertyType_Values();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY_TYPE__PARENT_FAMILY = eINSTANCE.getPropertyType_ParentFamily();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.SystemImpl <em>System</em>}' class.
@@ -2846,6 +5192,14 @@ public interface AspectualacmePackage extends EPackage {
 		EReference SYSTEM__PARENT_REPRESENTATION = eINSTANCE.getSystem_ParentRepresentation();
 
 		/**
+		 * The meta object literal for the '<em><b>Effective type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYSTEM__EFFECTIVE_TYPE = eINSTANCE.getSystem_Effective_type();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.ComponentImpl <em>Component</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2888,6 +5242,14 @@ public interface AspectualacmePackage extends EPackage {
 		EReference COMPONENT__PARENT_FAMILY = eINSTANCE.getComponent_ParentFamily();
 
 		/**
+		 * The meta object literal for the '<em><b>Effective type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__EFFECTIVE_TYPE = eINSTANCE.getComponent_Effective_type();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.ConnectorImpl <em>Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2922,6 +5284,30 @@ public interface AspectualacmePackage extends EPackage {
 		EReference CONNECTOR__TYPE = eINSTANCE.getConnector_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent System</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__PARENT_SYSTEM = eINSTANCE.getConnector_ParentSystem();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__PARENT_FAMILY = eINSTANCE.getConnector_ParentFamily();
+
+		/**
+		 * The meta object literal for the '<em><b>Effective type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__EFFECTIVE_TYPE = eINSTANCE.getConnector_Effective_type();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.RoleImpl <em>Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2940,12 +5326,28 @@ public interface AspectualacmePackage extends EPackage {
 		EReference ROLE__CONNECTOR = eINSTANCE.getRole_Connector();
 
 		/**
+		 * The meta object literal for the '<em><b>Connector T</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROLE__CONNECTOR_T = eINSTANCE.getRole_ConnectorT();
+
+		/**
 		 * The meta object literal for the '<em><b>Role Type</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ROLE__ROLE_TYPE = eINSTANCE.getRole_RoleType();
+
+		/**
+		 * The meta object literal for the '<em><b>Effective type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROLE__EFFECTIVE_TYPE = eINSTANCE.getRole_Effective_type();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.BaseRoleImpl <em>Base Role</em>}' class.
@@ -3002,6 +5404,22 @@ public interface AspectualacmePackage extends EPackage {
 		EReference PORT__COMPONENT = eINSTANCE.getPort_Component();
 
 		/**
+		 * The meta object literal for the '<em><b>Component T</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT__COMPONENT_T = eINSTANCE.getPort_ComponentT();
+
+		/**
+		 * The meta object literal for the '<em><b>Effective type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PORT__EFFECTIVE_TYPE = eINSTANCE.getPort_Effective_type();
+
+		/**
 		 * The meta object literal for the '<em><b>Port Type</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3034,6 +5452,30 @@ public interface AspectualacmePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROPERTY__VALUE = eINSTANCE.getProperty_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__TYPE = eINSTANCE.getProperty_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent System</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__PARENT_SYSTEM = eINSTANCE.getProperty_ParentSystem();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__PARENT_FAMILY = eINSTANCE.getProperty_ParentFamily();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.GlueImpl <em>Glue</em>}' class.
@@ -3104,6 +5546,22 @@ public interface AspectualacmePackage extends EPackage {
 		EReference ATTACHMENT__SECOND_ELEMENT = eINSTANCE.getAttachment_SecondElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Parent System</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTACHMENT__PARENT_SYSTEM = eINSTANCE.getAttachment_ParentSystem();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Family</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTACHMENT__PARENT_FAMILY = eINSTANCE.getAttachment_ParentFamily();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.BindingImpl <em>Binding</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3136,6 +5594,14 @@ public interface AspectualacmePackage extends EPackage {
 		 * @generated
 		 */
 		EReference BINDING__SECOND_PORT = eINSTANCE.getBinding_SecondPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Representation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BINDING__REPRESENTATION = eINSTANCE.getBinding_Representation();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.RepresentationImpl <em>Representation</em>}' class.
@@ -3190,6 +5656,14 @@ public interface AspectualacmePackage extends EPackage {
 		EClass WILD_CARD = eINSTANCE.getWildCard();
 
 		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute WILD_CARD__EXPRESSION = eINSTANCE.getWildCard_Expression();
+
+		/**
 		 * The meta object literal for the '{@link aspectualacme.impl.ArmaniImpl <em>Armani</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3200,12 +5674,40 @@ public interface AspectualacmePackage extends EPackage {
 		EClass ARMANI = eINSTANCE.getArmani();
 
 		/**
-		 * The meta object literal for the '<em><b>Tokens</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Modifiers</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ARMANI__TOKENS = eINSTANCE.getArmani_Tokens();
+		EAttribute ARMANI__MODIFIERS = eINSTANCE.getArmani_Modifiers();
+
+		/**
+		 * The meta object literal for the '<em><b>Design Rule</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARMANI__DESIGN_RULE = eINSTANCE.getArmani_DesignRule();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.BindableElementImpl <em>Bindable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.BindableElementImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getBindableElement()
+		 * @generated
+		 */
+		EClass BINDABLE_ELEMENT = eINSTANCE.getBindableElement();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.impl.TypeDefinitionImpl <em>Type Definition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.impl.TypeDefinitionImpl
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getTypeDefinition()
+		 * @generated
+		 */
+		EClass TYPE_DEFINITION = eINSTANCE.getTypeDefinition();
 
 		/**
 		 * The meta object literal for the '{@link aspectualacme.GlueType <em>Glue Type</em>}' enum.
@@ -3216,6 +5718,36 @@ public interface AspectualacmePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum GLUE_TYPE = eINSTANCE.getGlueType();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.ArmaniSetTypes <em>Armani Set Types</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.ArmaniSetTypes
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniSetTypes()
+		 * @generated
+		 */
+		EEnum ARMANI_SET_TYPES = eINSTANCE.getArmaniSetTypes();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.ArmaniTypes <em>Armani Types</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.ArmaniTypes
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniTypes()
+		 * @generated
+		 */
+		EEnum ARMANI_TYPES = eINSTANCE.getArmaniTypes();
+
+		/**
+		 * The meta object literal for the '{@link aspectualacme.ArmaniQuantifier <em>Armani Quantifier</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see aspectualacme.ArmaniQuantifier
+		 * @see aspectualacme.impl.AspectualacmePackageImpl#getArmaniQuantifier()
+		 * @generated
+		 */
+		EEnum ARMANI_QUANTIFIER = eINSTANCE.getArmaniQuantifier();
 
 	}
 

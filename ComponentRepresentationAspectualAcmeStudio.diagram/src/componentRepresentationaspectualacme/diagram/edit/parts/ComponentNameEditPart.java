@@ -48,7 +48,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5001;
+	public static final int VISUAL_ID = 5005;
 
 	/**
 	 * @generated
@@ -89,7 +89,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 				new LabelDirectEditPolicy());
 		installEditPolicy(
 				EditPolicy.PRIMARY_DRAG_ROLE,
-				new componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.NodeLabelDragPolicy());
+				new componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.NodeLabelDragPolicy());
 	}
 
 	/**
@@ -295,7 +295,7 @@ public class ComponentNameEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = componentRepresentationaspectualacme.diagram.providers.AspectualacmeParserProvider
 					.getParser(
-							componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_3001,
+							componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Component_2002,
 							getParserElement(),
 							componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 									.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart.VISUAL_ID));

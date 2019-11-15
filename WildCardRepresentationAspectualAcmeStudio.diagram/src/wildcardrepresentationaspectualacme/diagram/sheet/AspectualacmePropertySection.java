@@ -3,6 +3,8 @@ package wildcardrepresentationaspectualacme.diagram.sheet;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.eclipse.core.commands.operations.IOperationHistory;
+import org.eclipse.core.commands.operations.OperationHistoryFactory;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -12,12 +14,17 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.properties.sections.AdvancedPropertySection;
+import org.eclipse.gmf.runtime.emf.ui.properties.sections.PropertySheetEntry;
+import org.eclipse.gmf.runtime.emf.ui.properties.sections.UndoableModelPropertySheetEntry;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
+import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 /**
  * @generated
@@ -28,6 +35,7 @@ public class AspectualacmePropertySection extends AdvancedPropertySection
 	/**
 	 * @generated
 	 */
+	@Override
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
 			return (IPropertySource) object;
@@ -50,6 +58,33 @@ public class AspectualacmePropertySection extends AdvancedPropertySection
 	/**
 	 * @generated
 	 */
+	public void createControls(Composite parent,
+			TabbedPropertySheetPage aTabbedPropertySheetPage) {
+		super.createControls(parent, aTabbedPropertySheetPage);
+		class ROEntry extends UndoableModelPropertySheetEntry {
+			ROEntry(IOperationHistory operationHistory) {
+				super(operationHistory);
+			}
+
+			public CellEditor getEditor(Composite parentComposite) {
+				return null; // do not allow editing
+			}
+
+			protected PropertySheetEntry createChildEntry() {
+				return new ROEntry(getOperationHistory());
+			}
+		}
+		;
+		ROEntry root = new ROEntry(
+				OperationHistoryFactory.getOperationHistory());
+		root.setPropertySourceProvider(getPropertySourceProvider());
+		page.setRootEntry(root);
+	}
+
+	/**
+	 * @generated
+	 */
+	@Override
 	protected IPropertySourceProvider getPropertySourceProvider() {
 		return this;
 	}
@@ -79,6 +114,7 @@ public class AspectualacmePropertySection extends AdvancedPropertySection
 	/**
 	 * @generated
 	 */
+	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		if (selection.isEmpty()
 				|| false == selection instanceof StructuredSelection) {

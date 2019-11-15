@@ -25,12 +25,14 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	public Image getImage(Object element) {
 		if (element instanceof AspectualacmeDomainNavigatorItem) {
 			return myAdapterFactoryLabelProvider
@@ -43,6 +45,7 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public String getText(Object element) {
 		if (element instanceof AspectualacmeDomainNavigatorItem) {
 			return myAdapterFactoryLabelProvider
@@ -55,6 +58,7 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void addListener(ILabelProviderListener listener) {
 		myAdapterFactoryLabelProvider.addListener(listener);
 	}
@@ -62,6 +66,7 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		myAdapterFactoryLabelProvider.dispose();
 	}
@@ -69,6 +74,7 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isLabelProperty(Object element, String property) {
 		return myAdapterFactoryLabelProvider.isLabelProperty(element, property);
 	}
@@ -76,6 +82,7 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void removeListener(ILabelProviderListener listener) {
 		myAdapterFactoryLabelProvider.removeListener(listener);
 	}
@@ -83,18 +90,21 @@ public class AspectualacmeDomainNavigatorLabelProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	public String getDescription(Object anElement) {
 		return null;
 	}

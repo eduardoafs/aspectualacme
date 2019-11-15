@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.DecorationNode;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
+import org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -82,7 +83,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	 * @generated
 	 */
 	protected boolean provides(CreateDiagramViewOperation op) {
-		return componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID
+		return componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID
 				.equals(op.getSemanticHint())
 				&& componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 						.getDiagramVisualID(getSemanticElement(op
@@ -130,14 +131,14 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 					return false; // visual id for node EClass should match visual id from element type
 				}
 			} else {
-				if (!componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID
+				if (!componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID
 						.equals(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 								.getModelID(op.getContainerView()))) {
 					return false; // foreign diagram
 				}
 				switch (visualID) {
 				case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
-				case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+				case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 				case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 				case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
 				case componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID:
@@ -145,8 +146,8 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 				case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
 				case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID:
 				case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID:
-				case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-				case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+				case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+				case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 				case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
@@ -161,10 +162,10 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			}
 		}
 		return componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID == visualID
-				|| componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID == visualID
 				|| componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID == visualID
+				|| componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID == visualID
 				|| componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID == visualID
-				|| componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID == visualID
+				|| componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID == visualID
 				|| componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID == visualID
 				|| componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart.VISUAL_ID == visualID
 				|| componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart.VISUAL_ID == visualID
@@ -209,7 +210,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			String diagramKind, PreferencesHint preferencesHint) {
 		Diagram diagram = NotationFactory.eINSTANCE.createDiagram();
 		diagram.getStyles().add(NotationFactory.eINSTANCE.createDiagramStyle());
-		diagram.setType(componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID);
+		diagram.setType(componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID);
 		diagram.setElement(getSemanticElement(semanticAdapter));
 		diagram.setMeasurementUnit(MeasurementUnit.PIXEL_LITERAL);
 		return diagram;
@@ -232,18 +233,18 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
-			return createSystem_2009(domainElement, containerView, index,
-					persisted, preferencesHint);
-		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-			return createComponent_2010(domainElement, containerView, index,
+			return createSystem_2001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+			return createComponent_2002(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 			return createComponent_3001(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 			return createPort_3002(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+		case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
 			return createRepresentation_3003(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
@@ -256,16 +257,16 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			return createCrosscuttingRole_3006(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID:
-			return createGlue_3008(domainElement, containerView, index,
+			return createGlue_3007(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart.VISUAL_ID:
-			return createRole_3012(domainElement, containerView, index,
+			return createRole_3008(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.WildCardEditPart.VISUAL_ID:
 			return createWildCard_3009(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
-			return createPort_3011(domainElement, containerView, index,
+			return createPort_3010(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -311,7 +312,59 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createSystem_2009(EObject domainElement, View containerView,
+	public Node createSystem_2001(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+				.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5004 = createLabel(
+				node,
+				componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+						.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+						.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createComponent_2002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
@@ -320,7 +373,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-				.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID));
+				.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		stampShortcut(containerView, node);
@@ -349,57 +402,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		Node label5005 = createLabel(
 				node,
 				componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-						.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart.VISUAL_ID));
-		createCompartment(
-				node,
-				componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-						.getType(componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID),
-				false, false, false, false);
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createComponent_2010(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles()
-				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-				.getType(componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5004 = createLabel(
-				node,
-				componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-						.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart.VISUAL_ID));
+						.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -415,7 +418,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-				.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID));
+				.getType(componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -443,7 +446,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		Node label5001 = createLabel(
 				node,
 				componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-						.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart.VISUAL_ID));
+						.getType(componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -494,9 +497,15 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
+		{
+			HintedDiagramLinkStyle diagramFacet = NotationFactory.eINSTANCE
+					.createHintedDiagramLinkStyle();
+			diagramFacet.setHint("componentRepresentationAspectualacme"); //$NON-NLS-1$
+			node.getStyles().add(diagramFacet);
+		}
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
-				.getType(componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID));
+				.getType(componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -651,7 +660,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createGlue_3008(EObject domainElement, View containerView,
+	public Node createGlue_3007(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
@@ -665,7 +674,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createRole_3012(EObject domainElement, View containerView,
+	public Node createRole_3008(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
@@ -745,7 +754,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createPort_3011(EObject domainElement, View containerView,
+	public Node createPort_3010(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles()
@@ -1121,7 +1130,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	 * @generated
 	 */
 	private void stampShortcut(View containerView, Node target) {
-		if (!componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID
+		if (!componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID
 				.equals(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 						.getModelID(containerView))) {
 			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
@@ -1129,7 +1138,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
 			shortcutAnnotation
 					.getDetails()
-					.put("modelID", componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID); //$NON-NLS-1$
+					.put("modelID", componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID); //$NON-NLS-1$
 			target.getEAnnotations().add(shortcutAnnotation);
 		}
 	}

@@ -30,6 +30,7 @@ public class AspectualacmeBaseEditHelper extends AbstractEditHelper {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected IEditHelperAdvice[] getEditHelperAdvice(IEditCommandRequest req) {
 		if (req.getParameter(CONTEXT_ELEMENT_TYPE) instanceof IElementType) {
 			return ElementTypeRegistry.getInstance().getEditHelperAdvice(
@@ -41,6 +42,7 @@ public class AspectualacmeBaseEditHelper extends AbstractEditHelper {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ICommand getInsteadCommand(IEditCommandRequest req) {
 		ICommand epCommand = (ICommand) req.getParameter(EDIT_POLICY_COMMAND);
 		req.setParameter(EDIT_POLICY_COMMAND, null);
@@ -60,6 +62,7 @@ public class AspectualacmeBaseEditHelper extends AbstractEditHelper {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ICommand getCreateCommand(CreateElementRequest req) {
 		return null;
 	}
@@ -67,6 +70,7 @@ public class AspectualacmeBaseEditHelper extends AbstractEditHelper {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ICommand getCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
 		return null;
@@ -75,6 +79,7 @@ public class AspectualacmeBaseEditHelper extends AbstractEditHelper {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ICommand getDestroyElementCommand(DestroyElementRequest req) {
 		return null;
 	}
@@ -82,6 +87,7 @@ public class AspectualacmeBaseEditHelper extends AbstractEditHelper {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected ICommand getDestroyReferenceCommand(DestroyReferenceRequest req) {
 		return null;
 	}

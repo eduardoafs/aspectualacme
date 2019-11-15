@@ -11,6 +11,27 @@
       <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//GlueType/around"/>
       <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//GlueType/after"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="aspectualacme.ecore#//ArmaniSetTypes">
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Components"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Connectors"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Roles"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Ports"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Representations"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Properties"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniSetTypes/Elements"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="aspectualacme.ecore#//ArmaniTypes">
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniTypes/Component"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniTypes/Connector"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniTypes/Role"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniTypes/Port"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniTypes/Representation"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniTypes/Property"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="aspectualacme.ecore#//ArmaniQuantifier">
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniQuantifier/forall"/>
+      <genEnumLiterals ecoreEnumLiteral="aspectualacme.ecore#//ArmaniQuantifier/exists"/>
+    </genEnums>
     <genClasses ecoreClass="aspectualacme.ecore#//Root">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Root/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Root/elements"/>
@@ -23,12 +44,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//Element/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Element/representations"/>
     </genClasses>
-    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniExpression/expression"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="aspectualacme.ecore#//attachableElement"/>
     <genClasses image="false" ecoreClass="aspectualacme.ecore#//BasicElement">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//BasicElement/armani"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//BasicElement/armani"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//BasicElement/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Family">
@@ -40,44 +58,62 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Family/ptypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Family/cntypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Family/rtypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Family/prtypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Family/properties"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//ComponentType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ComponentType/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ComponentType/parentType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//ComponentType/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//RoleType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//RoleType/parentType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//RoleType/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//PortType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//PortType/parentType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//PortType/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//ConnectorType">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ConnectorType/parentType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ConnectorType/role"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ConnectorType/glue"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//ConnectorType/parentFamily"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//PropertyType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//PropertyType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//PropertyType/values"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//PropertyType/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//System">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/connectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/attachments"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/wildCard"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/components"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/parentRepresentation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//System/effective_type"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Component">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Component/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Component/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Component/parentSystem"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Component/parentSystem"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Component/parentFamily"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Component/effective_type"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Connector">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Connector/role"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Connector/glue"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Connector/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Connector/parentSystem"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Connector/parentFamily"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Connector/effective_type"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Role">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Role/connector"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Role/Connector"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Role/ConnectorT"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Role/roleType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Role/effective_type"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//BaseRole">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//BaseRole/type"/>
@@ -86,12 +122,17 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//CrosscuttingRole/type"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Port">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Port/Component"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Port/portType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Port/Component"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Port/ComponentT"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Port/effective_type"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//Property/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//Property/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Property/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Property/parentSystem"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Property/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Glue">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Glue/baseAttach"/>
@@ -102,11 +143,14 @@
     <genClasses ecoreClass="aspectualacme.ecore#//Attachment">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Attachment/firstElement"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Attachment/secondElement"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Attachment/parentSystem"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Attachment/parentFamily"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Binding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Binding/property"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Binding/firstPort"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Binding/secondPort"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Binding/representation"/>
     </genClasses>
     <genClasses ecoreClass="aspectualacme.ecore#//Representation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//Representation/name"/>
@@ -114,9 +158,73 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Representation/bindings"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aspectualacme.ecore#//Representation/element"/>
     </genClasses>
-    <genClasses ecoreClass="aspectualacme.ecore#//WildCard"/>
-    <genClasses ecoreClass="aspectualacme.ecore#//Armani">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//Armani/tokens"/>
+    <genClasses ecoreClass="aspectualacme.ecore#//WildCard">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//WildCard/expression"/>
     </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//BindableElement"/>
+    <genClasses ecoreClass="aspectualacme.ecore#//TypeDefinition"/>
+    <genClasses ecoreClass="aspectualacme.ecore#//Armani">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//Armani/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//Armani/designRule"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniExpression"/>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniFunctionCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniFunctionCall/functionId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniFunctionCall/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniSetExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniSetExpression/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniSetExpression/referenceType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniSetExpression/setValues"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniConstant"/>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniPrimitiveExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniPrimitiveExpression/designRule"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniUnaryExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniUnaryExpression/unaryExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniUnaryExpression/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniMultiplicativeExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniMultiplicativeExpression/expressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniMultiplicativeExpression/operators"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniAdditiveExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniAdditiveExpression/expressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniAdditiveExpression/operators"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniRelationalExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniRelationalExpression/expressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniRelationalExpression/operators"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniEqualityExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniEqualityExpression/expressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniEqualityExpression/operators"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniIffExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniIffExpression/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniImpliesExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniImpliesExpression/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniOrExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniOrExpression/expressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniOrExpression/operators"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniVariable/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniVariable/userType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniVariable/basicType"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniBooleanExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniBooleanExpression/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="aspectualacme.ecore#//ArmaniQuantifiedExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniQuantifiedExpression/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniQuantifiedExpression/setExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aspectualacme.ecore#//ArmaniQuantifiedExpression/designRule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aspectualacme.ecore#//ArmaniQuantifiedExpression/quantifier"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="aspectualacme.ecore#//ArmaniDesignRuleExpression"/>
   </genPackages>
 </genmodel:GenModel>

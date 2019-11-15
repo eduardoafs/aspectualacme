@@ -1,0 +1,8 @@
+#Thu Sep 08 18:57:53 BRT 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/Teste/model/teste.genmodel
+gmf_dashboard/domainModel=platform\:/resource/Teste/model/teste.ecore
+gmf_dashboard/generationModel=platform\:/resource/Teste/model/teste.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/Teste/model/teste.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/Teste/model/teste.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/Teste/model/teste.gmftool

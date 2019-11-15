@@ -176,11 +176,7 @@ public class WildCardNameEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
-		EObject parserElement = getParserElement();
-		if (parserElement == null) {
-			return null;
-		}
-		return AspectualacmeElementTypes.getImage(parserElement.eClass());
+		return null;
 	}
 
 	/**

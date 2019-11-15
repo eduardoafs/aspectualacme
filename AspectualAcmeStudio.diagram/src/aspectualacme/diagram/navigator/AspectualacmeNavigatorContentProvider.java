@@ -234,6 +234,540 @@ public class AspectualacmeNavigatorContentProvider implements
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (AspectualacmeVisualIDRegistry.getVisualID(view)) {
 
+		case Attachment5EditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case PortEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			AspectualacmeNavigatorGroup incominglinks = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Port_3005_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AspectualacmeNavigatorGroup outgoinglinks = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Port_3005_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment5EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment5EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment6EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment6EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(AttachmentEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(AttachmentEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment2EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment3EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment3EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment4EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment4EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case SystemEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Diagram sv = (Diagram) view;
+			AspectualacmeNavigatorGroup links = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_System_1000_links,
+					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(ConnectorEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(ComponentEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment5EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment6EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(AttachmentEditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment2EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment3EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment4EditPart.VISUAL_ID));
+			links.addChildren(createNavigatorItems(connectedViews, links, false));
+			if (!links.isEmpty()) {
+				result.add(links);
+			}
+			return result.toArray();
+		}
+
+		case Attachment3EditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4005_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4005_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case Attachment2EditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4004_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4004_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case ConnectorEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(ConnectorCompartmentGlueEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					AspectualacmeVisualIDRegistry
+							.getType(GlueEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case CrosscuttingRoleEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			AspectualacmeNavigatorGroup incominglinks = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_CrosscuttingRole_3002_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AspectualacmeNavigatorGroup outgoinglinks = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_CrosscuttingRole_3002_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment5EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment5EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment6EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment6EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(AttachmentEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(AttachmentEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment2EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment2EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment3EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment3EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment4EditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(Attachment4EditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			return result.toArray();
+		}
+
+		case Attachment4EditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4006_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
+					Messages.NavigatorGroupName_Attachment_4006_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(WildCardEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(BaseRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case ComponentEditPart.VISUAL_ID: {
+			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
+			Node sv = (Node) view;
+			Collection<View> connectedViews;
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(PortEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(sv),
+					AspectualacmeVisualIDRegistry
+							.getType(RepresentationEditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case BaseRoleEditPart.VISUAL_ID: {
 			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -313,114 +847,14 @@ public class AspectualacmeNavigatorContentProvider implements
 			return result.toArray();
 		}
 
-		case ConnectorEditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(ConnectorCompartmentGlueEditPart.VISUAL_ID));
-			connectedViews = getChildrenByType(connectedViews,
-					AspectualacmeVisualIDRegistry
-							.getType(GlueEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case Attachment3EditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4005_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4005_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case CrosscuttingRoleEditPart.VISUAL_ID: {
+		case WildCardEditPart.VISUAL_ID: {
 			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			AspectualacmeNavigatorGroup incominglinks = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_CrosscuttingRole_3002_incominglinks,
+					Messages.NavigatorGroupName_WildCard_2003_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			AspectualacmeNavigatorGroup outgoinglinks = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_CrosscuttingRole_3002_outgoinglinks,
+					Messages.NavigatorGroupName_WildCard_2003_outgoinglinks,
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection<View> connectedViews;
 			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
@@ -557,302 +991,6 @@ public class AspectualacmeNavigatorContentProvider implements
 			}
 			if (!source.isEmpty()) {
 				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case Attachment2EditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4004_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4004_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case WildCardEditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			AspectualacmeNavigatorGroup incominglinks = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_WildCard_2003_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			AspectualacmeNavigatorGroup outgoinglinks = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_WildCard_2003_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment5EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment5EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment6EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment6EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(AttachmentEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(AttachmentEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment2EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment2EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment3EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment3EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment4EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment4EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case PortEditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			AspectualacmeNavigatorGroup incominglinks = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Port_3005_incominglinks,
-					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			AspectualacmeNavigatorGroup outgoinglinks = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Port_3005_outgoinglinks,
-					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment5EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment5EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment6EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment6EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(AttachmentEditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(AttachmentEditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment2EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment2EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment3EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment3EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment4EditPart.VISUAL_ID));
-			incominglinks.addChildren(createNavigatorItems(connectedViews,
-					incominglinks, true));
-			connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment4EditPart.VISUAL_ID));
-			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
-					outgoinglinks, true));
-			if (!incominglinks.isEmpty()) {
-				result.add(incominglinks);
-			}
-			if (!outgoinglinks.isEmpty()) {
-				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case ComponentEditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Node sv = (Node) view;
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RepresentationEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			return result.toArray();
-		}
-
-		case SystemEditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Diagram sv = (Diagram) view;
-			AspectualacmeNavigatorGroup links = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_System_1000_links,
-					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(ConnectorEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(ComponentEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment5EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment6EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(AttachmentEditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment2EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment3EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			connectedViews = getDiagramLinksByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(Attachment4EditPart.VISUAL_ID));
-			links.addChildren(createNavigatorItems(connectedViews, links, false));
-			if (!links.isEmpty()) {
-				result.add(links);
 			}
 			return result.toArray();
 		}
@@ -1001,144 +1139,6 @@ public class AspectualacmeNavigatorContentProvider implements
 			}
 			if (!outgoinglinks.isEmpty()) {
 				result.add(outgoinglinks);
-			}
-			return result.toArray();
-		}
-
-		case Attachment5EditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4001_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4001_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
-		case Attachment4EditPart.VISUAL_ID: {
-			LinkedList<AspectualacmeAbstractNavigatorItem> result = new LinkedList<AspectualacmeAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			AspectualacmeNavigatorGroup target = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4006_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			AspectualacmeNavigatorGroup source = new AspectualacmeNavigatorGroup(
-					Messages.NavigatorGroupName_Attachment_4006_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksTargetByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(WildCardEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(BaseRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(CrosscuttingRoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(RoleEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			connectedViews = getLinksSourceByType(Collections.singleton(sv),
-					AspectualacmeVisualIDRegistry
-							.getType(PortEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
 			}
 			return result.toArray();
 		}

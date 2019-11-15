@@ -4,21 +4,22 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.draw2d.FlowLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.editpolicies.ResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.FlowLayoutEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -27,6 +28,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import aspectualacme.custom.layout.ScaleInnerFigureLayout;
 import aspectualacme.figures.StarFigure;
 
 /**
@@ -73,15 +75,18 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
-
-			protected Command createAddCommand(EditPart child, EditPart after) {
-				return null;
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
 			}
 
-			protected Command createMoveChildCommand(EditPart child,
-					EditPart after) {
+			protected Command getMoveChildrenCommand(Request request) {
 				return null;
 			}
 
@@ -170,7 +175,8 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 		EditPolicy result = super.getPrimaryDragEditPolicy();
 		if (result instanceof ResizableEditPolicy) {
 			ResizableEditPolicy ep = (ResizableEditPolicy) result;
-			ep.setResizeDirections(PositionConstants.NONE);
+			ep.setResizeDirections(PositionConstants.WEST
+					| PositionConstants.EAST);
 		}
 		return result;
 	}
@@ -401,44 +407,44 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4002) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4003) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4004) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4005) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		}
 		return types;
 	}
@@ -466,44 +472,44 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4002) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4003) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4004) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4005) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		} else if (relationshipType == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Attachment_4006) {
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3002);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.BaseRole_3005);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.CrosscuttingRole_3006);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008);
 			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.WildCard_3009);
-			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3011);
+			types.add(componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Port_3010);
 		}
 		return types;
 	}
@@ -511,7 +517,7 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class WildCardFigure extends StarFigure {
+	public class WildCardFigure extends RectangleFigure {
 
 		/**
 		 * @generated
@@ -523,17 +529,11 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 		 */
 		public WildCardFigure() {
 
-			FlowLayout layoutThis = new FlowLayout();
-			layoutThis.setStretchMinorAxis(false);
-			layoutThis.setMinorAlignment(FlowLayout.ALIGN_LEFTTOP);
-
-			layoutThis.setMajorAlignment(FlowLayout.ALIGN_LEFTTOP);
-			layoutThis.setMajorSpacing(5);
-			layoutThis.setMinorSpacing(5);
-			layoutThis.setHorizontal(true);
+			ScaleInnerFigureLayout layoutThis = new ScaleInnerFigureLayout();
 
 			this.setLayoutManager(layoutThis);
 
+			this.setLineWidth(0);
 			createContents();
 		}
 
@@ -541,6 +541,10 @@ public class WildCardEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		private void createContents() {
+
+			StarFigure wildCard0 = new StarFigure();
+
+			this.add(wildCard0);
 
 			fFigureWildCardName = new WrappingLabel();
 			fFigureWildCardName.setText("......");

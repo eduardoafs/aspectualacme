@@ -16,14 +16,17 @@
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="aspectualacme.gmfgraph#repSystemNameFigure"/>
+            href="aspectualacme.gmfgraph#rSystemNameFigure"/>
         <features
             href="aspectualacme.ecore#//Element/name"/>
         <editableFeatures
             href="aspectualacme.ecore#//Element/name"/>
       </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="aspectualacme.gmftool#//@palette/@tools.0/@tools.12"/>
       <diagramNode
-          href="aspectualacme.gmfgraph#RepSystem"/>
+          href="aspectualacme.gmfgraph#rSystem"/>
       <children
           compartment="//@nodes.0/@ownedChild/@compartments.0"
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
@@ -293,7 +296,7 @@
       <compartments
           children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.2">
         <compartment
-            href="aspectualacme.gmfgraph#repSystemComp"/>
+            href="aspectualacme.gmfgraph#CompartmentRSystem"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -308,12 +311,14 @@
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping">
         <diagramLabel
-            href="aspectualacme.gmfgraph#repComponentNameFigure"/>
+            href="aspectualacme.gmfgraph#rComponentOutName"/>
         <features
+            href="aspectualacme.ecore#//Element/name"/>
+        <editableFeatures
             href="aspectualacme.ecore#//Element/name"/>
       </labelMappings>
       <diagramNode
-          href="aspectualacme.gmfgraph#RepComponent"/>
+          href="aspectualacme.gmfgraph#rComponentOut"/>
       <children
           referencedChild="//@nodes.1/@ownedChild/@children.0/@ownedChild">
         <containmentFeature

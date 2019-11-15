@@ -7,11 +7,28 @@
 package aspectualacme.util;
 
 import aspectualacme.Armani;
+import aspectualacme.ArmaniAdditiveExpression;
+import aspectualacme.ArmaniBooleanExpression;
+import aspectualacme.ArmaniConstant;
+import aspectualacme.ArmaniDesignRuleExpression;
+import aspectualacme.ArmaniEqualityExpression;
 import aspectualacme.ArmaniExpression;
+import aspectualacme.ArmaniFunctionCall;
+import aspectualacme.ArmaniIffExpression;
+import aspectualacme.ArmaniImpliesExpression;
+import aspectualacme.ArmaniMultiplicativeExpression;
+import aspectualacme.ArmaniOrExpression;
+import aspectualacme.ArmaniPrimitiveExpression;
+import aspectualacme.ArmaniQuantifiedExpression;
+import aspectualacme.ArmaniRelationalExpression;
+import aspectualacme.ArmaniSetExpression;
+import aspectualacme.ArmaniUnaryExpression;
+import aspectualacme.ArmaniVariable;
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Attachment;
 import aspectualacme.BaseRole;
 import aspectualacme.BasicElement;
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
 import aspectualacme.Component;
 import aspectualacme.ComponentType;
@@ -20,15 +37,20 @@ import aspectualacme.ConnectorType;
 import aspectualacme.CrosscuttingRole;
 import aspectualacme.Element;
 import aspectualacme.Family;
+import aspectualacme.Feature;
 import aspectualacme.Glue;
 import aspectualacme.Import;
 import aspectualacme.Port;
 import aspectualacme.PortType;
+import aspectualacme.Product;
+import aspectualacme.ProductLine;
 import aspectualacme.Property;
+import aspectualacme.PropertyType;
 import aspectualacme.Representation;
 import aspectualacme.Role;
 import aspectualacme.RoleType;
 import aspectualacme.Root;
+import aspectualacme.TypeDefinition;
 import aspectualacme.WildCard;
 import aspectualacme.attachableElement;
 
@@ -108,10 +130,6 @@ public class AspectualacmeAdapterFactory extends AdapterFactoryImpl {
 				return createElementAdapter();
 			}
 			@Override
-			public Adapter caseArmaniExpression(ArmaniExpression object) {
-				return createArmaniExpressionAdapter();
-			}
-			@Override
 			public Adapter caseattachableElement(attachableElement object) {
 				return createattachableElementAdapter();
 			}
@@ -138,6 +156,10 @@ public class AspectualacmeAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseConnectorType(ConnectorType object) {
 				return createConnectorTypeAdapter();
+			}
+			@Override
+			public Adapter casePropertyType(PropertyType object) {
+				return createPropertyTypeAdapter();
 			}
 			@Override
 			public Adapter caseSystem(aspectualacme.System object) {
@@ -192,8 +214,84 @@ public class AspectualacmeAdapterFactory extends AdapterFactoryImpl {
 				return createWildCardAdapter();
 			}
 			@Override
+			public Adapter caseBindableElement(BindableElement object) {
+				return createBindableElementAdapter();
+			}
+			@Override
+			public Adapter caseTypeDefinition(TypeDefinition object) {
+				return createTypeDefinitionAdapter();
+			}
+			@Override
 			public Adapter caseArmani(Armani object) {
 				return createArmaniAdapter();
+			}
+			@Override
+			public Adapter caseArmaniExpression(ArmaniExpression object) {
+				return createArmaniExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniFunctionCall(ArmaniFunctionCall object) {
+				return createArmaniFunctionCallAdapter();
+			}
+			@Override
+			public Adapter caseArmaniSetExpression(ArmaniSetExpression object) {
+				return createArmaniSetExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniConstant(ArmaniConstant object) {
+				return createArmaniConstantAdapter();
+			}
+			@Override
+			public Adapter caseArmaniPrimitiveExpression(ArmaniPrimitiveExpression object) {
+				return createArmaniPrimitiveExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniUnaryExpression(ArmaniUnaryExpression object) {
+				return createArmaniUnaryExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniMultiplicativeExpression(ArmaniMultiplicativeExpression object) {
+				return createArmaniMultiplicativeExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniAdditiveExpression(ArmaniAdditiveExpression object) {
+				return createArmaniAdditiveExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniRelationalExpression(ArmaniRelationalExpression object) {
+				return createArmaniRelationalExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniEqualityExpression(ArmaniEqualityExpression object) {
+				return createArmaniEqualityExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniIffExpression(ArmaniIffExpression object) {
+				return createArmaniIffExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniImpliesExpression(ArmaniImpliesExpression object) {
+				return createArmaniImpliesExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniOrExpression(ArmaniOrExpression object) {
+				return createArmaniOrExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniVariable(ArmaniVariable object) {
+				return createArmaniVariableAdapter();
+			}
+			@Override
+			public Adapter caseArmaniBooleanExpression(ArmaniBooleanExpression object) {
+				return createArmaniBooleanExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniQuantifiedExpression(ArmaniQuantifiedExpression object) {
+				return createArmaniQuantifiedExpressionAdapter();
+			}
+			@Override
+			public Adapter caseArmaniDesignRuleExpression(ArmaniDesignRuleExpression object) {
+				return createArmaniDesignRuleExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -268,6 +366,230 @@ public class AspectualacmeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArmaniExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniFunctionCall <em>Armani Function Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniFunctionCall
+	 * @generated
+	 */
+	public Adapter createArmaniFunctionCallAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniSetExpression <em>Armani Set Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniSetExpression
+	 * @generated
+	 */
+	public Adapter createArmaniSetExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniConstant <em>Armani Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniConstant
+	 * @generated
+	 */
+	public Adapter createArmaniConstantAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniPrimitiveExpression <em>Armani Primitive Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniPrimitiveExpression
+	 * @generated
+	 */
+	public Adapter createArmaniPrimitiveExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniUnaryExpression <em>Armani Unary Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniUnaryExpression
+	 * @generated
+	 */
+	public Adapter createArmaniUnaryExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniMultiplicativeExpression <em>Armani Multiplicative Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniMultiplicativeExpression
+	 * @generated
+	 */
+	public Adapter createArmaniMultiplicativeExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniAdditiveExpression <em>Armani Additive Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniAdditiveExpression
+	 * @generated
+	 */
+	public Adapter createArmaniAdditiveExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniRelationalExpression <em>Armani Relational Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniRelationalExpression
+	 * @generated
+	 */
+	public Adapter createArmaniRelationalExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniEqualityExpression <em>Armani Equality Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniEqualityExpression
+	 * @generated
+	 */
+	public Adapter createArmaniEqualityExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniIffExpression <em>Armani Iff Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniIffExpression
+	 * @generated
+	 */
+	public Adapter createArmaniIffExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniImpliesExpression <em>Armani Implies Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniImpliesExpression
+	 * @generated
+	 */
+	public Adapter createArmaniImpliesExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniOrExpression <em>Armani Or Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniOrExpression
+	 * @generated
+	 */
+	public Adapter createArmaniOrExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniVariable <em>Armani Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniVariable
+	 * @generated
+	 */
+	public Adapter createArmaniVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniBooleanExpression <em>Armani Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniBooleanExpression
+	 * @generated
+	 */
+	public Adapter createArmaniBooleanExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniQuantifiedExpression <em>Armani Quantified Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniQuantifiedExpression
+	 * @generated
+	 */
+	public Adapter createArmaniQuantifiedExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.ArmaniDesignRuleExpression <em>Armani Design Rule Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.ArmaniDesignRuleExpression
+	 * @generated
+	 */
+	public Adapter createArmaniDesignRuleExpressionAdapter() {
 		return null;
 	}
 
@@ -366,6 +688,20 @@ public class AspectualacmeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConnectorTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.PropertyType <em>Property Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.PropertyType
+	 * @generated
+	 */
+	public Adapter createPropertyTypeAdapter() {
 		return null;
 	}
 
@@ -562,6 +898,34 @@ public class AspectualacmeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createArmaniAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.BindableElement <em>Bindable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.BindableElement
+	 * @generated
+	 */
+	public Adapter createBindableElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link aspectualacme.TypeDefinition <em>Type Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see aspectualacme.TypeDefinition
+	 * @generated
+	 */
+	public Adapter createTypeDefinitionAdapter() {
 		return null;
 	}
 

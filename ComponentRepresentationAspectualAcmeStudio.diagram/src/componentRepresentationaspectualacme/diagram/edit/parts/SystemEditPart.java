@@ -1,6 +1,6 @@
 package componentRepresentationaspectualacme.diagram.edit.parts;
 
-import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
@@ -31,7 +31,7 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2009;
+	public static final int VISUAL_ID = 2001;
 
 	/**
 	 * @generated
@@ -93,14 +93,14 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RepSystemFigure1();
+		return primaryShape = new RSystemFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public RepSystemFigure1 getPrimaryShape() {
-		return (RepSystemFigure1) primaryShape;
+	public RSystemFigure getPrimaryShape() {
+		return (RSystemFigure) primaryShape;
 	}
 
 	/**
@@ -109,7 +109,14 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart) {
 			((componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureSystemNameFigure());
+					.setLabel(getPrimaryShape().getFigureRSystemName());
+			return true;
+		}
+		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart) {
+			IFigure pane = getPrimaryShape().getFigureRSystemCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.add(((componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -120,6 +127,13 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart) {
+			IFigure pane = getPrimaryShape().getFigureRSystemCompartment();
+			setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+			pane.remove(((componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart) childEditPart)
+					.getFigure());
 			return true;
 		}
 		return false;
@@ -149,6 +163,9 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart) {
+			return getPrimaryShape().getFigureRSystemCompartment();
+		}
 		return getContentPane();
 	}
 
@@ -156,7 +173,7 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(400, 400);
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
@@ -249,27 +266,28 @@ public class SystemEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class RepSystemFigure1 extends RectangleFigure {
+	public class RSystemFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private RectangleFigure fFigureRepSystemCompartment;
+		private WrappingLabel fFigureRSystemName;
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureSystemNameFigure;
+		private RectangleFigure fFigureRSystemCompartment;
 
 		/**
 		 * @generated
 		 */
-		public RepSystemFigure1() {
-			this.setLineWidth(2);
-			this.setForegroundColor(ColorConstants.black);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(400),
-					getMapMode().DPtoLP(400)));
-			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(400),
-					getMapMode().DPtoLP(400)));
+		public RSystemFigure() {
+
+			BorderLayout layoutThis = new BorderLayout();
+			this.setLayoutManager(layoutThis);
+
+			this.setLineWidth(1);
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(300),
+					getMapMode().DPtoLP(0)));
 			createContents();
 		}
 
@@ -278,25 +296,29 @@ public class SystemEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureSystemNameFigure = new WrappingLabel();
-			fFigureSystemNameFigure.setText(".....");
+			fFigureRSystemName = new WrappingLabel();
+			fFigureRSystemName.setText("<...>");
 
-			this.add(fFigureSystemNameFigure);
+			this.add(fFigureRSystemName, BorderLayout.TOP);
+
+			fFigureRSystemCompartment = new RectangleFigure();
+
+			this.add(fFigureRSystemCompartment, BorderLayout.CENTER);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public RectangleFigure getFigureRepSystemCompartment() {
-			return fFigureRepSystemCompartment;
+		public WrappingLabel getFigureRSystemName() {
+			return fFigureRSystemName;
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureSystemNameFigure() {
-			return fFigureSystemNameFigure;
+		public RectangleFigure getFigureRSystemCompartment() {
+			return fFigureRSystemCompartment;
 		}
 
 	}

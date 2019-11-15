@@ -93,7 +93,7 @@ public class AspectualacmeInitDiagramFileAction implements
 				domainModelURI, diagramRoot, editingDomain);
 		wizard.setWindowTitle(NLS
 				.bind(componentRepresentationaspectualacme.diagram.part.Messages.InitDiagramFile_WizardTitle,
-						componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.MODEL_ID));
+						componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.MODEL_ID));
 		componentRepresentationaspectualacme.diagram.part.AspectualacmeDiagramEditorUtil
 				.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
 	}

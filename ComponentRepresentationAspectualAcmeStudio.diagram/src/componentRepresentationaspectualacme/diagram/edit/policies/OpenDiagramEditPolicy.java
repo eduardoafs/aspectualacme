@@ -33,6 +33,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
+import aspectualacme.impl.RepresentationImpl;
+
 /**
  * @generated
  */
@@ -113,11 +115,19 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		protected Diagram intializeNewDiagram() throws ExecutionException {
+			String diagramKind = "";
+			if (getDiagramDomainElement() instanceof RepresentationImpl) {
+				diagramKind = "componentRepresentationAspectualacme";
+			} else {
+				diagramKind = getDiagramKind();
+
+			}
 			Diagram d = ViewService.createDiagram(getDiagramDomainElement(),
-					getDiagramKind(), getPreferencesHint());
+					diagramKind, getPreferencesHint());
+
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"
 						+ getDiagramKind() + "' kind");

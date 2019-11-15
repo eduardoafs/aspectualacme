@@ -21,7 +21,6 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCard2EditPart;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeDiagramUpdater;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
@@ -34,6 +33,7 @@ public class WildCardCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -46,6 +46,7 @@ public class WildCardCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
@@ -61,6 +62,7 @@ public class WildCardCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		return isMyDiagramElement(view)
@@ -71,14 +73,14 @@ public class WildCardCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = AspectualacmeVisualIDRegistry.getVisualID(view);
-		return visualID == ComponentEditPart.VISUAL_ID
-				|| visualID == WildCard2EditPart.VISUAL_ID;
+		return ComponentEditPart.VISUAL_ID == AspectualacmeVisualIDRegistry
+				.getVisualID(view);
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;

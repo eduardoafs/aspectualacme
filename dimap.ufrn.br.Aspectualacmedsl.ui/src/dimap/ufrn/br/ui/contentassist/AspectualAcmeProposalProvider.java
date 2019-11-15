@@ -3,9 +3,71 @@
 */
 package dimap.ufrn.br.ui.contentassist;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.text.contentassist.CompletionProposal;
+import org.eclipse.xtext.Assignment;
+
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+
+import dimap.ufrn.br.Util.AspectualAcmeUtil;
+
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class AspectualAcmeProposalProvider extends AbstractAspectualAcmeProposalProvider {
+	public void completeBinding_FirstPort(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		aspectualacme.Representation b = (aspectualacme.Representation) model;
+		
+		EList<aspectualacme.BindableElement> allBindables = AspectualAcmeUtil.bindablesFor(b);
+		
+		CompletionProposal p;
+		String name = "";
+		//= new CompletionProposal(string, offset, length, pos,null,display, null, "");
+		// Aqui tenho todas as portas
+		for (aspectualacme.BindableElement cp : allBindables) {
+			if (cp instanceof aspectualacme.Port) name = ((aspectualacme.Port) cp).getComponent().getName() + ".";
+			else if (cp instanceof aspectualacme.Role) name = ((aspectualacme.Role) cp).getConnector().getName() + ".";
+			name = name + cp.getName();
+			p = new CompletionProposal(name, context.getOffset(), 0, name.length(),null,cp.getName() + " - "+ name, null, "");
+			acceptor.accept(p);
+		}
+	}
 
+	public void completeBinding_SecondPort(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		aspectualacme.Representation parent = null;
+		if (model instanceof aspectualacme.Binding) {
+			parent = ((aspectualacme.Binding) model).getRepresentation();
+		}
+		completeBinding_FirstPort((parent==null?model : parent), assignment, context, acceptor);
+	}
+	
+	public void completeAttachment_FirstElement(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		aspectualacme.BasicElement ele = (aspectualacme.BasicElement)model;
+
+		EList<aspectualacme.attachableElement> attachables = AspectualAcmeUtil.attachablesFor(ele);
+		CompletionProposal p;
+		String name;
+		//= new CompletionProposal(string, offset, length, pos,null,display, null, "");
+		// Aqui tenho todas as portas
+		for (aspectualacme.attachableElement cp : attachables) {
+			if (cp instanceof aspectualacme.Port) 
+				name = ((aspectualacme.Port) cp).getComponent().getName() + "." + cp.getName();
+			else if (cp instanceof aspectualacme.Role)
+				name = ((aspectualacme.Role) cp).getConnector().getName() + "." + cp.getName();
+			else name = cp.getName();
+			p = new CompletionProposal(name, context.getOffset(), 0, name.length(),null,cp.getName() + " - "+ name, null, "");
+			acceptor.accept(p);
+		}
+	}
+	
+	public void completeAttachment_SecondElement(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		aspectualacme.BasicElement parent = null;
+		if (model instanceof aspectualacme.Attachment) {
+			parent = ((aspectualacme.Attachment) model).getParentFamily();
+			if (parent==null) parent = ((aspectualacme.Attachment) model).getParentSystem();
+		}
+		completeAttachment_FirstElement((parent==null? model  : parent), assignment, context, acceptor);
+	}
 }

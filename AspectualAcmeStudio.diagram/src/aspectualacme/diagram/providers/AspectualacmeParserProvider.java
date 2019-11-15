@@ -18,6 +18,7 @@ import aspectualacme.diagram.edit.parts.ComponentNameEditPart;
 import aspectualacme.diagram.edit.parts.ConnectorNameEditPart;
 import aspectualacme.diagram.edit.parts.GlueEditPart;
 import aspectualacme.diagram.edit.parts.WildCardNameEditPart;
+import aspectualacme.diagram.edit.parts.WildCardNameExpressionEditPart;
 import aspectualacme.diagram.parsers.MessageFormatParser;
 import aspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
 
@@ -72,22 +73,27 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser wildCardName_5003Parser;
+	private IParser wildCardNameExpression_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getWildCardName_5003Parser() {
-		if (wildCardName_5003Parser == null) {
-			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
-					.getElement_Name() };
-			EAttribute[] editableFeatures = new EAttribute[] { AspectualacmePackage.eINSTANCE
-					.getElement_Name() };
+	private IParser getWildCardNameExpression_5003Parser() {
+		if (wildCardNameExpression_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					AspectualacmePackage.eINSTANCE.getElement_Name(),
+					AspectualacmePackage.eINSTANCE.getWildCard_Expression() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					AspectualacmePackage.eINSTANCE.getElement_Name(),
+					AspectualacmePackage.eINSTANCE.getWildCard_Expression() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			wildCardName_5003Parser = parser;
+			parser.setViewPattern("{0}::[{1}]"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}::[{1}]"); //$NON-NLS-1$
+			parser.setEditPattern("{0}::[{1}]"); //$NON-NLS-1$
+			wildCardNameExpression_5003Parser = parser;
 		}
-		return wildCardName_5003Parser;
+		return wildCardNameExpression_5003Parser;
 	}
 
 	/**
@@ -120,8 +126,8 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 			return getConnectorName_5001Parser();
 		case ComponentNameEditPart.VISUAL_ID:
 			return getComponentName_5002Parser();
-		case WildCardNameEditPart.VISUAL_ID:
-			return getWildCardName_5003Parser();
+		case WildCardNameExpressionEditPart.VISUAL_ID:
+			return getWildCardNameExpression_5003Parser();
 		case GlueEditPart.VISUAL_ID:
 			return getGlue_3004Parser();
 		}

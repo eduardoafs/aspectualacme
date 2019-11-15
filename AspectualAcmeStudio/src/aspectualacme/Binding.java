@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link aspectualacme.Binding#getProperty <em>Property</em>}</li>
  *   <li>{@link aspectualacme.Binding#getFirstPort <em>First Port</em>}</li>
  *   <li>{@link aspectualacme.Binding#getSecondPort <em>Second Port</em>}</li>
+ *   <li>{@link aspectualacme.Binding#getRepresentation <em>Representation</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,12 +55,12 @@ public interface Binding extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>First Port</em>' reference.
-	 * @see #setFirstPort(Port)
+	 * @see #setFirstPort(BindableElement)
 	 * @see aspectualacme.AspectualacmePackage#getBinding_FirstPort()
 	 * @model keys="name" required="true"
 	 * @generated
 	 */
-	Port getFirstPort();
+	BindableElement getFirstPort();
 
 	/**
 	 * Sets the value of the '{@link aspectualacme.Binding#getFirstPort <em>First Port</em>}' reference.
@@ -69,7 +70,7 @@ public interface Binding extends EObject {
 	 * @see #getFirstPort()
 	 * @generated
 	 */
-	void setFirstPort(Port value);
+	void setFirstPort(BindableElement value);
 
 	/**
 	 * Returns the value of the '<em><b>Second Port</b></em>' reference.
@@ -80,12 +81,12 @@ public interface Binding extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Second Port</em>' reference.
-	 * @see #setSecondPort(Port)
+	 * @see #setSecondPort(BindableElement)
 	 * @see aspectualacme.AspectualacmePackage#getBinding_SecondPort()
 	 * @model keys="name" required="true"
 	 * @generated
 	 */
-	Port getSecondPort();
+	BindableElement getSecondPort();
 
 	/**
 	 * Sets the value of the '{@link aspectualacme.Binding#getSecondPort <em>Second Port</em>}' reference.
@@ -95,6 +96,34 @@ public interface Binding extends EObject {
 	 * @see #getSecondPort()
 	 * @generated
 	 */
-	void setSecondPort(Port value);
+	void setSecondPort(BindableElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Representation</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link aspectualacme.Representation#getBindings <em>Bindings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Representation</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Representation</em>' container reference.
+	 * @see #setRepresentation(Representation)
+	 * @see aspectualacme.AspectualacmePackage#getBinding_Representation()
+	 * @see aspectualacme.Representation#getBindings
+	 * @model opposite="bindings" transient="false"
+	 * @generated
+	 */
+	Representation getRepresentation();
+
+	/**
+	 * Sets the value of the '{@link aspectualacme.Binding#getRepresentation <em>Representation</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Representation</em>' container reference.
+	 * @see #getRepresentation()
+	 * @generated
+	 */
+	void setRepresentation(Representation value);
 
 } // Binding

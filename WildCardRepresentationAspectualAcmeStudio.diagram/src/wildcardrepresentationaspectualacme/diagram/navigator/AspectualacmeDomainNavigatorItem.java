@@ -96,6 +96,7 @@ public class AspectualacmeDomainNavigatorItem extends PlatformObject {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof wildcardrepresentationaspectualacme.diagram.navigator.AspectualacmeDomainNavigatorItem) {
 			return EcoreUtil
@@ -110,6 +111,7 @@ public class AspectualacmeDomainNavigatorItem extends PlatformObject {
 	/**
 	 * @generated
 	 */
+	@Override
 	public int hashCode() {
 		return EcoreUtil.getURI(getEObject()).hashCode();
 	}

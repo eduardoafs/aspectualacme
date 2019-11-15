@@ -168,6 +168,351 @@ public class AspectualacmeItemProviderAdapterFactory extends AspectualacmeAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniFunctionCall} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniFunctionCallItemProvider armaniFunctionCallItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniFunctionCall}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniFunctionCallAdapter() {
+		if (armaniFunctionCallItemProvider == null) {
+			armaniFunctionCallItemProvider = new ArmaniFunctionCallItemProvider(this);
+		}
+
+		return armaniFunctionCallItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniSetExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniSetExpressionItemProvider armaniSetExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniSetExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniSetExpressionAdapter() {
+		if (armaniSetExpressionItemProvider == null) {
+			armaniSetExpressionItemProvider = new ArmaniSetExpressionItemProvider(this);
+		}
+
+		return armaniSetExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniConstant} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniConstantItemProvider armaniConstantItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniConstant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniConstantAdapter() {
+		if (armaniConstantItemProvider == null) {
+			armaniConstantItemProvider = new ArmaniConstantItemProvider(this);
+		}
+
+		return armaniConstantItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniPrimitiveExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniPrimitiveExpressionItemProvider armaniPrimitiveExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniPrimitiveExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniPrimitiveExpressionAdapter() {
+		if (armaniPrimitiveExpressionItemProvider == null) {
+			armaniPrimitiveExpressionItemProvider = new ArmaniPrimitiveExpressionItemProvider(this);
+		}
+
+		return armaniPrimitiveExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniUnaryExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniUnaryExpressionItemProvider armaniUnaryExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniUnaryExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniUnaryExpressionAdapter() {
+		if (armaniUnaryExpressionItemProvider == null) {
+			armaniUnaryExpressionItemProvider = new ArmaniUnaryExpressionItemProvider(this);
+		}
+
+		return armaniUnaryExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniMultiplicativeExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniMultiplicativeExpressionItemProvider armaniMultiplicativeExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniMultiplicativeExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniMultiplicativeExpressionAdapter() {
+		if (armaniMultiplicativeExpressionItemProvider == null) {
+			armaniMultiplicativeExpressionItemProvider = new ArmaniMultiplicativeExpressionItemProvider(this);
+		}
+
+		return armaniMultiplicativeExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniAdditiveExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniAdditiveExpressionItemProvider armaniAdditiveExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniAdditiveExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniAdditiveExpressionAdapter() {
+		if (armaniAdditiveExpressionItemProvider == null) {
+			armaniAdditiveExpressionItemProvider = new ArmaniAdditiveExpressionItemProvider(this);
+		}
+
+		return armaniAdditiveExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniRelationalExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniRelationalExpressionItemProvider armaniRelationalExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniRelationalExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniRelationalExpressionAdapter() {
+		if (armaniRelationalExpressionItemProvider == null) {
+			armaniRelationalExpressionItemProvider = new ArmaniRelationalExpressionItemProvider(this);
+		}
+
+		return armaniRelationalExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniEqualityExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniEqualityExpressionItemProvider armaniEqualityExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniEqualityExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniEqualityExpressionAdapter() {
+		if (armaniEqualityExpressionItemProvider == null) {
+			armaniEqualityExpressionItemProvider = new ArmaniEqualityExpressionItemProvider(this);
+		}
+
+		return armaniEqualityExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniIffExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniIffExpressionItemProvider armaniIffExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniIffExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniIffExpressionAdapter() {
+		if (armaniIffExpressionItemProvider == null) {
+			armaniIffExpressionItemProvider = new ArmaniIffExpressionItemProvider(this);
+		}
+
+		return armaniIffExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniImpliesExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniImpliesExpressionItemProvider armaniImpliesExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniImpliesExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniImpliesExpressionAdapter() {
+		if (armaniImpliesExpressionItemProvider == null) {
+			armaniImpliesExpressionItemProvider = new ArmaniImpliesExpressionItemProvider(this);
+		}
+
+		return armaniImpliesExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniOrExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniOrExpressionItemProvider armaniOrExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniOrExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniOrExpressionAdapter() {
+		if (armaniOrExpressionItemProvider == null) {
+			armaniOrExpressionItemProvider = new ArmaniOrExpressionItemProvider(this);
+		}
+
+		return armaniOrExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniVariable} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniVariableItemProvider armaniVariableItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniVariable}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniVariableAdapter() {
+		if (armaniVariableItemProvider == null) {
+			armaniVariableItemProvider = new ArmaniVariableItemProvider(this);
+		}
+
+		return armaniVariableItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniBooleanExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniBooleanExpressionItemProvider armaniBooleanExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniBooleanExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniBooleanExpressionAdapter() {
+		if (armaniBooleanExpressionItemProvider == null) {
+			armaniBooleanExpressionItemProvider = new ArmaniBooleanExpressionItemProvider(this);
+		}
+
+		return armaniBooleanExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.ArmaniQuantifiedExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArmaniQuantifiedExpressionItemProvider armaniQuantifiedExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.ArmaniQuantifiedExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createArmaniQuantifiedExpressionAdapter() {
+		if (armaniQuantifiedExpressionItemProvider == null) {
+			armaniQuantifiedExpressionItemProvider = new ArmaniQuantifiedExpressionItemProvider(this);
+		}
+
+		return armaniQuantifiedExpressionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link aspectualacme.Family} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,6 +625,29 @@ public class AspectualacmeItemProviderAdapterFactory extends AspectualacmeAdapte
 		}
 
 		return connectorTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.PropertyType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PropertyTypeItemProvider propertyTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.PropertyType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPropertyTypeAdapter() {
+		if (propertyTypeItemProvider == null) {
+			propertyTypeItemProvider = new PropertyTypeItemProvider(this);
+		}
+
+		return propertyTypeItemProvider;
 	}
 
 	/**
@@ -605,6 +973,52 @@ public class AspectualacmeItemProviderAdapterFactory extends AspectualacmeAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.BindableElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BindableElementItemProvider bindableElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.BindableElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBindableElementAdapter() {
+		if (bindableElementItemProvider == null) {
+			bindableElementItemProvider = new BindableElementItemProvider(this);
+		}
+
+		return bindableElementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link aspectualacme.TypeDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TypeDefinitionItemProvider typeDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link aspectualacme.TypeDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTypeDefinitionAdapter() {
+		if (typeDefinitionItemProvider == null) {
+			typeDefinitionItemProvider = new TypeDefinitionItemProvider(this);
+		}
+
+		return typeDefinitionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -706,12 +1120,12 @@ public class AspectualacmeItemProviderAdapterFactory extends AspectualacmeAdapte
 		if (rootItemProvider != null) rootItemProvider.dispose();
 		if (importItemProvider != null) importItemProvider.dispose();
 		if (elementItemProvider != null) elementItemProvider.dispose();
-		if (armaniExpressionItemProvider != null) armaniExpressionItemProvider.dispose();
 		if (familyItemProvider != null) familyItemProvider.dispose();
 		if (componentTypeItemProvider != null) componentTypeItemProvider.dispose();
 		if (roleTypeItemProvider != null) roleTypeItemProvider.dispose();
 		if (portTypeItemProvider != null) portTypeItemProvider.dispose();
 		if (connectorTypeItemProvider != null) connectorTypeItemProvider.dispose();
+		if (propertyTypeItemProvider != null) propertyTypeItemProvider.dispose();
 		if (systemItemProvider != null) systemItemProvider.dispose();
 		if (componentItemProvider != null) componentItemProvider.dispose();
 		if (connectorItemProvider != null) connectorItemProvider.dispose();
@@ -725,7 +1139,25 @@ public class AspectualacmeItemProviderAdapterFactory extends AspectualacmeAdapte
 		if (bindingItemProvider != null) bindingItemProvider.dispose();
 		if (representationItemProvider != null) representationItemProvider.dispose();
 		if (wildCardItemProvider != null) wildCardItemProvider.dispose();
+		if (bindableElementItemProvider != null) bindableElementItemProvider.dispose();
+		if (typeDefinitionItemProvider != null) typeDefinitionItemProvider.dispose();
 		if (armaniItemProvider != null) armaniItemProvider.dispose();
+		if (armaniExpressionItemProvider != null) armaniExpressionItemProvider.dispose();
+		if (armaniFunctionCallItemProvider != null) armaniFunctionCallItemProvider.dispose();
+		if (armaniSetExpressionItemProvider != null) armaniSetExpressionItemProvider.dispose();
+		if (armaniConstantItemProvider != null) armaniConstantItemProvider.dispose();
+		if (armaniPrimitiveExpressionItemProvider != null) armaniPrimitiveExpressionItemProvider.dispose();
+		if (armaniUnaryExpressionItemProvider != null) armaniUnaryExpressionItemProvider.dispose();
+		if (armaniMultiplicativeExpressionItemProvider != null) armaniMultiplicativeExpressionItemProvider.dispose();
+		if (armaniAdditiveExpressionItemProvider != null) armaniAdditiveExpressionItemProvider.dispose();
+		if (armaniRelationalExpressionItemProvider != null) armaniRelationalExpressionItemProvider.dispose();
+		if (armaniEqualityExpressionItemProvider != null) armaniEqualityExpressionItemProvider.dispose();
+		if (armaniIffExpressionItemProvider != null) armaniIffExpressionItemProvider.dispose();
+		if (armaniImpliesExpressionItemProvider != null) armaniImpliesExpressionItemProvider.dispose();
+		if (armaniOrExpressionItemProvider != null) armaniOrExpressionItemProvider.dispose();
+		if (armaniVariableItemProvider != null) armaniVariableItemProvider.dispose();
+		if (armaniBooleanExpressionItemProvider != null) armaniBooleanExpressionItemProvider.dispose();
+		if (armaniQuantifiedExpressionItemProvider != null) armaniQuantifiedExpressionItemProvider.dispose();
 	}
 
 }

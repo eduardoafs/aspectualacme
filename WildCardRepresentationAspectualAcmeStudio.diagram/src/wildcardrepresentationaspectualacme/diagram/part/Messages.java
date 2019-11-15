@@ -373,6 +373,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ComponentCompartmentWComponentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RepresentationCompartmentWRepresentationEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SystemCompartmentWSystemEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ComponentCompartmentWComponent2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**

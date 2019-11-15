@@ -7,5 +7,4 @@ package dimap.ufrn.br;
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class AspectualAcmeRuntimeModule extends dimap.ufrn.br.AbstractAspectualAcmeRuntimeModule {
-
 }

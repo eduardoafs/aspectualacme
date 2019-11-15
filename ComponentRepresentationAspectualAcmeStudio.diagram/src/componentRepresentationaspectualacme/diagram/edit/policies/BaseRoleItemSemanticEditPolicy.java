@@ -86,6 +86,14 @@ public class BaseRoleItemSemanticEditPolicy
 				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
 				continue;
 			}
+			if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+					.getVisualID(incomingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						incomingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+				continue;
+			}
 		}
 		for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
@@ -131,6 +139,14 @@ public class BaseRoleItemSemanticEditPolicy
 			}
 			if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+					.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
 				cmd.add(new DestroyElementCommand(r));
@@ -195,6 +211,11 @@ public class BaseRoleItemSemanticEditPolicy
 			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.Attachment6CreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007 == req
+				.getElementType()) {
+			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.BindingCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -233,6 +254,11 @@ public class BaseRoleItemSemanticEditPolicy
 			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.Attachment6CreateCommand(
 					req, req.getSource(), req.getTarget()));
 		}
+		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Binding_4007 == req
+				.getElementType()) {
+			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.BindingCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		return null;
 	}
 
@@ -262,6 +288,9 @@ public class BaseRoleItemSemanticEditPolicy
 					req));
 		case componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID:
 			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.Attachment6ReorientCommand(
+					req));
+		case componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID:
+			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.BindingReorientCommand(
 					req));
 		}
 		return super.getReorientRelationshipCommand(req);

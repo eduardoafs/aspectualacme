@@ -9,21 +9,18 @@
     <ownedChild>
       <domainMetaElement
           href="aspectualacme.ecore#//Component"/>
-      <domainSpecialization
-          body="Pattern p = Pattern.compile(container.getName());&#xD;&#xA;Matcher m = p.matcher(domainElement.getName());&#xD;&#xA;return m.matches();"
-          language="java"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
-          viewPattern="">
+          viewPattern="Component {0}">
         <diagramLabel
-            href="aspectualacme.gmfgraph#ComponentName"/>
+            href="aspectualacme.gmfgraph#wComponentName"/>
         <features
             href="aspectualacme.ecore#//Element/name"/>
         <editableFeatures
             href="aspectualacme.ecore#//Element/name"/>
       </labelMappings>
       <diagramNode
-          href="aspectualacme.gmfgraph#Component"/>
+          href="aspectualacme.gmfgraph#wComponent"/>
       <children
           referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild">
         <containmentFeature
@@ -34,28 +31,76 @@
           <domainMetaElement
               href="aspectualacme.ecore#//Port"/>
           <diagramNode
-              href="aspectualacme.gmfgraph#Port"/>
+              href="aspectualacme.gmfgraph#AffectedPort"/>
         </ownedChild>
       </children>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <childrenFeature
-        href="aspectualacme.ecore#//System/wildCard"/>
-    <ownedChild>
-      <domainMetaElement
-          href="aspectualacme.ecore#//WildCard"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
-        <diagramLabel
-            href="aspectualacme.gmfgraph#WildCardName"/>
-        <features
-            href="aspectualacme.ecore#//Element/name"/>
-        <editableFeatures
-            href="aspectualacme.ecore#//Element/name"/>
-      </labelMappings>
-      <diagramNode
-          href="aspectualacme.gmfgraph#WildCard"/>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0"
+          referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild">
+        <containmentFeature
+            href="aspectualacme.ecore#//Element/representations"/>
+        <childrenFeature
+            href="aspectualacme.ecore#//Element/representations"/>
+        <ownedChild>
+          <domainMetaElement
+              href="aspectualacme.ecore#//Representation"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="Representation {0}">
+            <diagramLabel
+                href="aspectualacme.gmfgraph#wRepresentationName"/>
+            <features
+                href="aspectualacme.ecore#//Representation/name"/>
+          </labelMappings>
+          <diagramNode
+              href="aspectualacme.gmfgraph#wRepresentation"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="aspectualacme.ecore#//Representation/system"/>
+            <childrenFeature
+                href="aspectualacme.ecore#//Representation/system"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="aspectualacme.ecore#//System"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  viewPattern="System {0}">
+                <diagramLabel
+                    href="aspectualacme.gmfgraph#wSystemName"/>
+                <features
+                    href="aspectualacme.ecore#//Element/name"/>
+              </labelMappings>
+              <diagramNode
+                  href="aspectualacme.gmfgraph#wSystem"/>
+              <children
+                  compartment="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.0/@ownedChild">
+                <containmentFeature
+                    href="aspectualacme.ecore#//System/components"/>
+                <childrenFeature
+                    href="aspectualacme.ecore#//System/components"/>
+              </children>
+              <compartments
+                  children="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0">
+                <compartment
+                    href="aspectualacme.gmfgraph#CompartmentWSystem"/>
+              </compartments>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.1/@ownedChild/@children.0">
+            <compartment
+                href="aspectualacme.gmfgraph#CompartmentWRepresentation"/>
+          </compartments>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.0/@ownedChild/@children.1">
+        <compartment
+            href="aspectualacme.gmfgraph#CompartmentWComponent"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <diagram>

@@ -26,6 +26,7 @@ public class PortItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	@Override
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(

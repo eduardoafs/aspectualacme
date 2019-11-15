@@ -69,7 +69,7 @@ public class Attachment3EditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public RegularAttachmentFigure() {
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 
 			setSourceDecoration(createSourceDecoration());
@@ -80,18 +80,18 @@ public class Attachment3EditPart extends ConnectionNodeEditPart implements
 		 */
 		private RotatableDecoration createSourceDecoration() {
 			PolygonDecoration df = new PolygonDecoration();
-			df.setLineWidth(2);
+			df.setLineWidth(1);
 			df.setForegroundColor(ColorConstants.black);
 			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(1), getMapMode().DPtoLP(4));
-			pl.addPoint(getMapMode().DPtoLP(3), getMapMode().DPtoLP(6));
-			pl.addPoint(getMapMode().DPtoLP(1), getMapMode().DPtoLP(4));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(1), getMapMode().DPtoLP(-4));
-			pl.addPoint(getMapMode().DPtoLP(3), getMapMode().DPtoLP(-6));
-			pl.addPoint(getMapMode().DPtoLP(1), getMapMode().DPtoLP(-4));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+			pl.addPoint(getMapMode().DPtoLP(-2), getMapMode().DPtoLP(0));
+			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(4));
+			pl.addPoint(getMapMode().DPtoLP(1), getMapMode().DPtoLP(6));
+			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(4));
+			pl.addPoint(getMapMode().DPtoLP(-2), getMapMode().DPtoLP(0));
+			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-4));
+			pl.addPoint(getMapMode().DPtoLP(1), getMapMode().DPtoLP(-6));
+			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-4));
+			pl.addPoint(getMapMode().DPtoLP(-2), getMapMode().DPtoLP(0));
 			df.setTemplate(pl);
 			df.setScale(getMapMode().DPtoLP(3), getMapMode().DPtoLP(2));
 			return df;

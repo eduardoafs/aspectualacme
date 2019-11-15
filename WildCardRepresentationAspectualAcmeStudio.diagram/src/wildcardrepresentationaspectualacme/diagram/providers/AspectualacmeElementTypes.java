@@ -16,9 +16,11 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.Component2EditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.PortEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCard2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardEditPart;
 import wildcardrepresentationaspectualacme.diagram.part.WildCardRepresentationAspectualacmeDiagramEditorPlugin;
 import aspectualacme.AspectualacmePackage;
@@ -57,16 +59,24 @@ public class AspectualacmeElementTypes {
 	 * @generated
 	 */
 	public static final IElementType Component_2002 = getElementType("WildCardRepresentationAspectualAcmeStudio.diagram.Component_2002"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType WildCard_2003 = getElementType("WildCardRepresentationAspectualAcmeStudio.diagram.WildCard_2003"); //$NON-NLS-1$
-
 	/**
 	 * @generated
 	 */
 	public static final IElementType Port_3001 = getElementType("WildCardRepresentationAspectualAcmeStudio.diagram.Port_3001"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType Representation_3004 = getElementType("WildCardRepresentationAspectualAcmeStudio.diagram.Representation_3004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType System_3003 = getElementType("WildCardRepresentationAspectualAcmeStudio.diagram.System_3003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Component_3005 = getElementType("WildCardRepresentationAspectualAcmeStudio.diagram.Component_3005"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -185,10 +195,16 @@ public class AspectualacmeElementTypes {
 			elements.put(Component_2002,
 					AspectualacmePackage.eINSTANCE.getComponent());
 
-			elements.put(WildCard_2003,
-					AspectualacmePackage.eINSTANCE.getWildCard());
-
 			elements.put(Port_3001, AspectualacmePackage.eINSTANCE.getPort());
+
+			elements.put(Representation_3004,
+					AspectualacmePackage.eINSTANCE.getRepresentation());
+
+			elements.put(System_3003,
+					AspectualacmePackage.eINSTANCE.getSystem());
+
+			elements.put(Component_3005,
+					AspectualacmePackage.eINSTANCE.getComponent());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -208,8 +224,10 @@ public class AspectualacmeElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
 			KNOWN_ELEMENT_TYPES.add(WildCard_1000);
 			KNOWN_ELEMENT_TYPES.add(Component_2002);
-			KNOWN_ELEMENT_TYPES.add(WildCard_2003);
 			KNOWN_ELEMENT_TYPES.add(Port_3001);
+			KNOWN_ELEMENT_TYPES.add(Representation_3004);
+			KNOWN_ELEMENT_TYPES.add(System_3003);
+			KNOWN_ELEMENT_TYPES.add(Component_3005);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}
@@ -223,10 +241,14 @@ public class AspectualacmeElementTypes {
 			return WildCard_1000;
 		case ComponentEditPart.VISUAL_ID:
 			return Component_2002;
-		case WildCard2EditPart.VISUAL_ID:
-			return WildCard_2003;
 		case PortEditPart.VISUAL_ID:
 			return Port_3001;
+		case RepresentationEditPart.VISUAL_ID:
+			return Representation_3004;
+		case SystemEditPart.VISUAL_ID:
+			return System_3003;
+		case Component2EditPart.VISUAL_ID:
+			return Component_3005;
 		}
 		return null;
 	}

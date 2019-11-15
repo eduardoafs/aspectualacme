@@ -53,7 +53,7 @@ public class GlueEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3008;
+	public static final int VISUAL_ID = 3007;
 
 	/**
 	 * @generated
@@ -313,7 +313,7 @@ public class GlueEditPart extends CompartmentEditPart implements
 		if (parser == null) {
 			parser = componentRepresentationaspectualacme.diagram.providers.AspectualacmeParserProvider
 					.getParser(
-							componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008,
+							componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007,
 							getParserElement(),
 							componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 									.getType(componentRepresentationaspectualacme.diagram.edit.parts.GlueEditPart.VISUAL_ID));

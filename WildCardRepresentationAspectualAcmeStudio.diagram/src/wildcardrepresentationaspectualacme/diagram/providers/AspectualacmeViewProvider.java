@@ -28,19 +28,27 @@ import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
-import org.eclipse.gmf.runtime.notation.Shape;
+import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.FontData;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.Component2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponent2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.PortEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCard2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationCompartmentWRepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationNameEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemCompartmentWSystemEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardNameEditPart;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
 
 /**
@@ -138,7 +146,9 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 				switch (visualID) {
 				case ComponentEditPart.VISUAL_ID:
 				case PortEditPart.VISUAL_ID:
-				case WildCard2EditPart.VISUAL_ID:
+				case RepresentationEditPart.VISUAL_ID:
+				case SystemEditPart.VISUAL_ID:
+				case Component2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != AspectualacmeVisualIDRegistry
 									.getNodeVisualID(op.getContainerView(),
@@ -152,8 +162,10 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			}
 		}
 		return ComponentEditPart.VISUAL_ID == visualID
-				|| WildCard2EditPart.VISUAL_ID == visualID
-				|| PortEditPart.VISUAL_ID == visualID;
+				|| PortEditPart.VISUAL_ID == visualID
+				|| RepresentationEditPart.VISUAL_ID == visualID
+				|| SystemEditPart.VISUAL_ID == visualID
+				|| Component2EditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -214,11 +226,17 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		case ComponentEditPart.VISUAL_ID:
 			return createComponent_2002(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case WildCard2EditPart.VISUAL_ID:
-			return createWildCard_2003(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case PortEditPart.VISUAL_ID:
 			return createPort_3001(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case RepresentationEditPart.VISUAL_ID:
+			return createRepresentation_3004(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case SystemEditPart.VISUAL_ID:
+			return createSystem_3003(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case Component2EditPart.VISUAL_ID:
+			return createComponent_3005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -280,52 +298,11 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		Node label5001 = createLabel(node,
 				AspectualacmeVisualIDRegistry
 						.getType(ComponentNameEditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createWildCard_2003(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Shape node = NotationFactory.eINSTANCE.createShape();
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(AspectualacmeVisualIDRegistry
-				.getType(WildCard2EditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		stampShortcut(containerView, node);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
-				.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node
-				.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
-					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
-					.intValue());
-		}
-		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
-				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
-				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(node,
+		createCompartment(
+				node,
 				AspectualacmeVisualIDRegistry
-						.getType(WildCardNameEditPart.VISUAL_ID));
+						.getType(ComponentCompartmentWComponentEditPart.VISUAL_ID),
+				false, false, false, false);
 		return node;
 	}
 
@@ -338,7 +315,6 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 		node.getStyles()
 				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(AspectualacmeVisualIDRegistry
 				.getType(PortEditPart.VISUAL_ID));
@@ -361,11 +337,150 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
 					.intValue());
 		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createRepresentation_3004(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(AspectualacmeVisualIDRegistry
+				.getType(RepresentationEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
 		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
 				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5003 = createLabel(node,
+				AspectualacmeVisualIDRegistry
+						.getType(RepresentationNameEditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				AspectualacmeVisualIDRegistry
+						.getType(RepresentationCompartmentWRepresentationEditPart.VISUAL_ID),
+				true, false, true, true);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSystem_3003(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(AspectualacmeVisualIDRegistry
+				.getType(SystemEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5005 = createLabel(node,
+				AspectualacmeVisualIDRegistry
+						.getType(SystemNameEditPart.VISUAL_ID));
+		createCompartment(node,
+				AspectualacmeVisualIDRegistry
+						.getType(SystemCompartmentWSystemEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createComponent_3005(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFillStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(AspectualacmeVisualIDRegistry
+				.getType(Component2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		Node label5004 = createLabel(node,
+				AspectualacmeVisualIDRegistry
+						.getType(ComponentName2EditPart.VISUAL_ID));
+		createCompartment(
+				node,
+				AspectualacmeVisualIDRegistry
+						.getType(ComponentCompartmentWComponent2EditPart.VISUAL_ID),
+				true, false, false, false);
 		return node;
 	}
 
@@ -389,6 +504,38 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 	 */
 	private Node createLabel(View owner, String hint) {
 		DecorationNode rv = NotationFactory.eINSTANCE.createDecorationNode();
+		rv.setType(hint);
+		ViewUtil.insertChildView(owner, rv, ViewUtil.APPEND, true);
+		return rv;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Node createCompartment(View owner, String hint,
+			boolean canCollapse, boolean hasTitle, boolean canSort,
+			boolean canFilter) {
+		//SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
+		//rv.setShowTitle(showTitle);
+		//rv.setCollapsed(isCollapsed);
+		Node rv;
+		if (canCollapse) {
+			rv = NotationFactory.eINSTANCE.createBasicCompartment();
+		} else {
+			rv = NotationFactory.eINSTANCE.createDecorationNode();
+		}
+		if (hasTitle) {
+			TitleStyle ts = NotationFactory.eINSTANCE.createTitleStyle();
+			ts.setShowTitle(true);
+			rv.getStyles().add(ts);
+		}
+		if (canSort) {
+			rv.getStyles().add(NotationFactory.eINSTANCE.createSortingStyle());
+		}
+		if (canFilter) {
+			rv.getStyles()
+					.add(NotationFactory.eINSTANCE.createFilteringStyle());
+		}
 		rv.setType(hint);
 		ViewUtil.insertChildView(owner, rv, ViewUtil.APPEND, true);
 		return rv;

@@ -7,10 +7,11 @@
 package aspectualacme.impl;
 
 import aspectualacme.AspectualacmePackage;
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
-import aspectualacme.Port;
 import aspectualacme.Property;
 
+import aspectualacme.Representation;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link aspectualacme.impl.BindingImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link aspectualacme.impl.BindingImpl#getFirstPort <em>First Port</em>}</li>
  *   <li>{@link aspectualacme.impl.BindingImpl#getSecondPort <em>Second Port</em>}</li>
+ *   <li>{@link aspectualacme.impl.BindingImpl#getRepresentation <em>Representation</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,7 +64,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * @generated
 	 * @ordered
 	 */
-	protected Port firstPort;
+	protected BindableElement firstPort;
 
 	/**
 	 * The cached value of the '{@link #getSecondPort() <em>Second Port</em>}' reference.
@@ -71,7 +74,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * @generated
 	 * @ordered
 	 */
-	protected Port secondPort;
+	protected BindableElement secondPort;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,10 +112,10 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Port getFirstPort() {
+	public BindableElement getFirstPort() {
 		if (firstPort != null && firstPort.eIsProxy()) {
 			InternalEObject oldFirstPort = (InternalEObject)firstPort;
-			firstPort = (Port)eResolveProxy(oldFirstPort);
+			firstPort = (BindableElement)eResolveProxy(oldFirstPort);
 			if (firstPort != oldFirstPort) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AspectualacmePackage.BINDING__FIRST_PORT, oldFirstPort, firstPort));
@@ -126,7 +129,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Port basicGetFirstPort() {
+	public BindableElement basicGetFirstPort() {
 		return firstPort;
 	}
 
@@ -135,8 +138,8 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFirstPort(Port newFirstPort) {
-		Port oldFirstPort = firstPort;
+	public void setFirstPort(BindableElement newFirstPort) {
+		BindableElement oldFirstPort = firstPort;
 		firstPort = newFirstPort;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.BINDING__FIRST_PORT, oldFirstPort, firstPort));
@@ -147,10 +150,10 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Port getSecondPort() {
+	public BindableElement getSecondPort() {
 		if (secondPort != null && secondPort.eIsProxy()) {
 			InternalEObject oldSecondPort = (InternalEObject)secondPort;
-			secondPort = (Port)eResolveProxy(oldSecondPort);
+			secondPort = (BindableElement)eResolveProxy(oldSecondPort);
 			if (secondPort != oldSecondPort) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AspectualacmePackage.BINDING__SECOND_PORT, oldSecondPort, secondPort));
@@ -164,7 +167,7 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Port basicGetSecondPort() {
+	public BindableElement basicGetSecondPort() {
 		return secondPort;
 	}
 
@@ -173,11 +176,68 @@ public class BindingImpl extends EObjectImpl implements Binding {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSecondPort(Port newSecondPort) {
-		Port oldSecondPort = secondPort;
+	public void setSecondPort(BindableElement newSecondPort) {
+		BindableElement oldSecondPort = secondPort;
 		secondPort = newSecondPort;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.BINDING__SECOND_PORT, oldSecondPort, secondPort));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Representation getRepresentation() {
+		if (eContainerFeatureID() != AspectualacmePackage.BINDING__REPRESENTATION) return null;
+		return (Representation)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRepresentation(Representation newRepresentation, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRepresentation, AspectualacmePackage.BINDING__REPRESENTATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRepresentation(Representation newRepresentation) {
+		if (newRepresentation != eInternalContainer() || (eContainerFeatureID() != AspectualacmePackage.BINDING__REPRESENTATION && newRepresentation != null)) {
+			if (EcoreUtil.isAncestor(this, newRepresentation))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newRepresentation != null)
+				msgs = ((InternalEObject)newRepresentation).eInverseAdd(this, AspectualacmePackage.REPRESENTATION__BINDINGS, Representation.class, msgs);
+			msgs = basicSetRepresentation(newRepresentation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.BINDING__REPRESENTATION, newRepresentation, newRepresentation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetRepresentation((Representation)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -190,8 +250,24 @@ public class BindingImpl extends EObjectImpl implements Binding {
 		switch (featureID) {
 			case AspectualacmePackage.BINDING__PROPERTY:
 				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				return basicSetRepresentation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				return eInternalContainer().eInverseRemove(this, AspectualacmePackage.REPRESENTATION__BINDINGS, Representation.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -210,6 +286,8 @@ public class BindingImpl extends EObjectImpl implements Binding {
 			case AspectualacmePackage.BINDING__SECOND_PORT:
 				if (resolve) return getSecondPort();
 				return basicGetSecondPort();
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				return getRepresentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,10 +306,13 @@ public class BindingImpl extends EObjectImpl implements Binding {
 				getProperty().addAll((Collection<? extends Property>)newValue);
 				return;
 			case AspectualacmePackage.BINDING__FIRST_PORT:
-				setFirstPort((Port)newValue);
+				setFirstPort((BindableElement)newValue);
 				return;
 			case AspectualacmePackage.BINDING__SECOND_PORT:
-				setSecondPort((Port)newValue);
+				setSecondPort((BindableElement)newValue);
+				return;
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				setRepresentation((Representation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -249,10 +330,13 @@ public class BindingImpl extends EObjectImpl implements Binding {
 				getProperty().clear();
 				return;
 			case AspectualacmePackage.BINDING__FIRST_PORT:
-				setFirstPort((Port)null);
+				setFirstPort((BindableElement)null);
 				return;
 			case AspectualacmePackage.BINDING__SECOND_PORT:
-				setSecondPort((Port)null);
+				setSecondPort((BindableElement)null);
+				return;
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				setRepresentation((Representation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -272,6 +356,8 @@ public class BindingImpl extends EObjectImpl implements Binding {
 				return firstPort != null;
 			case AspectualacmePackage.BINDING__SECOND_PORT:
 				return secondPort != null;
+			case AspectualacmePackage.BINDING__REPRESENTATION:
+				return getRepresentation() != null;
 		}
 		return super.eIsSet(featureID);
 	}

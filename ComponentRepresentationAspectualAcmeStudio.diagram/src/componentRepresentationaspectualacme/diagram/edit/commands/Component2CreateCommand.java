@@ -14,7 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import aspectualacme.AspectualacmeFactory;
 import aspectualacme.Component;
-import aspectualacme.Representation;
+import aspectualacme.System;
 
 /**
  * @generated
@@ -45,10 +45,6 @@ public class Component2CreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		Representation container = (Representation) getElementToEdit();
-		if (container.getElement() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -60,8 +56,11 @@ public class Component2CreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		Component newElement = AspectualacmeFactory.eINSTANCE.createComponent();
 
-		Representation owner = (Representation) getElementToEdit();
-		owner.setElement(newElement);
+		System owner = (System) getElementToEdit();
+		owner.getComponents().add(newElement);
+
+		componentRepresentationaspectualacme.diagram.providers.ElementInitializers
+				.getInstance().init_Component_3001(newElement);
 
 		doConfigure(newElement, monitor, info);
 

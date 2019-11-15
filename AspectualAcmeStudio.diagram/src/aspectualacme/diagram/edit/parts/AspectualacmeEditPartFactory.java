@@ -47,8 +47,8 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 			case WildCardEditPart.VISUAL_ID:
 				return new WildCardEditPart(view);
 
-			case WildCardNameEditPart.VISUAL_ID:
-				return new WildCardNameEditPart(view);
+			case WildCardNameExpressionEditPart.VISUAL_ID:
+				return new WildCardNameExpressionEditPart(view);
 
 			case BaseRoleEditPart.VISUAL_ID:
 				return new BaseRoleEditPart(view);

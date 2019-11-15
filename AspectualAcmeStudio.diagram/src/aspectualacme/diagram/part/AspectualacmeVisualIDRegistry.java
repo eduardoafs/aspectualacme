@@ -28,6 +28,7 @@ import aspectualacme.diagram.edit.parts.RoleEditPart;
 import aspectualacme.diagram.edit.parts.SystemEditPart;
 import aspectualacme.diagram.edit.parts.WildCardEditPart;
 import aspectualacme.diagram.edit.parts.WildCardNameEditPart;
+import aspectualacme.diagram.edit.parts.WildCardNameExpressionEditPart;
 import aspectualacme.impl.AttachmentImpl;
 import aspectualacme.impl.BaseRoleImpl;
 import aspectualacme.impl.CrosscuttingRoleImpl;
@@ -251,7 +252,7 @@ public class AspectualacmeVisualIDRegistry {
 			}
 			break;
 		case WildCardEditPart.VISUAL_ID:
-			if (WildCardNameEditPart.VISUAL_ID == nodeVisualID) {
+			if (WildCardNameExpressionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

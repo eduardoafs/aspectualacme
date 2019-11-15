@@ -443,7 +443,7 @@ public class BaseRoleEditPart extends AbstractBorderItemEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 			this.setBackgroundColor(ColorConstants.white);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(10),

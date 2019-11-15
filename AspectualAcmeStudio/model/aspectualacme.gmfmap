@@ -250,13 +250,17 @@
           href="aspectualacme.ecore#//WildCard"/>
       <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
-          viewPattern="">
+          viewPattern="{0}::[{1}]">
         <diagramLabel
             href="aspectualacme.gmfgraph#WildCardName"/>
         <features
             href="aspectualacme.ecore#//Element/name"/>
+        <features
+            href="aspectualacme.ecore#//WildCard/expression"/>
         <editableFeatures
             href="aspectualacme.ecore#//Element/name"/>
+        <editableFeatures
+            href="aspectualacme.ecore#//WildCard/expression"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -413,4 +417,93 @@
     <palette
         href="aspectualacme.gmftool#//@palette"/>
   </diagram>
+  <audits
+      id="validateModel"
+      name="validateModel"
+      description="Validate Model">
+    <audits
+        name="checkComponentNames"
+        description="Check if exists component´s names equals"
+        id="checkComponentNames"
+        message="Cannot be components with the same name">
+      <rule
+          body="ComponentImpl component = (ComponentImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;SystemImpl system = (SystemImpl) component.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Component c : system.getComponents()){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if(c != component &amp;&amp; c.getName().equals(component.getName())){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.1/@ownedChild"/>
+    </audits>
+    <audits
+        name="checkConnectorNames"
+        description="Check if exists connectors´s names equals"
+        id="checkConnectorNames"
+        message="Cannot be connectors with the same name">
+      <rule
+          body="&#x9;&#x9;&#x9;ConnectorImpl connector = (ConnectorImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;SystemImpl system = (SystemImpl) connector.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Connector c : system.getConnectors()){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if(c != connector &amp;&amp; c.getName().equals(connector.getName())){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);         &#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.0/@ownedChild"/>
+    </audits>
+    <audits
+        name="checkPortNames"
+        description="Check if exists port´s names equals"
+        id="checkPortNames"
+        message="Cannot be ports with the same name">
+      <rule
+          body="&#x9;&#x9;&#x9;PortImpl port = (PortImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;ComponentImpl component = (ComponentImpl) port.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Port c : component.getPort()){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if(c != port &amp;&amp; c.getName().equals(port.getName())){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.1/@ownedChild/@children.0/@ownedChild"/>
+    </audits>
+    <audits
+        name="checkRoleNames"
+        description="Check if exists role´s names equals"
+        id="checkRoleNames"
+        message="Cannot be roles with the same name">
+      <rule
+          body="&#x9;&#x9;&#x9;RoleImpl role = (RoleImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;ConnectorImpl connector = (ConnectorImpl) role.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Role c : connector.getRole()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (c != role &amp;&amp; c.getName().equals(role.getName())) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.0/@ownedChild/@children.3/@ownedChild"/>
+    </audits>
+    <audits
+        name="checkBaseRoleNames"
+        description="Check if exists baserole´s names equals"
+        id="checkBaseRoleNames"
+        message="Cannot be roles with the same name">
+      <rule
+          body="&#x9;&#x9;&#x9;BaseRoleImpl role = (BaseRoleImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;ConnectorImpl connector = (ConnectorImpl) role.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Role c : connector.getRole()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (c != role &amp;&amp; c.getName().equals(role.getName())) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.0/@ownedChild/@children.0/@ownedChild"/>
+    </audits>
+    <audits
+        name="checkCrosscuttingRoleNames"
+        description="Check if exists role´s names equals"
+        id="checkCrosscutingRoleNames"
+        message="Cannot be roles with the same name">
+      <rule
+          body="&#x9;&#x9;&#x9;CrosscuttingRoleImpl role = (CrosscuttingRoleImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;ConnectorImpl connector = (ConnectorImpl) role.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Role c : connector.getRole()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (c != role &amp;&amp; c.getName().equals(role.getName())) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.0/@ownedChild/@children.1/@ownedChild"/>
+    </audits>
+    <audits
+        name="checkRepresentationNames"
+        description="Check if exists representation´s names equals"
+        id="checkRepresentationNames"
+        message="Cannot be representation with the same name">
+      <rule
+          body="&#x9;&#x9;&#x9;RepresentationImpl representation = (RepresentationImpl) context.getElement();&#xD;&#xA;&#x9;&#x9;&#x9;ElementImpl parent = (ElementImpl) representation.eContainer();&#xD;&#xA;&#x9;&#x9;&#x9;for (Representation c : parent.getRepresentations()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (c != representation &amp;&amp; c.getName().equals(representation.getName())) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return ctx.createFailureStatus(context);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;return ctx.createSuccessStatus();"
+          language="java"/>
+      <target
+          xsi:type="gmfmap:DiagramElementTarget"
+          element="//@nodes.1/@ownedChild/@children.1/@ownedChild"/>
+    </audits>
+  </audits>
 </gmfmap:Mapping>

@@ -8,8 +8,8 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
-import aspectualacme.Port;
 import aspectualacme.Representation;
 
 /**
@@ -62,10 +62,10 @@ public class BindingReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientSource() {
-		if (!(oldEnd instanceof Port && newEnd instanceof Port)) {
+		if (!(oldEnd instanceof BindableElement && newEnd instanceof BindableElement)) {
 			return false;
 		}
-		Port target = getLink().getSecondPort();
+		BindableElement target = getLink().getSecondPort();
 		if (!(getLink().eContainer() instanceof Representation)) {
 			return false;
 		}
@@ -79,10 +79,10 @@ public class BindingReorientCommand extends EditElementCommand {
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
-		if (!(oldEnd instanceof Port && newEnd instanceof Port)) {
+		if (!(oldEnd instanceof BindableElement && newEnd instanceof BindableElement)) {
 			return false;
 		}
-		Port source = getLink().getFirstPort();
+		BindableElement source = getLink().getFirstPort();
 		if (!(getLink().eContainer() instanceof Representation)) {
 			return false;
 		}
@@ -136,28 +136,28 @@ public class BindingReorientCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Port getOldSource() {
-		return (Port) oldEnd;
+	protected BindableElement getOldSource() {
+		return (BindableElement) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Port getNewSource() {
-		return (Port) newEnd;
+	protected BindableElement getNewSource() {
+		return (BindableElement) newEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Port getOldTarget() {
-		return (Port) oldEnd;
+	protected BindableElement getOldTarget() {
+		return (BindableElement) oldEnd;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Port getNewTarget() {
-		return (Port) newEnd;
+	protected BindableElement getNewTarget() {
+		return (BindableElement) newEnd;
 	}
 }

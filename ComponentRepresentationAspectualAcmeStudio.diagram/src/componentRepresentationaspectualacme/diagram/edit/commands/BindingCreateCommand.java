@@ -13,8 +13,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import aspectualacme.AspectualacmeFactory;
+import aspectualacme.BindableElement;
 import aspectualacme.Binding;
-import aspectualacme.Port;
 import aspectualacme.Representation;
 
 /**
@@ -55,10 +55,10 @@ public class BindingCreateCommand extends EditElementCommand {
 		if (source == null && target == null) {
 			return false;
 		}
-		if (source != null && false == source instanceof Port) {
+		if (source != null && false == source instanceof BindableElement) {
 			return false;
 		}
-		if (target != null && false == target instanceof Port) {
+		if (target != null && false == target instanceof BindableElement) {
 			return false;
 		}
 		if (getSource() == null) {
@@ -126,15 +126,15 @@ public class BindingCreateCommand extends EditElementCommand {
 	/**
 	 * @generated
 	 */
-	protected Port getSource() {
-		return (Port) source;
+	protected BindableElement getSource() {
+		return (BindableElement) source;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Port getTarget() {
-		return (Port) target;
+	protected BindableElement getTarget() {
+		return (BindableElement) target;
 	}
 
 	/**

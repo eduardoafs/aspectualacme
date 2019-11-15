@@ -3,73 +3,372 @@
  */
 package dimap.ufrn.br.scoping;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
-import aspectualacme.System;
+import aspectualacme.Property;
+import aspectualacme.attachableElement;
+
+import com.google.common.base.Function;
+
+import dimap.ufrn.br.Util.AspectualAcmeUtil;
 
 /**
  * This class contains custom scoping description.
  * 
- * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#scoping
- * on how and when to use it 
- *
+ * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#scoping on
+ * how and when to use it
+ * 
  */
-public class AspectualAcmeScopeProvider extends AbstractDeclarativeScopeProvider {
+public class AspectualAcmeScopeProvider extends
+		AbstractDeclarativeScopeProvider {
 
-	// Inheritances
 	public IScope scope_Component_type(aspectualacme.Component c, EReference t) {
 		aspectualacme.BasicElement parentSystem = c.getParentSystem();
 		aspectualacme.BasicElement parentFamily = c.getParentFamily();
-		
-		aspectualacme.BasicElement parent = (parentSystem==null? parentFamily : parentSystem);
 
-		EList<aspectualacme.Family> families = parent.getParentFamily();
-		EList<aspectualacme.ComponentType> all = null;
-		
-		// Incluir tipos da família atual, para depois adicionar os tipos 
-		if (parent instanceof aspectualacme.Family) all = ((aspectualacme.Family) parent).getCtypes();
-		else {
-			// Elemento pai do system, quando ele está inserido dentro de um representation
-			aspectualacme.Representation rep = ((System)parent).getParentRepresentation();
-			aspectualacme.Element systemsParent = null;
-			if (rep!=null) systemsParent = rep.getElement();
-			
-			aspectualacme.BasicElement parentParentFamily = null;
-			aspectualacme.BasicElement parentParentSystem = null;
-			while (systemsParent!=null) {
-				if (systemsParent instanceof aspectualacme.Component) {
-					parentParentSystem = ((aspectualacme.Component)systemsParent).getParentSystem();
-					parentParentFamily = ((aspectualacme.Component)systemsParent).getParentFamily();
-				} else if (systemsParent instanceof aspectualacme.Connector) {}
-				// TODO fazer para os outros tipos de elements
-				
-				
-				// Aqui eu pego o pai do elemento no representation, e ajusto o próx pai
-				aspectualacme.BasicElement parentParent =(parentParentSystem==null? parentParentFamily : parentParentSystem);
-				
-				// pegar o parent, e identificar os types dele
-				// Adicionar todas as familias à lista de familias que serão usadas por este escopo
-				families.addAll(parentParent.getParentFamily());
-				
-				// Para subir para os outros níveis
-				if (parentParent instanceof aspectualacme.System && ((System)parentParent).getParentRepresentation()!=null) {
-					systemsParent = ((System)parentParent).getParentRepresentation().getElement();
-				} else {
-					systemsParent = null;
-				}
-			}
-		}
+		aspectualacme.BasicElement parent = (parentSystem == null ? parentFamily
+				: parentSystem);
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+
+		EList<aspectualacme.ComponentType> all = new BasicEList<aspectualacme.ComponentType>();
+		// Incluir tipos da família atual, para depois adicionar os tipos
+		families = AspectualAcmeUtil.fullInheritance(parent);
 		
 		for (aspectualacme.Family s : families) {
-			if (all==null) all = s.getCtypes();
-			else all.addAll(s.getCtypes());
-			families.addAll(s.getParentFamily());
+			for (aspectualacme.ComponentType ct : s.allCtypes())
+				if (!all.contains(ct))
+					all.add(ct);
+		}
+
+		IScope result = Scopes.scopeFor(all,
+				new Function<aspectualacme.ComponentType, String>() {
+					public String apply(aspectualacme.ComponentType from) {
+						return from.getName();
+					}
+				}, IScope.NULLSCOPE);
+		return result;
+	}
+
+	public IScope scope_Component_effective_type(aspectualacme.Component c, EReference e) {
+		IScope result;
+		if (c.getType().isEmpty()) {
+			result = scope_Component_type(c, e);
+		} else {
+			result = Scopes.scopeFor(c.getType(),
+					new Function<aspectualacme.ComponentType, String>() {
+						public String apply(aspectualacme.ComponentType from) {
+							return from.getName();
+						}
+					}, IScope.NULLSCOPE);
+		}
+		return result;
+	}
+
+	public IScope scope_ComponentType_parentType(aspectualacme.ComponentType c,
+			EReference t) {
+		aspectualacme.Family parent = c.getParentFamily();
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+		// Inicialmente incluo os component types da própria family
+		EList<aspectualacme.ComponentType> all = new BasicEList<aspectualacme.ComponentType>();
+		all.addAll(parent.getCtypes());
+
+		for (aspectualacme.Family s : families) {
+			all.addAll(s.allCtypes());
 		}
 		return Scopes.scopeFor(all);
 	}
 
+	public IScope scope_Connector_effective_type(aspectualacme.Connector c, EReference e) {
+		IScope result;
+		if (c.getType().isEmpty()) {
+			result = scope_Connector_type(c, e);
+		}
+		result = Scopes.scopeFor(c.getType(),
+				new Function<aspectualacme.ConnectorType, String>() {
+					public String apply(aspectualacme.ConnectorType from) {
+						return from.getName();
+					}
+				}, IScope.NULLSCOPE);
+		return result;
+	}
+
+	public IScope scope_Connector_type(aspectualacme.Connector c, EReference t) {
+		aspectualacme.BasicElement parentSystem = c.getParentSystem();
+		aspectualacme.BasicElement parentFamily = c.getParentFamily();
+
+		aspectualacme.BasicElement parent = (parentSystem == null ? parentFamily
+				: parentSystem);
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+		EList<aspectualacme.ConnectorType> all = new BasicEList<aspectualacme.ConnectorType>();
+
+		families = AspectualAcmeUtil.fullInheritance(parent);
+		
+		for (aspectualacme.Family s : families) {
+			for (aspectualacme.ConnectorType ct : s.allCntypes())
+				if (!all.contains(ct))
+					all.add(ct);
+		}
+		return Scopes.scopeFor(all);
+	}
+
+	public IScope scope_ConnectorType_parentType(aspectualacme.ConnectorType c,
+			EReference t) {
+		aspectualacme.Family parent = c.getParentFamily();
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+		EList<aspectualacme.ConnectorType> all = new BasicEList<aspectualacme.ConnectorType>();
+		all.addAll(parent.getCntypes());
+
+		for (aspectualacme.Family s : families) {
+			all.addAll(s.allCntypes());
+		}
+		return Scopes.scopeFor(all);
+	}
+
+	public IScope scope_Port_portType(aspectualacme.Port c, EReference t) {
+		aspectualacme.BasicElement parentSystem = (c.getComponent() != null ? c
+				.getComponent().getParentSystem() : null);
+		aspectualacme.BasicElement parentFamily = (c.getComponentT() != null ? c
+				.getComponentT().getParentFamily() : c.getComponent()
+				.getParentFamily());
+
+		aspectualacme.BasicElement parent = (parentSystem == null ? parentFamily
+				: parentSystem);
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+
+		EList<aspectualacme.PortType> all = new BasicEList<aspectualacme.PortType>();
+
+		families = AspectualAcmeUtil.fullInheritance(parent);
+
+		for (aspectualacme.Family s : families) {
+			for (aspectualacme.PortType ct : s.allPtypes())
+				if (!all.contains(ct))
+					all.add(ct);
+		}
+		return Scopes.scopeFor(all);
+	}
+
+	public IScope scope_Port_effective_type(aspectualacme.Port c, EReference e) {
+		IScope result;
+		if (c.getPortType().isEmpty()) {
+			result = scope_Port_portType(c, e);
+		}
+		result = Scopes.scopeFor(c.getPortType(),
+				new Function<aspectualacme.PortType, String>() {
+					public String apply(aspectualacme.PortType from) {
+						return from.getName();
+					}
+				}, IScope.NULLSCOPE);
+		return result;
+	}
+
+	public IScope scope_PortType_parentType(aspectualacme.PortType c,
+			EReference t) {
+		aspectualacme.Family parent = c.getParentFamily();
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+		// Inicialmente incluo os component types da própria family
+		EList<aspectualacme.PortType> all = new BasicEList<aspectualacme.PortType>();
+		all.addAll(parent.getPtypes());
+
+		for (aspectualacme.Family s : families) {
+			all.addAll(s.allPtypes());
+		}
+		return Scopes.scopeFor(all);
+	}
+
+	public IScope scope_Role_roleType(aspectualacme.Role c, EReference t) {
+		aspectualacme.BasicElement parentSystem = (c.getConnector() != null ? c
+				.getConnector().getParentSystem() : null);
+		aspectualacme.BasicElement parentFamily = (c.getConnectorT() != null ? c
+				.getConnectorT().getParentFamily() : c.getConnector()
+				.getParentFamily());
+
+		aspectualacme.BasicElement parent = (parentSystem == null ? parentFamily
+				: parentSystem);
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+
+		EList<aspectualacme.RoleType> all = new BasicEList<aspectualacme.RoleType>();
+
+		families = AspectualAcmeUtil.fullInheritance(parent);
+
+		for (aspectualacme.Family s : families) {
+			for (aspectualacme.RoleType ct : s.allRtypes())
+				if (!all.contains(ct))
+					all.add(ct);
+		}
+		return Scopes.scopeFor(all);
+	}
+	
+	public IScope scope_Role_effective_type(aspectualacme.Role c, EReference e) {
+		IScope result;
+		if (c.getRoleType().isEmpty()) {
+			result = scope_Role_roleType(c, e);
+		}
+		result = Scopes.scopeFor(c.getRoleType(),
+				new Function<aspectualacme.RoleType, String>() {
+					public String apply(aspectualacme.RoleType from) {
+						return from.getName();
+					}
+				}, IScope.NULLSCOPE);
+		return result;
+	}
+
+	public IScope scope_RoleType_parentType(aspectualacme.RoleType c,
+			EReference t) {
+		aspectualacme.Family parent = c.getParentFamily();
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+		// Inicialmente incluo os component types da própria family
+		EList<aspectualacme.RoleType> all = new BasicEList<aspectualacme.RoleType>();
+		all.addAll(parent.getRtypes());
+
+		for (aspectualacme.Family s : families) {
+			all.addAll(s.allRtypes());
+		}
+		return Scopes.scopeFor(all);
+	}
+
+	public IScope scope_Binding_firstPort(aspectualacme.Binding b, EReference t) {
+		return scope_Binding_secondPort(b, t);
+	}
+
+	public IScope scope_Binding_secondPort(aspectualacme.Binding b, EReference t) {
+		aspectualacme.System system = b.getRepresentation().getSystem();
+
+		EList<aspectualacme.Component> components = system.getComponents();
+		EList<aspectualacme.Connector> connectors = system.getConnectors();
+		EList<aspectualacme.BindableElement> allBindables = new BasicEList<aspectualacme.BindableElement>();
+
+		// Parent of representation, if a component
+		aspectualacme.Element parent = b.getRepresentation().getElement();
+		if (parent instanceof aspectualacme.Component) {
+			allBindables.addAll(((aspectualacme.Component) parent).allPorts());
+		} else if (parent instanceof aspectualacme.Connector) {
+			allBindables.addAll(((aspectualacme.Connector) parent).allRoles());
+		}
+		IScope scope = Scopes.scopeFor(allBindables);
+
+		for (aspectualacme.Component c : components) {
+			allBindables.addAll(c.allPorts());
+		}
+
+		for (aspectualacme.Connector c : connectors) {
+			allBindables.addAll(c.allRoles());
+		}
+		
+
+		IScope result = Scopes.scopeFor(allBindables,
+				new Function<aspectualacme.BindableElement, String>() {
+			public String apply(aspectualacme.BindableElement from) {
+				if (from instanceof aspectualacme.Port)
+					return ((aspectualacme.Port) from).getComponent()
+							.getName() + "." + from.getName();
+				else if (from instanceof aspectualacme.Role)
+					return ((aspectualacme.Role) from).getConnector()
+							.getName() + "." + from.getName();
+				else
+					return from.getName();
+			}
+		}, scope);
+		System.out.println("{Begin}");
+		for (IEObjectDescription test : result.getAllContents()) {
+			System.out.println(test.getQualifiedName());
+		}
+		System.out.println("{End}");
+		return result;
+		// TODO PAREI (testes de escopo pra o auto-completar) AQUI
+	}
+
+	public IScope scope_Attachment_firstElement(aspectualacme.Attachment a,
+			EReference t) {
+		return scope_Attachment_secondElement(a, t);
+	}
+
+	public IScope scope_Attachment_secondElement(aspectualacme.Attachment a,
+			EReference t) {
+		aspectualacme.System parentSystem = a.getParentSystem();
+		aspectualacme.Family parentFamily = a.getParentFamily();
+		EList<aspectualacme.attachableElement> attachables = new BasicEList<aspectualacme.attachableElement>();
+
+		if (parentSystem != null) {
+			for (aspectualacme.Component c : parentSystem.getComponents())
+				attachables.addAll(c.allPorts());
+
+			for (aspectualacme.Connector c : parentSystem.getConnectors())
+				attachables.addAll(c.allRoles());
+
+			attachables.addAll(parentSystem.getWildCard());
+		} else if (parentFamily != null) {
+			for (aspectualacme.Component c : parentFamily.getComponents())
+				attachables.addAll(c.allPorts());
+
+			for (aspectualacme.Connector c : parentFamily.getConnectors())
+				attachables.addAll(c.allRoles());
+
+			attachables.addAll(parentFamily.getWildcard());
+		}
+		return Scopes.scopeFor(attachables,
+				new Function<aspectualacme.attachableElement, String>() {
+					public String apply(attachableElement from) {
+						if (from instanceof aspectualacme.Port)
+							return ((aspectualacme.Port) from).getComponent()
+									.getName() + "." + from.getName();
+						else if (from instanceof aspectualacme.Role)
+							return ((aspectualacme.Role) from).getConnector()
+									.getName() + "." + from.getName();
+						else
+							return from.getName();
+					}
+				}, IScope.NULLSCOPE);
+	}
+	
+	public IScope scope_Property_type(Property p, EReference e) {
+		aspectualacme.BasicElement parentSystem = p.getParentSystem();
+		aspectualacme.BasicElement parentFamily = p.getParentFamily();
+
+		aspectualacme.BasicElement parent = (parentSystem == null ? parentFamily
+				: parentSystem);
+
+		EList<aspectualacme.Family> families = new BasicEList<aspectualacme.Family>();
+		families.addAll(parent.getParentFamily());
+
+		EList<aspectualacme.PropertyType> all = new BasicEList<aspectualacme.PropertyType>();
+		// Incluir tipos da família atual, para depois adicionar os tipos
+		families = AspectualAcmeUtil.fullInheritance(parent);
+		
+		for (aspectualacme.Family s : families) {
+			for (aspectualacme.PropertyType ct : s.allPrtypes())
+				if (!all.contains(ct))
+					all.add(ct);
+		}
+
+		IScope result = Scopes.scopeFor(all,
+				new Function<aspectualacme.PropertyType, String>() {
+					public String apply(aspectualacme.PropertyType from) {
+						return from.getName();
+					}
+				}, IScope.NULLSCOPE);
+		return result;
+	}
+	
 }

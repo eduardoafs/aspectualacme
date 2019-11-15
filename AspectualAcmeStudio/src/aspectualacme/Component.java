@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link aspectualacme.Component#getType <em>Type</em>}</li>
  *   <li>{@link aspectualacme.Component#getParentSystem <em>Parent System</em>}</li>
  *   <li>{@link aspectualacme.Component#getParentFamily <em>Parent Family</em>}</li>
+ *   <li>{@link aspectualacme.Component#getEffective_type <em>Effective type</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,7 +46,7 @@ public interface Component extends Element {
 	 * @generated
 	 */
 	EList<Port> getPort();
-
+	EList<Port> allPorts();
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference list.
 	 * The list contents are of type {@link aspectualacme.ComponentType}.
@@ -117,5 +118,20 @@ public interface Component extends Element {
 	 * @generated
 	 */
 	void setParentFamily(Family value);
+	/**
+	 * Returns the value of the '<em><b>Effective type</b></em>' reference list.
+	 * The list contents are of type {@link aspectualacme.ComponentType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Effective type</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Effective type</em>' reference list.
+	 * @see aspectualacme.AspectualacmePackage#getComponent_Effective_type()
+	 * @model keys="name"
+	 * @generated
+	 */
+	EList<ComponentType> getEffective_type();
 
 } // Component

@@ -43,7 +43,7 @@ public class ConnectorItemSemanticEditPolicy
 			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.CrosscuttingRoleCreateCommand(
 					req));
 		}
-		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3012 == req
+		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Role_3008 == req
 				.getElementType()) {
 			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.RoleCreateCommand(
 					req));
@@ -139,6 +139,15 @@ public class ConnectorItemSemanticEditPolicy
 								incomingLink));
 						continue;
 					}
+					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getVisualID(incomingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
 				}
 				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
@@ -190,6 +199,15 @@ public class ConnectorItemSemanticEditPolicy
 					}
 					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));
@@ -261,6 +279,15 @@ public class ConnectorItemSemanticEditPolicy
 								incomingLink));
 						continue;
 					}
+					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getVisualID(incomingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
 				}
 				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
@@ -312,6 +339,15 @@ public class ConnectorItemSemanticEditPolicy
 					}
 					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));
@@ -383,6 +419,15 @@ public class ConnectorItemSemanticEditPolicy
 								incomingLink));
 						continue;
 					}
+					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getVisualID(incomingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								incomingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								incomingLink));
+						continue;
+					}
 				}
 				for (Iterator<?> it = node.getSourceEdges().iterator(); it
 						.hasNext();) {
@@ -434,6 +479,15 @@ public class ConnectorItemSemanticEditPolicy
 					}
 					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.Attachment6EditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+							.getVisualID(outgoingLink) == componentRepresentationaspectualacme.diagram.edit.parts.BindingEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));

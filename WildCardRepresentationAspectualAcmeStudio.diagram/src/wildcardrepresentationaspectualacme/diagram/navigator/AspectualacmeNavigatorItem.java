@@ -73,6 +73,7 @@ public class AspectualacmeNavigatorItem extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof wildcardrepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorItem) {
 			return EcoreUtil
@@ -87,6 +88,7 @@ public class AspectualacmeNavigatorItem extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public int hashCode() {
 		return EcoreUtil.getURI(getView()).hashCode();
 	}

@@ -443,7 +443,7 @@ public class CrosscuttingRoleEditPart extends AbstractBorderItemEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.gray);
 			this.setBackgroundColor(ColorConstants.gray);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(10),

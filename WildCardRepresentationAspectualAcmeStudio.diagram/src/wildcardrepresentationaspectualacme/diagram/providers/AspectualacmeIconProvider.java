@@ -16,6 +16,7 @@ public class AspectualacmeIconProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public Image getIcon(IAdaptable hint, int flags) {
 		return AspectualacmeElementTypes.getImage(hint);
 	}
@@ -23,6 +24,7 @@ public class AspectualacmeIconProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetIconOperation) {
 			return ((GetIconOperation) operation).execute(this) != null;

@@ -8,7 +8,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 
 import wildcardrepresentationaspectualacme.diagram.edit.commands.ComponentCreateCommand;
-import wildcardrepresentationaspectualacme.diagram.edit.commands.WildCardCreateCommand;
 import wildcardrepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes;
 
 /**
@@ -27,12 +26,10 @@ public class WildCardItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	@Override
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (AspectualacmeElementTypes.Component_2002 == req.getElementType()) {
 			return getGEFWrapper(new ComponentCreateCommand(req));
-		}
-		if (AspectualacmeElementTypes.WildCard_2003 == req.getElementType()) {
-			return getGEFWrapper(new WildCardCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -40,6 +37,7 @@ public class WildCardItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
+	@Override
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 				.getEditingDomain();

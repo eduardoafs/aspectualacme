@@ -35,6 +35,8 @@ public class AspectualacmeOCLFactory {
 		this.expressions = new AspectualacmeAbstractExpression[18];
 	}
 
+	private static int a = 0;
+
 	/**
 	 * @generated
 	 */

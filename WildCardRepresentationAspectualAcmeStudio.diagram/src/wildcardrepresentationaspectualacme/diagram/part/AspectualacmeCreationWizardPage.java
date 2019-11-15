@@ -61,6 +61,7 @@ public class AspectualacmeCreationWizardPage extends WizardNewFileCreationPage {
 	/**
 	 * @generated
 	 */
+	@Override
 	public void createControl(Composite parent) {
 		super.createControl(parent);
 		setFileName(AspectualacmeDiagramEditorUtil.getUniqueFileName(
@@ -71,6 +72,7 @@ public class AspectualacmeCreationWizardPage extends WizardNewFileCreationPage {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected boolean validatePage() {
 		if (!super.validatePage()) {
 			return false;

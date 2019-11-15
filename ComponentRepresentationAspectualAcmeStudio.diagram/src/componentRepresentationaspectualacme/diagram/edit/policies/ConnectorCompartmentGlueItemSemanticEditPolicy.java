@@ -22,7 +22,7 @@ public class ConnectorCompartmentGlueItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008 == req
+		if (componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007 == req
 				.getElementType()) {
 			return getGEFWrapper(new componentRepresentationaspectualacme.diagram.edit.commands.GlueCreateCommand(
 					req));

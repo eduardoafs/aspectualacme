@@ -62,8 +62,31 @@ public class SystemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addEffective_typePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Effective type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEffective_typePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_System_effective_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_System_effective_type_feature", "_UI_System_type"),
+				 AspectualacmePackage.Literals.SYSTEM__EFFECTIVE_TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -79,9 +102,9 @@ public class SystemItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(AspectualacmePackage.Literals.SYSTEM__CONNECTORS);
+			childrenFeatures.add(AspectualacmePackage.Literals.SYSTEM__PROPERTIES);
 			childrenFeatures.add(AspectualacmePackage.Literals.SYSTEM__ATTACHMENTS);
 			childrenFeatures.add(AspectualacmePackage.Literals.SYSTEM__WILD_CARD);
-			childrenFeatures.add(AspectualacmePackage.Literals.SYSTEM__PROPERTIES);
 			childrenFeatures.add(AspectualacmePackage.Literals.SYSTEM__COMPONENTS);
 		}
 		return childrenFeatures;
@@ -138,9 +161,9 @@ public class SystemItemProvider
 
 		switch (notification.getFeatureID(aspectualacme.System.class)) {
 			case AspectualacmePackage.SYSTEM__CONNECTORS:
+			case AspectualacmePackage.SYSTEM__PROPERTIES:
 			case AspectualacmePackage.SYSTEM__ATTACHMENTS:
 			case AspectualacmePackage.SYSTEM__WILD_CARD:
-			case AspectualacmePackage.SYSTEM__PROPERTIES:
 			case AspectualacmePackage.SYSTEM__COMPONENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -166,6 +189,11 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(AspectualacmePackage.Literals.SYSTEM__PROPERTIES,
+				 AspectualacmeFactory.eINSTANCE.createProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(AspectualacmePackage.Literals.SYSTEM__ATTACHMENTS,
 				 AspectualacmeFactory.eINSTANCE.createAttachment()));
 
@@ -173,11 +201,6 @@ public class SystemItemProvider
 			(createChildParameter
 				(AspectualacmePackage.Literals.SYSTEM__WILD_CARD,
 				 AspectualacmeFactory.eINSTANCE.createWildCard()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(AspectualacmePackage.Literals.SYSTEM__PROPERTIES,
-				 AspectualacmeFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter

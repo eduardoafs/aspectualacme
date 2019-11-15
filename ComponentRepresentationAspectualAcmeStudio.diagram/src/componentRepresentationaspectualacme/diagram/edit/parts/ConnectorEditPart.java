@@ -31,6 +31,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import aspectualacme.custom.layout.ScaleInnerFigureLayout;
+import aspectualacme.diagram.edit.parts.custom.CircleBorderItemLocator;
+
 /**
  * @generated
  */
@@ -136,7 +139,7 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.BaseRoleEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+			CircleBorderItemLocator locator = new CircleBorderItemLocator(getMainFigure(),
 					PositionConstants.RIGHT);
 			getBorderedFigure()
 					.getBorderItemContainer()
@@ -145,7 +148,7 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.CrosscuttingRoleEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+			CircleBorderItemLocator locator = new CircleBorderItemLocator(getMainFigure(),
 					PositionConstants.RIGHT);
 			getBorderedFigure()
 					.getBorderItemContainer()
@@ -154,7 +157,7 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.RoleEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
+			CircleBorderItemLocator locator = new CircleBorderItemLocator(getMainFigure(),
 					PositionConstants.RIGHT);
 			getBorderedFigure()
 					.getBorderItemContainer()
@@ -330,7 +333,7 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 					.getCreateElementRequestAdapter();
 			IElementType type = (IElementType) adapter
 					.getAdapter(IElementType.class);
-			if (type == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008) {
+			if (type == componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007) {
 				return getChildBySemanticHint(componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 						.getType(componentRepresentationaspectualacme.diagram.edit.parts.ConnectorCompartmentGlueEditPart.VISUAL_ID));
 			}
@@ -356,7 +359,12 @@ public class ConnectorEditPart extends AbstractBorderedShapeEditPart {
 		 * @generated
 		 */
 		public ConnectorFigure() {
-			this.setLineWidth(2);
+
+			ScaleInnerFigureLayout layoutThis = new ScaleInnerFigureLayout();
+
+			this.setLayoutManager(layoutThis);
+
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 			createContents();
 		}

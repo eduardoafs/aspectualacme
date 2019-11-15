@@ -373,6 +373,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String System13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String System13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ConnectorCompartmentGlueEditPart_title;
 
 	/**

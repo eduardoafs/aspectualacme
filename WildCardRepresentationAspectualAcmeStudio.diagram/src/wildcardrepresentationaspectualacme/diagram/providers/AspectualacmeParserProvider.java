@@ -13,8 +13,10 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardNameEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationNameEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart;
 import wildcardrepresentationaspectualacme.diagram.parsers.MessageFormatParser;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
 import aspectualacme.AspectualacmePackage;
@@ -41,6 +43,9 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 					.getElement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
+			parser.setViewPattern("Component {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("Component {0}"); //$NON-NLS-1$
+			parser.setEditPattern("Component {0}"); //$NON-NLS-1$
 			componentName_5001Parser = parser;
 		}
 		return componentName_5001Parser;
@@ -49,22 +54,67 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser wildCardName_5002Parser;
+	private IParser representationName_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getWildCardName_5002Parser() {
-		if (wildCardName_5002Parser == null) {
+	private IParser getRepresentationName_5003Parser() {
+		if (representationName_5003Parser == null) {
+			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
+					.getRepresentation_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("Representation {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("Representation {0}"); //$NON-NLS-1$
+			parser.setEditPattern("Representation {0}"); //$NON-NLS-1$
+			representationName_5003Parser = parser;
+		}
+		return representationName_5003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser systemName_5005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSystemName_5005Parser() {
+		if (systemName_5005Parser == null) {
+			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
+					.getElement_Name() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			parser.setViewPattern("System {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("System {0}"); //$NON-NLS-1$
+			parser.setEditPattern("System {0}"); //$NON-NLS-1$
+			systemName_5005Parser = parser;
+		}
+		return systemName_5005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser componentName_5004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getComponentName_5004Parser() {
+		if (componentName_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getElement_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { AspectualacmePackage.eINSTANCE
 					.getElement_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features,
 					editableFeatures);
-			wildCardName_5002Parser = parser;
+			parser.setViewPattern("Component {0}"); //$NON-NLS-1$
+			parser.setEditorPattern("Component {0}"); //$NON-NLS-1$
+			parser.setEditPattern("Component {0}"); //$NON-NLS-1$
+			componentName_5004Parser = parser;
 		}
-		return wildCardName_5002Parser;
+		return componentName_5004Parser;
 	}
 
 	/**
@@ -74,8 +124,12 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 		switch (visualID) {
 		case ComponentNameEditPart.VISUAL_ID:
 			return getComponentName_5001Parser();
-		case WildCardNameEditPart.VISUAL_ID:
-			return getWildCardName_5002Parser();
+		case RepresentationNameEditPart.VISUAL_ID:
+			return getRepresentationName_5003Parser();
+		case SystemNameEditPart.VISUAL_ID:
+			return getSystemName_5005Parser();
+		case ComponentName2EditPart.VISUAL_ID:
+			return getComponentName_5004Parser();
 		}
 		return null;
 	}
@@ -93,6 +147,7 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public IParser getParser(IAdaptable hint) {
 		String vid = (String) hint.getAdapter(String.class);
 		if (vid != null) {
@@ -108,6 +163,7 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean provides(IOperation operation) {
 		if (operation instanceof GetParserOperation) {
 			IAdaptable hint = ((GetParserOperation) operation).getHint();
@@ -141,6 +197,7 @@ public class AspectualacmeParserProvider extends AbstractProvider implements
 		/**
 		 * @generated
 		 */
+		@Override
 		public Object getAdapter(Class adapter) {
 			if (IElementType.class.equals(adapter)) {
 				return elementType;

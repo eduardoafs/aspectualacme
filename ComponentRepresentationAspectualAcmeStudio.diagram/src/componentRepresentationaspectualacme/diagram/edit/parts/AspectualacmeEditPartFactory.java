@@ -28,8 +28,8 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 			switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getVisualID(view)) {
 
-			case componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart.VISUAL_ID:
-				return new componentRepresentationaspectualacme.diagram.edit.parts.FreeformLayerEditPart(
+			case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
+				return new componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart(
 						view);
 
 			case componentRepresentationaspectualacme.diagram.edit.parts.SystemEditPart.VISUAL_ID:
@@ -40,14 +40,6 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 				return new componentRepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart(
 						view);
 
-			case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
-				return new componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart(
-						view);
-
-			case componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart.VISUAL_ID:
-				return new componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart(
-						view);
-
 			case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
 				return new componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart(
 						view);
@@ -56,12 +48,20 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 				return new componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart(
 						view);
 
+			case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
+				return new componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart(
+						view);
+
+			case componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart.VISUAL_ID:
+				return new componentRepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart(
+						view);
+
 			case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
 				return new componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart(
 						view);
 
-			case componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart.VISUAL_ID:
-				return new componentRepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart(
+			case componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID:
+				return new componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart(
 						view);
 
 			case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorEditPart.VISUAL_ID:
@@ -100,8 +100,8 @@ public class AspectualacmeEditPartFactory implements EditPartFactory {
 				return new componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart(
 						view);
 
-			case componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID:
-				return new componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart(
+			case componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID:
+				return new componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart(
 						view);
 
 			case componentRepresentationaspectualacme.diagram.edit.parts.ConnectorCompartmentGlueEditPart.VISUAL_ID:

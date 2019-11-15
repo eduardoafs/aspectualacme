@@ -78,6 +78,7 @@ public class AspectualacmeNavigatorGroup extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof wildcardrepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup) {
 			wildcardrepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup anotherGroup = (wildcardrepresentationaspectualacme.diagram.navigator.AspectualacmeNavigatorGroup) obj;
@@ -91,6 +92,7 @@ public class AspectualacmeNavigatorGroup extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public int hashCode() {
 		return getGroupName().hashCode();
 	}

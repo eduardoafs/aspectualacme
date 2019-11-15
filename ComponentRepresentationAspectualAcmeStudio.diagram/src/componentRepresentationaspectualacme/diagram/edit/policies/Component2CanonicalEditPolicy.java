@@ -2,9 +2,11 @@ package componentRepresentationaspectualacme.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -31,6 +33,11 @@ public class Component2CanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
+
+	/**
+	 * @generated
+	 */
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -43,8 +50,15 @@ public class Component2CanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return AspectualacmePackage.eINSTANCE.getComponent_Port();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(AspectualacmePackage.eINSTANCE
+					.getComponent_Port());
+			myFeaturesToSynchronize.add(AspectualacmePackage.eINSTANCE
+					.getElement_Representations());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -55,7 +69,7 @@ public class Component2CanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> childDescriptors = componentRepresentationaspectualacme.diagram.part.AspectualacmeDiagramUpdater
-				.getComponent_2010SemanticChildren(viewObject);
+				.getComponent_3001SemanticChildren(viewObject);
 		for (componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -75,8 +89,10 @@ public class Component2CanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID == componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
+		int visualID = componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 				.getVisualID(view);
+		return visualID == componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID
+				|| visualID == componentRepresentationaspectualacme.diagram.edit.parts.Representation2EditPart.VISUAL_ID;
 	}
 
 	/**
@@ -88,7 +104,7 @@ public class Component2CanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> childDescriptors = componentRepresentationaspectualacme.diagram.part.AspectualacmeDiagramUpdater
-				.getComponent_2010SemanticChildren((View) getHost().getModel());
+				.getComponent_3001SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

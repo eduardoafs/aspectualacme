@@ -87,6 +87,7 @@ public interface Representation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Bindings</b></em>' containment reference list.
 	 * The list contents are of type {@link aspectualacme.Binding}.
+	 * It is bidirectional and its opposite is '{@link aspectualacme.Binding#getRepresentation <em>Representation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bindings</em>' containment reference list isn't clear,
@@ -95,7 +96,8 @@ public interface Representation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Bindings</em>' containment reference list.
 	 * @see aspectualacme.AspectualacmePackage#getRepresentation_Bindings()
-	 * @model containment="true"
+	 * @see aspectualacme.Binding#getRepresentation
+	 * @model opposite="representation" containment="true"
 	 * @generated
 	 */
 	EList<Binding> getBindings();

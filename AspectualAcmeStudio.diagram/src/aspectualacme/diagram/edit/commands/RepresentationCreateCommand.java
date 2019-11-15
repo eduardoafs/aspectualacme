@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import aspectualacme.AspectualacmeFactory;
 import aspectualacme.Element;
 import aspectualacme.Representation;
+import aspectualacme.diagram.part.ValidateAction;
 import aspectualacme.diagram.providers.ElementInitializers;
 
 /**

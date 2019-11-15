@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -175,7 +176,7 @@ public class RepresentationImpl extends EObjectImpl implements Representation {
 	 */
 	public EList<Binding> getBindings() {
 		if (bindings == null) {
-			bindings = new EObjectContainmentEList<Binding>(Binding.class, this, AspectualacmePackage.REPRESENTATION__BINDINGS);
+			bindings = new EObjectContainmentWithInverseEList<Binding>(Binding.class, this, AspectualacmePackage.REPRESENTATION__BINDINGS, AspectualacmePackage.BINDING__REPRESENTATION);
 		}
 		return bindings;
 	}
@@ -226,6 +227,7 @@ public class RepresentationImpl extends EObjectImpl implements Representation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -233,6 +235,8 @@ public class RepresentationImpl extends EObjectImpl implements Representation {
 				if (system != null)
 					msgs = ((InternalEObject)system).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AspectualacmePackage.REPRESENTATION__SYSTEM, null, msgs);
 				return basicSetSystem((aspectualacme.System)otherEnd, msgs);
+			case AspectualacmePackage.REPRESENTATION__BINDINGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getBindings()).basicAdd(otherEnd, msgs);
 			case AspectualacmePackage.REPRESENTATION__ELEMENT:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

@@ -11,19 +11,27 @@ import aspectualacme.BasicElement;
 import aspectualacme.Component;
 import aspectualacme.ComponentType;
 import aspectualacme.Family;
+import aspectualacme.Feature;
 import aspectualacme.Port;
 
+import aspectualacme.Property;
+import aspectualacme.Representation;
 import java.util.Collection;
+
+import javax.annotation.Generated;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -40,6 +48,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link aspectualacme.impl.ComponentImpl#getType <em>Type</em>}</li>
  *   <li>{@link aspectualacme.impl.ComponentImpl#getParentSystem <em>Parent System</em>}</li>
  *   <li>{@link aspectualacme.impl.ComponentImpl#getParentFamily <em>Parent Family</em>}</li>
+ *   <li>{@link aspectualacme.impl.ComponentImpl#getEffective_type <em>Effective type</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +74,16 @@ public class ComponentImpl extends ElementImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<ComponentType> type;
+
+	/**
+	 * The cached value of the '{@link #getEffective_type() <em>Effective type</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEffective_type()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ComponentType> effective_type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,6 +215,18 @@ public class ComponentImpl extends ElementImpl implements Component {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ComponentType> getEffective_type() {
+		if (effective_type == null) {
+			effective_type = new EObjectResolvingEList<ComponentType>(ComponentType.class, this, AspectualacmePackage.COMPONENT__EFFECTIVE_TYPE);
+		}
+		return effective_type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -264,6 +295,8 @@ public class ComponentImpl extends ElementImpl implements Component {
 				return getParentSystem();
 			case AspectualacmePackage.COMPONENT__PARENT_FAMILY:
 				return getParentFamily();
+			case AspectualacmePackage.COMPONENT__EFFECTIVE_TYPE:
+				return getEffective_type();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -291,6 +324,10 @@ public class ComponentImpl extends ElementImpl implements Component {
 			case AspectualacmePackage.COMPONENT__PARENT_FAMILY:
 				setParentFamily((Family)newValue);
 				return;
+			case AspectualacmePackage.COMPONENT__EFFECTIVE_TYPE:
+				getEffective_type().clear();
+				getEffective_type().addAll((Collection<? extends ComponentType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -315,6 +352,9 @@ public class ComponentImpl extends ElementImpl implements Component {
 			case AspectualacmePackage.COMPONENT__PARENT_FAMILY:
 				setParentFamily((Family)null);
 				return;
+			case AspectualacmePackage.COMPONENT__EFFECTIVE_TYPE:
+				getEffective_type().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -335,8 +375,43 @@ public class ComponentImpl extends ElementImpl implements Component {
 				return getParentSystem() != null;
 			case AspectualacmePackage.COMPONENT__PARENT_FAMILY:
 				return getParentFamily() != null;
+			case AspectualacmePackage.COMPONENT__EFFECTIVE_TYPE:
+				return effective_type != null && !effective_type.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public EList<Port> allPorts() {
+		EList<Port> ports = new BasicEList<aspectualacme.Port>();
+
+		ports.addAll(this.getPort());
+		for (ComponentType ctype : this.type) {
+			for (Port p : ctype.getPort()) {
+				boolean control = false;
+				for (aspectualacme.Port pzin : ports) {
+					if (pzin.getName().compareTo(p.getName())==0) {
+						control = true;
+						break;
+					}
+				}
+				if (!control) { 
+					Port newp = new PortImpl();
+					newp.setComponent(this);
+					newp.setName(p.getName());
+					ports.add(newp); 
+				}
+				
+				/*System.out.println(p + " " + p.getComponent()+ " ");
+				System.out.println(newp + " " + newp.getComponent());*/
+			}
+		}
+		return ports;
 	}
 
 } //ComponentImpl

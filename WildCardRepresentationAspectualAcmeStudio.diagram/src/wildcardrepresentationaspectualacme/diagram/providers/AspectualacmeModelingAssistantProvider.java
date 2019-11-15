@@ -21,7 +21,12 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.Component2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponent2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemCompartmentWSystemEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardEditPart;
 import wildcardrepresentationaspectualacme.diagram.part.Messages;
 import wildcardrepresentationaspectualacme.diagram.part.WildCardRepresentationAspectualacmeDiagramEditorPlugin;
@@ -35,18 +40,43 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof WildCardEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(AspectualacmeElementTypes.Component_2002);
-			types.add(AspectualacmeElementTypes.WildCard_2003);
 			return types;
 		}
 		if (editPart instanceof ComponentEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
 			types.add(AspectualacmeElementTypes.Port_3001);
+			return types;
+		}
+		if (editPart instanceof RepresentationEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(AspectualacmeElementTypes.System_3003);
+			return types;
+		}
+		if (editPart instanceof Component2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(AspectualacmeElementTypes.Port_3001);
+			return types;
+		}
+		if (editPart instanceof ComponentCompartmentWComponentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(AspectualacmeElementTypes.Representation_3004);
+			return types;
+		}
+		if (editPart instanceof SystemCompartmentWSystemEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(AspectualacmeElementTypes.Component_3005);
+			return types;
+		}
+		if (editPart instanceof ComponentCompartmentWComponent2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(AspectualacmeElementTypes.Representation_3004);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -55,6 +85,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public List getRelTypesOnSource(IAdaptable source) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
 				.getAdapter(IGraphicalEditPart.class);
@@ -64,6 +95,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public List getRelTypesOnTarget(IAdaptable target) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
@@ -73,6 +105,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public List getRelTypesOnSourceAndTarget(IAdaptable source,
 			IAdaptable target) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
@@ -85,6 +118,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public List getTypesForSource(IAdaptable target,
 			IElementType relationshipType) {
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
@@ -95,6 +129,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public List getTypesForTarget(IAdaptable source,
 			IElementType relationshipType) {
 		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
@@ -105,6 +140,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public EObject selectExistingElementForSource(IAdaptable target,
 			IElementType relationshipType) {
 		return selectExistingElement(target,
@@ -114,6 +150,7 @@ public class AspectualacmeModelingAssistantProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public EObject selectExistingElementForTarget(IAdaptable source,
 			IElementType relationshipType) {
 		return selectExistingElement(source,

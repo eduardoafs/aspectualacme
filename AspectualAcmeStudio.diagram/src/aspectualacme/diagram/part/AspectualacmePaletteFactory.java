@@ -49,6 +49,7 @@ public class AspectualacmePaletteFactory {
 		paletteContainer.add(createProperty10CreationTool());
 		paletteContainer.add(createRepresentation11CreationTool());
 		paletteContainer.add(createBinding12CreationTool());
+		paletteContainer.add(createSystem13CreationTool());
 		return paletteContainer;
 	}
 
@@ -233,6 +234,17 @@ public class AspectualacmePaletteFactory {
 				Messages.Binding12CreationTool_desc, null, null) {
 		};
 		entry.setId("createBinding12CreationTool"); //$NON-NLS-1$
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createSystem13CreationTool() {
+		ToolEntry entry = new ToolEntry(Messages.System13CreationTool_title,
+				Messages.System13CreationTool_desc, null, null) {
+		};
+		entry.setId("createSystem13CreationTool"); //$NON-NLS-1$
 		return entry;
 	}
 

@@ -100,6 +100,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
+	@Override
 	public void addPages() {
 		addPage(myFileCreationPage);
 		addPage(diagramRootElementSelectionPage);
@@ -108,6 +109,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean performFinish() {
 		LinkedList<IFile> affectedFiles = new LinkedList<IFile>();
 		IFile diagramFile = myFileCreationPage.createNewFile();
@@ -181,6 +183,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 		/**
 		 * @generated
 		 */
+		@Override
 		protected String getSelectionTitle() {
 			return Messages.AspectualacmeNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 		}
@@ -188,6 +191,7 @@ public class AspectualacmeNewDiagramFileWizard extends Wizard {
 		/**
 		 * @generated
 		 */
+		@Override
 		protected boolean validatePage() {
 			if (selectedModelElement == null) {
 				setErrorMessage(Messages.AspectualacmeNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);

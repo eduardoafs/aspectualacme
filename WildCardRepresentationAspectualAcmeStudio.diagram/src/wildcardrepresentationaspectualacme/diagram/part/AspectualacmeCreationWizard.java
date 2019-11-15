@@ -88,6 +88,7 @@ public class AspectualacmeCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
+	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
@@ -100,6 +101,7 @@ public class AspectualacmeCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
+	@Override
 	public void addPages() {
 		diagramModelFilePage = new AspectualacmeCreationWizardPage(
 				"DiagramModelFile", getSelection(), "wildcardrepresentationaspectualacme_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -138,6 +140,7 @@ public class AspectualacmeCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean performFinish() {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 

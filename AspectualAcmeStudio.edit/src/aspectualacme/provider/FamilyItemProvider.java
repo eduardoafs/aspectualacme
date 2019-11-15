@@ -87,6 +87,8 @@ public class FamilyItemProvider
 			childrenFeatures.add(AspectualacmePackage.Literals.FAMILY__PTYPES);
 			childrenFeatures.add(AspectualacmePackage.Literals.FAMILY__CNTYPES);
 			childrenFeatures.add(AspectualacmePackage.Literals.FAMILY__RTYPES);
+			childrenFeatures.add(AspectualacmePackage.Literals.FAMILY__PRTYPES);
+			childrenFeatures.add(AspectualacmePackage.Literals.FAMILY__PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -149,6 +151,8 @@ public class FamilyItemProvider
 			case AspectualacmePackage.FAMILY__PTYPES:
 			case AspectualacmePackage.FAMILY__CNTYPES:
 			case AspectualacmePackage.FAMILY__RTYPES:
+			case AspectualacmePackage.FAMILY__PRTYPES:
+			case AspectualacmePackage.FAMILY__PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,6 +209,39 @@ public class FamilyItemProvider
 			(createChildParameter
 				(AspectualacmePackage.Literals.FAMILY__RTYPES,
 				 AspectualacmeFactory.eINSTANCE.createRoleType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AspectualacmePackage.Literals.FAMILY__PRTYPES,
+				 AspectualacmeFactory.eINSTANCE.createPropertyType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AspectualacmePackage.Literals.FAMILY__PROPERTIES,
+				 AspectualacmeFactory.eINSTANCE.createProperty()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == AspectualacmePackage.Literals.ELEMENT__PROPERTY ||
+			childFeature == AspectualacmePackage.Literals.FAMILY__PROPERTIES;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

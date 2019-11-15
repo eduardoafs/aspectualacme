@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.HintedDiagramLinkStyle;
+import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.MeasurementUnit;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -62,6 +63,7 @@ import aspectualacme.diagram.edit.parts.RoleEditPart;
 import aspectualacme.diagram.edit.parts.SystemEditPart;
 import aspectualacme.diagram.edit.parts.WildCardEditPart;
 import aspectualacme.diagram.edit.parts.WildCardNameEditPart;
+import aspectualacme.diagram.edit.parts.WildCardNameExpressionEditPart;
 import aspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
 
 /**
@@ -448,7 +450,7 @@ public class AspectualacmeViewProvider extends AbstractProvider implements
 				FigureUtilities.RGBToInteger(fillRGB));
 		Node label5003 = createLabel(node,
 				AspectualacmeVisualIDRegistry
-						.getType(WildCardNameEditPart.VISUAL_ID));
+						.getType(WildCardNameExpressionEditPart.VISUAL_ID));
 		return node;
 	}
 

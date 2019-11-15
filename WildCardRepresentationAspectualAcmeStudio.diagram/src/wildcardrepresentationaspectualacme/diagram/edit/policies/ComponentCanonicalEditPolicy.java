@@ -35,6 +35,7 @@ public class ComponentCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -47,6 +48,7 @@ public class ComponentCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return AspectualacmePackage.eINSTANCE.getComponent_Port();
 	}
@@ -54,6 +56,7 @@ public class ComponentCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
@@ -69,6 +72,7 @@ public class ComponentCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		return isMyDiagramElement(view)
@@ -86,6 +90,7 @@ public class ComponentCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;

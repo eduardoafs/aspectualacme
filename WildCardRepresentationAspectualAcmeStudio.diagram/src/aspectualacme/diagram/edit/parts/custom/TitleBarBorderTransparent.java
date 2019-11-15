@@ -56,6 +56,7 @@ public class TitleBarBorderTransparent extends AbstractLabeledBorder {
 	 * @return the calculated Insets
 	 * @since 2.0
 	 */
+	@Override
 	protected Insets calculateInsets(IFigure figure) {
 		return new Insets(getTextExtents(figure).height + padding.getHeight(),
 				0, 0, 0);
@@ -103,6 +104,7 @@ public class TitleBarBorderTransparent extends AbstractLabeledBorder {
 	 * 
 	 * @see Border#isOpaque()
 	 */
+	@Override
 	public boolean isOpaque() {
 		return false;
 	}
@@ -110,6 +112,7 @@ public class TitleBarBorderTransparent extends AbstractLabeledBorder {
 	/**
 	 * @see Border#paint(IFigure, Graphics, Insets)
 	 */
+	@Override
 	public void paint(IFigure figure, Graphics g, Insets insets) {
 		figure.setOpaque(false);
 		tempRect.setBounds(getPaintRectangle(figure, insets));

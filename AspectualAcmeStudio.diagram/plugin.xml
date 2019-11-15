@@ -641,11 +641,157 @@
    </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="aspectualacme.diagram.providers.AspectualacmeValidationDecoratorProvider">
-         <Priority name="Lowest"/>
+         <Priority name="High"/>
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
    </extension>
+<extension point="org.eclipse.emf.validation.constraintProviders">
+      <?gmfgen generated="true"?>
+            <category id="validateModel" mandatory="false" name="validateModel">
+         <![CDATA[Validate Model]]>
+      </category>
+      <constraintProvider cache="true">
+         <package namespaceUri="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+               <constraints categories="validateModel">
+                  <constraint id="checkComponentNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter1"
+            name="checkComponentNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists component´s names equals]]></description>
+            <message><![CDATA[Cannot be components with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  <constraint id="checkConnectorNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter2"
+            name="checkConnectorNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists connectors´s names equals]]></description>
+            <message><![CDATA[Cannot be connectors with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  <constraint id="checkPortNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter3"
+            name="checkPortNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists port´s names equals]]></description>
+            <message><![CDATA[Cannot be ports with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  <constraint id="checkRoleNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter4"
+            name="checkRoleNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists role´s names equals]]></description>
+            <message><![CDATA[Cannot be roles with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  <constraint id="checkBaseRoleNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter5"
+            name="checkBaseRoleNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists baserole´s names equals]]></description>
+            <message><![CDATA[Cannot be roles with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  <constraint id="checkCrosscutingRoleNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter6"
+            name="checkCrosscuttingRoleNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists role´s names equals]]></description>
+            <message><![CDATA[Cannot be roles with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  <constraint id="checkRepresentationNames"
+            lang="Java" class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Adapter7"
+            name="checkRepresentationNames"
+            mode="Batch"
+            severity="ERROR" statusCode="200">
+            
+            <description><![CDATA[Check if exists representation´s names equals]]></description>
+            <message><![CDATA[Cannot be representation with the same name]]></message>
+            <target class="notation.Node"/>
+         </constraint>
+                  </constraints>
+      </constraintProvider>
+   </extension>
+
+<extension point="org.eclipse.emf.validation.constraintBindings">
+      <?gmfgen generated="true"?>
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_2002">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_2002"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_2002">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkComponentNames"/>
+               </binding>
+
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_2001">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_2001"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_2001">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkConnectorNames"/>
+               </binding>
+
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_3005">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_3005"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_3005">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkPortNames"/>
+               </binding>
+
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_3011">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_3011"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_3011">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkRoleNames"/>
+               </binding>
+
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_3001">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_3001"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_3001">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkBaseRoleNames"/>
+               </binding>
+
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_3002">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_3002"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_3002">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkCrosscutingRoleNames"/>
+               </binding>
+
+      <clientContext default="false" id="AspectualAcmeStudio.diagramCtx_3010">
+         <selector class="aspectualacme.diagram.providers.AspectualacmeValidationProvider$Ctx_3010"/>
+      </clientContext>
+      <binding context="AspectualAcmeStudio.diagramCtx_3010">
+                  <constraint ref="AspectualAcmeStudio.diagram.checkRepresentationNames"/>
+               </binding>
+
+   </extension>
+<extension point="org.eclipse.emf.validation.ui.UIRegisteredClientContext">
+      <?gmfgen generated="true"?>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_2002"/>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_2001"/>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_3005"/>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_3011"/>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_3001"/>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_3002"/>
+      <clientContext id="AspectualAcmeStudio.diagramCtx_3010"/>
+   </extension>
+
+
 
 
 

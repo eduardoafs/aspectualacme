@@ -54,6 +54,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -92,14 +93,14 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new PortFigure();
+		return primaryShape = new AffectedPortFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public PortFigure getPrimaryShape() {
-		return (PortFigure) primaryShape;
+	public AffectedPortFigure getPrimaryShape() {
+		return (AffectedPortFigure) primaryShape;
 	}
 
 	/**
@@ -116,6 +117,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public EditPolicy getPrimaryDragEditPolicy() {
 		EditPolicy result = super.getPrimaryDragEditPolicy();
 		if (result instanceof ResizableEditPolicy) {
@@ -133,6 +135,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	 * 
 	 * @generated
 	 */
+	@Override
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -155,6 +158,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -165,6 +169,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
@@ -174,6 +179,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
@@ -183,6 +189,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
@@ -192,6 +199,7 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
@@ -201,12 +209,12 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 	/**
 	 * @generated
 	 */
-	public class PortFigure extends Ellipse {
+	public class AffectedPortFigure extends Ellipse {
 
 		/**
 		 * @generated
 		 */
-		public PortFigure() {
+		public AffectedPortFigure() {
 
 			FlowLayout layoutThis = new FlowLayout();
 			layoutThis.setStretchMinorAxis(true);
@@ -219,8 +227,9 @@ public class PortEditPart extends AbstractBorderItemEditPart {
 
 			this.setLayoutManager(layoutThis);
 
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
+			this.setBackgroundColor(ColorConstants.yellow);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(15),
 					getMapMode().DPtoLP(15)));
 			this.setMaximumSize(new Dimension(getMapMode().DPtoLP(15),

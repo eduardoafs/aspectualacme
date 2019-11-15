@@ -66,7 +66,7 @@ public class BindingEditPart extends ConnectionNodeEditPart implements
 		 * @generated
 		 */
 		public BindingFigure() {
-			this.setLineWidth(2);
+			this.setLineWidth(1);
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setForegroundColor(ColorConstants.black);
 

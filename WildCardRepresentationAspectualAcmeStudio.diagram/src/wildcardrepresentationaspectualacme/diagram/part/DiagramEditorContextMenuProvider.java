@@ -39,6 +39,7 @@ public class DiagramEditorContextMenuProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (deleteAction != null) {
 			deleteAction.dispose();
@@ -50,6 +51,7 @@ public class DiagramEditorContextMenuProvider extends
 	/**
 	 * @generated
 	 */
+	@Override
 	public void buildContextMenu(final IMenuManager menu) {
 		getViewer().flush();
 		try {

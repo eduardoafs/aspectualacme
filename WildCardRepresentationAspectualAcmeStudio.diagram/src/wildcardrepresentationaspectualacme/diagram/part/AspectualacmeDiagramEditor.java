@@ -16,6 +16,7 @@ import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
+import org.eclipse.gmf.runtime.diagram.ui.properties.views.IReadOnlyDiagramPropertySheetPageContributor;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
@@ -47,7 +48,7 @@ import wildcardrepresentationaspectualacme.diagram.navigator.AspectualacmeNaviga
  * @generated
  */
 public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
-		IGotoMarker {
+		IReadOnlyDiagramPropertySheetPageContributor, IGotoMarker {
 
 	/**
 	 * @generated
@@ -69,6 +70,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected String getContextID() {
 		return CONTEXT_ID;
 	}
@@ -76,6 +78,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
 		PaletteRoot root = super.createPaletteRoot(existingPaletteRoot);
 		new AspectualacmePaletteFactory().fillPalette(root);
@@ -85,6 +88,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected PreferencesHint getPreferencesHint() {
 		return WildCardRepresentationAspectualacmeDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT;
 	}
@@ -92,6 +96,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public String getContributorId() {
 		return WildCardRepresentationAspectualacmeDiagramEditorPlugin.ID;
 	}
@@ -99,6 +104,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Class type) {
 		if (type == IShowInTargetList.class) {
@@ -114,6 +120,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput
 				|| input instanceof URIEditorInput) {
@@ -126,6 +133,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public TransactionalEditingDomain getEditingDomain() {
 		IDocument document = getEditorInput() != null ? getDocumentProvider()
 				.getDocument(getEditorInput()) : null;
@@ -138,6 +146,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setDocumentProvider(IEditorInput input) {
 		if (input instanceof IFileEditorInput
 				|| input instanceof URIEditorInput) {
@@ -151,6 +160,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void gotoMarker(IMarker marker) {
 		MarkerNavigationService.getInstance().gotoMarker(this, marker);
 	}
@@ -158,6 +168,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
@@ -165,6 +176,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void doSaveAs() {
 		performSaveAs(new NullProgressMonitor());
 	}
@@ -172,6 +184,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void performSaveAs(IProgressMonitor progressMonitor) {
 		Shell shell = getSite().getShell();
 		IEditorInput input = getEditorInput();
@@ -253,6 +266,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public ShowInContext getShowInContext() {
 		return new ShowInContext(getEditorInput(), getNavigatorSelection());
 	}
@@ -281,6 +295,7 @@ public class AspectualacmeDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void configureGraphicalViewer() {
 		super.configureGraphicalViewer();
 		DiagramEditorContextMenuProvider provider = new DiagramEditorContextMenuProvider(

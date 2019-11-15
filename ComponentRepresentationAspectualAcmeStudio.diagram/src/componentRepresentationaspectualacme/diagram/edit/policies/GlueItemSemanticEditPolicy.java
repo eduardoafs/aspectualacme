@@ -20,7 +20,7 @@ public class GlueItemSemanticEditPolicy
 	 */
 	public GlueItemSemanticEditPolicy() {
 		super(
-				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3008);
+				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.Glue_3007);
 	}
 
 	/**

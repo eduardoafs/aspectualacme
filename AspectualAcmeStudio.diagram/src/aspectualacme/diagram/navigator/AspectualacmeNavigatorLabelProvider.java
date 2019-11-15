@@ -41,6 +41,7 @@ import aspectualacme.diagram.edit.parts.RoleEditPart;
 import aspectualacme.diagram.edit.parts.SystemEditPart;
 import aspectualacme.diagram.edit.parts.WildCardEditPart;
 import aspectualacme.diagram.edit.parts.WildCardNameEditPart;
+import aspectualacme.diagram.edit.parts.WildCardNameExpressionEditPart;
 import aspectualacme.diagram.part.AspectualacmeDiagramEditorPlugin;
 import aspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
 import aspectualacme.diagram.providers.AspectualacmeElementTypes;
@@ -105,54 +106,54 @@ public class AspectualacmeNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (AspectualacmeVisualIDRegistry.getVisualID(view)) {
-		case BaseRoleEditPart.VISUAL_ID:
+		case Attachment5EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?aspectualacmev0.2?BaseRole", AspectualacmeElementTypes.BaseRole_3001); //$NON-NLS-1$
-		case ConnectorEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?aspectualacmev0.2?Connector", AspectualacmeElementTypes.Connector_2001); //$NON-NLS-1$
-		case Attachment3EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4005); //$NON-NLS-1$
-		case CrosscuttingRoleEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?aspectualacmev0.2?CrosscuttingRole", AspectualacmeElementTypes.CrosscuttingRole_3002); //$NON-NLS-1$
-		case AttachmentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4003); //$NON-NLS-1$
-		case Attachment2EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4004); //$NON-NLS-1$
-		case WildCardEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?aspectualacmev0.2?WildCard", AspectualacmeElementTypes.WildCard_2003); //$NON-NLS-1$
+					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4001); //$NON-NLS-1$
 		case PortEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?aspectualacmev0.2?Port", AspectualacmeElementTypes.Port_3005); //$NON-NLS-1$
-		case ComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?aspectualacmev0.2?Component", AspectualacmeElementTypes.Component_2002); //$NON-NLS-1$
-		case RepresentationEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?aspectualacmev0.2?Representation", AspectualacmeElementTypes.Representation_3010); //$NON-NLS-1$
 		case SystemEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?aspectualacmev0.2?System", AspectualacmeElementTypes.System_1000); //$NON-NLS-1$
+		case Attachment3EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4005); //$NON-NLS-1$
+		case Attachment2EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4004); //$NON-NLS-1$
+		case ConnectorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?aspectualacmev0.2?Connector", AspectualacmeElementTypes.Connector_2001); //$NON-NLS-1$
+		case CrosscuttingRoleEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?aspectualacmev0.2?CrosscuttingRole", AspectualacmeElementTypes.CrosscuttingRole_3002); //$NON-NLS-1$
+		case Attachment4EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4006); //$NON-NLS-1$
+		case ComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?aspectualacmev0.2?Component", AspectualacmeElementTypes.Component_2002); //$NON-NLS-1$
+		case BaseRoleEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?aspectualacmev0.2?BaseRole", AspectualacmeElementTypes.BaseRole_3001); //$NON-NLS-1$
+		case RepresentationEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?aspectualacmev0.2?Representation", AspectualacmeElementTypes.Representation_3010); //$NON-NLS-1$
+		case WildCardEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?aspectualacmev0.2?WildCard", AspectualacmeElementTypes.WildCard_2003); //$NON-NLS-1$
+		case GlueEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?aspectualacmev0.2?Glue", AspectualacmeElementTypes.Glue_3004); //$NON-NLS-1$
+		case AttachmentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4003); //$NON-NLS-1$
 		case Attachment6EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4002); //$NON-NLS-1$
 		case RoleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?aspectualacmev0.2?Role", AspectualacmeElementTypes.Role_3011); //$NON-NLS-1$
-		case GlueEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?aspectualacmev0.2?Glue", AspectualacmeElementTypes.Glue_3004); //$NON-NLS-1$
-		case Attachment5EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4001); //$NON-NLS-1$
-		case Attachment4EditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Link?aspectualacmev0.2?Attachment", AspectualacmeElementTypes.Attachment_4006); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -205,38 +206,38 @@ public class AspectualacmeNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (AspectualacmeVisualIDRegistry.getVisualID(view)) {
-		case BaseRoleEditPart.VISUAL_ID:
-			return getBaseRole_3001Text(view);
-		case ConnectorEditPart.VISUAL_ID:
-			return getConnector_2001Text(view);
-		case Attachment3EditPart.VISUAL_ID:
-			return getAttachment_4005Text(view);
-		case CrosscuttingRoleEditPart.VISUAL_ID:
-			return getCrosscuttingRole_3002Text(view);
-		case AttachmentEditPart.VISUAL_ID:
-			return getAttachment_4003Text(view);
-		case Attachment2EditPart.VISUAL_ID:
-			return getAttachment_4004Text(view);
-		case WildCardEditPart.VISUAL_ID:
-			return getWildCard_2003Text(view);
+		case Attachment5EditPart.VISUAL_ID:
+			return getAttachment_4001Text(view);
 		case PortEditPart.VISUAL_ID:
 			return getPort_3005Text(view);
-		case ComponentEditPart.VISUAL_ID:
-			return getComponent_2002Text(view);
-		case RepresentationEditPart.VISUAL_ID:
-			return getRepresentation_3010Text(view);
 		case SystemEditPart.VISUAL_ID:
 			return getSystem_1000Text(view);
+		case Attachment3EditPart.VISUAL_ID:
+			return getAttachment_4005Text(view);
+		case Attachment2EditPart.VISUAL_ID:
+			return getAttachment_4004Text(view);
+		case ConnectorEditPart.VISUAL_ID:
+			return getConnector_2001Text(view);
+		case CrosscuttingRoleEditPart.VISUAL_ID:
+			return getCrosscuttingRole_3002Text(view);
+		case Attachment4EditPart.VISUAL_ID:
+			return getAttachment_4006Text(view);
+		case ComponentEditPart.VISUAL_ID:
+			return getComponent_2002Text(view);
+		case BaseRoleEditPart.VISUAL_ID:
+			return getBaseRole_3001Text(view);
+		case RepresentationEditPart.VISUAL_ID:
+			return getRepresentation_3010Text(view);
+		case WildCardEditPart.VISUAL_ID:
+			return getWildCard_2003Text(view);
+		case GlueEditPart.VISUAL_ID:
+			return getGlue_3004Text(view);
+		case AttachmentEditPart.VISUAL_ID:
+			return getAttachment_4003Text(view);
 		case Attachment6EditPart.VISUAL_ID:
 			return getAttachment_4002Text(view);
 		case RoleEditPart.VISUAL_ID:
 			return getRole_3011Text(view);
-		case GlueEditPart.VISUAL_ID:
-			return getGlue_3004Text(view);
-		case Attachment5EditPart.VISUAL_ID:
-			return getAttachment_4001Text(view);
-		case Attachment4EditPart.VISUAL_ID:
-			return getAttachment_4006Text(view);
 		}
 		return getUnknownElementText(view);
 	}
@@ -256,7 +257,7 @@ public class AspectualacmeNavigatorLabelProvider extends LabelProvider
 				AspectualacmeElementTypes.WildCard_2003,
 				view.getElement() != null ? view.getElement() : view,
 				AspectualacmeVisualIDRegistry
-						.getType(WildCardNameEditPart.VISUAL_ID));
+						.getType(WildCardNameExpressionEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),

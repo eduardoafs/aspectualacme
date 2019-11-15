@@ -6,6 +6,7 @@
  */
 package aspectualacme.impl;
 
+import aspectualacme.Armani;
 import aspectualacme.ArmaniExpression;
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Attachment;
@@ -14,9 +15,13 @@ import aspectualacme.BasicElement;
 import aspectualacme.Component;
 import aspectualacme.Connector;
 import aspectualacme.Family;
+import aspectualacme.Feature;
+import aspectualacme.Property;
+import aspectualacme.Representation;
 import aspectualacme.WildCard;
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,6 +29,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -52,7 +59,7 @@ public abstract class BasicElementImpl extends ElementImpl implements BasicEleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ArmaniExpression> armani;
+	protected EList<Armani> armani;
 
 	/**
 	 * The cached value of the '{@link #getParentFamily() <em>Parent Family</em>}' reference list.
@@ -88,9 +95,9 @@ public abstract class BasicElementImpl extends ElementImpl implements BasicEleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ArmaniExpression> getArmani() {
+	public EList<Armani> getArmani() {
 		if (armani == null) {
-			armani = new EObjectContainmentEList<ArmaniExpression>(ArmaniExpression.class, this, AspectualacmePackage.BASIC_ELEMENT__ARMANI);
+			armani = new EObjectContainmentEList<Armani>(Armani.class, this, AspectualacmePackage.BASIC_ELEMENT__ARMANI);
 		}
 		return armani;
 	}
@@ -148,7 +155,7 @@ public abstract class BasicElementImpl extends ElementImpl implements BasicEleme
 		switch (featureID) {
 			case AspectualacmePackage.BASIC_ELEMENT__ARMANI:
 				getArmani().clear();
-				getArmani().addAll((Collection<? extends ArmaniExpression>)newValue);
+				getArmani().addAll((Collection<? extends Armani>)newValue);
 				return;
 			case AspectualacmePackage.BASIC_ELEMENT__PARENT_FAMILY:
 				getParentFamily().clear();

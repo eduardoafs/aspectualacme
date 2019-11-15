@@ -1,22 +1,22 @@
 package wildcardrepresentationaspectualacme.diagram.edit.parts;
 
+import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import wildcardrepresentationaspectualacme.diagram.edit.policies.AspectualacmeTextSelectionEditPolicy;
 import wildcardrepresentationaspectualacme.diagram.edit.policies.ComponentCanonicalEditPolicy;
 import wildcardrepresentationaspectualacme.diagram.edit.policies.ComponentItemSemanticEditPolicy;
 import wildcardrepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry;
@@ -62,6 +63,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
@@ -81,7 +83,8 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
@@ -89,20 +92,12 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 				case PortEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new AspectualacmeTextSelectionEditPolicy();
+					}
 				}
-				return result;
-			}
-
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -112,14 +107,14 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ComponentFigure();
+		return primaryShape = new WComponentFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ComponentFigure getPrimaryShape() {
-		return (ComponentFigure) primaryShape;
+	public WComponentFigure getPrimaryShape() {
+		return (WComponentFigure) primaryShape;
 	}
 
 	/**
@@ -128,7 +123,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ComponentNameEditPart) {
 			((ComponentNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureComponentNameFigure());
+					.getFigureWComponentNameFigure());
 			return true;
 		}
 		if (childEditPart instanceof PortEditPart) {
@@ -202,6 +197,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	 * 
 	 * @generated
 	 */
+	@Override
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -229,6 +225,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -239,6 +236,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
@@ -248,6 +246,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
@@ -257,6 +256,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
@@ -266,6 +266,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
@@ -275,6 +276,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
+	@Override
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(AspectualacmeVisualIDRegistry
 				.getType(ComponentNameEditPart.VISUAL_ID));
@@ -283,18 +285,33 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public class ComponentFigure extends RectangleFigure {
+	public class WComponentFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureComponentNameFigure;
+		private WrappingLabel fFigureWComponentNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ComponentFigure() {
-			this.setLineWidth(2);
+		private RectangleFigure fFigureWComponentCompartment;
+
+		/**
+		 * @generated
+		 */
+		public WComponentFigure() {
+
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
+
+			this.setLayoutManager(layoutThis);
+
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 			createContents();
 		}
@@ -304,18 +321,30 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureComponentNameFigure = new WrappingLabel();
-			fFigureComponentNameFigure.setText("<...>");
+			fFigureWComponentNameFigure = new WrappingLabel();
+			fFigureWComponentNameFigure.setText("<...>");
 
-			this.add(fFigureComponentNameFigure);
+			this.add(fFigureWComponentNameFigure, BorderLayout.TOP);
+
+			fFigureWComponentCompartment = new RectangleFigure();
+
+			this.add(fFigureWComponentCompartment);
+			fFigureWComponentCompartment.setLayoutManager(new StackLayout());
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureComponentNameFigure() {
-			return fFigureComponentNameFigure;
+		public WrappingLabel getFigureWComponentNameFigure() {
+			return fFigureWComponentNameFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public RectangleFigure getFigureWComponentCompartment() {
+			return fFigureWComponentCompartment;
 		}
 
 	}

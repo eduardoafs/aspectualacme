@@ -12,13 +12,13 @@
 
    <extension point="org.eclipse.ui.newWizards">
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
+            id="dimap.ufrn.br.AspectualAcme"
+            name="AspectualACME"/>
       <wizard
             id="aspectualacme.presentation.AspectualacmeModelWizardID"
             name="%_UI_AspectualacmeModelWizard_label"
             class="aspectualacme.presentation.AspectualacmeModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="dimap.ufrn.br.AspectualAcme"
             icon="icons/full/obj16/AspectualacmeModelFile.gif">
          <description>%_UI_AspectualacmeModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

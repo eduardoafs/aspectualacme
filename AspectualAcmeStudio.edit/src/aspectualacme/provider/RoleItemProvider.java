@@ -60,6 +60,7 @@ public class RoleItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRoleTypePropertyDescriptor(object);
+			addEffective_typePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -78,6 +79,28 @@ public class RoleItemProvider
 				 getString("_UI_Role_roleType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Role_roleType_feature", "_UI_Role_type"),
 				 AspectualacmePackage.Literals.ROLE__ROLE_TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Effective type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEffective_typePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Role_effective_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Role_effective_type_feature", "_UI_Role_type"),
+				 AspectualacmePackage.Literals.ROLE__EFFECTIVE_TYPE,
 				 true,
 				 false,
 				 true,

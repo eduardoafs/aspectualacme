@@ -6,17 +6,16 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ConstrainedToolbarLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -36,7 +35,7 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3001;
+	public static final int VISUAL_ID = 2002;
 
 	/**
 	 * @generated
@@ -79,29 +78,22 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
-		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+
+		ConstrainedToolbarLayoutEditPolicy lep = new ConstrainedToolbarLayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
 				switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 						.getVisualID(childView)) {
-				case componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart.VISUAL_ID:
+				case componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-				if (result == null) {
-					result = new NonResizableEditPolicy();
+				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
+					if (child instanceof ITextAwareEditPart) {
+						return new componentRepresentationaspectualacme.diagram.edit.policies.AspectualacmeTextSelectionEditPolicy();
+					}
 				}
-				return result;
-			}
-
-			protected Command getMoveChildrenCommand(Request request) {
-				return null;
-			}
-
-			protected Command getCreateCommand(CreateRequest request) {
-				return null;
+				return super.createChildEditPolicy(child);
 			}
 		};
 		return lep;
@@ -111,14 +103,14 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ComponentFigure();
+		return primaryShape = new RComponentOutFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ComponentFigure getPrimaryShape() {
-		return (ComponentFigure) primaryShape;
+	public RComponentOutFigure getPrimaryShape() {
+		return (RComponentOutFigure) primaryShape;
 	}
 
 	/**
@@ -127,15 +119,16 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart) {
 			((componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape().getFigureComponentNameFigure());
+					.setLabel(getPrimaryShape()
+							.getFigureRComponentOutNameFigure());
 			return true;
 		}
-		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart) {
+		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.RIGHT);
 			getBorderedFigure()
 					.getBorderItemContainer()
-					.add(((componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart) childEditPart)
+					.add(((componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart) childEditPart)
 							.getFigure(), locator);
 			return true;
 		}
@@ -149,10 +142,10 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart) {
 			return true;
 		}
-		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart) {
+		if (childEditPart instanceof componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart) {
 			getBorderedFigure()
 					.getBorderItemContainer()
-					.remove(((componentRepresentationaspectualacme.diagram.edit.parts.PortEditPart) childEditPart)
+					.remove(((componentRepresentationaspectualacme.diagram.edit.parts.Port2EditPart) childEditPart)
 							.getFigure());
 			return true;
 		}
@@ -286,18 +279,28 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public class ComponentFigure extends RectangleFigure {
+	public class RComponentOutFigure extends RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureComponentNameFigure;
+		private WrappingLabel fFigureRComponentOutNameFigure;
 
 		/**
 		 * @generated
 		 */
-		public ComponentFigure() {
-			this.setLineWidth(2);
+		public RComponentOutFigure() {
+
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
+
+			this.setLayoutManager(layoutThis);
+
+			this.setLineWidth(1);
 			this.setForegroundColor(ColorConstants.black);
 			createContents();
 		}
@@ -307,18 +310,18 @@ public class ComponentEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		private void createContents() {
 
-			fFigureComponentNameFigure = new WrappingLabel();
-			fFigureComponentNameFigure.setText("<...>");
+			fFigureRComponentOutNameFigure = new WrappingLabel();
+			fFigureRComponentOutNameFigure.setText("<...>");
 
-			this.add(fFigureComponentNameFigure);
+			this.add(fFigureRComponentOutNameFigure);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		public WrappingLabel getFigureComponentNameFigure() {
-			return fFigureComponentNameFigure;
+		public WrappingLabel getFigureRComponentOutNameFigure() {
+			return fFigureRComponentOutNameFigure;
 		}
 
 	}

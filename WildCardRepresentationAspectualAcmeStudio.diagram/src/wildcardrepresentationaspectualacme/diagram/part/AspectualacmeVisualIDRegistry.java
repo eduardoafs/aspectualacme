@@ -9,12 +9,20 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import wildcardrepresentationaspectualacme.diagram.edit.parts.Component2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponent2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentCompartmentWComponentEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentName2EditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.ComponentNameEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.PortEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCard2EditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationCompartmentWRepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.RepresentationNameEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemCompartmentWSystemEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemEditPart;
+import wildcardrepresentationaspectualacme.diagram.edit.parts.SystemNameEditPart;
 import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardEditPart;
-import wildcardrepresentationaspectualacme.diagram.edit.parts.WildCardNameEditPart;
 import aspectualacme.AspectualacmePackage;
 import aspectualacme.Component;
 import aspectualacme.WildCard;
@@ -129,21 +137,45 @@ public class AspectualacmeVisualIDRegistry {
 		}
 		switch (containerVisualID) {
 		case WildCardEditPart.VISUAL_ID:
-			WildCardImpl wild = (WildCardImpl) containerView.getElement();
 			if (AspectualacmePackage.eINSTANCE.getComponent().isSuperTypeOf(
-					domainElement.eClass())
-					&& isComponent_2002((Component) domainElement,wild)) {
-				return ComponentEditPart.VISUAL_ID;
-			}
-			if (AspectualacmePackage.eINSTANCE.getWildCard().isSuperTypeOf(
 					domainElement.eClass())) {
-				return WildCard2EditPart.VISUAL_ID;
+				return ComponentEditPart.VISUAL_ID;
 			}
 			break;
 		case ComponentEditPart.VISUAL_ID:
 			if (AspectualacmePackage.eINSTANCE.getPort().isSuperTypeOf(
 					domainElement.eClass())) {
 				return PortEditPart.VISUAL_ID;
+			}
+			break;
+		case Component2EditPart.VISUAL_ID:
+			if (AspectualacmePackage.eINSTANCE.getPort().isSuperTypeOf(
+					domainElement.eClass())) {
+				return PortEditPart.VISUAL_ID;
+			}
+			break;
+		case ComponentCompartmentWComponentEditPart.VISUAL_ID:
+			if (AspectualacmePackage.eINSTANCE.getRepresentation()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return RepresentationEditPart.VISUAL_ID;
+			}
+			break;
+		case RepresentationCompartmentWRepresentationEditPart.VISUAL_ID:
+			if (AspectualacmePackage.eINSTANCE.getSystem().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SystemEditPart.VISUAL_ID;
+			}
+			break;
+		case SystemCompartmentWSystemEditPart.VISUAL_ID:
+			if (AspectualacmePackage.eINSTANCE.getComponent().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Component2EditPart.VISUAL_ID;
+			}
+			break;
+		case ComponentCompartmentWComponent2EditPart.VISUAL_ID:
+			if (AspectualacmePackage.eINSTANCE.getRepresentation()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return RepresentationEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -175,20 +207,62 @@ public class AspectualacmeVisualIDRegistry {
 			if (ComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (WildCard2EditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			break;
 		case ComponentEditPart.VISUAL_ID:
 			if (ComponentNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ComponentCompartmentWComponentEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (PortEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
-		case WildCard2EditPart.VISUAL_ID:
-			if (WildCardNameEditPart.VISUAL_ID == nodeVisualID) {
+		case RepresentationEditPart.VISUAL_ID:
+			if (RepresentationNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (RepresentationCompartmentWRepresentationEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SystemEditPart.VISUAL_ID:
+			if (SystemNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SystemCompartmentWSystemEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Component2EditPart.VISUAL_ID:
+			if (ComponentName2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (ComponentCompartmentWComponent2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (PortEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ComponentCompartmentWComponentEditPart.VISUAL_ID:
+			if (RepresentationEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case RepresentationCompartmentWRepresentationEditPart.VISUAL_ID:
+			if (SystemEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SystemCompartmentWSystemEditPart.VISUAL_ID:
+			if (Component2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case ComponentCompartmentWComponent2EditPart.VISUAL_ID:
+			if (RepresentationEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -220,9 +294,8 @@ public class AspectualacmeVisualIDRegistry {
 	 * @generated NOT
 	 */
 	private static boolean isComponent_2002(Component domainElement) {
-		Pattern p = Pattern.compile("");
-		Matcher m = p.matcher(domainElement.getName());
-		return m.matches();
+
+		return true;
 	}
 
 	/**

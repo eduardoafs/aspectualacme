@@ -83,10 +83,12 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 			diagramFacet = linkStyle;
 		}
 
-		// FIXME canExecute if  !(readOnly && getDiagramToOpen == null), i.e. open works on ro diagrams only when there's associated diagram already
+		// FIXME canExecute if !(readOnly && getDiagramToOpen == null), i.e.
+		// open works on ro diagrams only when there's associated diagram
+		// already
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 				IAdaptable info) throws ExecutionException {
@@ -116,15 +118,17 @@ public class OpenDiagramEditPolicy extends OpenEditPolicy {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		protected Diagram intializeNewDiagram() throws ExecutionException {
-			EObject domainElement = getDiagramDomainElement();
-			String diagramKind = getDiagramKind();
-			if(domainElement instanceof WildCardImpl){
+			String diagramKind = "";
+			if (getDiagramDomainElement() instanceof WildCardImpl) {
 				diagramKind = "WildCardRepresentationAspectualacme";
+			} else {
+				diagramKind = getDiagramKind();
+
 			}
-			Diagram d = ViewService.createDiagram(domainElement,
+			Diagram d = ViewService.createDiagram(getDiagramDomainElement(),
 					diagramKind, getPreferencesHint());
 			if (d == null) {
 				throw new ExecutionException("Can't create diagram of '"

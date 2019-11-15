@@ -25,7 +25,7 @@ public class SystemItemSemanticEditPolicy
 	 */
 	public SystemItemSemanticEditPolicy() {
 		super(
-				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.System_2009);
+				componentRepresentationaspectualacme.diagram.providers.AspectualacmeElementTypes.System_2001);
 	}
 
 	/**
@@ -58,13 +58,13 @@ public class SystemItemSemanticEditPolicy
 			Node node = (Node) nit.next();
 			switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 					.getVisualID(node)) {
-			case componentRepresentationaspectualacme.diagram.edit.parts.SystemRepSystemCompEditPart.VISUAL_ID:
+			case componentRepresentationaspectualacme.diagram.edit.parts.SystemCompartmentRSystemEditPart.VISUAL_ID:
 				for (Iterator<?> cit = node.getChildren().iterator(); cit
 						.hasNext();) {
 					Node cnode = (Node) cit.next();
 					switch (componentRepresentationaspectualacme.diagram.part.AspectualacmeVisualIDRegistry
 							.getVisualID(cnode)) {
-					case componentRepresentationaspectualacme.diagram.edit.parts.ComponentEditPart.VISUAL_ID:
+					case componentRepresentationaspectualacme.diagram.edit.parts.Component2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(
 								new DestroyElementRequest(getEditingDomain(),
 										cnode.getElement(), false))); // directlyOwned: true

@@ -110,6 +110,7 @@ public class AspectualacmeDomainNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		myWorkspaceSynchronizer.dispose();
 		myWorkspaceSynchronizer = null;
@@ -123,6 +124,7 @@ public class AspectualacmeDomainNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		myViewer = viewer;
 	}
@@ -150,6 +152,7 @@ public class AspectualacmeDomainNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public Object[] getElements(Object inputElement) {
 		return getChildren(inputElement);
 	}
@@ -157,24 +160,28 @@ public class AspectualacmeDomainNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
 	 * @generated
 	 */
+	@Override
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof IFile) {
 			IFile file = (IFile) parentElement;
@@ -213,6 +220,7 @@ public class AspectualacmeDomainNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public Object getParent(Object element) {
 		if (element instanceof AspectualacmeAbstractNavigatorItem) {
 			AspectualacmeAbstractNavigatorItem abstractNavigatorItem = (AspectualacmeAbstractNavigatorItem) element;
@@ -224,6 +232,7 @@ public class AspectualacmeDomainNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	@Override
 	public boolean hasChildren(Object element) {
 		return element instanceof IFile || getChildren(element).length > 0;
 	}

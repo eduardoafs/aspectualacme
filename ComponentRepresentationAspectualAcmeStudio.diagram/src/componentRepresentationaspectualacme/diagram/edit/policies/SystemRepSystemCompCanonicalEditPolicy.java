@@ -71,7 +71,7 @@ public class SystemRepSystemCompCanonicalEditPolicy extends CanonicalEditPolicy 
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> childDescriptors = componentRepresentationaspectualacme.diagram.part.AspectualacmeDiagramUpdater
-				.getSystemRepSystemComp_7001SemanticChildren(viewObject);
+				.getSystemCompartmentRSystem_7001SemanticChildren(viewObject);
 		for (componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -107,7 +107,7 @@ public class SystemRepSystemCompCanonicalEditPolicy extends CanonicalEditPolicy 
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<componentRepresentationaspectualacme.diagram.part.AspectualacmeNodeDescriptor> childDescriptors = componentRepresentationaspectualacme.diagram.part.AspectualacmeDiagramUpdater
-				.getSystemRepSystemComp_7001SemanticChildren((View) getHost()
+				.getSystemCompartmentRSystem_7001SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
