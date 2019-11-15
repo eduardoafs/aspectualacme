@@ -1,0 +1,27 @@
+if (AspectualacmePackage.eINSTANCE.getAttachment().isSuperTypeOf(
+				domainElement.eClass())) {
+			AttachmentImpl att = (AttachmentImpl) domainElement;
+			if (att.basicGetAttachedBaseElement() instanceof PortImpl
+					&& att.basicGetAttachedToElement() instanceof CrosscuttingRoleImpl) {
+				return Attachment3EditPart.VISUAL_ID;
+			} else if (att.basicGetAttachedBaseElement() instanceof CrosscuttingRoleImpl
+					&& att.basicGetAttachedToElement() instanceof PortImpl) {
+				return Attachment4EditPart.VISUAL_ID;
+			} else if ((att.basicGetAttachedBaseElement() instanceof PortImpl || att
+					.basicGetAttachedBaseElement() instanceof WildCardImpl)
+					&& att.basicGetAttachedToElement() instanceof BaseRoleImpl) {
+				return Attachment5EditPart.VISUAL_ID;
+			} else if (att.basicGetAttachedBaseElement() instanceof BaseRoleImpl
+					&& (att.basicGetAttachedToElement() instanceof PortImpl || att
+							.basicGetAttachedToElement() instanceof WildCardImpl)) {
+				return Attachment6EditPart.VISUAL_ID;
+			} else if (att.basicGetAttachedBaseElement() instanceof PortImpl
+					&& att.basicGetAttachedToElement() instanceof RoleImpl) {
+				return AttachmentEditPart.VISUAL_ID;
+
+			} else if (att.basicGetAttachedBaseElement() instanceof RoleImpl
+					&& att.basicGetAttachedToElement() instanceof PortImpl) {
+				return Attachment2EditPart.VISUAL_ID;
+			}
+
+		}

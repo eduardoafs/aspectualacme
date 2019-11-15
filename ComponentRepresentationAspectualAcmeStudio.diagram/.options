@@ -1,0 +1,7 @@
+# Tracing options for the ComponentRepresentationAspectualAcmeStudio.diagram plug-in
+
+# Common issues
+ComponentRepresentationAspectualAcmeStudio.diagram/debug=false
+
+# Visual IDs
+ComponentRepresentationAspectualAcmeStudio.diagram/debug/visualID=false

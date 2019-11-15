@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="ASCII"?>
+<template:ResourceSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://www.obeo.fr/acceleo/template/3.0.0/core" xmlns:expressions="http://www.obeo.fr/acceleo/template/3.0.0/expressions" xmlns:statements="http://www.obeo.fr/acceleo/template/3.0.0/statements" xmlns:template="http://www.obeo.fr/acceleo/template/3.0.0">
+  <resources xsi:type="core:Template" name="AspectualAcme" imports="//@resources.1" beginTag="&lt;%" endTag="%>">
+    <scripts begin="117" end="1679">
+      <descriptor name="AspectualAcme" type="aspectualacme.System" description="">
+        <file begin="100" end="113">
+          <statements xsi:type="statements:Feature" begin="102" end="106">
+            <expression xsi:type="expressions:CallSet" begin="102" end="106">
+              <calls begin="102" end="106" name="name" prefix=""/>
+            </expression>
+          </statements>
+          <statements xsi:type="statements:Text" begin="108" end="113" value=".acme"/>
+        </file>
+      </descriptor>
+      <statements xsi:type="statements:Text" begin="117" end="125" value="&#xA;System "/>
+      <statements xsi:type="statements:Feature" begin="127" end="131">
+        <expression xsi:type="expressions:CallSet" begin="127" end="131">
+          <calls begin="127" end="131" name="name" prefix=""/>
+        </expression>
+      </statements>
+      <statements xsi:type="statements:Text" begin="133" end="138" value=" = {&#xA;"/>
+      <statements xsi:type="statements:For" begin="144" end="508">
+        <iterator xsi:type="expressions:Parenthesis" begin="144" end="156">
+          <expression xsi:type="expressions:CallSet" begin="145" end="155">
+            <calls begin="145" end="155" name="components" prefix=""/>
+          </expression>
+        </iterator>
+        <statements xsi:type="statements:If" begin="166" end="502">
+          <condition xsi:type="expressions:Parenthesis" begin="166" end="268">
+            <expression xsi:type="expressions:Operator" begin="167" end="267" operator="!=">
+              <operands xsi:type="expressions:CallSet" begin="167" end="243">
+                <calls begin="167" end="173" name="self" prefix=""/>
+                <calls begin="174" end="243" name="substring" prefix="">
+                  <arguments xsi:type="expressions:Operator" begin="185" end="220" operator="+">
+                    <operands xsi:type="expressions:CallSet" begin="185" end="217">
+                      <calls begin="185" end="191" name="self" prefix=""/>
+                      <calls begin="192" end="217" name="indexOf" prefix="">
+                        <arguments xsi:type="expressions:StringLiteral" begin="200" end="216" value="aspectualacme."/>
+                      </calls>
+                    </operands>
+                    <operands xsi:type="expressions:IntegerLiteral" begin="218" end="220" value="14"/>
+                  </arguments>
+                  <arguments xsi:type="expressions:CallSet" begin="223" end="242">
+                    <calls begin="223" end="229" name="self" prefix=""/>
+                    <calls begin="230" end="242" name="indexOf" prefix="">
+                      <arguments xsi:type="expressions:StringLiteral" begin="238" end="241" value=" "/>
+                    </calls>
+                  </arguments>
+                </calls>
+              </operands>
+              <operands xsi:type="expressions:StringLiteral" begin="247" end="267" value="AspectualComponent"/>
+            </expression>
+          </condition>
+          <thenStatements xsi:type="statements:Text" begin="272" end="283" value="&#x9;Component "/>
+          <thenStatements xsi:type="statements:Feature" begin="285" end="289">
+            <expression xsi:type="expressions:CallSet" begin="285" end="289">
+              <calls begin="285" end="289" name="name" prefix=""/>
+            </expression>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="291" end="295" value=" ={&#xA;"/>
+          <thenStatements xsi:type="statements:For" begin="303" end="420">
+            <iterator xsi:type="expressions:Parenthesis" begin="303" end="309">
+              <expression xsi:type="expressions:CallSet" begin="304" end="308">
+                <calls begin="304" end="308" name="port" prefix=""/>
+              </expression>
+            </iterator>
+            <statements xsi:type="statements:Text" begin="313" end="321" value="&#x9;&#x9;&#x9;Port "/>
+            <statements xsi:type="statements:Feature" begin="323" end="327">
+              <expression xsi:type="expressions:CallSet" begin="323" end="327">
+                <calls begin="323" end="327" name="name" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="329" end="334" value=" = {&#xA;"/>
+            <statements xsi:type="statements:For" begin="344" end="398">
+              <iterator xsi:type="expressions:Parenthesis" begin="344" end="354">
+                <expression xsi:type="expressions:CallSet" begin="345" end="353">
+                  <calls begin="345" end="353" name="property" prefix=""/>
+                </expression>
+              </iterator>
+              <statements xsi:type="statements:Text" begin="358" end="372" value="&#x9;&#x9;&#x9;&#x9;&#x9;Property "/>
+              <statements xsi:type="statements:Feature" begin="374" end="378">
+                <expression xsi:type="expressions:CallSet" begin="374" end="378">
+                  <calls begin="374" end="378" name="name" prefix=""/>
+                </expression>
+              </statements>
+              <statements xsi:type="statements:Text" begin="380" end="383" value=" = "/>
+              <statements xsi:type="statements:Feature" begin="385" end="390">
+                <expression xsi:type="expressions:CallSet" begin="385" end="390">
+                  <calls begin="385" end="390" name="value" prefix=""/>
+                </expression>
+              </statements>
+              <statements xsi:type="statements:Text" begin="392" end="394" value=";&#xA;"/>
+            </statements>
+            <statements xsi:type="statements:Text" begin="404" end="418" value="&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;};&#xA;&#x9;&#x9;&#x9;&#xA;"/>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="426" end="429" value="&#x9;&#x9;&#xA;"/>
+          <thenStatements xsi:type="statements:For" begin="437" end="487">
+            <iterator xsi:type="expressions:Parenthesis" begin="437" end="447">
+              <expression xsi:type="expressions:CallSet" begin="438" end="446">
+                <calls begin="438" end="446" name="property" prefix=""/>
+              </expression>
+            </iterator>
+            <statements xsi:type="statements:Text" begin="451" end="463" value="&#x9;&#x9;&#x9;Property "/>
+            <statements xsi:type="statements:Feature" begin="465" end="469">
+              <expression xsi:type="expressions:CallSet" begin="465" end="469">
+                <calls begin="465" end="469" name="name" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="471" end="474" value=" = "/>
+            <statements xsi:type="statements:Feature" begin="476" end="481">
+              <expression xsi:type="expressions:CallSet" begin="476" end="481">
+                <calls begin="476" end="481" name="value" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="483" end="485" value=";&#xA;"/>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="493" end="502" value="&#x9;&#x9;&#xA;&#x9;};&#xA;&#x9;&#xA;"/>
+        </statements>
+      </statements>
+      <statements xsi:type="statements:Text" begin="514" end="515" value="&#xA;"/>
+      <statements xsi:type="statements:For" begin="521" end="1178">
+        <iterator xsi:type="expressions:Parenthesis" begin="521" end="533">
+          <expression xsi:type="expressions:CallSet" begin="522" end="532">
+            <calls begin="522" end="532" name="connectors" prefix=""/>
+          </expression>
+        </iterator>
+        <statements xsi:type="statements:If" begin="543" end="1167">
+          <condition xsi:type="expressions:Parenthesis" begin="543" end="654">
+            <expression xsi:type="expressions:Operator" begin="544" end="653" operator="==">
+              <operands xsi:type="expressions:CallSet" begin="544" end="615">
+                <calls begin="544" end="550" name="self" prefix=""/>
+                <calls begin="551" end="615" name="substring" prefix="">
+                  <arguments xsi:type="expressions:CallSet" begin="561" end="593">
+                    <calls begin="561" end="567" name="self" prefix=""/>
+                    <calls begin="568" end="593" name="indexOf" prefix="">
+                      <arguments xsi:type="expressions:StringLiteral" begin="576" end="592" value="aspectualacme."/>
+                    </calls>
+                  </arguments>
+                  <arguments xsi:type="expressions:CallSet" begin="595" end="614">
+                    <calls begin="595" end="601" name="self" prefix=""/>
+                    <calls begin="602" end="614" name="indexOf" prefix="">
+                      <arguments xsi:type="expressions:StringLiteral" begin="610" end="613" value=" "/>
+                    </calls>
+                  </arguments>
+                </calls>
+              </operands>
+              <operands xsi:type="expressions:StringLiteral" begin="619" end="653" value="aspectualacme.AspectualConnector"/>
+            </expression>
+          </condition>
+          <thenStatements xsi:type="statements:Text" begin="658" end="678" value="&#x9;AspectualConnector "/>
+          <thenStatements xsi:type="statements:Feature" begin="680" end="684">
+            <expression xsi:type="expressions:CallSet" begin="680" end="684">
+              <calls begin="680" end="684" name="name" prefix=""/>
+            </expression>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="686" end="691" value=" = {&#xA;"/>
+          <thenStatements xsi:type="statements:For" begin="698" end="878">
+            <iterator xsi:type="expressions:Parenthesis" begin="698" end="704">
+              <expression xsi:type="expressions:CallSet" begin="699" end="703">
+                <calls begin="699" end="703" name="role" prefix=""/>
+              </expression>
+            </iterator>
+            <statements xsi:type="statements:Text" begin="708" end="714" value="&#x9;&#xA;&#x9;&#xA;&#x9;&#x9;"/>
+            <statements xsi:type="statements:Feature" begin="716" end="792">
+              <expression xsi:type="expressions:CallSet" begin="716" end="792">
+                <calls begin="716" end="722" name="self" prefix=""/>
+                <calls begin="723" end="792" name="substring" prefix="">
+                  <arguments xsi:type="expressions:Operator" begin="734" end="769" operator="+">
+                    <operands xsi:type="expressions:CallSet" begin="734" end="766">
+                      <calls begin="734" end="740" name="self" prefix=""/>
+                      <calls begin="741" end="766" name="indexOf" prefix="">
+                        <arguments xsi:type="expressions:StringLiteral" begin="749" end="765" value="aspectualacme."/>
+                      </calls>
+                    </operands>
+                    <operands xsi:type="expressions:IntegerLiteral" begin="767" end="769" value="14"/>
+                  </arguments>
+                  <arguments xsi:type="expressions:CallSet" begin="772" end="791">
+                    <calls begin="772" end="778" name="self" prefix=""/>
+                    <calls begin="779" end="791" name="indexOf" prefix="">
+                      <arguments xsi:type="expressions:StringLiteral" begin="787" end="790" value=" "/>
+                    </calls>
+                  </arguments>
+                </calls>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="794" end="795" value=" "/>
+            <statements xsi:type="statements:Feature" begin="797" end="801">
+              <expression xsi:type="expressions:CallSet" begin="797" end="801">
+                <calls begin="797" end="801" name="name" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="803" end="808" value=" = {&#xA;"/>
+            <statements xsi:type="statements:For" begin="816" end="866">
+              <iterator xsi:type="expressions:Parenthesis" begin="816" end="826">
+                <expression xsi:type="expressions:CallSet" begin="817" end="825">
+                  <calls begin="817" end="825" name="property" prefix=""/>
+                </expression>
+              </iterator>
+              <statements xsi:type="statements:Text" begin="830" end="842" value="&#x9;&#x9;&#x9;Property "/>
+              <statements xsi:type="statements:Feature" begin="844" end="848">
+                <expression xsi:type="expressions:CallSet" begin="844" end="848">
+                  <calls begin="844" end="848" name="name" prefix=""/>
+                </expression>
+              </statements>
+              <statements xsi:type="statements:Text" begin="850" end="853" value=" = "/>
+              <statements xsi:type="statements:Feature" begin="855" end="860">
+                <expression xsi:type="expressions:CallSet" begin="855" end="860">
+                  <calls begin="855" end="860" name="value" prefix=""/>
+                </expression>
+              </statements>
+              <statements xsi:type="statements:Text" begin="862" end="864" value=";&#xA;"/>
+            </statements>
+            <statements xsi:type="statements:Text" begin="872" end="877" value="&#x9;&#x9;};&#xA;"/>
+          </thenStatements>
+          <thenStatements xsi:type="statements:For" begin="891" end="939">
+            <iterator xsi:type="expressions:Parenthesis" begin="891" end="901">
+              <expression xsi:type="expressions:CallSet" begin="892" end="900">
+                <calls begin="892" end="900" name="property" prefix=""/>
+              </expression>
+            </iterator>
+            <statements xsi:type="statements:Text" begin="905" end="916" value="&#x9;&#x9;Property "/>
+            <statements xsi:type="statements:Feature" begin="918" end="922">
+              <expression xsi:type="expressions:CallSet" begin="918" end="922">
+                <calls begin="918" end="922" name="name" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="924" end="927" value=" = "/>
+            <statements xsi:type="statements:Feature" begin="929" end="934">
+              <expression xsi:type="expressions:CallSet" begin="929" end="934">
+                <calls begin="929" end="934" name="value" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="936" end="938" value=";&#xA;"/>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="945" end="950" value="&#x9;};&#x9;&#xA;"/>
+          <elseStatements xsi:type="statements:Text" begin="962" end="973" value="&#x9;Connector "/>
+          <elseStatements xsi:type="statements:Feature" begin="975" end="979">
+            <expression xsi:type="expressions:CallSet" begin="975" end="979">
+              <calls begin="975" end="979" name="name" prefix=""/>
+            </expression>
+          </elseStatements>
+          <elseStatements xsi:type="statements:Text" begin="981" end="986" value=" = {&#xA;"/>
+          <elseStatements xsi:type="statements:For" begin="993" end="1093">
+            <iterator xsi:type="expressions:Parenthesis" begin="993" end="999">
+              <expression xsi:type="expressions:CallSet" begin="994" end="998">
+                <calls begin="994" end="998" name="role" prefix=""/>
+              </expression>
+            </iterator>
+            <statements xsi:type="statements:Text" begin="1003" end="1010" value="&#x9;&#x9;Role "/>
+            <statements xsi:type="statements:Feature" begin="1012" end="1016">
+              <expression xsi:type="expressions:CallSet" begin="1012" end="1016">
+                <calls begin="1012" end="1016" name="name" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="1018" end="1023" value=" = {&#xA;"/>
+            <statements xsi:type="statements:For" begin="1031" end="1081">
+              <iterator xsi:type="expressions:Parenthesis" begin="1031" end="1041">
+                <expression xsi:type="expressions:CallSet" begin="1032" end="1040">
+                  <calls begin="1032" end="1040" name="property" prefix=""/>
+                </expression>
+              </iterator>
+              <statements xsi:type="statements:Text" begin="1045" end="1057" value="&#x9;&#x9;&#x9;Property "/>
+              <statements xsi:type="statements:Feature" begin="1059" end="1063">
+                <expression xsi:type="expressions:CallSet" begin="1059" end="1063">
+                  <calls begin="1059" end="1063" name="name" prefix=""/>
+                </expression>
+              </statements>
+              <statements xsi:type="statements:Text" begin="1065" end="1068" value=" = "/>
+              <statements xsi:type="statements:Feature" begin="1070" end="1075">
+                <expression xsi:type="expressions:CallSet" begin="1070" end="1075">
+                  <calls begin="1070" end="1075" name="value" prefix=""/>
+                </expression>
+              </statements>
+              <statements xsi:type="statements:Text" begin="1077" end="1079" value=";&#xA;"/>
+            </statements>
+            <statements xsi:type="statements:Text" begin="1087" end="1092" value="&#x9;&#x9;};&#xA;"/>
+          </elseStatements>
+          <elseStatements xsi:type="statements:For" begin="1106" end="1154">
+            <iterator xsi:type="expressions:Parenthesis" begin="1106" end="1116">
+              <expression xsi:type="expressions:CallSet" begin="1107" end="1115">
+                <calls begin="1107" end="1115" name="property" prefix=""/>
+              </expression>
+            </iterator>
+            <statements xsi:type="statements:Text" begin="1120" end="1131" value="&#x9;&#x9;Property "/>
+            <statements xsi:type="statements:Feature" begin="1133" end="1137">
+              <expression xsi:type="expressions:CallSet" begin="1133" end="1137">
+                <calls begin="1133" end="1137" name="name" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="1139" end="1142" value=" = "/>
+            <statements xsi:type="statements:Feature" begin="1144" end="1149">
+              <expression xsi:type="expressions:CallSet" begin="1144" end="1149">
+                <calls begin="1144" end="1149" name="value" prefix=""/>
+              </expression>
+            </statements>
+            <statements xsi:type="statements:Text" begin="1151" end="1153" value=";&#xA;"/>
+          </elseStatements>
+          <elseStatements xsi:type="statements:Text" begin="1160" end="1166" value="&#x9;};&#xA;&#x9;&#xA;"/>
+        </statements>
+        <statements xsi:type="statements:Text" begin="1173" end="1178" value="&#x9;&#x9;&#x9;&#x9;&#xA;"/>
+      </statements>
+      <statements xsi:type="statements:Text" begin="1184" end="1203" value="&#xA;&#x9;Attachments  {&#xA;&#x9;&#xA;"/>
+      <statements xsi:type="statements:For" begin="1211" end="1654">
+        <iterator xsi:type="expressions:Parenthesis" begin="1211" end="1224">
+          <expression xsi:type="expressions:CallSet" begin="1212" end="1223">
+            <calls begin="1212" end="1223" name="attachments" prefix=""/>
+          </expression>
+        </iterator>
+        <statements xsi:type="statements:Text" begin="1228" end="1232" value="&#x9;&#x9;&#x9;&#xA;"/>
+        <statements xsi:type="statements:If" begin="1241" end="1638">
+          <condition xsi:type="expressions:Parenthesis" begin="1241" end="1376">
+            <expression xsi:type="expressions:Operator" begin="1242" end="1375" operator="!=">
+              <operands xsi:type="expressions:CallSet" begin="1242" end="1351">
+                <calls begin="1242" end="1259" name="attachedToElement" prefix=""/>
+                <calls begin="1260" end="1351" name="substring" prefix="">
+                  <arguments xsi:type="expressions:Operator" begin="1271" end="1317" operator="+">
+                    <operands xsi:type="expressions:CallSet" begin="1271" end="1314">
+                      <calls begin="1271" end="1288" name="attachedToElement" prefix=""/>
+                      <calls begin="1289" end="1314" name="indexOf" prefix="">
+                        <arguments xsi:type="expressions:StringLiteral" begin="1297" end="1313" value="aspectualacme."/>
+                      </calls>
+                    </operands>
+                    <operands xsi:type="expressions:IntegerLiteral" begin="1315" end="1317" value="14"/>
+                  </arguments>
+                  <arguments xsi:type="expressions:CallSet" begin="1320" end="1350">
+                    <calls begin="1320" end="1337" name="attachedToElement" prefix=""/>
+                    <calls begin="1338" end="1350" name="indexOf" prefix="">
+                      <arguments xsi:type="expressions:StringLiteral" begin="1346" end="1349" value=" "/>
+                    </calls>
+                  </arguments>
+                </calls>
+              </operands>
+              <operands xsi:type="expressions:StringLiteral" begin="1355" end="1375" value="AspectualComponent"/>
+            </expression>
+          </condition>
+          <thenStatements xsi:type="statements:Text" begin="1380" end="1384" value="&#x9;&#x9;&#x9;&#x9;"/>
+          <thenStatements xsi:type="statements:Feature" begin="1386" end="1419">
+            <expression xsi:type="expressions:CallSet" begin="1386" end="1419">
+              <calls begin="1386" end="1405" name="attachedBaseElement" prefix=""/>
+              <calls begin="1406" end="1414" name="parent" prefix=""/>
+              <calls begin="1415" end="1419" name="name" prefix=""/>
+            </expression>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="1421" end="1422" value="."/>
+          <thenStatements xsi:type="statements:Feature" begin="1424" end="1448">
+            <expression xsi:type="expressions:CallSet" begin="1424" end="1448">
+              <calls begin="1424" end="1443" name="attachedBaseElement" prefix=""/>
+              <calls begin="1444" end="1448" name="name" prefix=""/>
+            </expression>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="1450" end="1454" value=" to "/>
+          <thenStatements xsi:type="statements:Feature" begin="1456" end="1487">
+            <expression xsi:type="expressions:CallSet" begin="1456" end="1487">
+              <calls begin="1456" end="1473" name="attachedToElement" prefix=""/>
+              <calls begin="1474" end="1482" name="parent" prefix=""/>
+              <calls begin="1483" end="1487" name="name" prefix=""/>
+            </expression>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="1489" end="1490" value="."/>
+          <thenStatements xsi:type="statements:Feature" begin="1492" end="1514">
+            <expression xsi:type="expressions:CallSet" begin="1492" end="1514">
+              <calls begin="1492" end="1509" name="attachedToElement" prefix=""/>
+              <calls begin="1510" end="1514" name="name" prefix=""/>
+            </expression>
+          </thenStatements>
+          <thenStatements xsi:type="statements:Text" begin="1516" end="1518" value=";&#xA;"/>
+          <elseStatements xsi:type="statements:Text" begin="1532" end="1536" value="&#x9;&#x9;&#x9;&#x9;"/>
+          <elseStatements xsi:type="statements:Feature" begin="1538" end="1571">
+            <expression xsi:type="expressions:CallSet" begin="1538" end="1571">
+              <calls begin="1538" end="1557" name="attachedBaseElement" prefix=""/>
+              <calls begin="1558" end="1566" name="parent" prefix=""/>
+              <calls begin="1567" end="1571" name="name" prefix=""/>
+            </expression>
+          </elseStatements>
+          <elseStatements xsi:type="statements:Text" begin="1573" end="1574" value="."/>
+          <elseStatements xsi:type="statements:Feature" begin="1576" end="1600">
+            <expression xsi:type="expressions:CallSet" begin="1576" end="1600">
+              <calls begin="1576" end="1595" name="attachedBaseElement" prefix=""/>
+              <calls begin="1596" end="1600" name="name" prefix=""/>
+            </expression>
+          </elseStatements>
+          <elseStatements xsi:type="statements:Text" begin="1602" end="1606" value=" to "/>
+          <elseStatements xsi:type="statements:Feature" begin="1608" end="1630">
+            <expression xsi:type="expressions:CallSet" begin="1608" end="1630">
+              <calls begin="1608" end="1625" name="attachedToElement" prefix=""/>
+              <calls begin="1626" end="1630" name="name" prefix=""/>
+            </expression>
+          </elseStatements>
+          <elseStatements xsi:type="statements:Text" begin="1632" end="1635" value=" ;&#xA;"/>
+        </statements>
+        <statements xsi:type="statements:Text" begin="1646" end="1652" value="&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;"/>
+      </statements>
+      <statements xsi:type="statements:Text" begin="1660" end="1679" value="&#x9;};&#xA;&#xA;}&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;&#xA;&#xA;"/>
+    </scripts>
+  </resources>
+  <resources xsi:type="core:Metamodel" name="aspectualacme" packageClass="aspectualacme.AspectualacmePackage"/>
+</template:ResourceSet>

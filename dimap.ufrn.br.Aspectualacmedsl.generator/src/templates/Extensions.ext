@@ -1,0 +1,4 @@
+import dimap::ufrn::br::aspectualacme;
+
+sortedGreetings(Model this) :
+	this.greetings.sortBy(g|g.name.toLowerCase());

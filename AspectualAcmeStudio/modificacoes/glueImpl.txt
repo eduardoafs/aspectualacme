@@ -1,0 +1,31 @@
+public void setGlueType(String newGlueType) {
+	if(!(newGlueType.equals("around")||newGlueType.equals("before")||newGlueType.equals("after"))){
+			newGlueType = glueType;
+		}
+		String oldGlueType = glueType;
+		glueType = newGlueType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.GLUE__GLUE_TYPE, oldGlueType, glueType));
+}
+public void setPrefixRole(Role newPrefixRole) {
+		if(!(getAspectualConnector().getBaseRole().contains(newPrefixRole)||getAspectualConnector().getCrosscuttingRole().contains(newPrefixRole))){
+			newPrefixRole = prefixRole;
+		}if((newPrefixRole instanceof BaseRole && suffixRole instanceof BaseRole) || (newPrefixRole instanceof CrosscuttingRole && suffixRole instanceof CrosscuttingRole)){
+			newPrefixRole = prefixRole;
+		}
+		Role oldPrefixRole = prefixRole;
+		prefixRole = newPrefixRole;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.GLUE__PREFIX_ROLE, oldPrefixRole, prefixRole));
+	}
+public void setSuffixRole(Role newSuffixRole) {
+		if(!(getAspectualConnector().getBaseRole().contains(newSuffixRole)||getAspectualConnector().getCrosscuttingRole().contains(newSuffixRole))){
+			newSuffixRole = suffixRole;
+		}if((newSuffixRole instanceof BaseRole && prefixRole instanceof BaseRole) || (newSuffixRole instanceof CrosscuttingRole && prefixRole instanceof CrosscuttingRole)){
+			newSuffixRole = suffixRole;
+		}
+		Role oldSuffixRole = suffixRole;
+		suffixRole = newSuffixRole;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AspectualacmePackage.GLUE__SUFFIX_ROLE, oldSuffixRole, suffixRole));
+	}

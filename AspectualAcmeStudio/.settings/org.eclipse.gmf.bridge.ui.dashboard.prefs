@@ -1,0 +1,8 @@
+#Mon Dec 19 14:17:38 GMT-03:00 2011
+eclipse.preferences.version=1
+gmf_dashboard/domainGenerationModel=platform\:/resource/AspectualAcmeStudio/model/aspectualacme.genmodel
+gmf_dashboard/domainModel=platform\:/resource/AspectualAcmeStudio/model/aspectualacme.ecore
+gmf_dashboard/generationModel=platform\:/resource/AspectualAcmeStudio/model/wildCardRepresentation.gmfgen
+gmf_dashboard/graphicalDefinitionModel=platform\:/resource/AspectualAcmeStudio/model/aspectualacme.gmfgraph
+gmf_dashboard/mappingModel=platform\:/resource/AspectualAcmeStudio/model/wildCardRepresentation.gmfmap
+gmf_dashboard/toolingDefinitionModel=platform\:/resource/AspectualAcmeStudio/model/aspectualacme.gmftool

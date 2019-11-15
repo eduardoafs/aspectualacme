@@ -1,0 +1,99 @@
+public void setAttachedToElement(Element newAttachedToElement) {
+		if (!(newAttachedToElement instanceof Port
+				|| newAttachedToElement instanceof Role || newAttachedToElement instanceof AspectualComponent)) {
+			newAttachedToElement = attachedToElement;
+		}else if (attachedBaseElement != null
+				&& newAttachedToElement.eClass().equals(
+						attachedBaseElement.eClass())) {
+			newAttachedToElement = attachedToElement;
+		}else if ((attachedBaseElement != null && attachedBaseElement instanceof AspectualComponent)
+				&& !(newAttachedToElement instanceof CrosscuttingRole)) {
+			newAttachedToElement = attachedToElement;
+		}else if ((attachedBaseElement != null && attachedBaseElement instanceof CrosscuttingRole)
+				&& !(newAttachedToElement instanceof AspectualComponent)) {
+			newAttachedToElement = attachedToElement;
+		}else if((newAttachedToElement instanceof Port)
+				&& (attachedBaseElement != null)
+				&& !(attachedBaseElement instanceof Role && !(attachedBaseElement instanceof BaseRole))) {
+			newAttachedToElement = attachedToElement;
+		}else if (newAttachedToElement instanceof BaseRole || (newAttachedToElement instanceof Role && !(newAttachedToElement instanceof CrosscuttingRole))
+				&& (attachedBaseElement != null && attachedBaseElement instanceof Port)) {
+			newAttachedToElement = attachedToElement;
+		}
+		Element oldAttachedToElement = attachedToElement;
+		attachedToElement = newAttachedToElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					AspectualacmePackage.ATTACHMENT_DECLARATION__ATTACHED_TO_ELEMENT,
+					oldAttachedToElement, attachedToElement));
+	}
+	
+	
+	public void setAttachedBaseElement(Element newAttachedBaseElement) {
+		if (!(newAttachedBaseElement instanceof Port
+				|| newAttachedBaseElement instanceof Role || newAttachedBaseElement instanceof AspectualComponent)) {
+			newAttachedBaseElement = attachedBaseElement;
+		}else if (attachedToElement != null
+				&& newAttachedBaseElement.eClass().equals(
+						attachedToElement.eClass())) {
+			newAttachedBaseElement = attachedBaseElement;
+		}else if ((attachedToElement != null && attachedToElement instanceof AspectualComponent)
+				&& !(newAttachedBaseElement instanceof CrosscuttingRole)) {
+			newAttachedBaseElement = attachedBaseElement;
+		}else if ((attachedToElement != null && attachedToElement instanceof CrosscuttingRole)
+				&& !(newAttachedBaseElement instanceof AspectualComponent)) {
+			newAttachedBaseElement = attachedBaseElement;
+		}else if((newAttachedBaseElement instanceof Port)
+				&& (attachedToElement != null)
+				&& !(attachedToElement instanceof Role && !(attachedToElement instanceof CrosscuttingRole))) {
+			newAttachedBaseElement = attachedBaseElement;
+		}else if (((newAttachedBaseElement instanceof Role) && !(attachedToElement instanceof CrosscuttingRole))
+				&& (attachedToElement != null) && !(attachedToElement instanceof Port)) {
+			newAttachedBaseElement = attachedBaseElement;
+		}	
+		Element oldAttachedBaseElement = attachedBaseElement;
+		attachedBaseElement = newAttachedBaseElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					AspectualacmePackage.ATTACHMENT_DECLARATION__ATTACHED_BASE_ELEMENT,
+					oldAttachedBaseElement, attachedBaseElement));
+	}
+	
+	
+======================================================================================	
+	
+	
+		public void setAttachedToElement(Element newAttachedToElement) {
+		if(newAttachedToElement != null && newAttachedToElement.getClass().getName().equals("aspectualacme.impl.PortImpl") && getAttachedBaseElement().getClass().getName().equals("aspectualacme.impl.CrosscuttingRoleImpl")){
+				Port a = (Port)newAttachedToElement;
+				a.getComponent().setIsAspect(true);		
+		}
+		Element oldAttachedToElement = attachedToElement;
+		attachedToElement = newAttachedToElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					AspectualacmePackage.ATTACHMENT_DECLARATION__ATTACHED_TO_ELEMENT,
+					oldAttachedToElement, attachedToElement));
+	}
+	
+	
+	public void setAttachedBaseElement(Element newAttachedBaseElement) {
+		if(newAttachedBaseElement != null && newAttachedBaseElement.getClass().getName().equals("aspectualacme.impl.PortImpl") && getAttachedToElement().getClass().getName().equals("aspectualacme.impl.CrosscuttingRoleImpl")){
+			Port a = (Port)newAttachedBaseElement;
+			a.getComponent().setIsAspect(true);		
+		}	
+		Element oldAttachedBaseElement = attachedBaseElement;
+		attachedBaseElement = newAttachedBaseElement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(
+					this,
+					Notification.SET,
+					AspectualacmePackage.ATTACHMENT_DECLARATION__ATTACHED_BASE_ELEMENT,
+					oldAttachedBaseElement, attachedBaseElement));
+	}

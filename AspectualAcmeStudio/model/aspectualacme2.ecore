@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aspectualacme"
+    nsURI="aspectualacmev0.2" nsPrefix="aspectualacme">
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true" eKeys="#//Element/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" upperBound="-1"
+        eType="#//Connector" containment="true" eKeys="#//Element/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attachments" upperBound="-1"
+        eType="#//AttachmentDeclaration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wildCard" upperBound="-1"
+        eType="#//WildCard" containment="true" eKeys="#//Element/name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//Connector"
+        eOpposite="#//Connector/role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Component" eType="#//Component"
+        eOpposite="#//Component/port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//Port"
+        containment="true" eOpposite="#//Port/Component" eKeys="#//Element/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="representation" upperBound="-1"
+        eType="#//ComponentRepresentation" containment="true" eOpposite="#//ComponentRepresentation/component"
+        eKeys="#//Representation/name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" upperBound="-1" eType="#//Role"
+        containment="true" eOpposite="#//Role/connector" eKeys="#//Element/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="glue" upperBound="-1" eType="#//Glue"
+        containment="true" eOpposite="#//Glue/connector"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attachment" eSuperTypes="#//AttachmentDeclaration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="name" derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Glue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseAttach" eType="#//BaseRole"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="crosscuttingAttach" eType="#//CrosscuttingRole"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glueType" eType="#//GlueType"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//Connector"
+        eOpposite="#//Connector/glue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttachmentDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attachedBaseElement" eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attachedToElement" eType="#//Element"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Representation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="#//System"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1"
+        eType="#//Binding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Binding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="externalElement" lowerBound="1"
+        eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="internalElement" lowerBound="1"
+        eType="#//Element"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WildCard" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BaseRole" eSuperTypes="#//Role"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CrosscuttingRole" eSuperTypes="#//Role"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentRepresentation" eSuperTypes="#//Representation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component" containment="true" eOpposite="#//Component/representation"
+        eKeys="#//Element/name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GlueType">
+    <eLiterals name="before"/>
+    <eLiterals name="around" value="1"/>
+    <eLiterals name="after" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

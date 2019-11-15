@@ -1,0 +1,7 @@
+# Tracing options for the AspectualAcmeStudio.diagram plug-in
+
+# Common issues
+AspectualAcmeStudio.diagram/debug=false
+
+# Visual IDs
+AspectualAcmeStudio.diagram/debug/visualID=false

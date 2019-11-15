@@ -1,0 +1,46 @@
+for (int i = 0; i < container.getAttachments().size(); i++) {
+			if(container.getAttachments().get(i).getAttachedBaseElement().equals(target)||container.getAttachments().get(i).getAttachedToElement().equals(target)||container.getAttachments().get(i).getAttachedBaseElement().equals(source)||container.getAttachments().get(i).getAttachedToElement().equals(source)){
+				return false;
+			}
+			
+		}
+		if (source != null
+				&& !(source instanceof Port || source instanceof Role || source instanceof AspectualComponent)) {
+			return false;
+		}
+		if (target != null
+				&& !(target instanceof Port || target instanceof Role || target instanceof AspectualComponent)) {
+			return false;
+		}
+		/*verifica igualdade entre source and target*/
+		if (source != null && target!=null && source.eClass().equals(target.eClass())){
+			return false;
+		}
+		if ((source instanceof BaseRole) && (target != null)
+				&& !(target instanceof AspectualComponent || target instanceof Port)) {
+			return false;
+		}
+		if ((source instanceof AspectualComponent) && (target != null)
+				&& !(target instanceof BaseRole)) {
+			return false;
+		}
+		if ((source instanceof Port)
+				&& (target != null)
+				&& !(target instanceof Role || target instanceof CrosscuttingRole || target instanceof BaseRole)) {
+			return false;
+		}
+		if (((source instanceof Role) && !(source instanceof BaseRole))
+				&& (target != null) && !(target instanceof Port)) {
+			return false;
+		}
+		if (getSource() == null) {
+			return true; // link creation is in progress; source is not defined yet
+		}
+		// target may be null here but it's possible to check constraint
+		if (getContainer() == null) {
+			return false;
+		}
+		
+		return AspectualacmeBaseItemSemanticEditPolicy.LinkConstraints
+				.canCreateAttachment_3001(getContainer(), getSource(),
+						getTarget());

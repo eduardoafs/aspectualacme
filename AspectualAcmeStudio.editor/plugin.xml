@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="aspectualacme.presentation.AspectualacmeModelWizardID"
+            name="%_UI_AspectualacmeModelWizard_label"
+            class="aspectualacme.presentation.AspectualacmeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AspectualacmeModelFile.gif">
+         <description>%_UI_AspectualacmeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="aspectualacme.presentation.AspectualacmeEditorID"
+            name="%_UI_AspectualacmeEditor_label"
+            icon="icons/full/obj16/AspectualacmeModelFile.gif"
+            extensions="aspectualacme"
+            class="aspectualacme.presentation.AspectualacmeEditor"
+            contributorClass="aspectualacme.presentation.AspectualacmeActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

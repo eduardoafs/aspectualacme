@@ -1,0 +1,7 @@
+# Tracing options for the WildCardRepresentationAspectualAcmeStudio.diagram plug-in
+
+# Common issues
+WildCardRepresentationAspectualAcmeStudio.diagram/debug=false
+
+# Visual IDs
+WildCardRepresentationAspectualAcmeStudio.diagram/debug/visualID=false

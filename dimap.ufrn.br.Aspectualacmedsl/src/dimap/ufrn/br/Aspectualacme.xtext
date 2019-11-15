@@ -1,0 +1,273 @@
+/* 
+ * @Author Eduardo Silva
+ */
+grammar dimap.ufrn.br.AspectualAcme with org.eclipse.xtext.common.Terminals
+
+import "platform:/resource/AspectualAcmeStudio/model/aspectualacme.ecore"
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+Root returns Root:
+	imports+=Import*
+	elements+=BasicElement*;
+
+Import returns Import:
+	{Import}
+	'import' fileName=EString;
+
+BasicElement returns BasicElement:
+	System | Family;
+
+Role returns Role:
+	Role_Impl | BaseRole | CrosscuttingRole;
+
+attachableElement returns attachableElement:
+	Role_Impl | Port | BaseRole | CrosscuttingRole;
+
+Property returns Property:
+	{Property}
+	'Property'
+	name=EString(
+	'=' (value=PropertyValue)
+	)?';';
+
+PropertyValue returns ecore::EString:
+	EString |
+	'{' EString (',' EString)* '}' |
+	INT
+	;
+
+EString returns ecore::EString:
+	STRING | ID;
+
+Representation returns Representation:
+	{Representation}
+	'Representation' (name=EString)? ('{' // Não necessáriamente tem um nome, mas vou deixar assim
+		system=System
+		('Binding' bindings+=Binding
+		| 'Bindings' '{'
+		bindings+=Binding*
+		'}')*
+	'}'(';')?);
+
+System returns System:
+	{System}
+	'System'
+	name=EString (':' parentFamily+=[Family|EString](',' parentFamily+=[Family|EString])* 'extended' 'with')?
+	(';'
+	| 
+	('{'
+	( property+=Property
+	| components+=Component
+	| connectors+=Connector
+	| wildCard+=WildCard)*
+	(('Attachments' '{'
+		attachments+=Attachment*
+	  '}'
+	  | 
+	  'Attachment' attachments+=Attachment)
+	| representations+=Representation
+	| armani+=ArmaniExpression)*
+	'}'(';')?)); 
+
+Family returns Family:
+	{Family}
+	'Family'
+	name=EString ('extends' parentFamily+=[Family|EString] ("," parentFamily+=[Family|EString])* 'with')?
+	(';'|( '{'
+	(armani+=ArmaniExpression
+	| property+=Property
+	| representations+=Representation
+	| ('Attachment' attachments+=Attachment
+		| 'Attachments' '{'
+		attachments+=Attachment*
+		'}')
+	| components+=Component
+	| connectors+=Connector
+	| wildcard+=WildCard
+	| ctypes+=ComponentType
+	| ptypes+=PortType
+	| rtypes+=RoleType
+	| cntypes+=ConnectorType)*
+	'}') (';')?);
+
+Binding returns Binding:
+	firstPort=[Port|QualifiedNameWildCard] 'to' secondPort=[Port|QualifiedNameWildCard] (';'|('{'
+	(property+=Property)*
+	'}'));
+
+Port returns Port:
+	{Port} // TODO Fazer isso pra os outros elementos
+	'Port'
+	name=EString (':' portType+=[PortType|EString] (',' portType+=[PortType|EString])*)?
+	(';' | ('=' 'new' ('Port' | portType+=[PortType|EString] (',' portType+=[PortType|EString])*) (';' | 'extended' 'with' '{'
+	(representations+=Representation
+	| property+=Property)*
+	'}')));
+
+PortType returns PortType:
+	{PortType}
+	'Port' 'Type'
+	name=EString ('extends' parentType+=[PortType|EString] (',' parentType+=[PortType|EString])*)? ('=')? 
+	(';'|('{'
+	(property+=Property
+	| representations+=Representation)*
+	'}'(';')?));
+
+Component returns Component:
+	{Component}
+	'Component'
+	name=EString (':' 'new' type+=[ComponentType|EString] (',' type+=[ComponentType|EString])* 'extended' 'with')?
+	(';'|('{'
+	(representations+=Representation
+	| property+=Property
+	| port+=Port)*
+	'}'(';')?));
+
+Connector returns Connector:
+	{Connector}
+	'Connector'
+	name=EString (':' 'new' type+=[ConnectorType|EString] (',' type+=[ConnectorType|EString])* 'extended' 'with')?
+	(';'|('{'
+	(representations+=Representation
+	| property+=Property
+	| role+=Role
+	| glue+=Glue)*
+	'}'(';')?));
+
+QualifiedNameWildCard:
+	QualifiedName |
+	'*' QualifiedName ('*')? | // Falar com lucas sobre isso
+	QualifiedName '*' |
+	QualifiedName '*' QualifiedName ('*')?; 
+
+WildCard returns WildCard:
+	{WildCard}
+	'@'name=QualifiedNameWildCard';';
+
+ComponentType returns ComponentType:
+	{ComponentType}
+	'Component' 'Type'
+	name=EString ((('extends' parentType+=[ComponentType|EString] (',' parentType+=[ComponentType|EString])*)
+	(';'|('{'
+	(representations+=Representation
+	| property+=Property
+	| port+=Port)*
+	'}'(';')?)))
+	| 
+	(';'| '=' '{'
+	(property+=Property
+	| representations+=Representation
+	| port+=Port)*
+	'}'(';')?));
+
+Role_Impl returns Role:
+	{Role}
+	'Role'
+	name=EString (':' 'new' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
+	(';' | ('=' 'new' ('Role' | roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*) (';' | 'extended' 'with' '{'
+	(representations+=Representation
+	| property+=Property)*
+	'}')));
+
+Glue returns Glue:
+	{Glue}
+	'Glue' baseAttach=[BaseRole|EString] (glueType=GlueType) crosscuttingAttach=[CrosscuttingRole|EString]';';
+
+ConnectorType returns ConnectorType:
+	{ConnectorType}
+	'Connector' 'Type'
+	name=EString ((('extends' parentType+=[ConnectorType|EString] (',' parentType+=[ConnectorType|EString])*)
+	(';'|('{'
+	(representations+=Representation
+	| property+=Property
+	| glue+=Glue
+	| role+=Role)*
+	'}'(';')?)))
+	| 
+	(';'| '=' '{'
+	(property+=Property
+	| representations+=Representation
+	| glue+=Glue
+	| role+=Role)*
+	'}'(';')?));
+
+RoleType returns RoleType:
+	{RoleType}
+	'Role' 'Type'
+	name=EString ('extends' parentType+=[RoleType|EString] (',' parentType+=[RoleType|EString])*)? ('=')?
+	(';'|('{'
+	(property+=Property
+	| representations+=Representation)*
+	'}'(';')?));
+
+BaseRole returns BaseRole:
+	{BaseRole}
+	'Base' 'Role'
+	name=EString (':' 'new' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
+	(';' | ('=' 'new' ('BaseRole' | roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*) (';' | 'extended' 'with' '{'
+	(representations+=Representation
+	| property+=Property)*
+	'}')));
+
+CrosscuttingRole returns CrosscuttingRole:
+	{CrosscuttingRole}
+	'Crosscutting' 'Role'
+	name=EString (':' 'new' roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*)?
+	(';' | ('=' 'new' ('CrosscuttingRole' | roleType+=[RoleType|EString] (',' roleType+=[RoleType|EString])*) (';' | 'extended' 'with' '{'
+	(representations+=Representation
+	| property+=Property)*
+	'}')));
+
+enum GlueType returns GlueType:
+	before='before' | around='around' | after='after';
+
+Attachment returns Attachment:
+	firstElement=[attachableElement|QualifiedNameWildCard] 'to' secondElement=[attachableElement|QualifiedNameWildCard]';';
+
+ArmaniExpression returns ArmaniExpression:
+	{ArmaniExpression}
+	expression=Armani ';';
+
+QualifiedName:
+	ID ('.' ID)*; // Esse é o jeito correto, solução temporária
+
+Inteiro:
+	INT;
+
+Armani returns Armani:
+	{Armani}
+	(tokens+='design')? (tokens+='heuristic' | tokens+='invariant')
+	(tokens+='forall' | tokens+='exists' |
+	
+	// Constants
+	tokens+=Inteiro | // Deselegante a lot
+	// Falta string
+	
+	// Brackets and keys
+ 	tokens+='(' | tokens+=')' | tokens+='{' | tokens+='}' |
+ 	
+ 	// Operators
+ 	tokens+='-' | tokens+='not' |
+	tokens+='in' | tokens+='|' | tokens+='and' | tokens+='or' | tokens+='==' | tokens+='!=' |
+	tokens+='<' | tokens+='>' | tokens+='>=' | tokens+='<=' | tokens+='+' | tokens+='*' | tokens+='/' | tokens+='%' | tokens+=',' |
+
+	// Types
+	tokens+='Component' | 
+	tokens+='Connector' | 
+	tokens+='Role' | 
+	tokens+='Property' | 
+	tokens+='Representation' | 
+	tokens+='Port' |
+
+	// References
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Elements' | 
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Components' | 
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Connectors' | 
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Roles' | 
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Properties' | 
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Representations' | 
+	(tokens+=QualifiedName | tokens+='self') tokens+='.' tokens+='Ports' |
+	// Other Keywords
+	tokens+=QualifiedName |
+	tokens+=':'
+	)*;
